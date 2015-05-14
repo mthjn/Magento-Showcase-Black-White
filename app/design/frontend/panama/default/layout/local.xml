@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<layout>
+    <default>
+        <!-- Remove callouts and rarely used stuff -->
+        <remove name="right.poll"/>
+        <remove name="right.permanent.callout"/>
+        <remove name="left.permanent.callout"/>
+        <remove name="paypal.partner.right.logo"/>
+		<remove name="product.info.addto" />
+		<remove name="category.info.addto" />
+		<remove name="catalog.compare.sidebar" />
+		<remove name="top.search" />
+		<remove name="product.info.options.wrapper.bottom" />
+		
+		
+           
+       		
+					
+    </default>
+
+	
+	<catalog_category_default>
+		
+<!--Removes grid\list toolbar from category pages 
+		<reference name="product_list_toolbar">    
+			<action method="setTemplate">
+				<template>basedesigns/blank.phtml</template>
+			</action>                
+		</reference>
+-->					
+<!-- Sets category pages as 1 column. -->			
+		<reference name="root">
+			<action method="setTemplate">
+				<template>page/1column.phtml</template>
+			</action>	
+			
+		</reference>
+		
+		
+<!-- Set the number of products per row in the category pages -->		
+		<reference name="product_list">
+		<block type="directory/currency" name="currency" template="directory/currency.phtml"/>	
+            <action method="setColumnCount"><columns>5</columns></action>
+			
+        </reference>
+		
+		<reference name="product_list_toolbar">
+			<action method="setDefaultGridPerPage"><limit>15</limit></action>
+		</reference>
+		
+		<reference name="breadcrumbs">
+			<block type="directory/currency" name="currency" template="directory/currency.phtml"/>
+		</reference>
+		
+		
+		
+	
+	</catalog_category_default>	
+			
+	<catalog_category_layered>	
+		<reference name="root">
+			<action method="setTemplate">
+				<template>page/1column.phtml</template>
+			</action>		
+		</reference>
+	
+<!-- Set the number of products per row in the category pages -->		
+		<reference name="product_list">
+			<block type="directory/currency" name="currency" template="directory/currency.phtml"/>	
+        	<action method="setColumnCount"><columns>5</columns></action>			
+        </reference>
+		
+		<reference name="product_list_toolbar">
+			<action method="setDefaultGridPerPage"><limit>15</limit></action>
+		</reference>	
+						
+		<reference name="content">		 	
+			<block type="catalog/layer_view" name="catalog.leftnav" as="layerNav" template="catalog/layer/view.phtml"/>
+		</reference>	
+		
+		
+	</catalog_category_layered>
+		
+	<catalog_product_view>	
+		
+<!-- Sets product page as 1 column -->			
+		<reference name="root">
+			<action method="setTemplate">
+				<template>page/1column.phtml</template>
+			</action>
+		</reference>
+			
+			
+<!-- Removes product tags section from product pages, it's just clutter. -->				
+		<reference name="product_tag_list">    
+			<action method="setTemplate">
+				<template>basedesigns/blank.phtml</template>
+			</action>                
+		</reference>
+				
+				
+<!-- Moves related products from the right side of product page to the bottom. -->				
+		<reference name="content">	
+			<block type="catalog/product_list_related" name="catalog.product.related" template="catalog/product/list/related.phtml"/>
+		</reference>	
+		
+		<reference name="breadcrumbs">
+			<block type="directory/currency" name="currency" template="directory/currency.phtml"/>
+		</reference>				
+	</catalog_product_view>
+		
+<!-- Footer -->	
+	<cms_index_index>
+		<!--
+		<reference name="footer">
+        	<block type="core/template" name="base_footer"  template="page/html/base.phtml" />
+    	</reference>
+		-->
+		<reference name="footer_links">
+		   <action method="addLink" translate="label title">
+		   <label>Tungsten Rings</label>
+		   <url>http://basejewellery.com/</url>
+		   <title>Tungsten Rings</title>
+		   <prepare/>
+		   <urlParams/>
+		   <position>30</position>
+		   </action>
+		</reference>
+	</cms_index_index>
+	
+		
+	
+</layout>
