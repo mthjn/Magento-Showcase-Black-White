@@ -3239,14 +3239,14 @@ body {
  * Logo
  * ============================================ */
 .logo {
-  display: block;
+ display: block;
   float: left;
   width: 65%;
   min-width: 100px;
   min-height: 44px;
   text-align: center;
-  padding: 10px;
-  padding-top:15px;
+  padding: 0;
+  padding-top: 25px;
 }
 .logo img {
   max-width: 100%;
@@ -3385,6 +3385,12 @@ a.skip-link {
 /* ============================================ *
  * Global Header Navigation
  * ============================================ */
+
+/* User account nav menu */
+.additional {
+  float: right !important;
+}
+
 @media only screen and (max-width: 770px) {
 
   #header-account li a,

@@ -28,8 +28,8 @@
 -->
 <layout version="0.1.0">
 
-    <default>
-        <reference name="header">
+    <default><!-- moved from header to right sidebar -->
+        <reference name="right">
             <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
         </reference>
         <reference name="footer_links">

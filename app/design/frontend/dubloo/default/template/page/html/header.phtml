@@ -34,9 +34,12 @@
             <?php echo $this->getChildHtml('store_language') ?>
         </div>
 
-        <?php echo $this->getChildHtml('currency_switcher') ?>
+            <?php //echo $this->getChildHtml('currency_switcher') ?>
+            <div class="additional">
+                    <?php echo $this->getChildHtml('minicart_head'); ?>
+            </div>
 
-        <p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getAdditionalHtml() ?></p>
+        <!--<p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getAdditionalHtml() ?></p>-->
     </div>
 </div>
 
@@ -64,9 +67,10 @@
                 <span class="label"><?php echo $this->__('Search'); ?></span>
             </a>
 
-            <div class="account-cart-wrapper">
+        
 
-                <!-- Cart -->
+            <!-- Cart , account 
+            <div class="account-cart-wrapper">
 
                 <div class="header-minicart">
                     <?php echo $this->getChildHtml('minicart_head'); ?>
@@ -78,7 +82,8 @@
                 </a>
 
                 
-            </div>
+            </div> -->
+
 
 
         </div>
