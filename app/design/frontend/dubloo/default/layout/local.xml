@@ -37,15 +37,16 @@
         <action method="removeItem"><type>skin_css</type><name>css/madisonisland.css</name></action>
         <action method="removeItem"><type>skin_css</type><name>css/madisonisland-ie8.css</name></action>
         <action method="removeItem"><type>link_rel</type><name>//fonts.googleapis.com/css?family=Raleway:300,400,500,700,600</name></action>
-        <!-- foundation for resp images 
+        <!-- foundation for resp images
         <action method="addItem"><type>skin_js</type><name>js/foundation/foundation.js</name><params/></action>-->
         <!--<remove name="catalog.compare.sidebar" />-->
         <remove name="right.permanent.callout" />
+        
     </reference>
 </default>
 </layout>
 <!-- affects both default and layered cat view -->
-<catalog_category_view> 
+<catalog_category_view>
     <reference name="right"><!-- unset and insert after all siblings // bool, no spec name -->
         <action method="unsetChild"><name>catalog.compare.sidebar</name></action>
         <action method="insert">
@@ -56,7 +57,7 @@
         </action>
     </reference>
 </catalog_category_view>
-  <!--resp images fctlity<catalog_category_view> 
+  <!--resp images fctlity<catalog_category_view>
     <reference name="head">
         <action method="addItem">
             <type>skin_js</type>

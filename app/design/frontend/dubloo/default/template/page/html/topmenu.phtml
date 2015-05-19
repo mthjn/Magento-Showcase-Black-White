@@ -36,8 +36,8 @@
 <?php if($_menu): ?>
     <nav id="nav">
         <ol class="nav-primary">
-            <?php echo $_menu ?>       
-        	<?php echo '<li class="level0 nav-1 parent additional"><a href=' . $this->helper('customer')->getAccountUrl() . ' data-target-element="#header-account">' . $this->__('Your account') . '</a></li>';
+            <?php echo $_menu ?>
+        	<?php echo '<li class="additional" style="text-transform:uppercase"><a href=' . $this->helper('customer')->getAccountUrl() . ' data-target-element="#header-account">' . $this->__('Your account') . '</a></li>';
 			//echo '<li class="level0 nav-1 parent additional">' . $this->getChildHtml('minicart_head'). '</li>';
 			?>
 		</ol>

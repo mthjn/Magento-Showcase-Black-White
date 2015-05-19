@@ -68,6 +68,8 @@
                 <action method="addItem"><type>skin_js</type><name>js/lib/imagesloaded.js</name></action>
                 <action method="addLinkRel"><rel>stylesheet</rel><href>//fonts.googleapis.com/css?family=Raleway:300,400,500,700,600</href></action>
                 <action method="addItem"><type>skin_js</type><name>js/minicart.js</name></action>
+                <!-- custom js here
+                <action method="addItem"><type>skin_js</type><name>js/fadeyellow.js</name></action>-->
 
                 <!-- Add stylesheets with no media queries for use in IE 8 and below -->
                 <action method="addItem"><type>skin_css</type><name>css/styles-ie8.css</name><params/><if><![CDATA[ (lte IE 8) & (!IEMobile)]]></if></action>
@@ -156,10 +158,16 @@
                     <action method="setBlockId"><block_id>footer_social_links</block_id></action>
                 </block>-->
             </block>
-
+            <!-- whatever output before body end-->
             <block type="core/text_list" name="before_body_end" as="before_body_end" translate="label">
                 <label>Page Bottom</label>
                 <block type="page/html_cookieNotice" name="global_cookie_notice" as ="global_cookie_notice" template="page/html/cookienotice.phtml" before="-" />
+
+                <block type="page/html_head" name="jsfooter" as="jsfooter" template="page/html/jsfooter.phtml">
+                  <action method="addItem"><type>skin_js</type><name>js/fadeyellow.js</name></action>
+                </block>
+
+
             </block>
         </block>
 

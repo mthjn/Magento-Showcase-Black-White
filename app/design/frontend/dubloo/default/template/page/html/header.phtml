@@ -67,25 +67,6 @@
                 <span class="label"><?php echo $this->__('Search'); ?></span>
             </a>
 
-        
-
-            <!-- Cart , account 
-            <div class="account-cart-wrapper">
-
-                <div class="header-minicart">
-                    <?php echo $this->getChildHtml('minicart_head'); ?>
-                </div>
-                
-                <a href="<?php echo $this->helper('customer')->getAccountUrl(); ?>" data-target-element="#header-account" class="skip-link skip-account">
-                    <span class="icon"></span>
-                    <span class="label"><?php echo $this->__('Account'); ?></span>
-                </a>
-
-                
-            </div> -->
-
-
-
         </div>
 
         <!-- Navigation -->
@@ -93,6 +74,10 @@
         <div id="header-nav" class="skip-content">
             <?php echo $this->getChildHtml('topMenu') ?>
         </div>
+
+        <!-- custom variables right after navigation -->
+
+        <?php echo Mage::getModel('core/variable')->setStoreId(Mage::app()->getStore()->getId())->loadByCode('msg_yellow')->getValue('html'); ?>
 
         <!-- Search -->
 
