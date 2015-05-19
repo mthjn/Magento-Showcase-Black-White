@@ -12,6 +12,6 @@ this archives the whole instalation. just in case shit goes south.
 **To Do**  
   
 *populate right sidebar*  
-*get slider extension**  
+*get slider extension*  
 get different than default sprite/icons
 better product listing
