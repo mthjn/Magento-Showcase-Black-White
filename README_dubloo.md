@@ -1,7 +1,7 @@
 **CONTENTS**
 ============
 ============
-X / Read More
+X / Read More  
 A / Right sidebar  
 B / Homepage  
 
@@ -27,10 +27,10 @@ A / RIGHT SIDEBAR
 3/ Permanent Callouts  
 4/ Search  
 
-CHANGE PROD COMPARISON  
+**CHANGE PROD COMPARISON**  
 theme/stack/template/catalog/product/compare/sidebar.phtml
 
-CMS BLOCKS IN SIDEBAR  
+**CMS BLOCKS IN SIDEBAR**  
 page.xml  
 block name right  
 
@@ -41,7 +41,7 @@ block name right
       </block>  
     </block>  
 
-CHANGE PARMANENT CALLOUTS  
+**CHANGE PARMANENT CALLOUTS**  
 images linked from skin/.../theme/stack/images/media  
 title: in template callouts/right_col.phtml  
 layout: catalog.xml  
@@ -69,7 +69,7 @@ B / HOMEPAGE
 *1/ Templates for categories flush on homepage*  
 template/catalog/product/homepagelist.phtml  (homepageselection.phtml)  
 
-*2/ Create custom variable in Magento: Message that dissapears onclick *  
+*2/ Create custom variable in Magento: Message that dissapears onclick*  
 
       // --- Selector
        // TEXT value of the custom variable:
@@ -120,7 +120,7 @@ template/catalog/product/homepagelist.phtml  (homepageselection.phtml)
         <?php echo Mage::getModel('core/variable')->setStoreId(Mage::app()->getStore()->getId())
         ->loadByCode('msg_yellow')->getValue('html'); ?>
 
-      **
+
 @link https://gist.github.com/mthjn/6c78671bdb5860867c98  
 
 Z /  GENERAL  
