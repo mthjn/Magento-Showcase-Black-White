@@ -11,8 +11,7 @@ this archives the whole instalation. just in case shit goes south.
   
 **To Do**  
   
-*add product modules on homepage*  
-*custom sidebars*  
-get slider extension  
+*populate right sidebar*  
+*get slider extension*  
 get different than default sprite/icons
 better product listing
