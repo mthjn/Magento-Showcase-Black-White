@@ -104,7 +104,7 @@
                     <label>Page Header</label>
                     <action method="setElementClass"><value>top-container</value></action>
                 </block>
-                <block type="page/html_welcome" name="welcome" as="welcome"/>
+                <!--<block type="page/html_welcome" name="welcome" as="welcome"/>-->
             </block>
 
             <block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
@@ -126,10 +126,23 @@
 
             <block type="core/text_list" name="right" as="right" translate="label">
                 <label>Right Column</label>
-                <!-- Custom block sidebar banner -->
-                <block type="cms/block" name="sidebar_banner">
-                    <action method="setBlockId"><block_id>sidebar_banner</block_id></action>
+
+                <!-- Custom block sidebar banners / got to have different names -->
+
+                <block type="page/html_wrapper" name="sidebanner2" as="sidebanner2">
+                 <action method="setElementClass"><value>sidebanner</value></action>
+                  <block type="cms/block" name="sidebar_text">
+                      <action method="setBlockId"><block_id>sidebar_text</block_id></action>
+                  </block>
                 </block>
+
+                <block type="page/html_wrapper" name="sidebanner" as="sidebanner">
+                 <action method="setElementClass"><value>sidebanner</value></action>
+                  <block type="cms/block" name="sidebar_banner">
+                      <action method="setBlockId"><block_id>sidebar_banner</block_id></action>
+                  </block>
+                </block>
+
             </block>
 
             <block type="page/html_wrapper" name="footer.before" as="footer_before" translate="label">
@@ -138,25 +151,49 @@
             </block>
 
             <block type="page/html_footer" name="footer" as="footer" template="page/html/footer.phtml">
+
+
                 <block type="page/html_wrapper" name="bottom.container" as="bottomContainer" translate="label">
                     <label>Page Footer</label>
                     <action method="setElementClass"><value>bottom-container</value></action>
                 </block>
+
+
                 <block type="page/switch" name="store_switcher" as="store_switcher" after="*" template="page/switch/stores.phtml"/>
 
+<block type="page/html_wrapper" name="footerwrapper" as="footerwrapper">
+  <action method="setElementClass"><value>fwrap</value></action>
                 <!-- -->
                 <block type="page/template_links" name="footer_links" as="footer_links" template="page/template/links.phtml">
                     <action method="setTitle"><title>About the Site</title></action>
                 </block>
-                <!--<block type="page/template_links" name="footer_links2" as="footer_links2" template="page/template/links.phtml">
-                    <action method="setTitle"><title>Account</title></action>
-                </block>-->
-                <!-- Custom block-->
-                <block type="cms/block" name="summer_sale">
-                    <action method="setBlockId"><block_id>summer_sale</block_id></action>
+
+                <block type="page/html_wrapper" name="comp" as="comp">
+                 <action method="setElementClass"><value>links</value></action>
+                    <block type="cms/block" name="company">
+                        <action method="setBlockId"><block_id>company</block_id></action>
+                    </block>
                 </block>
 
+                    <!--<block type="page/template_links" name="footer_links2" as="footer_links2" template="page/template/links.phtml">
+                        <action method="setTitle"><title>Account</title></action>
+                    </block>-->
 
+                <!-- Custom blocks-->
+                  <block type="page/html_wrapper" name="sale" as="sale">
+                   <action method="setElementClass"><value>links</value></action>
+                      <block type="cms/block" name="summer_sale">
+                          <action method="setBlockId"><block_id>summer_sale</block_id></action>
+                      </block>
+                  </block>
+
+                  <block type="page/html_wrapper" name="fromheader" as="fromheader">
+                   <action method="setElementClass"><value>links</value></action>
+                      <block type="cms/block" name="from_header">
+                          <action method="setBlockId"><block_id>from_header</block_id></action>
+                      </block>
+                  </block>
+</block>
                 <!-- This static block can be created and populated in admin. The footer_links cms block can be used as a starting point. -->
                 <!--<block type="cms/block" name="footer_social_links">
                     <action method="setBlockId"><block_id>footer_social_links</block_id></action>

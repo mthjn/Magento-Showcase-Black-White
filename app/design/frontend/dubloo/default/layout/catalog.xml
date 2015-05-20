@@ -56,7 +56,18 @@ Default layout, loads most of the pages
             <!-- Permanent callouts -->
             <block type="core/template" name="right.permanent.callout" template="callouts/right_col.phtml">-->
                 <action method="setImgSrc"><src>images/media/unboxed.jpg</src></action>
-                <action method="setImgAlt" translate="alt" module="catalog"><alt>Keep your eyes open for our special Back to School items and save A LOT!</alt></action>
+                <action method="setImgAlt" translate="alt" module="catalog">
+                  <alt>Lorem ipsum dolor sit amet</alt>
+                </action>
+                <action method="setLinkUrl"><url>laptops/posh.html</url></action>
+            </block>
+
+            <block type="core/template" name="right.permanent.callout.bottom" template="callouts/right_col.phtml">-->
+                <action method="setImgSrc"><src>images/media/SidebarDeal.png</src></action>
+                <action method="setImgAlt" translate="alt" module="catalog">
+                  <alt>The real deal</alt>
+                </action>
+                <action method="setLinkUrl"><url>phones.html</url></action>
             </block>
 
             <block type="catalog/product_compare_sidebar" before="cart_sidebar" name="catalog.compare.sidebar" template="catalog/product/compare/sidebar.phtml"/>

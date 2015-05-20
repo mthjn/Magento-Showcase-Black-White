@@ -60,7 +60,7 @@ foreach ($children as $child) {
     $nextChildLevel = $childLevel + 1;
 
     if (!empty($_hasChildren)) {
-        $html .= '<ul class="level'. $childLevel .'">';
+        $html .= '<ul onmouseover="this.parentNode.style.outline=\'1px solid black\'" onmouseout="this.parentNode.style.outline=\'1px solid transparent\'" class="level'. $childLevel .'">';
         $html .=     '<li class="level'. $nextChildLevel .' view-all">';
         $html .=         '<a class="level'. $nextChildLevel .'" href="'. $child->getUrl() .'">';
         $html .=             $this->__('View All') . ' ' . $this->escapeHtml($this->__($child->getName()));

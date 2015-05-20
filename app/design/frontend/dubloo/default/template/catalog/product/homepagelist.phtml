@@ -41,72 +41,6 @@
 <?php else: ?>
 <div class="category-products">
     <?php //echo $this->getToolbarHtml() ?>
-    <?php // List mode ?>
-    <?php if($this->getMode()!='grid'): ?>
-    <?php $_iterator = 0; ?>
-    <ol class="products-list" id="products-list">
-    <?php foreach ($_productCollection as $_product): ?>
-        <li class="item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
-            <?php // Product Image ?>
-            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
-                <?php $_imgSize = 400; ?>
-                <img id="product-collection-image-<?php echo $_product->getId(); ?>"
-                     src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize($_imgSize); ?>"
-                     alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
-            </a>
-            <?php // Product description ?>
-            <div class="product-shop">
-                <div class="f-fix">
-                    <div class="product-primary">
-                        <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
-                        <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a></h2>
-                        <?php if($_product->getRatingSummary()): ?>
-                        <?php echo $this->getReviewsSummaryHtml($_product) ?>
-                        <?php endif; ?>
-                        <?php
-                        // Provides extra blocks on which to hang some features for products in the list
-                        // Features providing UI elements targeting this block will display directly below the product name
-                        if ($this->getChild('name.after')) {
-                            $_nameAfterChildren = $this->getChild('name.after')->getSortedChildren();
-                            foreach ($_nameAfterChildren as $_nameAfterChildName) {
-                                $_nameAfterChild = $this->getChild('name.after')->getChild($_nameAfterChildName);
-                                $_nameAfterChild->setProduct($_product);
-                                echo $_nameAfterChild->toHtml();
-                            }
-                        }
-                        ?>
-                    </div>
-                    <div class="product-secondary">
-                        <?php echo $this->getPriceHtml($_product, true) ?>
-                    </div>
-                    <div class="product-secondary">
-                        <?php if(!$_product->canConfigure() && $_product->isSaleable()): ?>
-                            <p class="action"><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
-                        <?php elseif($_product->getStockItem() && $_product->getStockItem()->getIsInStock()): ?>
-                            <p class="action"><a title="<?php echo $this->__('View Details') ?>" class="button" href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->__('View Details') ?></a></p>
-                        <?php else: ?>
-                            <p class="action availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
-                        <?php endif; ?>
-                        <ul class="add-to-links">
-                            <?php if ($this->helper('wishlist')->isAllow()) : ?>
-                                <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
-                            <?php endif; ?>
-
-                        </ul>
-                    </div>
-                    <div class="desc std">
-                        <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
-                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?></a>
-                    </div>
-                </div>
-            </div>
-        </li>
-    <?php endforeach; ?>
-    </ol>
-    <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
-
-    <?php else: ?>
-
     <?php // Grid Mode ?>
 
     <?php $_collectionSize = $_productCollection->count() ?>
@@ -116,17 +50,23 @@
             <?php /*if ($i++%$_columnCount==0): ?>
             <?php endif*/ ?>
             <div class="homepagelist">
-                <div class="product-image">
+              <div class="product-arrivals">
                   <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
-                      <?php $_imgSize = 210; ?>
+                      <?php $_imgSize = 192;
+                          $_imgSize2 = 128;?>
                       <?php // resize but dont keep the white frame ?>
                       <img id="product-collection-image-<?php echo $_product->getId(); ?>"
-                           src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSize)->keepFrame(false); ?>"
+                           src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSize, $_imgSize2)
+                           ->keepFrame(false)
+                           ->constrainOnly(true)
+                           ->keepAspectRatio(false); ?>"
                            alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
                   </a>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+
+
+                    <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">
+                      <?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+                      </a></h2>
                     <?php
                     // Provides extra blocks on which to hang some features for products in the list
                     // Features providing UI elements targeting this block will display directly below the product name
@@ -139,22 +79,15 @@
                         }
                     }
                     ?>
-                    <?php echo $this->getPriceHtml($_product, true) ?>
-                    <?php if($_product->getRatingSummary()): ?>
-                    <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
-                    <?php endif; ?>
                     <div class="actions">
                         <?php if(!$_product->canConfigure() && $_product->isSaleable()): ?>
-                            <button type="button" title="<?php echo $this->__('View') ?>" class="button btn-cart" onclick="setLocation('<?php echo $_product->getProductUrl() ?>')"><span><span><?php echo $this->__('VIEW DETAILS') ?></span></span></button>
+                            <!--<button type="button" title="<?php echo $this->__('View') ?>" class="button btn-cart" onclick="setLocation('<?php echo $_product->getProductUrl() ?>')">
+                            <span><span><?php echo $this->__('VIEW DETAILS') ?></span></span></button>-->
                         <?php else: ?>
-                            <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                            <p class="availability out-of-stock"><span>
+                              <?php echo $this->__('Out of stock - Preorder') ?></span></p>
                         <?php endif; ?>
-                        <div class="add-to-links">
-                            <?php if ($this->helper('wishlist')->isAllow()) : ?>
-                                <div><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></div>
-                            <?php endif; ?>
 
-                        </div>
                     </div>
                 </div>
             </div>
@@ -165,11 +98,8 @@
     <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
     <?php endif; ?>
 
-    <div class="toolbar-bottom">
-        <?php //echo $this->getToolbarHtml() ?>
-    </div>
 </div>
-<?php endif; ?>
+
 <?php
 // Provides a block where additional page components may be attached, primarily good for in-page JavaScript
 if ($this->getChild('after')) {

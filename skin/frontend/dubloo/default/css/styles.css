@@ -666,7 +666,8 @@ h6, .h6 {
 }
 .block-title h2,
 .block-title h3,
-.block-title strong {
+.block-title strong,
+.sidebanner h2 {
   margin: 0;
   margin-bottom: 10px;
   color: #000005;
@@ -839,7 +840,7 @@ body:not(.customer-account) .block:first-child .block-title {
     margin-top: 0;
     border-width: 0 1px;
     border-style: solid;
-    border-color: #cccccc;
+    border-color: #fff;
   }
   .sidebar .block:last-of-type {
     border-bottom: 1px solid #cccccc;
@@ -881,9 +882,9 @@ body:not(.customer-account) .block:first-child .block-title {
 .cart-table .button,
 .sidebar .actions .button,
 .button.button-secondary {
-  background: #dddddd;
-  color: #636363;
-  padding: 7px 15px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 7px 15px;
 }
 .cart .buttons-set .button:hover,
 .cart-table .button:hover,
@@ -3241,7 +3242,7 @@ body {
 .logo {
  display: block;
   float: left;
-  width: 65%;
+  width: 33.3333%;
   min-width: 100px;
   min-height: 44px;
   text-align: center;
@@ -3250,6 +3251,8 @@ body {
 }
 .logo img {
   max-width: 100%;
+  display: block;
+  margin: auto;
 }
 .logo .small {
   display: block;
@@ -3433,7 +3436,7 @@ a.skip-link {
   }
 }
 @media only screen and (max-width: 1000px) {
-  .col-right {
+  .col-right, .col-main {
   float: left;
   width: 100%;
   }
@@ -3708,6 +3711,7 @@ a.skip-link {
 #search_mini_form .input-box {
   position: relative;
   padding-top: 0;
+  padding-bottom: 20px;
 }
 
 #search_mini_form label {
@@ -4034,7 +4038,7 @@ a.skip-link {
 }
 .footer .links {
   float: left;
-  width: 17%;
+  width: auto; /*17%*/
   padding: 0 30px 0 0;
   margin-bottom: 30px;
 }
@@ -4059,6 +4063,12 @@ a.skip-link {
 .footer .block-subscribe {
   text-transform: uppercase;
   font-size: 12px;
+}
+.footer .block-subscribe {
+  border-bottom: 1px dotted black;
+  padding-bottom: 30px;
+  width: 100%;
+  text-align: center;
 }
 .footer .form-subscribe-header {
   display: none;
@@ -4114,12 +4124,13 @@ a.skip-link {
 }
 .footer .block-subscribe .input-box {
   float: left;
-  width: 65.625%;
+  width: 100%;
   padding-top: 0;
+  padding-bottom: 19px;
 }
 .footer .block-subscribe .input-text {
-  width: 100%;
-  border-right: 0;
+  width: 200px;
+  /*border-right: 0;*/
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -4136,13 +4147,15 @@ a.skip-link {
 }
 .footer .block-subscribe .actions {
   float: left;
-  width: 34.375%;
+  width: 100%;
   margin: 0;
+  text-align:center;
+
 }
 .footer .block-subscribe .actions .button {
   height: 30px;
   line-height: 17px;
-  float: left;
+  float: none;
 }
 .footer .bugs,
 .footer address {
@@ -10696,17 +10709,21 @@ div.calendar table td.button {
    float:left;
  }
 
+ .homepageselection:nth-child(even) .product-image {
+   float:right;
+ }
+
 /* homepage list 50 / 50 */
 
 .homepagelist {
-  width:50%;
+  width:20%;
   float:left;
   padding-left:10px;
   padding-top: 10px;
 }
 
 .homepagelist:nth-of-type(1) {
-  padding-left: 0 !important;
+  margin-left: -5px !important;
 }
 
 .homepagelist > .product-image, .homepeagelist > .product-info {
@@ -10716,6 +10733,27 @@ div.calendar table td.button {
 
 .std-selected {
   padding: 10px 50px 10px 50px;
+}
+
+.product-arrivals {
+  width:100%;
+  float: left;
+}
+
+
+@media (max-width: 700px) {
+  .homepagelist {
+    width: 50%;
+  }
+  .homepageselection .product-image, .homepageselection .product-info {
+    width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  .homepagelist {
+    width: 100%;
+    padding:0 5px 0 5px;
+  }
 }
  /*  ===========================================  *
      Custom
@@ -10735,4 +10773,28 @@ div.calendar table td.button {
     text-align: right;
     float: right !important;
     padding-right: 60px;
+  }
+  .sidebanner {
+    padding-bottom: 20px;
+  }
+
+
+    .beforelogo, .afterlogo {
+      padding: 90px 0 0 0;
+      float: left;
+      width: 33.333333%;
+    }
+    .beforelogo a, .afterlogo a {
+      padding-right: 10px;
+    }
+    .beforelogo {
+      text-align: right;
+    }
+    .afterlogo {
+      text-align: left;
+    }
+  @media (max-width:1010px) {
+    .beforelogo, .afterlogo {
+      visibility:hidden;
+    }
   }

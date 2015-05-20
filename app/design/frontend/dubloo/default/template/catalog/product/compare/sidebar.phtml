@@ -30,13 +30,17 @@ $_helper = $this->helper('catalog/product_compare');
 $_items = $_helper->getItemCount() > 0 ? $_helper->getItemCollection() : null;
 ?>
 <div class="block block-list block-compare">
+  <?php if($_helper->getItemCount() > 0): ?>
     <div class="block-title">
         <strong><span><?php echo $this->__('Care to Compare?') ?>
             <?php if($_helper->getItemCount() > 0): ?>
-                <small><?php echo $this->__('(%d)', $_helper->getItemCount()) ?></small>
+                <small>
+                  <?php echo $this->__('(%d)', $_helper->getItemCount()) ?>
+                </small>
             <?php endif; ?>
         </span></strong>
     </div>
+  <?php endif; ?>
     <div class="block-content">
     <?php if($_helper->getItemCount() > 0): ?>
         <ol id="compare-items">
@@ -54,7 +58,9 @@ $_items = $_helper->getItemCount() > 0 ? $_helper->getItemCollection() : null;
             <a href="<?php echo $_helper->getClearListUrl() ?>" onclick="return confirm('<?php echo $this->__('Are you sure you would like to remove all products from your comparison?') ?>');"><?php echo $this->__('Clear All') ?></a>
         </div>
     <?php else: ?>
-        <p class="empty"><?php echo $this->__('No items yet.') ?></p>
+        <div class="empty" style="margin-top:-20px;">
+          <?php //echo $this->__('No items yet.') ?>
+        </div>
     <?php endif; ?>
     </div>
 </div>

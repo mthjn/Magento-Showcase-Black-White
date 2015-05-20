@@ -27,7 +27,9 @@
 /* @var $catalogSearchHelper Mage_Catalogsearch_Helper_Data */
 $catalogSearchHelper =  $this->helper('catalogsearch');
 ?>
-
+<div class="block-title">
+      <strong><span>Search</span></strong>
+</div>
 <form id="search_mini_form" action="<?php echo $catalogSearchHelper->getResultUrl() ?>" method="get">
     <div class="input-box">
         <label for="search"><?php echo $this->__('Search:') ?></label>

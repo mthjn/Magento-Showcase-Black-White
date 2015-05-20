@@ -30,7 +30,10 @@
 
     <default><!-- moved from header to right sidebar -->
         <reference name="right">
-            <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
+          <!--<block type="page/html_wrapper" name="searchright1" as="searchright1">
+           <action method="setElementClass"><value>sidebanner</value></action>-->
+            <block type="core/template" name="top.search" as="topSearch" before="sidebanner2" template="catalogsearch/form.mini.phtml"/>
+          <!--</block>-->
         </reference>
         <reference name="footer_links">
             <action method="addLink" translate="label title" module="catalogsearch" ifconfig="catalog/seo/search_terms">
