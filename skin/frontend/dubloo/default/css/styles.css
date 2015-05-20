@@ -3246,7 +3246,7 @@ body {
   min-height: 44px;
   text-align: center;
   padding: 0;
-  padding-top: 25px;
+  padding-top: 12px;
 }
 .logo img {
   max-width: 100%;
@@ -7736,7 +7736,7 @@ body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-l
   }
   .customer-account-login .col2-set .col-2 {
     padding-left: 20px;
-    border-left: 1px solid #ededed;
+    border-left: 1px dotted #000;
   }
 }
 @media only screen and (min-width: 770px) {
@@ -7745,7 +7745,7 @@ body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-l
   }
   .customer-account-login .col2-set .col-2 {
     padding-left: 60px;
-    border-left: 1px solid #ededed;
+    border-left: 1px dotted #000;
   }
 }
 @media only screen and (max-width: 479px) {
@@ -7754,7 +7754,7 @@ body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-l
   }
   .customer-account-login .col2-set .col-2 {
     padding-top: 30px;
-    border-top: 1px solid #ededed;
+    border-top: 1px dotted #000;
   }
 }
 @media only screen and (max-width: 770px) {
@@ -10680,6 +10680,7 @@ div.calendar table td.button {
 
 .homepageslider {
   padding-bottom: 5px;
+  width:100%;
 }
 
 /* items of the week */
@@ -10723,4 +10724,15 @@ div.calendar table td.button {
   .disabled {
     display:none;
     visibility:hidden;
+  }
+
+  .new-users {
+    text-align: right;
+    padding-right:60px !important;
+  }
+
+  .buttonright {
+    text-align: right;
+    float: right !important;
+    padding-right: 60px;
   }

@@ -126,6 +126,10 @@
 
             <block type="core/text_list" name="right" as="right" translate="label">
                 <label>Right Column</label>
+                <!-- Custom block sidebar banner -->
+                <block type="cms/block" name="sidebar_banner">
+                    <action method="setBlockId"><block_id>sidebar_banner</block_id></action>
+                </block>
             </block>
 
             <block type="page/html_wrapper" name="footer.before" as="footer_before" translate="label">
