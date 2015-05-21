@@ -1,26 +1,24 @@
-**CONTENTS**
-============
-============
-X / Read More  
-A / Right sidebar  
-B / Homepage  
+## CONTENTS
 
-Z / General issues  
+### X / Read More  
+### A / Right sidebar  
+### B / Homepage  
+### Z / General issues  
 
 
   ***
 
 
-X / READ MORE  
-=============  
-@link https://gist.github.com/hightemp/2387916  
-@link https://gist.github.com/arosenhagen/2397824  
+# X / READ MORE  
+
+[Github Magento Snippets](https://gist.github.com/hightemp/2387916)  
+[Other Github Magento Snippets](https://gist.github.com/arosenhagen/2397824)  
 
 
 
 
-A / RIGHT SIDEBAR  
-=================  
+# A / RIGHT SIDEBAR  
+
 
 1/ Compare products  
 2/ CMS Blocks  
@@ -60,8 +58,7 @@ just set image and alt or add link as well
 (change reference to right)  
 
 
-B / HOMEPAGE  
-============  
+# B / HOMEPAGE  
 
 1/ Categories on homepage  
 2/ Custom Variables  
@@ -70,7 +67,7 @@ B / HOMEPAGE
 template/catalog/product/homepagelist.phtml  (homepageselection.phtml)  
 
 *2/ Create custom variable in Magento: Message that dissapears onclick*  
-
+```
       // --- Selector
        // TEXT value of the custom variable:
        Mage::getModel('core/variable')->setStoreId(Mage::app()->getStore()->getId())
@@ -119,12 +116,11 @@ template/catalog/product/homepagelist.phtml  (homepageselection.phtml)
         <div id="header-nav" class="skip-content"><?php echo $this->getChildHtml('topMenu') ?></div>
         <?php echo Mage::getModel('core/variable')->setStoreId(Mage::app()->getStore()->getId())
         ->loadByCode('msg_yellow')->getValue('html'); ?>
+        ```
 
+[Gist](https://gist.github.com/mthjn/6c78671bdb5860867c98)  
 
-@link https://gist.github.com/mthjn/6c78671bdb5860867c98  
-
-Z /  GENERAL  
-============  
+# Z /  GENERAL  
 
 **Add custom js code, flush it to the footer**  
   page.xml  
@@ -137,19 +133,21 @@ Z /  GENERAL
 
 **Resize images with cropping eg on the same size / homepage latest arrivals**  
 used  
+```
      <?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSize, $_imgSize2)
-    ->keepFrame(false)->constrainOnly(true)->keepAspectRatio(false); ?> __
+    ->keepFrame(false)->constrainOnly(true)->keepAspectRatio(false); ?>
+```  
 
 will look ok for common img sizes, otherwise use crop(10, 20, 30, 40); on Varien_Image  
 Varien_Image is not returned by catalog/image helper
+```
     $mainImage = Mage::getBaseDir('media') . DS . 'test' . DS . 'image.jpg';  
     $image = new Varien_Image($mainImage);  
-    // crop($top=0, $left=0, $right=0, $bottom=0)  
-    $image->crop(10, 10, 10, 10);  
+    $image->crop(10, 10, 10, 10);  // crop($top=0, $left=0, $right=0, $bottom=0)  
     $image->save(Mage::getBaseDir('media'). DS . 'test' . DS . 'new.jpg');  
+```
+[Stack Overflow question](http://stackoverflow.com/questions/9492770/magento-crop-image)  
 
-@see Mage_Catalog_Block_Product_List  
-@link http://stackoverflow.com/questions/9492770/magento-crop-image  
 
 **Edit login/sign up page**  
 edit template in  templates/persistent  
