@@ -67,6 +67,7 @@ just set image and alt or add link as well
 template/catalog/product/homepagelist.phtml  (homepageselection.phtml)  
 
 *2/ Create custom variable in Magento: Message that dissapears onclick*  
+  
 ```
       // --- Selector
        // TEXT value of the custom variable:
@@ -97,7 +98,6 @@ template/catalog/product/homepagelist.phtml  (homepageselection.phtml)
           }
       });
 
-
       // --- page xml to insert js into footer
 
       <block type="core/text_list" name="before_body_end" as="before_body_end" translate="label">
@@ -116,7 +116,7 @@ template/catalog/product/homepagelist.phtml  (homepageselection.phtml)
         <div id="header-nav" class="skip-content"><?php echo $this->getChildHtml('topMenu') ?></div>
         <?php echo Mage::getModel('core/variable')->setStoreId(Mage::app()->getStore()->getId())
         ->loadByCode('msg_yellow')->getValue('html'); ?>
-        ```
+```
 
 [Gist](https://gist.github.com/mthjn/6c78671bdb5860867c98)  
 
@@ -139,7 +139,8 @@ used
 ```  
 
 will look ok for common img sizes, otherwise use crop(10, 20, 30, 40); on Varien_Image  
-Varien_Image is not returned by catalog/image helper
+Varien_Image is not returned by catalog/image helper  
+
 ```
     $mainImage = Mage::getBaseDir('media') . DS . 'test' . DS . 'image.jpg';  
     $image = new Varien_Image($mainImage);  
