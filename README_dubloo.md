@@ -1,15 +1,15 @@
-## CONTENTS
+# CONTENTS
 
-### X / Read More  
-### A / Right sidebar  
-### B / Homepage  
-### Z / General issues  
+#### X / Read More  
+#### A / Right sidebar  
+#### B / Homepage  
+#### Z / General issues  
 
 
   ***
 
 
-# X / READ MORE  
+## X / READ MORE  
 
 [Github Magento Snippets](https://gist.github.com/hightemp/2387916)  
 [Other Github Magento Snippets](https://gist.github.com/arosenhagen/2397824)  
@@ -17,7 +17,7 @@
 
 
 
-# A / RIGHT SIDEBAR  
+## A / RIGHT SIDEBAR  
 
 
 1/ Compare products  
@@ -58,7 +58,7 @@ just set image and alt or add link as well
 (change reference to right)  
 
 
-# B / HOMEPAGE  
+## B / HOMEPAGE  
 
 1/ Categories on homepage  
 2/ Custom Variables  
@@ -67,7 +67,7 @@ just set image and alt or add link as well
 template/catalog/product/homepagelist.phtml  (homepageselection.phtml)  
 
 *2/ Create custom variable in Magento: Message that dissapears onclick*  
-  
+
 ```
       // --- Selector
        // TEXT value of the custom variable:
@@ -120,7 +120,7 @@ template/catalog/product/homepagelist.phtml  (homepageselection.phtml)
 
 [Gist](https://gist.github.com/mthjn/6c78671bdb5860867c98)  
 
-# Z /  GENERAL  
+## Z /  GENERAL  
 
 **Add custom js code, flush it to the footer**  
   page.xml  
