@@ -1,7 +1,7 @@
 # magento
-Magento simple template
+## Magento simple template
   
-  
+### Read the README_dubloo for the frontend dev stuff.  
   
 **Magento simple template black and white**   
   
