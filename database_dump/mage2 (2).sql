@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Stř 27. kvě 2015, 14:20
+-- Vytvořeno: Stř 27. kvě 2015, 16:35
 -- Verze serveru: 5.6.24
 -- Verze PHP: 5.6.8
 
@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `admin_user` (
 --
 
 INSERT INTO `admin_user` (`user_id`, `firstname`, `lastname`, `email`, `username`, `password`, `created`, `modified`, `logdate`, `lognum`, `reload_acl_flag`, `is_active`, `extra`, `rp_token`, `rp_token_created_at`) VALUES
-(1, 'J', 'M', 'jakjn@omg.com', 'user', 'f13039f6343a424b3b7a00a59e541e43:1VLMQpY78y8UHTOKLctPkOA67mKCkwd4', '2015-05-14 13:15:02', '2015-05-14 13:15:02', '2015-05-27 10:03:02', 29, 0, 1, 'a:1:{s:11:"configState";a:53:{s:14:"design_package";s:1:"1";s:12:"design_theme";s:1:"0";s:11:"design_head";s:1:"0";s:13:"design_header";s:1:"1";s:13:"design_footer";s:1:"1";s:16:"design_watermark";s:1:"0";s:17:"design_pagination";s:1:"0";s:12:"design_email";s:1:"0";s:15:"payment_account";s:1:"1";s:32:"payment_paypal_payment_solutions";s:1:"1";s:19:"payment_wps_express";s:1:"1";s:37:"payment_wps_express_checkout_required";s:1:"1";s:54:"payment_wps_express_checkout_required_express_checkout";s:1:"1";s:28:"payment_settings_wps_express";s:1:"1";s:37:"payment_settings_wps_express_advanced";s:1:"1";s:37:"payment_wps_express_billing_agreement";s:1:"0";s:37:"payment_wps_express_settlement_report";s:1:"0";s:28:"payment_wps_express_frontend";s:1:"1";s:24:"payment_express_checkout";s:1:"0";s:33:"payment_express_checkout_required";s:1:"1";s:50:"payment_express_checkout_required_express_checkout";s:1:"1";s:19:"payment_settings_ec";s:1:"1";s:28:"payment_settings_ec_advanced";s:1:"0";s:42:"payment_express_checkout_billing_agreement";s:1:"0";s:42:"payment_express_checkout_settlement_report";s:1:"0";s:33:"payment_express_checkout_frontend";s:1:"0";s:14:"payment_ccsave";s:1:"0";s:15:"payment_checkmo";s:1:"0";s:12:"payment_free";s:1:"0";s:20:"payment_banktransfer";s:1:"0";s:22:"payment_cashondelivery";s:1:"0";s:21:"payment_purchaseorder";s:1:"0";s:31:"payment_authorizenet_directpost";s:1:"0";s:20:"payment_authorizenet";s:1:"0";s:18:"persistent_options";s:1:"1";s:31:"advanced_modules_disable_output";s:1:"1";s:16:"currency_options";s:1:"1";s:20:"currency_webservicex";s:1:"0";s:15:"currency_import";s:1:"0";s:7:"web_url";s:1:"1";s:7:"web_seo";s:1:"1";s:12:"web_unsecure";s:1:"0";s:10:"web_secure";s:1:"0";s:11:"web_default";s:1:"0";s:9:"web_polls";s:1:"0";s:10:"web_cookie";s:1:"0";s:11:"web_session";s:1:"0";s:24:"web_browser_capabilities";s:1:"0";s:26:"cssslidyslider_mainoptions";s:1:"0";s:26:"cssslidyslider_slideritem1";s:1:"1";s:26:"cssslidyslider_slideritem2";s:1:"1";s:26:"cssslidyslider_slideritem3";s:1:"1";s:26:"cssslidyslider_slideritem4";s:1:"1";}}', NULL, NULL);
+(1, 'J', 'M', 'jakjn@omg.com', 'user', 'f13039f6343a424b3b7a00a59e541e43:1VLMQpY78y8UHTOKLctPkOA67mKCkwd4', '2015-05-14 13:15:02', '2015-05-14 13:15:02', '2015-05-27 10:03:02', 29, 0, 1, 'a:1:{s:11:"configState";a:57:{s:14:"design_package";s:1:"1";s:12:"design_theme";s:1:"0";s:11:"design_head";s:1:"0";s:13:"design_header";s:1:"1";s:13:"design_footer";s:1:"1";s:16:"design_watermark";s:1:"1";s:17:"design_pagination";s:1:"1";s:12:"design_email";s:1:"1";s:15:"payment_account";s:1:"1";s:32:"payment_paypal_payment_solutions";s:1:"1";s:19:"payment_wps_express";s:1:"1";s:37:"payment_wps_express_checkout_required";s:1:"1";s:54:"payment_wps_express_checkout_required_express_checkout";s:1:"1";s:28:"payment_settings_wps_express";s:1:"1";s:37:"payment_settings_wps_express_advanced";s:1:"1";s:37:"payment_wps_express_billing_agreement";s:1:"0";s:37:"payment_wps_express_settlement_report";s:1:"0";s:28:"payment_wps_express_frontend";s:1:"1";s:24:"payment_express_checkout";s:1:"0";s:33:"payment_express_checkout_required";s:1:"1";s:50:"payment_express_checkout_required_express_checkout";s:1:"1";s:19:"payment_settings_ec";s:1:"1";s:28:"payment_settings_ec_advanced";s:1:"0";s:42:"payment_express_checkout_billing_agreement";s:1:"0";s:42:"payment_express_checkout_settlement_report";s:1:"0";s:33:"payment_express_checkout_frontend";s:1:"0";s:14:"payment_ccsave";s:1:"0";s:15:"payment_checkmo";s:1:"0";s:12:"payment_free";s:1:"0";s:20:"payment_banktransfer";s:1:"0";s:22:"payment_cashondelivery";s:1:"0";s:21:"payment_purchaseorder";s:1:"0";s:31:"payment_authorizenet_directpost";s:1:"0";s:20:"payment_authorizenet";s:1:"0";s:18:"persistent_options";s:1:"1";s:31:"advanced_modules_disable_output";s:1:"1";s:16:"currency_options";s:1:"1";s:20:"currency_webservicex";s:1:"0";s:15:"currency_import";s:1:"0";s:7:"web_url";s:1:"1";s:7:"web_seo";s:1:"1";s:12:"web_unsecure";s:1:"0";s:10:"web_secure";s:1:"0";s:11:"web_default";s:1:"0";s:9:"web_polls";s:1:"0";s:10:"web_cookie";s:1:"0";s:11:"web_session";s:1:"0";s:24:"web_browser_capabilities";s:1:"0";s:26:"cssslidyslider_mainoptions";s:1:"0";s:26:"cssslidyslider_slideritem1";s:1:"1";s:26:"cssslidyslider_slideritem2";s:1:"1";s:26:"cssslidyslider_slideritem3";s:1:"1";s:26:"cssslidyslider_slideritem4";s:1:"1";s:15:"general_country";s:1:"0";s:14:"general_region";s:1:"0";s:14:"general_locale";s:1:"1";s:25:"general_store_information";s:1:"1";}}', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -436,7 +436,7 @@ CREATE TABLE IF NOT EXISTS `cataloginventory_stock_item` (
   `use_config_enable_qty_inc` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Use Config Enable Qty Increments',
   `enable_qty_increments` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Enable Qty Increments',
   `is_decimal_divided` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Divided into Multiple Boxes for Shipping'
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='Cataloginventory Stock Item';
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COMMENT='Cataloginventory Stock Item';
 
 --
 -- Vypisuji data pro tabulku `cataloginventory_stock_item`
@@ -455,10 +455,11 @@ INSERT INTO `cataloginventory_stock_item` (`item_id`, `product_id`, `stock_id`, 
 (12, 10, 1, '33.0000', '0.0000', 1, 0, 0, 1, '1.0000', 1, '0.0000', 1, 1, NULL, '1.0000', 1, 0, 1, 0, 1, '0.0000', 1, 0, 0),
 (13, 11, 1, '122.0000', '0.0000', 1, 0, 0, 1, '1.0000', 1, '0.0000', 1, 1, NULL, '1.0000', 1, 0, 1, 0, 1, '0.0000', 1, 0, 0),
 (14, 12, 1, '33.0000', '0.0000', 1, 0, 0, 1, '1.0000', 1, '0.0000', 1, 1, NULL, '1.0000', 1, 0, 1, 0, 1, '0.0000', 1, 0, 0),
-(21, 13, 1, '122.0000', '0.0000', 1, 0, 0, 1, '1.0000', 1, '0.0000', 1, 1, NULL, '1.0000', 1, 0, 1, 0, 1, '0.0000', 1, 0, 0),
+(21, 13, 1, '121.0000', '0.0000', 1, 0, 0, 1, '1.0000', 1, '0.0000', 1, 1, NULL, '1.0000', 1, 0, 1, 0, 1, '0.0000', 1, 0, 0),
 (22, 14, 1, '122.0000', '0.0000', 1, 0, 0, 1, '1.0000', 1, '0.0000', 1, 1, NULL, '1.0000', 1, 0, 1, 0, 1, '0.0000', 1, 0, 0),
 (23, 15, 1, '100.0000', '0.0000', 1, 0, 0, 1, '1.0000', 1, '0.0000', 1, 1, NULL, '1.0000', 1, 0, 1, 0, 1, '0.0000', 1, 0, 0),
-(24, 16, 1, '0.0000', '0.0000', 1, 0, 0, 1, '1.0000', 1, '0.0000', 1, 0, '2015-05-15 07:26:37', NULL, 1, 0, 1, 1, 1, '0.0000', 1, 0, 0);
+(24, 16, 1, '0.0000', '0.0000', 1, 0, 0, 1, '1.0000', 1, '0.0000', 1, 0, '2015-05-15 07:26:37', NULL, 1, 0, 1, 1, 1, '0.0000', 1, 0, 0),
+(25, 17, 1, '0.0000', '0.0000', 1, 0, 0, 1, '1.0000', 1, '0.0000', 1, 1, NULL, NULL, 1, 1, 0, 0, 1, '0.0000', 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -492,10 +493,11 @@ INSERT INTO `cataloginventory_stock_status` (`product_id`, `website_id`, `stock_
 (10, 1, 1, '33.0000', 1),
 (11, 1, 1, '122.0000', 1),
 (12, 1, 1, '33.0000', 1),
-(13, 1, 1, '122.0000', 1),
+(13, 1, 1, '121.0000', 1),
 (14, 1, 1, '122.0000', 1),
 (15, 1, 1, '100.0000', 1),
-(16, 1, 1, '0.0000', 0);
+(16, 1, 1, '0.0000', 0),
+(17, 1, 1, '0.0000', 1);
 
 -- --------------------------------------------------------
 
@@ -675,7 +677,7 @@ CREATE TABLE IF NOT EXISTS `catalogsearch_fulltext` (
   `product_id` int(10) unsigned NOT NULL COMMENT 'Product ID',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
   `data_index` longtext COMMENT 'Data index'
-) ENGINE=MyISAM AUTO_INCREMENT=95 DEFAULT CHARSET=utf8 COMMENT='Catalog search result table';
+) ENGINE=MyISAM AUTO_INCREMENT=97 DEFAULT CHARSET=utf8 COMMENT='Catalog search result table';
 
 --
 -- Vypisuji data pro tabulku `catalogsearch_fulltext`
@@ -696,7 +698,8 @@ INSERT INTO `catalogsearch_fulltext` (`fulltext_id`, `product_id`, `store_id`, `
 (91, 12, 1, '26|None|Phone F|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
 (93, 14, 1, '32|None|Tablet B|Lorem ipsum dolor sit amet.|Lorem ipsum. This should be on homepage. This should be on homepage.|555|1'),
 (92, 13, 1, '31|None|Tablet A|Lorem ipsum dolor sit amet.|Lorem ipsum. This should be on homepage.|555|1'),
-(94, 15, 1, '33|None|Tablet C|Lorem ipsum dolor sit amet.|Lorem ipsum. This should be on homepage. This should be on homepage. This should be on homepage.|555|1');
+(94, 15, 1, '33|None|Tablet C|Lorem ipsum dolor sit amet.|Lorem ipsum. This should be on homepage. This should be on homepage. This should be on homepage.|555|1'),
+(96, 17, 1, '789|Bundled product 1|Laptop A|Laptop B|Laptop D|Tablet C|Laptop C|Phone C|This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product.|Lorem ipsum dolor sit amet.|Lorem ipsum dolor sit amet.|Lorem ipsum dolor sit amet.|Lorem ipsum dolor sit amet.|Lorem ipsum dolor sit amet.|Lorem ipsum dolor sit amet.|This is a bundled product.|Lorem ipsum.|Lorem ipsum.|Lorem ipsum.|Lorem ipsum. This should be on homepage. This should be on homepage. This should be on homepage.|Lorem ipsum.|Lorem ipsum.|None|None|None|None|None|None|1000|1000|1000|555|1000|1000|Option 2|Bundle Co-Items|1');
 
 -- --------------------------------------------------------
 
@@ -1311,11 +1314,13 @@ INSERT INTO `catalog_category_product` (`category_id`, `product_id`, `position`)
 (13, 11, 1),
 (13, 14, 1),
 (13, 15, 1),
+(13, 17, 1),
 (14, 1, 1),
 (14, 2, 1),
 (14, 4, 1),
 (14, 9, 1),
-(14, 11, 1);
+(14, 11, 1),
+(14, 17, 1);
 
 -- --------------------------------------------------------
 
@@ -1353,6 +1358,7 @@ INSERT INTO `catalog_category_product_index` (`category_id`, `product_id`, `posi
 (2, 13, 20007, 0, 1, 4),
 (2, 14, 30010, 0, 1, 4),
 (2, 15, 40009, 0, 1, 4),
+(2, 17, 150001, 0, 1, 4),
 (2, 16, 0, 1, 1, 4),
 (4, 1, 1, 1, 1, 4),
 (4, 2, 1, 1, 1, 4),
@@ -1387,11 +1393,13 @@ INSERT INTO `catalog_category_product_index` (`category_id`, `product_id`, `posi
 (13, 11, 1, 1, 1, 4),
 (13, 14, 1, 1, 1, 4),
 (13, 15, 1, 1, 1, 4),
+(13, 17, 1, 1, 1, 4),
 (14, 1, 1, 1, 1, 4),
 (14, 2, 1, 1, 1, 4),
 (14, 4, 1, 1, 1, 4),
 (14, 9, 1, 1, 1, 4),
-(14, 11, 1, 1, 1, 4);
+(14, 11, 1, 1, 1, 4),
+(14, 17, 1, 1, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -1614,7 +1622,15 @@ CREATE TABLE IF NOT EXISTS `catalog_product_bundle_option` (
   `required` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Required',
   `position` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Position',
   `type` varchar(255) DEFAULT NULL COMMENT 'Type'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Option';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Option';
+
+--
+-- Vypisuji data pro tabulku `catalog_product_bundle_option`
+--
+
+INSERT INTO `catalog_product_bundle_option` (`option_id`, `parent_id`, `required`, `position`, `type`) VALUES
+(1, 17, 1, 0, 'select'),
+(2, 17, 1, 0, 'select');
 
 -- --------------------------------------------------------
 
@@ -1628,7 +1644,15 @@ CREATE TABLE IF NOT EXISTS `catalog_product_bundle_option_value` (
   `option_id` int(10) unsigned NOT NULL COMMENT 'Option Id',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id',
   `title` varchar(255) DEFAULT NULL COMMENT 'Title'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Option Value';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Option Value';
+
+--
+-- Vypisuji data pro tabulku `catalog_product_bundle_option_value`
+--
+
+INSERT INTO `catalog_product_bundle_option_value` (`value_id`, `option_id`, `store_id`, `title`) VALUES
+(2, 2, 0, 'Option 2'),
+(3, 1, 0, 'Bundle Co-Items');
 
 -- --------------------------------------------------------
 
@@ -1663,7 +1687,21 @@ CREATE TABLE IF NOT EXISTS `catalog_product_bundle_selection` (
   `selection_price_value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Selection Price Value',
   `selection_qty` decimal(12,4) DEFAULT NULL COMMENT 'Selection Qty',
   `selection_can_change_qty` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Selection Can Change Qty'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Selection';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Selection';
+
+--
+-- Vypisuji data pro tabulku `catalog_product_bundle_selection`
+--
+
+INSERT INTO `catalog_product_bundle_selection` (`selection_id`, `option_id`, `parent_product_id`, `product_id`, `position`, `is_default`, `selection_price_type`, `selection_price_value`, `selection_qty`, `selection_can_change_qty`) VALUES
+(1, 1, 17, 1, 0, 0, 0, '0.0000', '1.0000', 1),
+(2, 1, 17, 2, 0, 0, 0, '0.0000', '1.0000', 1),
+(3, 1, 17, 4, 0, 0, 0, '0.0000', '1.0000', 1),
+(4, 1, 17, 15, 0, 0, 0, '0.0000', '1.0000', 1),
+(5, 1, 17, 16, 0, 0, 0, '0.0000', '1.0000', 1),
+(6, 2, 17, 3, 0, 0, 0, '0.0000', '1.0000', 1),
+(7, 2, 17, 9, 0, 0, 0, '0.0000', '1.0000', 1),
+(8, 2, 17, 15, 0, 0, 0, '0.0000', '1.0000', 1);
 
 -- --------------------------------------------------------
 
@@ -1724,7 +1762,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity` (
   `required_options` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Required Options',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Creation Time',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Update Time'
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Table';
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Table';
 
 --
 -- Vypisuji data pro tabulku `catalog_product_entity`
@@ -1746,7 +1784,8 @@ INSERT INTO `catalog_product_entity` (`entity_id`, `entity_type_id`, `attribute_
 (13, 4, 4, 'simple', '31', 0, 0, '2015-05-15 06:08:47', '2015-05-20 06:34:31'),
 (14, 4, 4, 'simple', '32', 0, 0, '2015-05-15 06:08:47', '2015-05-19 07:48:34'),
 (15, 4, 4, 'simple', '33', 0, 0, '2015-05-15 06:08:47', '2015-05-19 07:48:23'),
-(16, 4, 9, 'simple', '11111', 0, 0, '2015-05-15 07:25:47', '2015-05-15 07:26:37');
+(16, 4, 9, 'simple', '11111', 0, 0, '2015-05-15 07:25:47', '2015-05-15 07:26:37'),
+(17, 4, 4, 'bundle', '789', 1, 1, '2015-05-27 11:55:41', '2015-05-27 11:59:01');
 
 -- --------------------------------------------------------
 
@@ -1762,7 +1801,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_datetime` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` datetime DEFAULT NULL COMMENT 'Value'
-) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Datetime Attribute Backend Table';
+) ENGINE=InnoDB AUTO_INCREMENT=181 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Datetime Attribute Backend Table';
 
 --
 -- Vypisuji data pro tabulku `catalog_product_entity_datetime`
@@ -1864,7 +1903,13 @@ INSERT INTO `catalog_product_entity_datetime` (`value_id`, `entity_type_id`, `at
 (141, 4, 77, 0, 16, NULL),
 (142, 4, 78, 0, 16, NULL),
 (143, 4, 104, 0, 16, NULL),
-(144, 4, 105, 0, 16, NULL);
+(144, 4, 105, 0, 16, NULL),
+(145, 4, 93, 0, 17, NULL),
+(146, 4, 94, 0, 17, NULL),
+(147, 4, 77, 0, 17, NULL),
+(148, 4, 78, 0, 17, NULL),
+(149, 4, 104, 0, 17, NULL),
+(150, 4, 105, 0, 17, NULL);
 
 -- --------------------------------------------------------
 
@@ -1880,7 +1925,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_decimal` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` decimal(12,4) DEFAULT NULL COMMENT 'Value'
-) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Decimal Attribute Backend Table';
+) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Decimal Attribute Backend Table';
 
 --
 -- Vypisuji data pro tabulku `catalog_product_entity_decimal`
@@ -1950,7 +1995,8 @@ INSERT INTO `catalog_product_entity_decimal` (`value_id`, `entity_type_id`, `att
 (114, 4, 80, 0, 16, '10.0000'),
 (115, 4, 75, 0, 16, '0.0000'),
 (116, 4, 76, 0, 16, NULL),
-(117, 4, 120, 0, 16, NULL);
+(117, 4, 120, 0, 16, NULL),
+(118, 4, 76, 0, 17, NULL);
 
 -- --------------------------------------------------------
 
@@ -1999,7 +2045,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_int` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` int(11) DEFAULT NULL COMMENT 'Value'
-) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Integer Attribute Backend Table';
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Integer Attribute Backend Table';
 
 --
 -- Vypisuji data pro tabulku `catalog_product_entity_int`
@@ -2069,7 +2115,14 @@ INSERT INTO `catalog_product_entity_int` (`value_id`, `entity_type_id`, `attribu
 (86, 4, 96, 0, 16, 1),
 (87, 4, 102, 0, 16, 4),
 (88, 4, 121, 0, 16, 0),
-(89, 4, 100, 0, 16, 0);
+(89, 4, 100, 0, 16, 0),
+(90, 4, 124, 0, 17, 0),
+(91, 4, 125, 0, 17, 0),
+(92, 4, 96, 0, 17, 1),
+(93, 4, 102, 0, 17, 4),
+(94, 4, 123, 0, 17, 0),
+(95, 4, 126, 0, 17, 1),
+(96, 4, 127, 0, 17, 0);
 
 -- --------------------------------------------------------
 
@@ -2083,7 +2136,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_media_gallery` (
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` varchar(255) DEFAULT NULL COMMENT 'Value'
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Media Gallery Attribute Backend Table';
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Media Gallery Attribute Backend Table';
 
 --
 -- Vypisuji data pro tabulku `catalog_product_entity_media_gallery`
@@ -2107,7 +2160,8 @@ INSERT INTO `catalog_product_entity_media_gallery` (`value_id`, `attribute_id`, 
 (15, 88, 15, '/m/a/macbook-577757_1.jpg'),
 (16, 88, 16, '/8/4/8468788107_bb6c21b0e4_k.jpg'),
 (17, 88, 2, '/s/o/software-544958_1920.jpg'),
-(18, 88, 9, '/l/a/laptop-731904_1920.jpg');
+(18, 88, 9, '/l/a/laptop-731904_1920.jpg'),
+(19, 88, 17, '/8/4/8468788107_bb6c21b0e4_k_1.jpg');
 
 -- --------------------------------------------------------
 
@@ -2146,7 +2200,8 @@ INSERT INTO `catalog_product_entity_media_gallery_value` (`value_id`, `store_id`
 (15, 0, NULL, 1, 0),
 (16, 0, NULL, 1, 0),
 (17, 0, NULL, 1, 0),
-(18, 0, NULL, 1, 0);
+(18, 0, NULL, 1, 0),
+(19, 0, NULL, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -2162,7 +2217,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_text` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` text COMMENT 'Value'
-) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Text Attribute Backend Table';
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Text Attribute Backend Table';
 
 --
 -- Vypisuji data pro tabulku `catalog_product_entity_text`
@@ -2232,7 +2287,11 @@ INSERT INTO `catalog_product_entity_text` (`value_id`, `entity_type_id`, `attrib
 (93, 4, 72, 0, 16, 'Download me'),
 (94, 4, 73, 0, 16, 'Download me'),
 (95, 4, 83, 0, 16, NULL),
-(96, 4, 106, 0, 16, NULL);
+(96, 4, 106, 0, 16, NULL),
+(97, 4, 72, 0, 17, 'This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. '),
+(98, 4, 73, 0, 17, 'This is a bundled product. '),
+(99, 4, 83, 0, 17, NULL),
+(100, 4, 106, 0, 17, NULL);
 
 -- --------------------------------------------------------
 
@@ -2265,7 +2324,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_varchar` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` varchar(255) DEFAULT NULL COMMENT 'Value'
-) ENGINE=InnoDB AUTO_INCREMENT=414 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Varchar Attribute Backend Table';
+) ENGINE=InnoDB AUTO_INCREMENT=482 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Varchar Attribute Backend Table';
 
 --
 -- Vypisuji data pro tabulku `catalog_product_entity_varchar`
@@ -2581,7 +2640,25 @@ INSERT INTO `catalog_product_entity_varchar` (`value_id`, `entity_type_id`, `att
 (401, 4, 114, 0, 2, NULL),
 (411, 4, 112, 0, 9, NULL),
 (412, 4, 113, 0, 9, NULL),
-(413, 4, 114, 0, 9, NULL);
+(413, 4, 114, 0, 9, NULL),
+(414, 4, 71, 0, 17, 'Bundled product 1'),
+(415, 4, 97, 0, 17, 'bundle-1'),
+(416, 4, 117, 0, 17, NULL),
+(417, 4, 82, 0, 17, NULL),
+(418, 4, 84, 0, 17, NULL),
+(419, 4, 85, 0, 17, '/8/4/8468788107_bb6c21b0e4_k_1.jpg'),
+(420, 4, 86, 0, 17, '/8/4/8468788107_bb6c21b0e4_k_1.jpg'),
+(421, 4, 87, 0, 17, '/8/4/8468788107_bb6c21b0e4_k_1.jpg'),
+(422, 4, 103, 0, 17, NULL),
+(423, 4, 107, 0, 17, NULL),
+(424, 4, 109, 0, 17, 'container1'),
+(425, 4, 118, 0, 17, '0'),
+(426, 4, 122, 0, 17, NULL),
+(427, 4, 98, 1, 17, 'bundle-1.html'),
+(428, 4, 98, 0, 17, 'bundle-1.html'),
+(429, 4, 112, 0, 17, NULL),
+(430, 4, 113, 0, 17, NULL),
+(431, 4, 114, 0, 17, NULL);
 
 -- --------------------------------------------------------
 
@@ -2685,7 +2762,8 @@ INSERT INTO `catalog_product_index_eav` (`entity_id`, `attribute_id`, `store_id`
 (12, 121, 1, 0),
 (13, 121, 1, 0),
 (14, 121, 1, 0),
-(15, 121, 1, 0);
+(15, 121, 1, 0),
+(17, 121, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -2777,6 +2855,19 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_eav_tmp` (
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
   `value` int(10) unsigned NOT NULL COMMENT 'Value'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product EAV Indexer Temp Table';
+
+--
+-- Vypisuji data pro tabulku `catalog_product_index_eav_tmp`
+--
+
+INSERT INTO `catalog_product_index_eav_tmp` (`entity_id`, `attribute_id`, `store_id`, `value`) VALUES
+(1, 121, 1, 0),
+(2, 121, 1, 0),
+(3, 121, 1, 0),
+(4, 121, 1, 0),
+(9, 121, 1, 0),
+(15, 121, 1, 0),
+(17, 121, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -2876,7 +2967,11 @@ INSERT INTO `catalog_product_index_price` (`entity_id`, `customer_group_id`, `we
 (15, 0, 1, 0, '555.0000', '555.0000', '555.0000', '555.0000', NULL, NULL),
 (15, 1, 1, 0, '555.0000', '555.0000', '555.0000', '555.0000', NULL, NULL),
 (15, 2, 1, 0, '555.0000', '555.0000', '555.0000', '555.0000', NULL, NULL),
-(15, 3, 1, 0, '555.0000', '555.0000', '555.0000', '555.0000', NULL, NULL);
+(15, 3, 1, 0, '555.0000', '555.0000', '555.0000', '555.0000', NULL, NULL),
+(17, 0, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL),
+(17, 1, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL),
+(17, 2, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL),
+(17, 3, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2946,6 +3041,20 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_opt_tmp` (
   `alt_group_price` decimal(12,4) DEFAULT NULL COMMENT 'Alt Group Price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Index Price Bundle Opt Tmp';
 
+--
+-- Vypisuji data pro tabulku `catalog_product_index_price_bundle_opt_tmp`
+--
+
+INSERT INTO `catalog_product_index_price_bundle_opt_tmp` (`entity_id`, `customer_group_id`, `website_id`, `option_id`, `min_price`, `alt_price`, `max_price`, `tier_price`, `alt_tier_price`, `group_price`, `alt_group_price`) VALUES
+(17, 0, 1, 1, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
+(17, 0, 1, 2, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
+(17, 1, 1, 1, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
+(17, 1, 1, 2, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
+(17, 2, 1, 1, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
+(17, 2, 1, 2, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
+(17, 3, 1, 1, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
+(17, 3, 1, 2, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000');
+
 -- --------------------------------------------------------
 
 --
@@ -2986,6 +3095,40 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_sel_tmp` (
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Index Price Bundle Sel Tmp';
 
+--
+-- Vypisuji data pro tabulku `catalog_product_index_price_bundle_sel_tmp`
+--
+
+INSERT INTO `catalog_product_index_price_bundle_sel_tmp` (`entity_id`, `customer_group_id`, `website_id`, `option_id`, `selection_id`, `group_type`, `is_required`, `price`, `tier_price`, `group_price`) VALUES
+(17, 0, 1, 1, 1, 0, 1, '1000.0000', NULL, NULL),
+(17, 0, 1, 1, 2, 0, 1, '1000.0000', NULL, NULL),
+(17, 0, 1, 1, 3, 0, 1, '1000.0000', NULL, NULL),
+(17, 0, 1, 1, 4, 0, 1, '555.0000', NULL, NULL),
+(17, 0, 1, 2, 6, 0, 1, '1000.0000', NULL, NULL),
+(17, 0, 1, 2, 7, 0, 1, '1000.0000', NULL, NULL),
+(17, 0, 1, 2, 8, 0, 1, '555.0000', NULL, NULL),
+(17, 1, 1, 1, 1, 0, 1, '1000.0000', NULL, NULL),
+(17, 1, 1, 1, 2, 0, 1, '1000.0000', NULL, NULL),
+(17, 1, 1, 1, 3, 0, 1, '1000.0000', NULL, NULL),
+(17, 1, 1, 1, 4, 0, 1, '555.0000', NULL, NULL),
+(17, 1, 1, 2, 6, 0, 1, '1000.0000', NULL, NULL),
+(17, 1, 1, 2, 7, 0, 1, '1000.0000', NULL, NULL),
+(17, 1, 1, 2, 8, 0, 1, '555.0000', NULL, NULL),
+(17, 2, 1, 1, 1, 0, 1, '1000.0000', NULL, NULL),
+(17, 2, 1, 1, 2, 0, 1, '1000.0000', NULL, NULL),
+(17, 2, 1, 1, 3, 0, 1, '1000.0000', NULL, NULL),
+(17, 2, 1, 1, 4, 0, 1, '555.0000', NULL, NULL),
+(17, 2, 1, 2, 6, 0, 1, '1000.0000', NULL, NULL),
+(17, 2, 1, 2, 7, 0, 1, '1000.0000', NULL, NULL),
+(17, 2, 1, 2, 8, 0, 1, '555.0000', NULL, NULL),
+(17, 3, 1, 1, 1, 0, 1, '1000.0000', NULL, NULL),
+(17, 3, 1, 1, 2, 0, 1, '1000.0000', NULL, NULL),
+(17, 3, 1, 1, 3, 0, 1, '1000.0000', NULL, NULL),
+(17, 3, 1, 1, 4, 0, 1, '555.0000', NULL, NULL),
+(17, 3, 1, 2, 6, 0, 1, '1000.0000', NULL, NULL),
+(17, 3, 1, 2, 7, 0, 1, '1000.0000', NULL, NULL),
+(17, 3, 1, 2, 8, 0, 1, '555.0000', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -3011,6 +3154,16 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_tmp` (
   `base_group_price` decimal(12,4) DEFAULT NULL COMMENT 'Base Group Price',
   `group_price_percent` decimal(12,4) DEFAULT NULL COMMENT 'Group Price Percent'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Index Price Bundle Tmp';
+
+--
+-- Vypisuji data pro tabulku `catalog_product_index_price_bundle_tmp`
+--
+
+INSERT INTO `catalog_product_index_price_bundle_tmp` (`entity_id`, `customer_group_id`, `website_id`, `tax_class_id`, `price_type`, `special_price`, `tier_percent`, `orig_price`, `price`, `min_price`, `max_price`, `tier_price`, `base_tier`, `group_price`, `base_group_price`, `group_price_percent`) VALUES
+(17, 0, 1, 0, 0, '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL),
+(17, 1, 1, 0, 0, '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL),
+(17, 2, 1, 0, 0, '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL),
+(17, 3, 1, 0, 0, '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -3330,6 +3483,16 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_tmp` (
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Temp Table';
 
+--
+-- Vypisuji data pro tabulku `catalog_product_index_price_tmp`
+--
+
+INSERT INTO `catalog_product_index_price_tmp` (`entity_id`, `customer_group_id`, `website_id`, `tax_class_id`, `price`, `final_price`, `min_price`, `max_price`, `tier_price`, `group_price`) VALUES
+(17, 0, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL),
+(17, 1, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL),
+(17, 2, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL),
+(17, 3, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -3571,6 +3734,19 @@ CREATE TABLE IF NOT EXISTS `catalog_product_relation` (
   `child_id` int(10) unsigned NOT NULL COMMENT 'Child ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Relation Table';
 
+--
+-- Vypisuji data pro tabulku `catalog_product_relation`
+--
+
+INSERT INTO `catalog_product_relation` (`parent_id`, `child_id`) VALUES
+(17, 1),
+(17, 2),
+(17, 3),
+(17, 4),
+(17, 9),
+(17, 15),
+(17, 16);
+
 -- --------------------------------------------------------
 
 --
@@ -3661,7 +3837,8 @@ INSERT INTO `catalog_product_website` (`product_id`, `website_id`) VALUES
 (13, 1),
 (14, 1),
 (15, 1),
-(16, 1);
+(16, 1),
+(17, 1);
 
 -- --------------------------------------------------------
 
@@ -3678,7 +3855,14 @@ CREATE TABLE IF NOT EXISTS `checkout_agreement` (
   `checkbox_text` text COMMENT 'Checkbox Text',
   `is_active` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Is Active',
   `is_html` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Is Html'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Checkout Agreement';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Checkout Agreement';
+
+--
+-- Vypisuji data pro tabulku `checkout_agreement`
+--
+
+INSERT INTO `checkout_agreement` (`agreement_id`, `name`, `content`, `content_height`, `checkbox_text`, `is_active`, `is_html`) VALUES
+(1, 'Condition 1', 'I agree that lorem ipsum.', NULL, 'I agree that bla bla.', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -3691,6 +3875,13 @@ CREATE TABLE IF NOT EXISTS `checkout_agreement_store` (
   `agreement_id` int(10) unsigned NOT NULL COMMENT 'Agreement Id',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Checkout Agreement Store';
+
+--
+-- Vypisuji data pro tabulku `checkout_agreement_store`
+--
+
+INSERT INTO `checkout_agreement_store` (`agreement_id`, `store_id`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -3877,7 +4068,7 @@ CREATE TABLE IF NOT EXISTS `core_config_data` (
   `scope_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Config Scope Id',
   `path` varchar(255) NOT NULL DEFAULT 'general' COMMENT 'Config Path',
   `value` text COMMENT 'Config Value'
-) ENGINE=InnoDB AUTO_INCREMENT=309 DEFAULT CHARSET=utf8 COMMENT='Config Data';
+) ENGINE=InnoDB AUTO_INCREMENT=324 DEFAULT CHARSET=utf8 COMMENT='Config Data';
 
 --
 -- Vypisuji data pro tabulku `core_config_data`
@@ -3885,7 +4076,7 @@ CREATE TABLE IF NOT EXISTS `core_config_data` (
 
 INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value`) VALUES
 (1, 'default', 0, 'general/region/display_all', '1'),
-(2, 'default', 0, 'general/region/state_required', 'AT,CA,CH,DE,EE,ES,FI,FR,LT,LV,RO,US'),
+(2, 'default', 0, 'general/region/state_required', 'AT,CA,EE,FI,FR,DE,LV,LT,RO,ES,CH,US'),
 (3, 'default', 0, 'catalog/category/root_id', '2'),
 (4, 'default', 0, 'payment/paypal_express/skip_order_review_step', '1'),
 (5, 'default', 0, 'payment/payflow_link/mobile_optimized', '1'),
@@ -3915,7 +4106,7 @@ INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value
 (29, 'default', 0, 'design/header/logo_alt', 'Magento'),
 (30, 'default', 0, 'design/header/logo_src_small', 'images/SomeLogo.png'),
 (31, 'default', 0, 'design/header/welcome', NULL),
-(32, 'default', 0, 'design/footer/copyright', '&copy; 2015 Magento Demo Store.'),
+(32, 'default', 0, 'design/footer/copyright', '&copy; 2015 Magento Responsive Store.'),
 (33, 'default', 0, 'design/footer/absolute_footer', NULL),
 (34, 'default', 0, 'design/watermark/image_size', NULL),
 (35, 'default', 0, 'design/watermark/image_imageOpacity', NULL),
@@ -3930,9 +4121,9 @@ INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value
 (44, 'default', 0, 'design/pagination/pagination_frame_skip', NULL),
 (45, 'default', 0, 'design/pagination/anchor_text_for_previous', NULL),
 (46, 'default', 0, 'design/pagination/anchor_text_for_next', NULL),
-(47, 'default', 0, 'design/email/logo_alt', NULL),
-(48, 'default', 0, 'design/email/logo_width', NULL),
-(49, 'default', 0, 'design/email/logo_height', NULL),
+(47, 'default', 0, 'design/email/logo_alt', 'Some Logo'),
+(48, 'default', 0, 'design/email/logo_width', '160'),
+(49, 'default', 0, 'design/email/logo_height', '90'),
 (50, 'default', 0, 'design/email/header', 'design_email_header'),
 (51, 'default', 0, 'design/email/footer', 'design_email_footer'),
 (52, 'default', 0, 'design/email/css_non_inline', 'email-non-inline.css'),
@@ -4191,7 +4382,22 @@ INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value
 (305, 'default', 0, 'cssslidyslider/slideritem1/caption1', '<div id="cap1"><b>Pure CSS</b> Slider<br><span class="down">Fast & lightweight</span></div>'),
 (306, 'default', 0, 'cssslidyslider/slideritem2/caption2', '<div id="cap2"><span class="down">Based on <b>CSS3</b></span><br>generated automatically<br><span class="up">by vanilla JS</span></div>'),
 (307, 'default', 0, 'cssslidyslider/slideritem3/caption3', '<div id="cap3"><b>Any number of images</b><br>always responsive</div>'),
-(308, 'default', 0, 'cssslidyslider/slideritem4/caption4', '<div id="cap4"><b><span class="down">Integrate via block</span></b><br>into CMS Pages</div>');
+(308, 'default', 0, 'cssslidyslider/slideritem4/caption4', '<div id="cap4"><b><span class="down">Integrate via block</span></b><br>into CMS Pages</div>'),
+(309, 'default', 0, 'general/country/default', 'US'),
+(310, 'default', 0, 'general/country/allow', 'AF,AL,DZ,AS,AD,AO,AI,AQ,AG,AR,AM,AW,AU,AT,AZ,BS,BH,BD,BB,BY,BE,BZ,BJ,BM,BT,BO,BA,BW,BV,BR,IO,VG,BN,BG,BF,BI,KH,CM,CA,CV,KY,CF,TD,CL,CN,CX,CC,CO,KM,CG,CD,CK,CR,HR,CU,CY,CZ,CI,DK,DJ,DM,DO,EC,EG,SV,GQ,ER,EE,ET,FK,FO,FJ,FI,FR,GF,PF,TF,GA,GM,GE,DE,GH,GI,GR,GL,GD,GP,GU,GT,GG,GN,GW,GY,HT,HM,HN,HK,HU,IS,IN,ID,IR,IQ,IE,IM,IL,IT,JM,JP,JE,JO,KZ,KE,KI,KW,KG,LA,LV,LB,LS,LR,LY,LI,LT,LU,MO,MK,MG,MW,MY,MV,ML,MT,MH,MQ,MR,MU,YT,MX,FM,MD,MC,MN,ME,MS,MA,MZ,MM,NA,NR,NP,NL,AN,NC,NZ,NI,NE,NG,NU,NF,KP,MP,NO,OM,PK,PW,PS,PA,PG,PY,PE,PH,PN,PL,PT,PR,QA,RO,RU,RW,RE,BL,SH,KN,LC,MF,PM,WS,SM,SA,SN,RS,SC,SL,SG,SK,SI,SB,SO,ZA,GS,KR,ES,LK,VC,SD,SR,SJ,SZ,SE,CH,SY,ST,TW,TJ,TZ,TH,TL,TG,TK,TO,TT,TN,TR,TM,TC,TV,UM,VI,UG,UA,AE,GB,US,UY,UZ,VU,VA,VE,VN,WF,EH,YE,ZM,ZW,AX'),
+(311, 'default', 0, 'general/country/optional_zip_countries', 'HK,IE,MO,PA'),
+(312, 'default', 0, 'general/country/eu_countries', 'AT,BE,BG,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,GB'),
+(313, 'default', 0, 'general/locale/timezone', 'Europe/Prague'),
+(314, 'default', 0, 'general/locale/code', 'en_US'),
+(315, 'default', 0, 'general/locale/firstday', '1'),
+(316, 'default', 0, 'general/locale/weekend', '0,6'),
+(317, 'default', 0, 'general/store_information/name', 'Responsive Mage Store'),
+(318, 'default', 0, 'general/store_information/phone', '123 456 789'),
+(319, 'default', 0, 'general/store_information/hours', 'Mo-Fr 7-15'),
+(320, 'default', 0, 'general/store_information/merchant_country', 'DE'),
+(321, 'default', 0, 'general/store_information/merchant_vat_number', NULL),
+(322, 'default', 0, 'general/store_information/address', 'Store\r\nStreet X XX\r\nG4C BH'),
+(323, 'default', 0, 'design/email/logo', 'default/SomeLogo.png');
 
 -- --------------------------------------------------------
 
@@ -4210,14 +4416,16 @@ CREATE TABLE IF NOT EXISTS `core_email_queue` (
   `message_parameters` text NOT NULL COMMENT 'Message Parameters',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Creation Time',
   `processed_at` timestamp NULL DEFAULT NULL COMMENT 'Finish Time'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Email Queue';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Email Queue';
 
 --
 -- Vypisuji data pro tabulku `core_email_queue`
 --
 
 INSERT INTO `core_email_queue` (`message_id`, `entity_id`, `entity_type`, `event_type`, `message_body_hash`, `message_body`, `message_parameters`, `created_at`, `processed_at`) VALUES
-(1, 1, 'order', 'new_order', '8c2773e35c1bf9f82bf0ce1933fed0b2', '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n<html xmlns="http://www.w3.org/1999/xhtml" style="background-color: #ebebeb;">\n<head>\n<meta http-equiv="Content-Type" content="text/html; charset=utf-8">\n<meta name="viewport" content="initial-scale=1.0, width=device-width">\n</head>\n<body style="font-family: Verdana, Arial; font-weight: normal; margin: 0; padding: 0; text-align: left; color: #333333; background-color: #ebebeb; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background: #ebebeb; font-size: 12px;">\n<style type="text/css">\n/* each line with !important */\n\n</style>\n<!-- Begin wrapper table --><table width="100%" cellpadding="0" cellspacing="0" border="0" id="background-table" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0 auto; background-color: #ebebeb; font-size: 12px;"><tr>\n<td valign="top" class="container-td" align="center" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0; width: 100%;">\n            <table cellpadding="0" cellspacing="0" border="0" align="center" class="container-table" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0 auto; width: 600px;">\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n                        <table cellpadding="0" cellspacing="0" border="0" class="logo-container" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;"><tr>\n<td class="logo" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 15px 0px 10px 5px; margin: 0;">\n                                    <a href="http://localhost/mage2/" style="color: #3696c2; float: left; display: block;">\n                                        <img width="165" height="48" src="http://localhost/mage2/skin/frontend/dubloo/default/images/logo_email.gif" alt="Main Website Store" border="0" style="-ms-interpolation-mode: bicubic; outline: none; text-decoration: none;"></a>\n                                </td>\n                            </tr></table>\n</td>\n                </tr>\n<tr>\n<td valign="top" class="top-content" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 5px; margin: 0; border: 1px solid #ebebeb; background: #FFF;">\n                    <!-- Begin Content -->\n\n\n\n<table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;">\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0;"><tr>\n<td class="email-heading" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0 1%; margin: 0; background: #e1f0f8; border-right: 1px dashed #c3ced4; text-align: center; width: 58%;">\n                        <h1 style="font-family: Verdana, Arial; font-weight: 700; font-size: 16px; margin: 1em 0; line-height: 20px; text-transform: uppercase; margin-top: 25px;">Thank you for your order from Main Website Store.</h1>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; line-height: 20px; margin: 1em 0;">Once your package ships we will send an email with a link to track your order. Your order summary is below. Thank you again for your business.</p>\n                    </td>\n                    <td class="store-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 2%; margin: 0; background: #e1f0f8; width: 40%;">\n                        <h4 style="font-family: Verdana, Arial; font-weight: bold; margin-bottom: 5px; font-size: 12px; margin-top: 13px;">Order Questions?</h4>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 11px; line-height: 17px; margin: 1em 0;">\n                            \n                            \n                            \n                            <b>Email:</b> <a href="mailto:support@example.com" style="color: #3696c2; text-decoration: underline;">support@example.com</a>\n                            \n                        </p>\n                    </td>\n                </tr></table>\n</td>\n    </tr>\n<tr>\n<td class="order-details" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 5px 15px; margin: 0; text-align: center;">\n            <h3 style="font-family: Verdana, Arial; font-weight: normal; font-size: 17px; margin-bottom: 10px; margin-top: 15px;">Your order <span class="no-link">#100000001</span>\n</h3>\n            <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 11px; margin: 1em 0 15px;">Placed on May 15, 2015 2:59:12 AM PDT</p>\n        </td>\n    </tr>\n<tr class="order-information"><td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            \n            \n\n            </td></tr>\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table class="items" cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 10px 15px; margin: 0; width: 100%;">\n<thead><tr>\n<th class="cell-name" style="font-family: Verdana, Arial; font-weight: 700; padding: 10px 15px; background: #f1f1f1; text-transform: uppercase; text-align: left; font-size: 11px;">\n                                                            Item in your order                                                    </th>\n                        <th class="cell-name align-center" style="font-family: Verdana, Arial; font-weight: 700; padding: 10px 15px; background: #f1f1f1; text-transform: uppercase; text-align: center; font-size: 11px;">\n                            Qty                        </th>\n                        <th class="cell-name align-right" style="font-family: Verdana, Arial; font-weight: 700; padding: 10px 15px; background: #f1f1f1; text-transform: uppercase; text-align: right; font-size: 11px;">\n                            Price                        </th>\n                    </tr></thead>\n<tbody><tr>\n<td class="cell-content product-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0; border-top: 1px solid #ebebeb; text-align: left;">\n        <p class="product-name" style="font-family: Verdana, Arial; font-weight: bold; margin: 0 0 5px 0; color: #636363; font-style: normal; text-rendering: optimizeLegibility; text-transform: uppercase; line-height: 1.4; font-size: 14px; float: left; width: 100%; display: block;">Tablet C</p>\n        <p class="sku" style="font-family: Verdana, Arial; font-weight: normal; margin: 0 0 5px; float: left; width: 100%; display: block;">SKU: 33</p>\n                                                                                                            </td>\n            <td class="cell-content align-center" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0; border-top: 1px solid #ebebeb;">22</td>\n            <td class="cell-content align-right" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0; border-top: 1px solid #ebebeb;">\n                                                                                <span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€12,210.00</span>                    \n\n                                    \n\n                            </td>\n        </tr></tbody>\n</table>\n</td>\n    </tr>\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table class="table-totals" cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%; background: #e1f0f8;"><tr>\n<td class="padding-totals" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 20px 15px; margin: 0; text-align: right; line-height: 20px;">\n            <table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;">\n<tr class="subtotal">\n<td colspan="3" align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        Subtotal                    </td>\n        <td align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€12,210.00</span>                    </td>\n    </tr>\n<tr class="shipping" style="padding-bottom: 5px;">\n<td colspan="3" align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        Shipping &amp; Handling                    </td>\n        <td align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€110.00</span>                    </td>\n    </tr>\n<tr class="grand_total">\n<td colspan="3" align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <strong style="font-family: Verdana, Arial; font-weight: normal;">Grand Total</strong>\n                    </td>\n        <td align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <strong style="font-family: Verdana, Arial; font-weight: normal;"><span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€12,320.00</span></strong>\n                    </td>\n    </tr>\n</table>\n</td>\n    </tr></table>\n</td>\n    </tr>\n<table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0;">\n<tr>\n<td class="address-details" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; padding-top: 10px; text-align: left;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Bill to:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 12px; line-height: 18px; margin-bottom: 15px; margin-top: 2px;"><span class="no-link">aa aaa<br>\n\nromg<br>\n\n\n\nbarelw,  Alabama, 78958<br>\nUnited States<br>\nT: 7896354123\n\n</span></p>\n                    </td>\n                    \n                    <td class="address-details" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; padding-top: 10px; text-align: left;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Ship to:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 12px; line-height: 18px; margin-bottom: 15px; margin-top: 2px;"><span class="no-link">aa aaa<br>\n\nromg<br>\n\n\n\nbarelw,  Alabama, 78958<br>\nUnited States<br>\nT: 7896354123\n\n</span></p>\n                    </td>\n                    \n                </tr>\n<tr>\n<td class="method-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; text-align: left; padding-bottom: 10px;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; text-align: left; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Shipping method:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; text-align: left; font-size: 12px; margin-top: 2px; margin-bottom: 30px; line-height: 18px; padding: 0;">Flat Rate - Fixed</p>\n                    </td>\n                    \n                    <td class="method-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; text-align: left; padding-bottom: 10px;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; text-align: left; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Payment method:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; text-align: left; font-size: 12px; margin-top: 2px; margin-bottom: 30px; line-height: 18px; padding: 0;">Check / Money order</p>\n\n                    </td>\n                </tr>\n</table>\n</table>\n<!-- End Content -->\n</td>\n                </tr>\n</table>\n<h5 class="closing-text" style="font-family: Verdana, Arial; font-weight: normal; text-align: center; font-size: 22px; line-height: 32px; margin-bottom: 75px; margin-top: 30px;">Thank you, Main Website Store!</h5>\n        </td>\n    </tr></table>\n<!-- End wrapper table -->\n</body>\n</html>\n', 'a:7:{s:7:"subject";s:41:"Main Website Store: New Order # 100000001";s:17:"return_path_email";N;s:8:"is_plain";b:0;s:10:"from_email";s:17:"sales@example.com";s:9:"from_name";s:5:"Sales";s:8:"reply_to";N;s:9:"return_to";N;}', '2015-05-15 07:59:13', NULL);
+(1, 1, 'order', 'new_order', '8c2773e35c1bf9f82bf0ce1933fed0b2', '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n<html xmlns="http://www.w3.org/1999/xhtml" style="background-color: #ebebeb;">\n<head>\n<meta http-equiv="Content-Type" content="text/html; charset=utf-8">\n<meta name="viewport" content="initial-scale=1.0, width=device-width">\n</head>\n<body style="font-family: Verdana, Arial; font-weight: normal; margin: 0; padding: 0; text-align: left; color: #333333; background-color: #ebebeb; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background: #ebebeb; font-size: 12px;">\n<style type="text/css">\n/* each line with !important */\n\n</style>\n<!-- Begin wrapper table --><table width="100%" cellpadding="0" cellspacing="0" border="0" id="background-table" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0 auto; background-color: #ebebeb; font-size: 12px;"><tr>\n<td valign="top" class="container-td" align="center" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0; width: 100%;">\n            <table cellpadding="0" cellspacing="0" border="0" align="center" class="container-table" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0 auto; width: 600px;">\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n                        <table cellpadding="0" cellspacing="0" border="0" class="logo-container" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;"><tr>\n<td class="logo" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 15px 0px 10px 5px; margin: 0;">\n                                    <a href="http://localhost/mage2/" style="color: #3696c2; float: left; display: block;">\n                                        <img width="165" height="48" src="http://localhost/mage2/skin/frontend/dubloo/default/images/logo_email.gif" alt="Main Website Store" border="0" style="-ms-interpolation-mode: bicubic; outline: none; text-decoration: none;"></a>\n                                </td>\n                            </tr></table>\n</td>\n                </tr>\n<tr>\n<td valign="top" class="top-content" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 5px; margin: 0; border: 1px solid #ebebeb; background: #FFF;">\n                    <!-- Begin Content -->\n\n\n\n<table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;">\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0;"><tr>\n<td class="email-heading" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0 1%; margin: 0; background: #e1f0f8; border-right: 1px dashed #c3ced4; text-align: center; width: 58%;">\n                        <h1 style="font-family: Verdana, Arial; font-weight: 700; font-size: 16px; margin: 1em 0; line-height: 20px; text-transform: uppercase; margin-top: 25px;">Thank you for your order from Main Website Store.</h1>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; line-height: 20px; margin: 1em 0;">Once your package ships we will send an email with a link to track your order. Your order summary is below. Thank you again for your business.</p>\n                    </td>\n                    <td class="store-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 2%; margin: 0; background: #e1f0f8; width: 40%;">\n                        <h4 style="font-family: Verdana, Arial; font-weight: bold; margin-bottom: 5px; font-size: 12px; margin-top: 13px;">Order Questions?</h4>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 11px; line-height: 17px; margin: 1em 0;">\n                            \n                            \n                            \n                            <b>Email:</b> <a href="mailto:support@example.com" style="color: #3696c2; text-decoration: underline;">support@example.com</a>\n                            \n                        </p>\n                    </td>\n                </tr></table>\n</td>\n    </tr>\n<tr>\n<td class="order-details" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 5px 15px; margin: 0; text-align: center;">\n            <h3 style="font-family: Verdana, Arial; font-weight: normal; font-size: 17px; margin-bottom: 10px; margin-top: 15px;">Your order <span class="no-link">#100000001</span>\n</h3>\n            <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 11px; margin: 1em 0 15px;">Placed on May 15, 2015 2:59:12 AM PDT</p>\n        </td>\n    </tr>\n<tr class="order-information"><td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            \n            \n\n            </td></tr>\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table class="items" cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 10px 15px; margin: 0; width: 100%;">\n<thead><tr>\n<th class="cell-name" style="font-family: Verdana, Arial; font-weight: 700; padding: 10px 15px; background: #f1f1f1; text-transform: uppercase; text-align: left; font-size: 11px;">\n                                                            Item in your order                                                    </th>\n                        <th class="cell-name align-center" style="font-family: Verdana, Arial; font-weight: 700; padding: 10px 15px; background: #f1f1f1; text-transform: uppercase; text-align: center; font-size: 11px;">\n                            Qty                        </th>\n                        <th class="cell-name align-right" style="font-family: Verdana, Arial; font-weight: 700; padding: 10px 15px; background: #f1f1f1; text-transform: uppercase; text-align: right; font-size: 11px;">\n                            Price                        </th>\n                    </tr></thead>\n<tbody><tr>\n<td class="cell-content product-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0; border-top: 1px solid #ebebeb; text-align: left;">\n        <p class="product-name" style="font-family: Verdana, Arial; font-weight: bold; margin: 0 0 5px 0; color: #636363; font-style: normal; text-rendering: optimizeLegibility; text-transform: uppercase; line-height: 1.4; font-size: 14px; float: left; width: 100%; display: block;">Tablet C</p>\n        <p class="sku" style="font-family: Verdana, Arial; font-weight: normal; margin: 0 0 5px; float: left; width: 100%; display: block;">SKU: 33</p>\n                                                                                                            </td>\n            <td class="cell-content align-center" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0; border-top: 1px solid #ebebeb;">22</td>\n            <td class="cell-content align-right" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0; border-top: 1px solid #ebebeb;">\n                                                                                <span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€12,210.00</span>                    \n\n                                    \n\n                            </td>\n        </tr></tbody>\n</table>\n</td>\n    </tr>\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table class="table-totals" cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%; background: #e1f0f8;"><tr>\n<td class="padding-totals" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 20px 15px; margin: 0; text-align: right; line-height: 20px;">\n            <table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;">\n<tr class="subtotal">\n<td colspan="3" align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        Subtotal                    </td>\n        <td align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€12,210.00</span>                    </td>\n    </tr>\n<tr class="shipping" style="padding-bottom: 5px;">\n<td colspan="3" align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        Shipping &amp; Handling                    </td>\n        <td align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€110.00</span>                    </td>\n    </tr>\n<tr class="grand_total">\n<td colspan="3" align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <strong style="font-family: Verdana, Arial; font-weight: normal;">Grand Total</strong>\n                    </td>\n        <td align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <strong style="font-family: Verdana, Arial; font-weight: normal;"><span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€12,320.00</span></strong>\n                    </td>\n    </tr>\n</table>\n</td>\n    </tr></table>\n</td>\n    </tr>\n<table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0;">\n<tr>\n<td class="address-details" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; padding-top: 10px; text-align: left;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Bill to:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 12px; line-height: 18px; margin-bottom: 15px; margin-top: 2px;"><span class="no-link">aa aaa<br>\n\nromg<br>\n\n\n\nbarelw,  Alabama, 78958<br>\nUnited States<br>\nT: 7896354123\n\n</span></p>\n                    </td>\n                    \n                    <td class="address-details" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; padding-top: 10px; text-align: left;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Ship to:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 12px; line-height: 18px; margin-bottom: 15px; margin-top: 2px;"><span class="no-link">aa aaa<br>\n\nromg<br>\n\n\n\nbarelw,  Alabama, 78958<br>\nUnited States<br>\nT: 7896354123\n\n</span></p>\n                    </td>\n                    \n                </tr>\n<tr>\n<td class="method-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; text-align: left; padding-bottom: 10px;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; text-align: left; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Shipping method:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; text-align: left; font-size: 12px; margin-top: 2px; margin-bottom: 30px; line-height: 18px; padding: 0;">Flat Rate - Fixed</p>\n                    </td>\n                    \n                    <td class="method-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; text-align: left; padding-bottom: 10px;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; text-align: left; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Payment method:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; text-align: left; font-size: 12px; margin-top: 2px; margin-bottom: 30px; line-height: 18px; padding: 0;">Check / Money order</p>\n\n                    </td>\n                </tr>\n</table>\n</table>\n<!-- End Content -->\n</td>\n                </tr>\n</table>\n<h5 class="closing-text" style="font-family: Verdana, Arial; font-weight: normal; text-align: center; font-size: 22px; line-height: 32px; margin-bottom: 75px; margin-top: 30px;">Thank you, Main Website Store!</h5>\n        </td>\n    </tr></table>\n<!-- End wrapper table -->\n</body>\n</html>\n', 'a:7:{s:7:"subject";s:41:"Main Website Store: New Order # 100000001";s:17:"return_path_email";N;s:8:"is_plain";b:0;s:10:"from_email";s:17:"sales@example.com";s:9:"from_name";s:5:"Sales";s:8:"reply_to";N;s:9:"return_to";N;}', '2015-05-15 07:59:13', NULL),
+(2, 2, 'order', 'new_order', '6b4363f33ab622254a39e74f7214e94e', '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n<html xmlns="http://www.w3.org/1999/xhtml" style="background-color: #ebebeb;">\n<head>\n<meta http-equiv="Content-Type" content="text/html; charset=utf-8">\n<meta name="viewport" content="initial-scale=1.0, width=device-width">\n</head>\n<body style="font-family: Verdana, Arial; font-weight: normal; margin: 0; padding: 0; text-align: left; color: #333333; background-color: #ebebeb; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background: #ebebeb; font-size: 12px;">\n<style type="text/css">\n/* each line with !important */\n\n</style>\n<!-- Begin wrapper table --><table width="100%" cellpadding="0" cellspacing="0" border="0" id="background-table" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0 auto; background-color: #ebebeb; font-size: 12px;"><tr>\n<td valign="top" class="container-td" align="center" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0; width: 100%;">\n            <table cellpadding="0" cellspacing="0" border="0" align="center" class="container-table" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0 auto; width: 600px;">\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n                        <table cellpadding="0" cellspacing="0" border="0" class="logo-container" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;"><tr>\n<td class="logo" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 15px 0px 10px 5px; margin: 0;">\n                                    <a href="http://localhost/mage2/" style="color: #3696c2; float: left; display: block;">\n                                        <img width="160" height="90" src="http://localhost/mage2/media/email/logo/default/SomeLogo.png" alt="Some Logo" border="0" style="-ms-interpolation-mode: bicubic; outline: none; text-decoration: none;"></a>\n                                </td>\n                            </tr></table>\n</td>\n                </tr>\n<tr>\n<td valign="top" class="top-content" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 5px; margin: 0; border: 1px solid #ebebeb; background: #FFF;">\n                    <!-- Begin Content -->\n\n\n\n<table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;">\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0;"><tr>\n<td class="email-heading" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0 1%; margin: 0; background: #e1f0f8; border-right: 1px dashed #c3ced4; text-align: center; width: 58%;">\n                        <h1 style="font-family: Verdana, Arial; font-weight: 700; font-size: 16px; margin: 1em 0; line-height: 20px; text-transform: uppercase; margin-top: 25px;">Thank you for your order from Responsive Mage Store.</h1>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; line-height: 20px; margin: 1em 0;">Once your package ships we will send an email with a link to track your order. Your order summary is below. Thank you again for your business.</p>\n                    </td>\n                    <td class="store-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 2%; margin: 0; background: #e1f0f8; width: 40%;">\n                        <h4 style="font-family: Verdana, Arial; font-weight: bold; margin-bottom: 5px; font-size: 12px; margin-top: 13px;">Order Questions?</h4>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 11px; line-height: 17px; margin: 1em 0;">\n                            \n                            <b>Call Us:</b>\n                            <a href="tel:" style="color: #3696c2; text-decoration: underline;">123 456 789</a><br><span class="no-link">Mo-Fr 7-15</span><br><b>Email:</b> <a href="mailto:support@example.com" style="color: #3696c2; text-decoration: underline;">support@example.com</a>\n                            \n                        </p>\n                    </td>\n                </tr></table>\n</td>\n    </tr>\n<tr>\n<td class="order-details" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 5px 15px; margin: 0; text-align: center;">\n            <h3 style="font-family: Verdana, Arial; font-weight: normal; font-size: 17px; margin-bottom: 10px; margin-top: 15px;">Your order <span class="no-link">#100000002</span>\n</h3>\n            <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 11px; margin: 1em 0 15px;">Placed on May 27, 2015 2:45:36 PM CEST</p>\n        </td>\n    </tr>\n<tr class="order-information"><td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            \n            \n\n            </td></tr>\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table class="items" cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 10px 15px; margin: 0; width: 100%;">\n<thead><tr>\n<th class="cell-name" style="font-family: Verdana, Arial; font-weight: 700; padding: 10px 15px; background: #f1f1f1; text-transform: uppercase; text-align: left; font-size: 11px;">\n                                                            Item in your order                                                    </th>\n                        <th class="cell-name align-center" style="font-family: Verdana, Arial; font-weight: 700; padding: 10px 15px; background: #f1f1f1; text-transform: uppercase; text-align: center; font-size: 11px;">\n                            Qty                        </th>\n                        <th class="cell-name align-right" style="font-family: Verdana, Arial; font-weight: 700; padding: 10px 15px; background: #f1f1f1; text-transform: uppercase; text-align: right; font-size: 11px;">\n                            Price                        </th>\n                    </tr></thead>\n<tbody><tr>\n<td class="cell-content product-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0; border-top: 1px solid #ebebeb; text-align: left;">\n        <p class="product-name" style="font-family: Verdana, Arial; font-weight: bold; margin: 0 0 5px 0; color: #636363; font-style: normal; text-rendering: optimizeLegibility; text-transform: uppercase; line-height: 1.4; font-size: 14px; float: left; width: 100%; display: block;">Tablet A</p>\n        <p class="sku" style="font-family: Verdana, Arial; font-weight: normal; margin: 0 0 5px; float: left; width: 100%; display: block;">SKU: 31</p>\n                                                                                                            </td>\n            <td class="cell-content align-center" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0; border-top: 1px solid #ebebeb;">1</td>\n            <td class="cell-content align-right" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0; border-top: 1px solid #ebebeb;">\n                                                                                <span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€555.00</span>                    \n\n                                    \n\n                            </td>\n        </tr></tbody>\n</table>\n</td>\n    </tr>\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table class="table-totals" cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%; background: #e1f0f8;"><tr>\n<td class="padding-totals" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 20px 15px; margin: 0; text-align: right; line-height: 20px;">\n            <table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;">\n<tr class="subtotal">\n<td colspan="3" align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        Subtotal                    </td>\n        <td align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€555.00</span>                    </td>\n    </tr>\n<tr class="shipping" style="padding-bottom: 5px;">\n<td colspan="3" align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        Shipping &amp; Handling                    </td>\n        <td align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€5.00</span>                    </td>\n    </tr>\n<tr class="grand_total">\n<td colspan="3" align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <strong style="font-family: Verdana, Arial; font-weight: normal;">Grand Total</strong>\n                    </td>\n        <td align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <strong style="font-family: Verdana, Arial; font-weight: normal;"><span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€560.00</span></strong>\n                    </td>\n    </tr>\n</table>\n</td>\n    </tr></table>\n</td>\n    </tr>\n<table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0;">\n<tr>\n<td class="address-details" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; padding-top: 10px; text-align: left;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Bill to:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 12px; line-height: 18px; margin-bottom: 15px; margin-top: 2px;"><span class="no-link">Jana Mathauserova<br>\n\nChodov 158<br>\n\n\n\nChodov,  30100<br>\nCzech Republic<br>\nT: 123 456 789\n\n</span></p>\n                    </td>\n                    \n                    <td class="address-details" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; padding-top: 10px; text-align: left;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Ship to:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 12px; line-height: 18px; margin-bottom: 15px; margin-top: 2px;"><span class="no-link">Jana Mathauserova<br>\n\nChodov 158<br>\n\n\n\nChodov,  30100<br>\nCzech Republic<br>\nT: 123 456 789\n\n</span></p>\n                    </td>\n                    \n                </tr>\n<tr>\n<td class="method-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; text-align: left; padding-bottom: 10px;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; text-align: left; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Shipping method:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; text-align: left; font-size: 12px; margin-top: 2px; margin-bottom: 30px; line-height: 18px; padding: 0;">Flat Rate - Fixed</p>\n                    </td>\n                    \n                    <td class="method-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; text-align: left; padding-bottom: 10px;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; text-align: left; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Payment method:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; text-align: left; font-size: 12px; margin-top: 2px; margin-bottom: 30px; line-height: 18px; padding: 0;">Check / Money order</p>\n\n                    </td>\n                </tr>\n</table>\n</table>\n<!-- End Content -->\n</td>\n                </tr>\n</table>\n<h5 class="closing-text" style="font-family: Verdana, Arial; font-weight: normal; text-align: center; font-size: 22px; line-height: 32px; margin-bottom: 75px; margin-top: 30px;">Thank you, Responsive Mage Store!</h5>\n        </td>\n    </tr></table>\n<!-- End wrapper table -->\n</body>\n</html>\n', 'a:7:{s:7:"subject";s:44:"Responsive Mage Store: New Order # 100000002";s:17:"return_path_email";N;s:8:"is_plain";b:0;s:10:"from_email";s:17:"sales@example.com";s:9:"from_name";s:5:"Sales";s:8:"reply_to";N;s:9:"return_to";N;}', '2015-05-27 10:45:36', NULL),
+(3, 2, 'order', 'update_order', 'f93773a4c34ce7885d5085d6502c58bc', '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n<html xmlns="http://www.w3.org/1999/xhtml" style="background-color: #ebebeb;">\n<head>\n<meta http-equiv="Content-Type" content="text/html; charset=utf-8">\n<meta name="viewport" content="initial-scale=1.0, width=device-width">\n</head>\n<body style="font-family: Verdana, Arial; font-weight: normal; margin: 0; padding: 0; text-align: left; color: #333333; background-color: #ebebeb; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background: #ebebeb; font-size: 12px;">\n<style type="text/css">\n/* each line with !important */\n\n</style>\n<!-- Begin wrapper table --><table width="100%" cellpadding="0" cellspacing="0" border="0" id="background-table" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0 auto; background-color: #ebebeb; font-size: 12px;"><tr>\n<td valign="top" class="container-td" align="center" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0; width: 100%;">\n            <table cellpadding="0" cellspacing="0" border="0" align="center" class="container-table" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0 auto; width: 600px;">\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n                        <table cellpadding="0" cellspacing="0" border="0" class="logo-container" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;"><tr>\n<td class="logo" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 15px 0px 10px 5px; margin: 0;">\n                                    <a href="http://localhost/mage2/" style="color: #3696c2; float: left; display: block;">\n                                        <img width="160" height="90" src="http://localhost/mage2/media/email/logo/default/SomeLogo.png" alt="Some Logo" border="0" style="-ms-interpolation-mode: bicubic; outline: none; text-decoration: none;"></a>\n                                </td>\n                            </tr></table>\n</td>\n                </tr>\n<tr>\n<td valign="top" class="top-content" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 5px; margin: 0; border: 1px solid #ebebeb; background: #FFF;">\n                    <!-- Begin Content -->\n\n\n\n<table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;"><tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0;"><tr>\n<td class="action-content" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 20px 15px; margin: 0; line-height: 18px;">\n                        <h1 style="font-family: Verdana, Arial; font-weight: bold; font-size: 25px; margin-bottom: 25px; margin-top: 5px; line-height: 28px;">Jana Mathauserova,</h1>\n                        <p style="font-family: Verdana, Arial; font-weight: normal;">Your order <span class="no-link">#100000002</span> has been updated to: <strong style="font-family: Verdana, Arial; font-weight: normal;">Pending</strong></p>\n                        \n                        <table cellspacing="0" cellpadding="0" class="message-container" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 15px 0; width: 100%; background-color: #fffdd9; border: 1px solid #fff74c;"><tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0;">hey</td>\n                            </tr></table>\n<p style="font-family: Verdana, Arial; font-weight: normal;">You can check the status of your order by <a href="http://localhost/mage2/customer/account/" style="color: #3696c2;">logging into your account</a>.</p>\n                        <p style="font-family: Verdana, Arial; font-weight: normal;">\n                            If you have any questions, please feel free to contact us at\n                            <a href="mailto:support@example.com" style="color: #3696c2;">support@example.com</a>\n                             or by phone at <a href="tel:" style="color: #3696c2;">123 456 789</a>.\n                        </p>\n                    </td>\n                </tr></table>\n</td>\n    </tr></table>\n<!-- End Content -->\n</td>\n                </tr>\n</table>\n<h5 class="closing-text" style="font-family: Verdana, Arial; font-weight: normal; text-align: center; font-size: 22px; line-height: 32px; margin-bottom: 75px; margin-top: 30px;">Thank you, Responsive Mage Store!</h5>\n        </td>\n    </tr></table>\n<!-- End wrapper table -->\n</body>\n</html>\n', 'a:7:{s:7:"subject";s:47:"Responsive Mage Store: Order # 100000002 update";s:17:"return_path_email";N;s:8:"is_plain";b:0;s:10:"from_email";s:17:"sales@example.com";s:9:"from_name";s:5:"Sales";s:8:"reply_to";N;s:9:"return_to";N;}', '2015-05-27 10:47:16', NULL);
 
 -- --------------------------------------------------------
 
@@ -4232,14 +4440,16 @@ CREATE TABLE IF NOT EXISTS `core_email_queue_recipients` (
   `recipient_email` varchar(128) NOT NULL COMMENT 'Recipient Email',
   `recipient_name` varchar(255) NOT NULL COMMENT 'Recipient Name',
   `email_type` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Email Type'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Email Queue';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Email Queue';
 
 --
 -- Vypisuji data pro tabulku `core_email_queue_recipients`
 --
 
 INSERT INTO `core_email_queue_recipients` (`recipient_id`, `message_id`, `recipient_email`, `recipient_name`, `email_type`) VALUES
-(1, 1, 'aaa@gmail.com', 'aa aaa', 0);
+(1, 1, 'aaa@gmail.com', 'aa aaa', 0),
+(2, 2, 'jana.mathauserova@ubk.cz', 'Jana Mathauserova', 0),
+(3, 3, 'jana.mathauserova@ubk.cz', 'Jana Mathauserova', 0);
 
 -- --------------------------------------------------------
 
@@ -4482,7 +4692,7 @@ CREATE TABLE IF NOT EXISTS `core_url_rewrite` (
   `description` varchar(255) DEFAULT NULL COMMENT 'Deascription',
   `category_id` int(10) unsigned DEFAULT NULL COMMENT 'Category Id',
   `product_id` int(10) unsigned DEFAULT NULL COMMENT 'Product Id'
-) ENGINE=InnoDB AUTO_INCREMENT=249 DEFAULT CHARSET=utf8 COMMENT='Url Rewrites';
+) ENGINE=InnoDB AUTO_INCREMENT=253 DEFAULT CHARSET=utf8 COMMENT='Url Rewrites';
 
 --
 -- Vypisuji data pro tabulku `core_url_rewrite`
@@ -4555,7 +4765,10 @@ INSERT INTO `core_url_rewrite` (`url_rewrite_id`, `store_id`, `id_path`, `reques
 (167, 1, 'product/11/14', 'new/phone-e.html', 'catalog/product/view/id/11/category/14', 1, NULL, NULL, 14, 11),
 (171, 1, 'product/2/14', 'new/laptop-b.html', 'catalog/product/view/id/2/category/14', 1, NULL, NULL, 14, 2),
 (175, 1, 'product/1/14', 'new/laptop-a.html', 'catalog/product/view/id/1/category/14', 1, NULL, NULL, 14, 1),
-(183, 1, 'product/9/14', 'new/phone-c.html', 'catalog/product/view/id/9/category/14', 1, NULL, NULL, 14, 9);
+(183, 1, 'product/9/14', 'new/phone-c.html', 'catalog/product/view/id/9/category/14', 1, NULL, NULL, 14, 9),
+(249, 1, 'product/17', 'bundle-1.html', 'catalog/product/view/id/17', 1, NULL, NULL, NULL, 17),
+(250, 1, 'product/17/13', 'top/bundle-1.html', 'catalog/product/view/id/17/category/13', 1, NULL, NULL, 13, 17),
+(251, 1, 'product/17/14', 'new/bundle-1.html', 'catalog/product/view/id/17/category/14', 1, NULL, NULL, 14, 17);
 
 -- --------------------------------------------------------
 
@@ -7315,14 +7528,16 @@ CREATE TABLE IF NOT EXISTS `eav_entity_store` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `increment_prefix` varchar(20) DEFAULT NULL COMMENT 'Increment Prefix',
   `increment_last_id` varchar(50) DEFAULT NULL COMMENT 'Last Incremented Id'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Eav Entity Store';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Eav Entity Store';
 
 --
 -- Vypisuji data pro tabulku `eav_entity_store`
 --
 
 INSERT INTO `eav_entity_store` (`entity_store_id`, `entity_type_id`, `store_id`, `increment_prefix`, `increment_last_id`) VALUES
-(1, 5, 1, '1', '100000001');
+(1, 5, 1, '1', '100000002'),
+(2, 6, 1, '1', '100000001'),
+(3, 8, 1, '1', '100000001');
 
 -- --------------------------------------------------------
 
@@ -7616,7 +7831,7 @@ CREATE TABLE IF NOT EXISTS `index_event` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Creation Time',
   `old_data` mediumtext COMMENT 'Old Data',
   `new_data` mediumtext COMMENT 'New Data'
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8 COMMENT='Index Event';
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8 COMMENT='Index Event';
 
 --
 -- Vypisuji data pro tabulku `index_event`
@@ -7685,7 +7900,10 @@ INSERT INTO `index_event` (`event_id`, `type`, `entity`, `entity_pk`, `created_a
 (60, 'save', 'catalog_product', 16, '2015-05-15 07:25:48', NULL, 'a:5:{s:35:"cataloginventory_stock_match_result";b:1;s:34:"catalog_product_price_match_result";b:1;s:24:"catalog_url_match_result";b:1;s:37:"catalog_category_product_match_result";b:1;s:35:"catalogsearch_fulltext_match_result";b:1;}'),
 (61, 'save', 'catalog_eav_attribute', 132, '2015-05-15 07:32:06', NULL, 'a:5:{s:35:"cataloginventory_stock_match_result";b:0;s:34:"catalog_product_price_match_result";b:0;s:24:"catalog_url_match_result";b:0;s:37:"catalog_category_product_match_result";b:0;s:35:"catalogsearch_fulltext_match_result";b:1;}'),
 (62, 'save', 'catalog_category', 13, '2015-05-19 07:48:01', NULL, 'a:5:{s:35:"cataloginventory_stock_match_result";b:0;s:34:"catalog_product_price_match_result";b:0;s:24:"catalog_url_match_result";b:1;s:37:"catalog_category_product_match_result";b:1;s:35:"catalogsearch_fulltext_match_result";b:1;}'),
-(63, 'save', 'catalog_category', 14, '2015-05-19 07:51:08', NULL, 'a:5:{s:35:"cataloginventory_stock_match_result";b:0;s:34:"catalog_product_price_match_result";b:0;s:24:"catalog_url_match_result";b:1;s:37:"catalog_category_product_match_result";b:1;s:35:"catalogsearch_fulltext_match_result";b:1;}');
+(63, 'save', 'catalog_category', 14, '2015-05-19 07:51:08', NULL, 'a:5:{s:35:"cataloginventory_stock_match_result";b:0;s:34:"catalog_product_price_match_result";b:0;s:24:"catalog_url_match_result";b:1;s:37:"catalog_category_product_match_result";b:1;s:35:"catalogsearch_fulltext_match_result";b:1;}'),
+(64, 'save', 'cataloginventory_stock_item', 25, '2015-05-27 11:55:41', NULL, 'a:5:{s:35:"cataloginventory_stock_match_result";b:1;s:34:"catalog_product_price_match_result";b:0;s:24:"catalog_url_match_result";b:0;s:37:"catalog_category_product_match_result";b:0;s:35:"catalogsearch_fulltext_match_result";b:0;}'),
+(65, 'catalog_reindex_price', 'catalog_product', 17, '2015-05-27 11:55:41', NULL, 'a:5:{s:35:"cataloginventory_stock_match_result";b:0;s:34:"catalog_product_price_match_result";b:1;s:24:"catalog_url_match_result";b:0;s:37:"catalog_category_product_match_result";b:0;s:35:"catalogsearch_fulltext_match_result";b:0;}'),
+(66, 'save', 'catalog_product', 17, '2015-05-27 11:55:42', NULL, 'a:5:{s:35:"cataloginventory_stock_match_result";b:1;s:34:"catalog_product_price_match_result";b:1;s:24:"catalog_url_match_result";b:1;s:37:"catalog_category_product_match_result";b:1;s:35:"catalogsearch_fulltext_match_result";b:1;}');
 
 -- --------------------------------------------------------
 
@@ -7708,15 +7926,15 @@ CREATE TABLE IF NOT EXISTS `index_process` (
 --
 
 INSERT INTO `index_process` (`process_id`, `indexer_code`, `status`, `started_at`, `ended_at`, `mode`) VALUES
-(1, 'catalog_product_attribute', 'pending', '2015-05-27 06:20:24', '2015-05-27 06:20:24', 'real_time'),
-(2, 'catalog_product_price', 'pending', '2015-05-27 06:20:24', '2015-05-27 06:20:25', 'real_time'),
-(3, 'catalog_url', 'pending', '2015-05-27 06:20:25', '2015-05-27 06:20:25', 'real_time'),
+(1, 'catalog_product_attribute', 'pending', '2015-05-27 11:59:02', '2015-05-27 11:59:02', 'real_time'),
+(2, 'catalog_product_price', 'pending', '2015-05-27 11:59:02', '2015-05-27 11:59:02', 'real_time'),
+(3, 'catalog_url', 'pending', '2015-05-27 11:59:02', '2015-05-27 11:59:02', 'real_time'),
 (4, 'catalog_product_flat', 'require_reindex', '2015-05-15 05:57:44', '2015-05-15 05:57:44', 'real_time'),
 (5, 'catalog_category_flat', 'pending', '2015-05-15 05:57:44', '2015-05-15 05:57:44', 'real_time'),
-(6, 'catalog_category_product', 'pending', '2015-05-27 06:20:25', '2015-05-27 06:20:25', 'real_time'),
-(7, 'catalogsearch_fulltext', 'pending', '2015-05-27 06:20:25', '2015-05-27 06:20:25', 'real_time'),
-(8, 'cataloginventory_stock', 'pending', '2015-05-27 06:20:24', '2015-05-27 06:20:24', 'real_time'),
-(9, 'tag_summary', 'pending', '2015-05-27 06:20:25', '2015-05-27 06:20:25', 'real_time');
+(6, 'catalog_category_product', 'pending', '2015-05-27 11:59:02', '2015-05-27 11:59:02', 'real_time'),
+(7, 'catalogsearch_fulltext', 'pending', '2015-05-27 11:59:02', '2015-05-27 11:59:02', 'real_time'),
+(8, 'cataloginventory_stock', 'pending', '2015-05-27 11:59:02', '2015-05-27 11:59:02', 'real_time'),
+(9, 'tag_summary', 'pending', '2015-05-27 11:59:02', '2015-05-27 11:59:02', 'real_time');
 
 -- --------------------------------------------------------
 
@@ -7769,7 +7987,8 @@ INSERT INTO `log_quote` (`quote_id`, `visitor_id`, `created_at`, `deleted_at`) V
 (2, 26, '2015-05-18 05:33:08', NULL),
 (3, 595, '2015-05-19 09:26:45', NULL),
 (4, 687, '2015-05-19 10:40:52', NULL),
-(5, 743, '2015-05-20 05:42:09', NULL);
+(5, 743, '2015-05-20 05:42:09', NULL),
+(7, 1290, '2015-05-27 11:43:59', NULL);
 
 -- --------------------------------------------------------
 
@@ -9663,7 +9882,125 @@ INSERT INTO `log_url` (`url_id`, `visitor_id`, `visit_time`) VALUES
 (1833, 1299, '2015-05-27 10:18:10'),
 (1834, 1300, '2015-05-27 10:18:10'),
 (1835, 1301, '2015-05-27 10:19:30'),
-(1836, 1302, '2015-05-27 10:19:30');
+(1836, 1302, '2015-05-27 10:19:30'),
+(1837, 1290, '2015-05-27 10:36:27'),
+(1838, 1290, '2015-05-27 10:36:28'),
+(1839, 1290, '2015-05-27 10:36:31'),
+(1840, 1290, '2015-05-27 10:36:31'),
+(1841, 1290, '2015-05-27 10:42:57'),
+(1842, 1290, '2015-05-27 10:42:57'),
+(1843, 1290, '2015-05-27 10:43:40'),
+(1844, 1290, '2015-05-27 10:43:40'),
+(1845, 1290, '2015-05-27 10:43:50'),
+(1846, 1290, '2015-05-27 10:43:51'),
+(1847, 1290, '2015-05-27 10:43:51'),
+(1848, 1290, '2015-05-27 10:44:14'),
+(1849, 1290, '2015-05-27 10:44:15'),
+(1850, 1290, '2015-05-27 10:44:15'),
+(1851, 1290, '2015-05-27 10:44:20'),
+(1852, 1290, '2015-05-27 10:44:21'),
+(1853, 1290, '2015-05-27 10:44:22'),
+(1854, 1290, '2015-05-27 10:44:25'),
+(1855, 1290, '2015-05-27 10:44:25'),
+(1856, 1290, '2015-05-27 10:44:30'),
+(1857, 1290, '2015-05-27 10:44:30'),
+(1858, 1290, '2015-05-27 10:45:18'),
+(1859, 1290, '2015-05-27 10:45:19'),
+(1860, 1290, '2015-05-27 10:45:19'),
+(1861, 1290, '2015-05-27 10:45:20'),
+(1862, 1290, '2015-05-27 10:45:23'),
+(1863, 1290, '2015-05-27 10:45:24'),
+(1864, 1290, '2015-05-27 10:45:24'),
+(1865, 1290, '2015-05-27 10:45:28'),
+(1866, 1290, '2015-05-27 10:45:28'),
+(1867, 1290, '2015-05-27 10:45:36'),
+(1868, 1290, '2015-05-27 10:45:37'),
+(1869, 1290, '2015-05-27 10:45:37'),
+(1870, 1290, '2015-05-27 10:46:02'),
+(1871, 1290, '2015-05-27 10:46:02'),
+(1872, 1303, '2015-05-27 11:11:39'),
+(1873, 1304, '2015-05-27 11:11:39'),
+(1874, 1305, '2015-05-27 11:11:58'),
+(1875, 1306, '2015-05-27 11:11:58'),
+(1876, 1307, '2015-05-27 11:11:59'),
+(1877, 1290, '2015-05-27 11:12:53'),
+(1878, 1290, '2015-05-27 11:12:53'),
+(1879, 1290, '2015-05-27 11:17:06'),
+(1880, 1290, '2015-05-27 11:17:07'),
+(1881, 1308, '2015-05-27 11:17:20'),
+(1882, 1309, '2015-05-27 11:17:21'),
+(1883, 1310, '2015-05-27 11:18:32'),
+(1884, 1311, '2015-05-27 11:18:32'),
+(1885, 1290, '2015-05-27 11:28:44'),
+(1886, 1290, '2015-05-27 11:28:44'),
+(1887, 1312, '2015-05-27 11:28:59'),
+(1888, 1313, '2015-05-27 11:29:00'),
+(1889, 1314, '2015-05-27 11:29:23'),
+(1890, 1315, '2015-05-27 11:29:23'),
+(1891, 1316, '2015-05-27 11:31:35'),
+(1892, 1317, '2015-05-27 11:31:36'),
+(1893, 1318, '2015-05-27 11:31:43'),
+(1894, 1319, '2015-05-27 11:31:43'),
+(1895, 1320, '2015-05-27 11:31:47'),
+(1896, 1321, '2015-05-27 11:31:48'),
+(1897, 1322, '2015-05-27 11:34:40'),
+(1898, 1323, '2015-05-27 11:34:41'),
+(1899, 1324, '2015-05-27 11:35:24'),
+(1900, 1325, '2015-05-27 11:35:24'),
+(1901, 1326, '2015-05-27 11:37:21'),
+(1902, 1327, '2015-05-27 11:37:21'),
+(1903, 1329, '2015-05-27 11:43:38'),
+(1904, 1330, '2015-05-27 11:43:39'),
+(1905, 1331, '2015-05-27 11:43:42'),
+(1906, 1332, '2015-05-27 11:43:43'),
+(1907, 1333, '2015-05-27 11:43:44'),
+(1908, 1334, '2015-05-27 11:43:45'),
+(1909, 1335, '2015-05-27 11:43:45'),
+(1910, 1290, '2015-05-27 11:43:59'),
+(1911, 1290, '2015-05-27 11:44:00'),
+(1912, 1290, '2015-05-27 11:44:00'),
+(1913, 1290, '2015-05-27 11:44:04'),
+(1914, 1290, '2015-05-27 11:44:05'),
+(1915, 1290, '2015-05-27 11:48:34'),
+(1916, 1290, '2015-05-27 11:48:35'),
+(1917, 1336, '2015-05-27 11:49:01'),
+(1918, 1337, '2015-05-27 11:49:02'),
+(1919, 1338, '2015-05-27 11:49:08'),
+(1920, 1339, '2015-05-27 11:49:09'),
+(1921, 1340, '2015-05-27 11:49:09'),
+(1922, 1341, '2015-05-27 11:49:13'),
+(1923, 1342, '2015-05-27 11:49:14'),
+(1924, 1290, '2015-05-27 11:51:30'),
+(1925, 1290, '2015-05-27 11:51:31'),
+(1926, 1343, '2015-05-27 12:02:28'),
+(1927, 1290, '2015-05-27 12:11:16'),
+(1928, 1290, '2015-05-27 12:11:17'),
+(1929, 1344, '2015-05-27 12:11:23'),
+(1930, 1345, '2015-05-27 12:11:24'),
+(1931, 1346, '2015-05-27 12:12:21'),
+(1932, 1347, '2015-05-27 12:12:22'),
+(1933, 1348, '2015-05-27 12:14:23'),
+(1934, 1349, '2015-05-27 12:14:24'),
+(1935, 1350, '2015-05-27 12:18:30'),
+(1936, 1351, '2015-05-27 12:18:31'),
+(1937, 1352, '2015-05-27 12:19:00'),
+(1938, 1353, '2015-05-27 12:19:01'),
+(1939, 1354, '2015-05-27 12:25:43'),
+(1940, 1355, '2015-05-27 12:25:43'),
+(1941, 1356, '2015-05-27 12:26:21'),
+(1942, 1357, '2015-05-27 12:26:22'),
+(1943, 1358, '2015-05-27 12:28:53'),
+(1944, 1359, '2015-05-27 12:28:54'),
+(1945, 1360, '2015-05-27 12:29:29'),
+(1946, 1361, '2015-05-27 12:29:30'),
+(1947, 1362, '2015-05-27 12:30:53'),
+(1948, 1363, '2015-05-27 12:30:54'),
+(1949, 1364, '2015-05-27 12:31:30'),
+(1950, 1365, '2015-05-27 12:31:31'),
+(1951, 1366, '2015-05-27 12:32:16'),
+(1952, 1367, '2015-05-27 12:32:17'),
+(1953, 1368, '2015-05-27 12:32:34'),
+(1954, 1369, '2015-05-27 12:32:35');
 
 -- --------------------------------------------------------
 
@@ -9676,7 +10013,7 @@ CREATE TABLE IF NOT EXISTS `log_url_info` (
   `url_id` bigint(20) unsigned NOT NULL COMMENT 'URL ID',
   `url` varchar(255) DEFAULT NULL COMMENT 'URL',
   `referer` varchar(255) DEFAULT NULL COMMENT 'Referrer'
-) ENGINE=InnoDB AUTO_INCREMENT=1837 DEFAULT CHARSET=utf8 COMMENT='Log URL Info Table';
+) ENGINE=InnoDB AUTO_INCREMENT=1955 DEFAULT CHARSET=utf8 COMMENT='Log URL Info Table';
 
 --
 -- Vypisuji data pro tabulku `log_url_info`
@@ -11521,7 +11858,125 @@ INSERT INTO `log_url_info` (`url_id`, `url`, `referer`) VALUES
 (1833, 'http://localhost/mage2/', NULL),
 (1834, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
 (1835, 'http://localhost/mage2/', NULL),
-(1836, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/');
+(1836, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1837, 'http://localhost/mage2/catalog/product/view/id/11/category/14', 'http://localhost/mage2/'),
+(1838, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/new/phone-e.html'),
+(1839, 'http://localhost/mage2/', 'http://localhost/mage2/new/phone-e.html'),
+(1840, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1841, 'http://localhost/mage2/', 'http://localhost/mage2/new/phone-e.html'),
+(1842, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1843, 'http://localhost/mage2/catalog/category/view/id/6', 'http://localhost/mage2/'),
+(1844, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/tablets.html'),
+(1845, 'http://localhost/mage2/checkout/cart/add/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlMi90YWJsZXRzLmh0bWw,/product/13/form_key/InYLc0l0USf1MI7y/', 'http://localhost/mage2/tablets.html'),
+(1846, 'http://localhost/mage2/checkout/cart/', 'http://localhost/mage2/tablets.html'),
+(1847, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/checkout/cart/'),
+(1848, 'http://localhost/mage2/checkout/cart/estimatePost/', 'http://localhost/mage2/checkout/cart/'),
+(1849, 'http://localhost/mage2/checkout/cart/', 'http://localhost/mage2/checkout/cart/'),
+(1850, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/checkout/cart/'),
+(1851, 'http://localhost/mage2/checkout/cart/estimateUpdatePost/?estimate_method=flatrate_flatrate&do=Update+Total', 'http://localhost/mage2/checkout/cart/'),
+(1852, 'http://localhost/mage2/checkout/cart/', 'http://localhost/mage2/checkout/cart/'),
+(1853, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/checkout/cart/'),
+(1854, 'http://localhost/mage2/checkout/onepage/', 'http://localhost/mage2/checkout/cart/'),
+(1855, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/checkout/onepage/'),
+(1856, 'http://localhost/mage2/checkout/onepage/saveMethod/', 'http://localhost/mage2/checkout/onepage/'),
+(1857, 'http://localhost/mage2/checkout/onepage/progress/?prevStep=billing', 'http://localhost/mage2/checkout/onepage/'),
+(1858, 'http://localhost/mage2/checkout/onepage/saveBilling/', 'http://localhost/mage2/checkout/onepage/'),
+(1859, 'http://localhost/mage2/checkout/onepage/getAdditional/', 'http://localhost/mage2/checkout/onepage/'),
+(1860, 'http://localhost/mage2/checkout/onepage/progress/?prevStep=shipping', 'http://localhost/mage2/checkout/onepage/'),
+(1861, 'http://localhost/mage2/checkout/onepage/progress/?prevStep=billing', 'http://localhost/mage2/checkout/onepage/'),
+(1862, 'http://localhost/mage2/checkout/onepage/saveShippingMethod/', 'http://localhost/mage2/checkout/onepage/'),
+(1863, 'http://localhost/mage2/checkout/onepage/progress/', 'http://localhost/mage2/checkout/onepage/'),
+(1864, 'http://localhost/mage2/checkout/onepage/progress/?prevStep=shipping_method', 'http://localhost/mage2/checkout/onepage/'),
+(1865, 'http://localhost/mage2/checkout/onepage/savePayment/', 'http://localhost/mage2/checkout/onepage/'),
+(1866, 'http://localhost/mage2/checkout/onepage/progress/?prevStep=payment', 'http://localhost/mage2/checkout/onepage/'),
+(1867, 'http://localhost/mage2/checkout/onepage/saveOrder/form_key/InYLc0l0USf1MI7y/', 'http://localhost/mage2/checkout/onepage/'),
+(1868, 'http://localhost/mage2/checkout/onepage/success/', 'http://localhost/mage2/checkout/onepage/'),
+(1869, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/checkout/onepage/success/'),
+(1870, 'http://localhost/mage2/', 'http://localhost/mage2/checkout/onepage/success/'),
+(1871, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1872, 'http://localhost/mage2/checkout/cart/', 'http://localhost/mage2/'),
+(1873, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/checkout/cart/'),
+(1874, 'http://localhost/mage2/newsletter/subscriber/new/', 'http://localhost/mage2/checkout/cart/'),
+(1875, 'http://localhost/mage2/checkout/cart/', 'http://localhost/mage2/checkout/cart/'),
+(1876, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/checkout/cart/'),
+(1877, 'http://localhost/mage2/', NULL),
+(1878, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1879, 'http://localhost/mage2/', NULL),
+(1880, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1881, 'http://localhost/mage2/checkout/cart/', 'http://localhost/mage2/checkout/cart/'),
+(1882, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/checkout/cart/'),
+(1883, 'http://localhost/mage2/catalog/category/view/id/4', 'http://localhost/mage2/checkout/cart/'),
+(1884, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/laptops.html'),
+(1885, 'http://localhost/mage2/', NULL),
+(1886, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1887, 'http://localhost/mage2/catalog/category/view/id/4', 'http://localhost/mage2/checkout/cart/'),
+(1888, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/laptops.html'),
+(1889, 'http://localhost/mage2/catalog/category/view/id/4', NULL),
+(1890, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/laptops.html'),
+(1891, 'http://localhost/mage2/catalog/category/view/id/4', NULL),
+(1892, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/laptops.html'),
+(1893, 'http://localhost/mage2/catalog/category/view/id/5', 'http://localhost/mage2/laptops.html'),
+(1894, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/phones.html'),
+(1895, 'http://localhost/mage2/catalog/category/view/id/5', 'http://localhost/mage2/phones.html'),
+(1896, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/phones.html'),
+(1897, 'http://localhost/mage2/catalog/category/view/id/5', 'http://localhost/mage2/phones.html'),
+(1898, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/phones.html'),
+(1899, 'http://localhost/mage2/catalog/category/view/id/5', 'http://localhost/mage2/phones.html'),
+(1900, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/phones.html'),
+(1901, 'http://localhost/mage2/catalog/product/view/id/7/category/5', 'http://localhost/mage2/phones.html'),
+(1902, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/phones/phone-a.html'),
+(1903, 'http://localhost/mage2/customer/account/login/', 'http://localhost/mage2/phones/phone-a.html'),
+(1904, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/customer/account/login/'),
+(1905, 'http://localhost/mage2/catalog/category/view/id/6', 'http://localhost/mage2/customer/account/login/'),
+(1906, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/tablets.html'),
+(1907, 'http://localhost/mage2/checkout/cart/add/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlMi90YWJsZXRzLmh0bWw,/product/13/form_key/ANAL8HH4RpS4m7qp/', 'http://localhost/mage2/tablets.html'),
+(1908, 'http://localhost/mage2/checkout/cart/', 'http://localhost/mage2/tablets.html'),
+(1909, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/checkout/cart/'),
+(1910, 'http://localhost/mage2/checkout/cart/add/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlMi8,/product/11/form_key/InYLc0l0USf1MI7y/', 'http://localhost/mage2/'),
+(1911, 'http://localhost/mage2/checkout/cart/', 'http://localhost/mage2/'),
+(1912, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/checkout/cart/'),
+(1913, 'http://localhost/mage2/', 'http://localhost/mage2/checkout/cart/'),
+(1914, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1915, 'http://localhost/mage2/', NULL),
+(1916, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1917, 'http://localhost/mage2/', NULL),
+(1918, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1919, 'http://localhost/mage2/checkout/cart/add/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlMi8,/product/14/form_key/VaJrHqkK3DNB0hZt/', 'http://localhost/mage2/'),
+(1920, 'http://localhost/mage2/checkout/cart/', 'http://localhost/mage2/'),
+(1921, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/checkout/cart/'),
+(1922, 'http://localhost/mage2/', 'http://localhost/mage2/checkout/cart/'),
+(1923, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1924, 'http://localhost/mage2/', NULL),
+(1925, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1926, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1927, 'http://localhost/mage2/', NULL),
+(1928, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1929, 'http://localhost/mage2/', 'http://localhost/mage2/checkout/cart/'),
+(1930, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1931, 'http://localhost/mage2/', 'http://localhost/mage2/checkout/cart/'),
+(1932, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1933, 'http://localhost/mage2/', NULL),
+(1934, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1935, 'http://localhost/mage2/', NULL),
+(1936, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1937, 'http://localhost/mage2/', NULL),
+(1938, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1939, 'http://localhost/mage2/', NULL),
+(1940, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1941, 'http://localhost/mage2/', NULL),
+(1942, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1943, 'http://localhost/mage2/', NULL),
+(1944, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1945, 'http://localhost/mage2/', NULL),
+(1946, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1947, 'http://localhost/mage2/', NULL),
+(1948, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1949, 'http://localhost/mage2/', NULL),
+(1950, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1951, 'http://localhost/mage2/', NULL),
+(1952, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1953, 'http://localhost/mage2/', NULL),
+(1954, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/');
 
 -- --------------------------------------------------------
 
@@ -11537,7 +11992,7 @@ CREATE TABLE IF NOT EXISTS `log_visitor` (
   `last_visit_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Last Visit Time',
   `last_url_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT 'Last URL ID',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID'
-) ENGINE=InnoDB AUTO_INCREMENT=1303 DEFAULT CHARSET=utf8 COMMENT='Log Visitors Table';
+) ENGINE=InnoDB AUTO_INCREMENT=1370 DEFAULT CHARSET=utf8 COMMENT='Log Visitors Table';
 
 --
 -- Vypisuji data pro tabulku `log_visitor`
@@ -12835,7 +13290,7 @@ INSERT INTO `log_visitor` (`visitor_id`, `session_id`, `first_visit_at`, `last_v
 (1287, 'spq3du0glho14hmgooghrveu11', '2015-05-27 10:01:53', '2015-05-27 10:01:53', 1805, 1),
 (1288, 'nhh1evrik7uqfpkn793t3jhar0', '2015-05-27 10:01:54', '2015-05-27 10:01:54', 1806, 1),
 (1289, 'qbq0v7qps4tmobqo413n3bslf0', '2015-05-27 10:02:07', '2015-05-27 10:02:08', 1808, 1),
-(1290, '8nlbkbulrfpgl1atrdhccbipk1', '2015-05-27 10:02:25', '2015-05-27 10:07:57', 1826, 1),
+(1290, '8nlbkbulrfpgl1atrdhccbipk1', '2015-05-27 10:02:25', '2015-05-27 12:11:17', 1928, 1),
 (1291, 'i12uk8rdl2jc0dq1uhta151ga1', '2015-05-27 10:06:59', '2015-05-27 10:06:59', 1819, 1),
 (1292, 'g4m6inf66cqb2u0eopdt0jug56', '2015-05-27 10:07:00', '2015-05-27 10:07:00', 1820, 1),
 (1293, 'vimjnn8dk7icr553ndqdq5sma7', '2015-05-27 10:08:23', '2015-05-27 10:08:23', 1827, 1),
@@ -12847,7 +13302,74 @@ INSERT INTO `log_visitor` (`visitor_id`, `session_id`, `first_visit_at`, `last_v
 (1299, 'p1vqsghdm6v5g4mmi0ctthi4b5', '2015-05-27 10:18:09', '2015-05-27 10:18:10', 1833, 1),
 (1300, 'mlnfh6s4op5cvga9m4jh9391d5', '2015-05-27 10:18:10', '2015-05-27 10:18:10', 1834, 1),
 (1301, 'o06h9sobsd163sihvqg61728v1', '2015-05-27 10:19:29', '2015-05-27 10:19:30', 1835, 1),
-(1302, '4kbugh0q2rcmagvcgbl16vkee2', '2015-05-27 10:19:30', '2015-05-27 10:19:30', 1836, 1);
+(1302, '4kbugh0q2rcmagvcgbl16vkee2', '2015-05-27 10:19:30', '2015-05-27 10:19:30', 1836, 1),
+(1303, 'da7ikh2ennplq0tv5cq3etqi37', '2015-05-27 11:11:38', '2015-05-27 11:11:39', 1872, 1),
+(1304, 'ragel6kfoi4ucv3r5r8l1c7i02', '2015-05-27 11:11:39', '2015-05-27 11:11:39', 1873, 1),
+(1305, '13pv229o5pkhgb5c8q18iavgt3', '2015-05-27 11:11:53', '2015-05-27 11:11:58', 1874, 1),
+(1306, 'tqhqmbtqad9evhmdlkb4qd40p7', '2015-05-27 11:11:58', '2015-05-27 11:11:58', 1875, 1),
+(1307, 'poo3ucncrciku7sn0eq8k17ji4', '2015-05-27 11:11:59', '2015-05-27 11:11:59', 1876, 1),
+(1308, '5jihf1ihm0dbfj4vdi4g9i2jm3', '2015-05-27 11:17:20', '2015-05-27 11:17:20', 1881, 1),
+(1309, '79mr5eno2r36elaool6dfq8ic3', '2015-05-27 11:17:20', '2015-05-27 11:17:21', 1882, 1),
+(1310, '52o6qrm92h0g29gi7kppqi29o3', '2015-05-27 11:18:31', '2015-05-27 11:18:32', 1883, 1),
+(1311, '6npq22rp58kkjrfolqtnamdvk0', '2015-05-27 11:18:32', '2015-05-27 11:18:32', 1884, 1),
+(1312, '5itbusfaq14lqrpdectlqrcto4', '2015-05-27 11:28:58', '2015-05-27 11:28:59', 1887, 1),
+(1313, 'itrncp4hvak2oshk2ksoq5bbn0', '2015-05-27 11:28:59', '2015-05-27 11:28:59', 1888, 1),
+(1314, 'nn263f2opg4ra8u1oqv3gpflm1', '2015-05-27 11:29:22', '2015-05-27 11:29:23', 1889, 1),
+(1315, 'm01gfa45j25i0bkbaoajpa9270', '2015-05-27 11:29:23', '2015-05-27 11:29:23', 1890, 1),
+(1316, 'ha1l38k4lpe3j32am9n73ha544', '2015-05-27 11:31:35', '2015-05-27 11:31:35', 1891, 1),
+(1317, 'j24fota4kgaae4oj7u32e4cgb2', '2015-05-27 11:31:36', '2015-05-27 11:31:36', 1892, 1),
+(1318, 'j8kalb3ue7cp7ui9utjcq2p710', '2015-05-27 11:31:42', '2015-05-27 11:31:43', 1893, 1),
+(1319, '5d92l97h6plgbru8jlc5al7hs4', '2015-05-27 11:31:43', '2015-05-27 11:31:43', 1894, 1),
+(1320, 'o1lo6edifo9np9he96fqsptf30', '2015-05-27 11:31:47', '2015-05-27 11:31:47', 1895, 1),
+(1321, '61i5oa64lokvojf364d50g07j3', '2015-05-27 11:31:48', '2015-05-27 11:31:48', 1896, 1),
+(1322, 'fchuui7rd8ahhbfdfaf7aj6t94', '2015-05-27 11:34:40', '2015-05-27 11:34:40', 1897, 1),
+(1323, 'd2om96bpvevsvq8860nfc75983', '2015-05-27 11:34:40', '2015-05-27 11:34:41', 1898, 1),
+(1324, 'v6hbqocgno1r4v9vtfbg8dku54', '2015-05-27 11:35:23', '2015-05-27 11:35:24', 1899, 1),
+(1325, 'u26pvb6itn5qv7ghgandjmmpv1', '2015-05-27 11:35:24', '2015-05-27 11:35:24', 1900, 1),
+(1326, '40sefjhcc4soi1fqqenqehc5v6', '2015-05-27 11:37:20', '2015-05-27 11:37:21', 1901, 1),
+(1327, 'cg2ng5jhhqthj64guttjhmg3a6', '2015-05-27 11:37:21', '2015-05-27 11:37:21', 1902, 1),
+(1328, 'uft7ovejs21qvc5lkcns773j86', '2015-05-27 11:43:38', '2015-05-27 11:43:38', 0, 1),
+(1329, 't9lh83iijusrpul7j0qgef5ho7', '2015-05-27 11:43:38', '2015-05-27 11:43:38', 1903, 1),
+(1330, 'eeudovnehii86qch7ma7npuus6', '2015-05-27 11:43:38', '2015-05-27 11:43:39', 1904, 1),
+(1331, '985f6v096qkq40kgae315a0ll6', '2015-05-27 11:43:42', '2015-05-27 11:43:42', 1905, 1),
+(1332, 'qse17vt5lbd7dlmd73bvh85tt0', '2015-05-27 11:43:43', '2015-05-27 11:43:43', 1906, 1),
+(1333, 'km70vd1dc3ol2panojsqut8es0', '2015-05-27 11:43:44', '2015-05-27 11:43:44', 1907, 1),
+(1334, 'c0dmupplup684u8kd1a88n37m5', '2015-05-27 11:43:44', '2015-05-27 11:43:45', 1908, 1),
+(1335, '0f9bchqljm3fv9bcjsqbfk5hk2', '2015-05-27 11:43:45', '2015-05-27 11:43:45', 1909, 1),
+(1336, 'dlnvd9bqs3bjt9ur791dr6r513', '2015-05-27 11:49:01', '2015-05-27 11:49:01', 1917, 1),
+(1337, '2u2fdevuqke99cpq1q331l55l2', '2015-05-27 11:49:01', '2015-05-27 11:49:02', 1918, 1),
+(1338, '5lf2v5t2n0omrs37lcv2dqe2e1', '2015-05-27 11:49:08', '2015-05-27 11:49:08', 1919, 1),
+(1339, '3d37vij6ctbifm3rauoqcph272', '2015-05-27 11:49:08', '2015-05-27 11:49:09', 1920, 1),
+(1340, 'h19f56dbo3m96ja3sr5b71m1h0', '2015-05-27 11:49:09', '2015-05-27 11:49:09', 1921, 1),
+(1341, '0e0g8ck8lbi7emhg92cfnhm9t0', '2015-05-27 11:49:13', '2015-05-27 11:49:13', 1922, 1),
+(1342, '9o09p21ti5iujq1r9egpocfb37', '2015-05-27 11:49:13', '2015-05-27 11:49:14', 1923, 1),
+(1343, 'v8co3ck4lep5r8jbtv406spvn3', '2015-05-27 12:02:27', '2015-05-27 12:02:28', 1926, 1),
+(1344, 'nomriie3rm2dbasp3qg7c60tu4', '2015-05-27 12:11:23', '2015-05-27 12:11:23', 1929, 1),
+(1345, 'ddqd021q5rrv5272o24u7our33', '2015-05-27 12:11:24', '2015-05-27 12:11:24', 1930, 1),
+(1346, '1i5ra6cg3c5oabt4k64taqq2c2', '2015-05-27 12:12:21', '2015-05-27 12:12:21', 1931, 1),
+(1347, 'g212nvq3lfrhnlkk2hbjlseco1', '2015-05-27 12:12:22', '2015-05-27 12:12:22', 1932, 1),
+(1348, 'fha44kql5ffnl3pd3p9peckm13', '2015-05-27 12:14:22', '2015-05-27 12:14:23', 1933, 1),
+(1349, 'quukpklmnafiqsvtm31n5r4t43', '2015-05-27 12:14:23', '2015-05-27 12:14:24', 1934, 1),
+(1350, 'l2eh8q6afpd14mqm8r0b90fe44', '2015-05-27 12:18:30', '2015-05-27 12:18:30', 1935, 1),
+(1351, 'vjjdahfcgunv47h0crj5c20sn3', '2015-05-27 12:18:31', '2015-05-27 12:18:31', 1936, 1),
+(1352, '8naa4fi67p5t6r6jkivimm5oq3', '2015-05-27 12:19:00', '2015-05-27 12:19:00', 1937, 1),
+(1353, 'abcf8v7l003kkhq22nlmop1q45', '2015-05-27 12:19:01', '2015-05-27 12:19:01', 1938, 1),
+(1354, '6kftql5s8thpo1cqudtele08d5', '2015-05-27 12:25:42', '2015-05-27 12:25:43', 1939, 1),
+(1355, 'r55jekpm4qf3hcg38obcm6j8t7', '2015-05-27 12:25:43', '2015-05-27 12:25:43', 1940, 1),
+(1356, '7h36d8mu3sclc2sg5mok4g74p6', '2015-05-27 12:26:21', '2015-05-27 12:26:21', 1941, 1),
+(1357, 'f6oke62kotgcvv0s03d6cm43v4', '2015-05-27 12:26:22', '2015-05-27 12:26:22', 1942, 1),
+(1358, 'fqsesff9bkiuks3u5q10jl3142', '2015-05-27 12:28:53', '2015-05-27 12:28:53', 1943, 1),
+(1359, 'ulbhe2nqusd62uddutqnnovhq7', '2015-05-27 12:28:54', '2015-05-27 12:28:54', 1944, 1),
+(1360, 'pgqd129qrf99q3rio1inp28b63', '2015-05-27 12:29:29', '2015-05-27 12:29:29', 1945, 1),
+(1361, '29l6io54g8v51sda1o7qp9mt03', '2015-05-27 12:29:30', '2015-05-27 12:29:30', 1946, 1),
+(1362, '7e0q1kjo8ar48nta7s9so4bb82', '2015-05-27 12:30:53', '2015-05-27 12:30:53', 1947, 1),
+(1363, 'srjn7vo1jdu10522akenjmccq0', '2015-05-27 12:30:54', '2015-05-27 12:30:54', 1948, 1),
+(1364, '2jn1ba0nl3bgi9spgsohek0cn6', '2015-05-27 12:31:29', '2015-05-27 12:31:30', 1949, 1),
+(1365, 'niqhgc8o03e4o23k7hj5altan2', '2015-05-27 12:31:30', '2015-05-27 12:31:31', 1950, 1),
+(1366, 'q44jqsnlp2qtqg93bs2tcornd3', '2015-05-27 12:32:15', '2015-05-27 12:32:16', 1951, 1),
+(1367, '3lrq2a0qef5nm0b3df0gho6aj4', '2015-05-27 12:32:16', '2015-05-27 12:32:17', 1952, 1),
+(1368, 'ftltasu6dpe6b17hr594a0imv7', '2015-05-27 12:32:34', '2015-05-27 12:32:34', 1953, 1),
+(1369, '9sutvu8n0q2a762rqqmqu9aa94', '2015-05-27 12:32:35', '2015-05-27 12:32:35', 1954, 1);
 
 -- --------------------------------------------------------
 
@@ -14176,7 +14698,74 @@ INSERT INTO `log_visitor_info` (`visitor_id`, `http_referer`, `http_user_agent`,
 (1299, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
 (1300, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
 (1301, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
-(1302, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0);
+(1302, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1303, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1304, 'http://localhost/mage2/checkout/cart/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1305, 'http://localhost/mage2/checkout/cart/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1306, 'http://localhost/mage2/checkout/cart/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1307, 'http://localhost/mage2/checkout/cart/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1308, 'http://localhost/mage2/checkout/cart/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1309, 'http://localhost/mage2/checkout/cart/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1310, 'http://localhost/mage2/checkout/cart/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1311, 'http://localhost/mage2/laptops.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1312, 'http://localhost/mage2/checkout/cart/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1313, 'http://localhost/mage2/laptops.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1314, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1315, 'http://localhost/mage2/laptops.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1316, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1317, 'http://localhost/mage2/laptops.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1318, 'http://localhost/mage2/laptops.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1319, 'http://localhost/mage2/phones.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1320, 'http://localhost/mage2/phones.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1321, 'http://localhost/mage2/phones.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1322, 'http://localhost/mage2/phones.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1323, 'http://localhost/mage2/phones.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1324, 'http://localhost/mage2/phones.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1325, 'http://localhost/mage2/phones.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1326, 'http://localhost/mage2/phones.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1327, 'http://localhost/mage2/phones/phone-a.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1328, 'http://localhost/mage2/phones/phone-a.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1329, 'http://localhost/mage2/phones/phone-a.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1330, 'http://localhost/mage2/customer/account/login/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1331, 'http://localhost/mage2/customer/account/login/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1332, 'http://localhost/mage2/tablets.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1333, 'http://localhost/mage2/tablets.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1334, 'http://localhost/mage2/tablets.html', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1335, 'http://localhost/mage2/checkout/cart/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1336, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1337, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1338, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1339, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1340, 'http://localhost/mage2/checkout/cart/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1341, 'http://localhost/mage2/checkout/cart/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1342, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1343, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1344, 'http://localhost/mage2/checkout/cart/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1345, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1346, 'http://localhost/mage2/checkout/cart/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1347, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1348, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1349, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1350, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1351, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1352, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1353, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1354, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1355, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1356, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1357, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1358, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1359, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1360, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1361, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1362, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1363, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1364, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1365, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1366, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1367, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1368, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1369, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -14272,7 +14861,14 @@ CREATE TABLE IF NOT EXISTS `newsletter_subscriber` (
   `subscriber_email` varchar(150) DEFAULT NULL COMMENT 'Subscriber Email',
   `subscriber_status` int(11) NOT NULL DEFAULT '0' COMMENT 'Subscriber Status',
   `subscriber_confirm_code` varchar(32) DEFAULT 'NULL' COMMENT 'Subscriber Confirm Code'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Newsletter Subscriber';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Newsletter Subscriber';
+
+--
+-- Vypisuji data pro tabulku `newsletter_subscriber`
+--
+
+INSERT INTO `newsletter_subscriber` (`subscriber_id`, `store_id`, `change_status_at`, `customer_id`, `subscriber_email`, `subscriber_status`, `subscriber_confirm_code`) VALUES
+(1, 1, NULL, 0, 'jana.mathauserova@ubk.cz', 1, 'g3v57wroknpxtyoabf6gk5hw25lhijue');
 
 -- --------------------------------------------------------
 
@@ -14752,7 +15348,7 @@ CREATE TABLE IF NOT EXISTS `report_event` (
   `subject_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Subject Id',
   `subtype` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Subtype',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id'
-) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8 COMMENT='Reports Event Table';
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8 COMMENT='Reports Event Table';
 
 --
 -- Vypisuji data pro tabulku `report_event`
@@ -14829,7 +15425,11 @@ INSERT INTO `report_event` (`event_id`, `logged_at`, `event_type_id`, `object_id
 (68, '2015-05-27 08:58:26', 1, 9, 1190, 1, 1),
 (69, '2015-05-27 09:51:15', 1, 2, 1279, 1, 1),
 (70, '2015-05-27 10:02:33', 1, 9, 1290, 1, 1),
-(71, '2015-05-27 10:02:42', 1, 11, 1290, 1, 1);
+(71, '2015-05-27 10:02:42', 1, 11, 1290, 1, 1),
+(72, '2015-05-27 10:36:26', 1, 11, 1290, 1, 1),
+(73, '2015-05-27 10:43:50', 4, 13, 1290, 1, 1),
+(74, '2015-05-27 11:37:20', 1, 7, 1326, 1, 1),
+(75, '2015-05-27 11:43:59', 4, 11, 1290, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -14924,7 +15524,7 @@ CREATE TABLE IF NOT EXISTS `report_viewed_product_index` (
   `product_id` int(10) unsigned NOT NULL COMMENT 'Product Id',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `added_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Added At'
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8 COMMENT='Reports Viewed Product Index Table';
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8 COMMENT='Reports Viewed Product Index Table';
 
 --
 -- Vypisuji data pro tabulku `report_viewed_product_index`
@@ -14968,7 +15568,8 @@ INSERT INTO `report_viewed_product_index` (`index_id`, `visitor_id`, `customer_i
 (55, 1190, NULL, 9, 1, '2015-05-27 08:58:26'),
 (56, 1279, NULL, 2, 1, '2015-05-27 09:51:15'),
 (57, 1290, NULL, 9, 1, '2015-05-27 10:02:33'),
-(58, 1290, NULL, 11, 1, '2015-05-27 10:02:42');
+(58, 1290, NULL, 11, 1, '2015-05-27 10:36:26'),
+(60, 1326, NULL, 7, 1, '2015-05-27 11:37:20');
 
 -- --------------------------------------------------------
 
@@ -15490,7 +16091,14 @@ CREATE TABLE IF NOT EXISTS `sales_flat_invoice` (
   `base_shipping_incl_tax` decimal(12,4) DEFAULT NULL COMMENT 'Base Shipping Incl Tax',
   `base_total_refunded` decimal(12,4) DEFAULT NULL COMMENT 'Base Total Refunded',
   `discount_description` varchar(255) DEFAULT NULL COMMENT 'Discount Description'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice';
+
+--
+-- Vypisuji data pro tabulku `sales_flat_invoice`
+--
+
+INSERT INTO `sales_flat_invoice` (`entity_id`, `store_id`, `base_grand_total`, `shipping_tax_amount`, `tax_amount`, `base_tax_amount`, `store_to_order_rate`, `base_shipping_tax_amount`, `base_discount_amount`, `base_to_order_rate`, `grand_total`, `shipping_amount`, `subtotal_incl_tax`, `base_subtotal_incl_tax`, `store_to_base_rate`, `base_shipping_amount`, `total_qty`, `base_to_global_rate`, `subtotal`, `base_subtotal`, `discount_amount`, `billing_address_id`, `is_used_for_refund`, `order_id`, `email_sent`, `can_void_flag`, `state`, `shipping_address_id`, `store_currency_code`, `transaction_id`, `order_currency_code`, `base_currency_code`, `global_currency_code`, `increment_id`, `created_at`, `updated_at`, `hidden_tax_amount`, `base_hidden_tax_amount`, `shipping_hidden_tax_amount`, `base_shipping_hidden_tax_amnt`, `shipping_incl_tax`, `base_shipping_incl_tax`, `base_total_refunded`, `discount_description`) VALUES
+(1, 1, '560.0000', '0.0000', '0.0000', '0.0000', '1.0000', '0.0000', '0.0000', '1.0000', '560.0000', '5.0000', '555.0000', '555.0000', '1.0000', '5.0000', '1.0000', '1.0000', '555.0000', '555.0000', '0.0000', 3, NULL, 2, 1, 0, 2, 4, 'EUR', NULL, 'EUR', 'EUR', 'EUR', '100000001', '2015-05-27 10:47:45', '2015-05-27 10:47:45', '0.0000', '0.0000', '0.0000', NULL, '5.0000', '5.0000', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -15506,7 +16114,14 @@ CREATE TABLE IF NOT EXISTS `sales_flat_invoice_comment` (
   `is_visible_on_front` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Visible On Front',
   `comment` text COMMENT 'Comment',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice Comment';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice Comment';
+
+--
+-- Vypisuji data pro tabulku `sales_flat_invoice_comment`
+--
+
+INSERT INTO `sales_flat_invoice_comment` (`entity_id`, `parent_id`, `is_customer_notified`, `is_visible_on_front`, `comment`, `created_at`) VALUES
+(1, 1, 1, 0, 'An invoice', '2015-05-27 10:47:45');
 
 -- --------------------------------------------------------
 
@@ -15532,6 +16147,13 @@ CREATE TABLE IF NOT EXISTS `sales_flat_invoice_grid` (
   `order_created_at` timestamp NULL DEFAULT NULL COMMENT 'Order Created At',
   `billing_name` varchar(255) DEFAULT NULL COMMENT 'Billing Name'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice Grid';
+
+--
+-- Vypisuji data pro tabulku `sales_flat_invoice_grid`
+--
+
+INSERT INTO `sales_flat_invoice_grid` (`entity_id`, `store_id`, `base_grand_total`, `grand_total`, `order_id`, `state`, `store_currency_code`, `order_currency_code`, `base_currency_code`, `global_currency_code`, `increment_id`, `order_increment_id`, `created_at`, `order_created_at`, `billing_name`) VALUES
+(1, 1, '560.0000', '560.0000', 2, 2, 'EUR', 'EUR', 'EUR', 'EUR', '100000001', '100000002', '2015-05-27 10:47:45', '2015-05-27 10:45:36', 'Jana Mathauserova');
 
 -- --------------------------------------------------------
 
@@ -15574,7 +16196,14 @@ CREATE TABLE IF NOT EXISTS `sales_flat_invoice_item` (
   `weee_tax_row_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Weee Tax Row Disposition',
   `base_weee_tax_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Disposition',
   `base_weee_tax_row_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Row Disposition'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice Item';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice Item';
+
+--
+-- Vypisuji data pro tabulku `sales_flat_invoice_item`
+--
+
+INSERT INTO `sales_flat_invoice_item` (`entity_id`, `parent_id`, `base_price`, `tax_amount`, `base_row_total`, `discount_amount`, `row_total`, `base_discount_amount`, `price_incl_tax`, `base_tax_amount`, `base_price_incl_tax`, `qty`, `base_cost`, `price`, `base_row_total_incl_tax`, `row_total_incl_tax`, `product_id`, `order_item_id`, `additional_data`, `description`, `sku`, `name`, `hidden_tax_amount`, `base_hidden_tax_amount`, `base_weee_tax_applied_amount`, `base_weee_tax_applied_row_amnt`, `weee_tax_applied_amount`, `weee_tax_applied_row_amount`, `weee_tax_applied`, `weee_tax_disposition`, `weee_tax_row_disposition`, `base_weee_tax_disposition`, `base_weee_tax_row_disposition`) VALUES
+(1, 1, '555.0000', '0.0000', '555.0000', NULL, '555.0000', NULL, '555.0000', '0.0000', '555.0000', '1.0000', NULL, '555.0000', '555.0000', '555.0000', 13, 2, NULL, NULL, '31', 'Tablet A', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', '0.0000');
 
 -- --------------------------------------------------------
 
@@ -15721,14 +16350,15 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order` (
   `coupon_rule_name` varchar(255) DEFAULT NULL COMMENT 'Coupon Sales Rule Name',
   `paypal_ipn_customer_notified` int(11) DEFAULT '0' COMMENT 'Paypal Ipn Customer Notified',
   `gift_message_id` int(11) DEFAULT NULL COMMENT 'Gift Message Id'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order';
 
 --
 -- Vypisuji data pro tabulku `sales_flat_order`
 --
 
 INSERT INTO `sales_flat_order` (`entity_id`, `state`, `status`, `coupon_code`, `protect_code`, `shipping_description`, `is_virtual`, `store_id`, `customer_id`, `base_discount_amount`, `base_discount_canceled`, `base_discount_invoiced`, `base_discount_refunded`, `base_grand_total`, `base_shipping_amount`, `base_shipping_canceled`, `base_shipping_invoiced`, `base_shipping_refunded`, `base_shipping_tax_amount`, `base_shipping_tax_refunded`, `base_subtotal`, `base_subtotal_canceled`, `base_subtotal_invoiced`, `base_subtotal_refunded`, `base_tax_amount`, `base_tax_canceled`, `base_tax_invoiced`, `base_tax_refunded`, `base_to_global_rate`, `base_to_order_rate`, `base_total_canceled`, `base_total_invoiced`, `base_total_invoiced_cost`, `base_total_offline_refunded`, `base_total_online_refunded`, `base_total_paid`, `base_total_qty_ordered`, `base_total_refunded`, `discount_amount`, `discount_canceled`, `discount_invoiced`, `discount_refunded`, `grand_total`, `shipping_amount`, `shipping_canceled`, `shipping_invoiced`, `shipping_refunded`, `shipping_tax_amount`, `shipping_tax_refunded`, `store_to_base_rate`, `store_to_order_rate`, `subtotal`, `subtotal_canceled`, `subtotal_invoiced`, `subtotal_refunded`, `tax_amount`, `tax_canceled`, `tax_invoiced`, `tax_refunded`, `total_canceled`, `total_invoiced`, `total_offline_refunded`, `total_online_refunded`, `total_paid`, `total_qty_ordered`, `total_refunded`, `can_ship_partially`, `can_ship_partially_item`, `customer_is_guest`, `customer_note_notify`, `billing_address_id`, `customer_group_id`, `edit_increment`, `email_sent`, `forced_shipment_with_invoice`, `payment_auth_expiration`, `quote_address_id`, `quote_id`, `shipping_address_id`, `adjustment_negative`, `adjustment_positive`, `base_adjustment_negative`, `base_adjustment_positive`, `base_shipping_discount_amount`, `base_subtotal_incl_tax`, `base_total_due`, `payment_authorization_amount`, `shipping_discount_amount`, `subtotal_incl_tax`, `total_due`, `weight`, `customer_dob`, `increment_id`, `applied_rule_ids`, `base_currency_code`, `customer_email`, `customer_firstname`, `customer_lastname`, `customer_middlename`, `customer_prefix`, `customer_suffix`, `customer_taxvat`, `discount_description`, `ext_customer_id`, `ext_order_id`, `global_currency_code`, `hold_before_state`, `hold_before_status`, `order_currency_code`, `original_increment_id`, `relation_child_id`, `relation_child_real_id`, `relation_parent_id`, `relation_parent_real_id`, `remote_ip`, `shipping_method`, `store_currency_code`, `store_name`, `x_forwarded_for`, `customer_note`, `created_at`, `updated_at`, `total_item_count`, `customer_gender`, `hidden_tax_amount`, `base_hidden_tax_amount`, `shipping_hidden_tax_amount`, `base_shipping_hidden_tax_amnt`, `hidden_tax_invoiced`, `base_hidden_tax_invoiced`, `hidden_tax_refunded`, `base_hidden_tax_refunded`, `shipping_incl_tax`, `base_shipping_incl_tax`, `coupon_rule_name`, `paypal_ipn_customer_notified`, `gift_message_id`) VALUES
-(1, 'new', 'pending', NULL, '0216e7', 'Flat Rate - Fixed', 0, 1, NULL, '0.0000', NULL, NULL, NULL, '12320.0000', '110.0000', NULL, NULL, NULL, '0.0000', NULL, '12210.0000', NULL, NULL, NULL, '0.0000', NULL, NULL, NULL, '1.0000', '1.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0.0000', NULL, NULL, NULL, '12320.0000', '110.0000', NULL, NULL, NULL, '0.0000', NULL, '1.0000', '1.0000', '12210.0000', NULL, NULL, NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '22.0000', NULL, NULL, NULL, 1, 1, 1, 0, NULL, 1, NULL, NULL, NULL, 1, 2, NULL, NULL, NULL, NULL, '0.0000', '12210.0000', NULL, NULL, '0.0000', '12210.0000', NULL, '2200.0000', NULL, '100000001', NULL, 'EUR', 'aaa@gmail.com', 'aa', 'aaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'EUR', NULL, NULL, 'EUR', NULL, NULL, NULL, NULL, NULL, '::1', 'flatrate_flatrate', 'EUR', 'Main Website\nMain Website Store\nDefault Store View', NULL, NULL, '2015-05-15 07:59:12', '2015-05-15 07:59:12', 1, NULL, '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, '110.0000', '110.0000', NULL, 0, NULL);
+(1, 'new', 'pending', NULL, '0216e7', 'Flat Rate - Fixed', 0, 1, NULL, '0.0000', NULL, NULL, NULL, '12320.0000', '110.0000', NULL, NULL, NULL, '0.0000', NULL, '12210.0000', NULL, NULL, NULL, '0.0000', NULL, NULL, NULL, '1.0000', '1.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0.0000', NULL, NULL, NULL, '12320.0000', '110.0000', NULL, NULL, NULL, '0.0000', NULL, '1.0000', '1.0000', '12210.0000', NULL, NULL, NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '22.0000', NULL, NULL, NULL, 1, 1, 1, 0, NULL, 1, NULL, NULL, NULL, 1, 2, NULL, NULL, NULL, NULL, '0.0000', '12210.0000', NULL, NULL, '0.0000', '12210.0000', NULL, '2200.0000', NULL, '100000001', NULL, 'EUR', 'aaa@gmail.com', 'aa', 'aaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'EUR', NULL, NULL, 'EUR', NULL, NULL, NULL, NULL, NULL, '::1', 'flatrate_flatrate', 'EUR', 'Main Website\nMain Website Store\nDefault Store View', NULL, NULL, '2015-05-15 07:59:12', '2015-05-15 07:59:12', 1, NULL, '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, '110.0000', '110.0000', NULL, 0, NULL),
+(2, 'complete', 'complete', NULL, 'eda1d6', 'Flat Rate - Fixed', 0, 1, NULL, '0.0000', NULL, '0.0000', NULL, '560.0000', '5.0000', NULL, '5.0000', NULL, '0.0000', NULL, '555.0000', NULL, '555.0000', NULL, '0.0000', NULL, '0.0000', NULL, '1.0000', '1.0000', NULL, '560.0000', '0.0000', NULL, NULL, '560.0000', NULL, NULL, '0.0000', NULL, '0.0000', NULL, '560.0000', '5.0000', NULL, '5.0000', NULL, '0.0000', NULL, '1.0000', '1.0000', '555.0000', NULL, '555.0000', NULL, '0.0000', NULL, '0.0000', NULL, NULL, '560.0000', NULL, NULL, '560.0000', '1.0000', NULL, NULL, NULL, 1, 0, 3, 0, NULL, 1, NULL, NULL, NULL, 6, 4, NULL, NULL, NULL, NULL, '0.0000', '555.0000', '0.0000', NULL, '0.0000', '555.0000', '0.0000', '100.0000', NULL, '100000002', NULL, 'EUR', 'jana.mathauserova@ubk.cz', 'Jana', 'Mathauserova', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'EUR', NULL, NULL, 'EUR', NULL, NULL, NULL, NULL, NULL, '::1', 'flatrate_flatrate', 'EUR', 'Main Website\nMain Website Store\nDefault Store View', NULL, NULL, '2015-05-27 10:45:36', '2015-05-27 10:48:33', 1, NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, '5.0000', '5.0000', NULL, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -15764,7 +16394,7 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order_address` (
   `vat_request_id` text COMMENT 'Vat Request Id',
   `vat_request_date` text COMMENT 'Vat Request Date',
   `vat_request_success` smallint(6) DEFAULT NULL COMMENT 'Vat Request Success'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Address';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Address';
 
 --
 -- Vypisuji data pro tabulku `sales_flat_order_address`
@@ -15772,7 +16402,9 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order_address` (
 
 INSERT INTO `sales_flat_order_address` (`entity_id`, `parent_id`, `customer_address_id`, `quote_address_id`, `region_id`, `customer_id`, `fax`, `region`, `postcode`, `lastname`, `street`, `city`, `email`, `telephone`, `country_id`, `firstname`, `address_type`, `prefix`, `middlename`, `suffix`, `company`, `vat_id`, `vat_is_valid`, `vat_request_id`, `vat_request_date`, `vat_request_success`) VALUES
 (1, 1, NULL, NULL, 1, NULL, NULL, 'Alabama', '78958', 'aaa', 'romg', 'barelw', 'aaa@gmail.com', '7896354123', 'US', 'aa', 'billing', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 1, NULL, NULL, 1, NULL, NULL, 'Alabama', '78958', 'aaa', 'romg', 'barelw', 'aaa@gmail.com', '7896354123', 'US', 'aa', 'shipping', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(2, 1, NULL, NULL, 1, NULL, NULL, 'Alabama', '78958', 'aaa', 'romg', 'barelw', 'aaa@gmail.com', '7896354123', 'US', 'aa', 'shipping', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 2, NULL, NULL, NULL, NULL, NULL, NULL, '30100', 'Mathauserova', 'Chodov 158', 'Chodov', 'jana.mathauserova@ubk.cz', '123 456 789', 'CZ', 'Jana', 'billing', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 2, NULL, NULL, NULL, NULL, NULL, NULL, '30100', 'Mathauserova', 'Chodov 158', 'Chodov', 'jana.mathauserova@ubk.cz', '123 456 789', 'CZ', 'Jana', 'shipping', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -15805,7 +16437,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order_grid` (
 --
 
 INSERT INTO `sales_flat_order_grid` (`entity_id`, `status`, `store_id`, `store_name`, `customer_id`, `base_grand_total`, `base_total_paid`, `grand_total`, `total_paid`, `increment_id`, `base_currency_code`, `order_currency_code`, `shipping_name`, `billing_name`, `created_at`, `updated_at`) VALUES
-(1, 'pending', 1, 'Main Website\nMain Website Store\nDefault Store View', NULL, '12320.0000', NULL, '12320.0000', NULL, '100000001', 'EUR', 'EUR', 'aa aaa', 'aa aaa', '2015-05-15 07:59:12', '2015-05-15 07:59:12');
+(1, 'pending', 1, 'Main Website\nMain Website Store\nDefault Store View', NULL, '12320.0000', NULL, '12320.0000', NULL, '100000001', 'EUR', 'EUR', 'aa aaa', 'aa aaa', '2015-05-15 07:59:12', '2015-05-15 07:59:12'),
+(2, 'complete', 1, 'Main Website\nMain Website Store\nDefault Store View', NULL, '560.0000', '560.0000', '560.0000', '560.0000', '100000002', 'EUR', 'EUR', 'Jana Mathauserova', 'Jana Mathauserova', '2015-05-27 10:45:36', '2015-05-27 10:48:33');
 
 -- --------------------------------------------------------
 
@@ -15896,14 +16529,15 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order_item` (
   `weee_tax_row_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Weee Tax Row Disposition',
   `base_weee_tax_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Disposition',
   `base_weee_tax_row_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Row Disposition'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Item';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Item';
 
 --
 -- Vypisuji data pro tabulku `sales_flat_order_item`
 --
 
 INSERT INTO `sales_flat_order_item` (`item_id`, `order_id`, `parent_item_id`, `quote_item_id`, `store_id`, `created_at`, `updated_at`, `product_id`, `product_type`, `product_options`, `weight`, `is_virtual`, `sku`, `name`, `description`, `applied_rule_ids`, `additional_data`, `free_shipping`, `is_qty_decimal`, `no_discount`, `qty_backordered`, `qty_canceled`, `qty_invoiced`, `qty_ordered`, `qty_refunded`, `qty_shipped`, `base_cost`, `price`, `base_price`, `original_price`, `base_original_price`, `tax_percent`, `tax_amount`, `base_tax_amount`, `tax_invoiced`, `base_tax_invoiced`, `discount_percent`, `discount_amount`, `base_discount_amount`, `discount_invoiced`, `base_discount_invoiced`, `amount_refunded`, `base_amount_refunded`, `row_total`, `base_row_total`, `row_invoiced`, `base_row_invoiced`, `row_weight`, `base_tax_before_discount`, `tax_before_discount`, `ext_order_item_id`, `locked_do_invoice`, `locked_do_ship`, `price_incl_tax`, `base_price_incl_tax`, `row_total_incl_tax`, `base_row_total_incl_tax`, `hidden_tax_amount`, `base_hidden_tax_amount`, `hidden_tax_invoiced`, `base_hidden_tax_invoiced`, `hidden_tax_refunded`, `base_hidden_tax_refunded`, `is_nominal`, `tax_canceled`, `hidden_tax_canceled`, `tax_refunded`, `base_tax_refunded`, `discount_refunded`, `base_discount_refunded`, `gift_message_id`, `gift_message_available`, `base_weee_tax_applied_amount`, `base_weee_tax_applied_row_amnt`, `weee_tax_applied_amount`, `weee_tax_applied_row_amount`, `weee_tax_applied`, `weee_tax_disposition`, `weee_tax_row_disposition`, `base_weee_tax_disposition`, `base_weee_tax_row_disposition`) VALUES
-(1, 1, NULL, 1, 1, '2015-05-15 07:59:12', '2015-05-15 07:59:12', 15, 'simple', 'a:1:{s:15:"info_buyRequest";a:5:{s:4:"uenc";s:60:"aHR0cDovL2xvY2FsaG9zdC9tYWdlMi90YWJsZXRzL3RhYmxldC1jLmh0bWw,";s:7:"product";s:2:"15";s:8:"form_key";s:16:"BjEU5aIfRkYHTxBK";s:15:"related_product";s:0:"";s:3:"qty";s:2:"22";}}', '100.0000', 0, '33', 'Tablet C', NULL, NULL, NULL, 0, 0, 0, NULL, '0.0000', '0.0000', '22.0000', '0.0000', '0.0000', NULL, '555.0000', '555.0000', '555.0000', '555.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '12210.0000', '12210.0000', '0.0000', '0.0000', '2200.0000', NULL, NULL, NULL, NULL, NULL, '555.0000', '555.0000', '12210.0000', '12210.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', '0.0000');
+(1, 1, NULL, 1, 1, '2015-05-15 07:59:12', '2015-05-15 07:59:12', 15, 'simple', 'a:1:{s:15:"info_buyRequest";a:5:{s:4:"uenc";s:60:"aHR0cDovL2xvY2FsaG9zdC9tYWdlMi90YWJsZXRzL3RhYmxldC1jLmh0bWw,";s:7:"product";s:2:"15";s:8:"form_key";s:16:"BjEU5aIfRkYHTxBK";s:15:"related_product";s:0:"";s:3:"qty";s:2:"22";}}', '100.0000', 0, '33', 'Tablet C', NULL, NULL, NULL, 0, 0, 0, NULL, '0.0000', '0.0000', '22.0000', '0.0000', '0.0000', NULL, '555.0000', '555.0000', '555.0000', '555.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '12210.0000', '12210.0000', '0.0000', '0.0000', '2200.0000', NULL, NULL, NULL, NULL, NULL, '555.0000', '555.0000', '12210.0000', '12210.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', '0.0000'),
+(2, 2, NULL, 7, 1, '2015-05-27 10:45:36', '2015-05-27 10:48:33', 13, 'simple', 'a:1:{s:15:"info_buyRequest";a:4:{s:4:"uenc";s:48:"aHR0cDovL2xvY2FsaG9zdC9tYWdlMi90YWJsZXRzLmh0bWw,";s:7:"product";s:2:"13";s:8:"form_key";s:16:"InYLc0l0USf1MI7y";s:3:"qty";i:1;}}', '100.0000', 0, '31', 'Tablet A', NULL, NULL, NULL, 0, 0, 0, NULL, '0.0000', '1.0000', '1.0000', '0.0000', '1.0000', NULL, '555.0000', '555.0000', '555.0000', '555.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '555.0000', '555.0000', '555.0000', '555.0000', '100.0000', NULL, NULL, NULL, NULL, NULL, '555.0000', '555.0000', '555.0000', '555.0000', '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', '0.0000');
 
 -- --------------------------------------------------------
 
@@ -15968,14 +16602,15 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order_payment` (
   `paybox_request_number` varchar(255) DEFAULT NULL COMMENT 'Paybox Request Number',
   `address_status` varchar(255) DEFAULT NULL COMMENT 'Address Status',
   `additional_information` text COMMENT 'Additional Information'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Payment';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Payment';
 
 --
 -- Vypisuji data pro tabulku `sales_flat_order_payment`
 --
 
 INSERT INTO `sales_flat_order_payment` (`entity_id`, `parent_id`, `base_shipping_captured`, `shipping_captured`, `amount_refunded`, `base_amount_paid`, `amount_canceled`, `base_amount_authorized`, `base_amount_paid_online`, `base_amount_refunded_online`, `base_shipping_amount`, `shipping_amount`, `amount_paid`, `amount_authorized`, `base_amount_ordered`, `base_shipping_refunded`, `shipping_refunded`, `base_amount_refunded`, `amount_ordered`, `base_amount_canceled`, `quote_payment_id`, `additional_data`, `cc_exp_month`, `cc_ss_start_year`, `echeck_bank_name`, `method`, `cc_debug_request_body`, `cc_secure_verify`, `protection_eligibility`, `cc_approval`, `cc_last4`, `cc_status_description`, `echeck_type`, `cc_debug_response_serialized`, `cc_ss_start_month`, `echeck_account_type`, `last_trans_id`, `cc_cid_status`, `cc_owner`, `cc_type`, `po_number`, `cc_exp_year`, `cc_status`, `echeck_routing_number`, `account_status`, `anet_trans_method`, `cc_debug_response_body`, `cc_ss_issue`, `echeck_account_name`, `cc_avs_status`, `cc_number_enc`, `cc_trans_id`, `paybox_request_number`, `address_status`, `additional_information`) VALUES
-(1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '110.0000', '110.0000', NULL, NULL, '12320.0000', NULL, NULL, NULL, '12320.0000', NULL, NULL, NULL, '0', '0', NULL, 'checkmo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '110.0000', '110.0000', NULL, NULL, '12320.0000', NULL, NULL, NULL, '12320.0000', NULL, NULL, NULL, '0', '0', NULL, 'checkmo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 2, '5.0000', '5.0000', NULL, '560.0000', NULL, NULL, NULL, NULL, '5.0000', '5.0000', '560.0000', NULL, '560.0000', NULL, NULL, NULL, '560.0000', NULL, NULL, NULL, '0', '0', NULL, 'checkmo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -15993,14 +16628,19 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order_status_history` (
   `status` varchar(32) DEFAULT NULL COMMENT 'Status',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
   `entity_name` varchar(32) DEFAULT NULL COMMENT 'Shows what entity history is bind to.'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Status History';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Status History';
 
 --
 -- Vypisuji data pro tabulku `sales_flat_order_status_history`
 --
 
 INSERT INTO `sales_flat_order_status_history` (`entity_id`, `parent_id`, `is_customer_notified`, `is_visible_on_front`, `comment`, `status`, `created_at`, `entity_name`) VALUES
-(1, 1, 1, 0, NULL, 'pending', '2015-05-15 07:59:12', 'order');
+(1, 1, 1, 0, NULL, 'pending', '2015-05-15 07:59:12', 'order'),
+(2, 2, 1, 0, NULL, 'pending', '2015-05-27 10:45:36', 'order'),
+(3, 2, 0, 0, 'ok', 'pending', '2015-05-27 10:47:01', 'order'),
+(4, 2, 1, 0, 'hey', 'pending', '2015-05-27 10:47:16', 'order'),
+(5, 2, 1, 0, NULL, 'processing', '2015-05-27 10:47:45', 'invoice'),
+(6, 2, 0, 0, NULL, 'complete', '2015-05-27 10:48:33', 'shipment');
 
 -- --------------------------------------------------------
 
@@ -16061,7 +16701,7 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote` (
   `ext_shipping_info` text COMMENT 'Ext Shipping Info',
   `gift_message_id` int(11) DEFAULT NULL COMMENT 'Gift Message Id',
   `is_persistent` smallint(5) unsigned DEFAULT '0' COMMENT 'Is Quote Persistent'
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote';
 
 --
 -- Vypisuji data pro tabulku `sales_flat_quote`
@@ -16072,7 +16712,9 @@ INSERT INTO `sales_flat_quote` (`entity_id`, `store_id`, `created_at`, `updated_
 (2, 1, '2015-05-18 05:33:08', '2015-05-18 09:12:10', NULL, 1, 0, 0, 1, '1.0000', 0, '1.0000', '1.0000', 'EUR', 'EUR', 'EUR', '1000.0000', '1000.0000', NULL, NULL, 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '::1', NULL, NULL, NULL, NULL, 'EUR', '1.0000', '1.0000', NULL, NULL, '1000.0000', '1000.0000', '1000.0000', '1000.0000', 1, 0, NULL, NULL, 0),
 (3, 1, '2015-05-19 09:26:45', '2015-05-19 09:34:52', NULL, 1, 0, 0, 1, '1.0000', 0, '1.0000', '1.0000', 'EUR', 'EUR', 'EUR', '1000.0000', '1000.0000', NULL, NULL, 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '::1', NULL, NULL, NULL, NULL, 'EUR', '1.0000', '1.0000', NULL, NULL, '1000.0000', '1000.0000', '1000.0000', '1000.0000', 1, 0, NULL, NULL, 0),
 (4, 1, '2015-05-19 10:40:52', '2015-05-19 11:26:08', NULL, 1, 0, 0, 2, '2.0000', 0, '1.0000', '1.0000', 'EUR', 'EUR', 'EUR', '1555.0000', '1555.0000', NULL, NULL, 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '::1', NULL, NULL, NULL, NULL, 'EUR', '1.0000', '1.0000', NULL, NULL, '1555.0000', '1555.0000', '1555.0000', '1555.0000', 1, 0, NULL, NULL, 0),
-(5, 1, '2015-05-20 05:42:08', '2015-05-20 05:42:09', NULL, 1, 0, 0, 1, '1.0000', 0, '1.0000', '1.0000', 'EUR', 'EUR', 'EUR', '1000.0000', '1000.0000', NULL, NULL, 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '::1', NULL, NULL, NULL, NULL, 'EUR', '1.0000', '1.0000', NULL, NULL, '1000.0000', '1000.0000', '1000.0000', '1000.0000', 1, 0, NULL, NULL, 0);
+(5, 1, '2015-05-20 05:42:08', '2015-05-20 05:42:09', NULL, 1, 0, 0, 1, '1.0000', 0, '1.0000', '1.0000', 'EUR', 'EUR', 'EUR', '1000.0000', '1000.0000', NULL, NULL, 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '::1', NULL, NULL, NULL, NULL, 'EUR', '1.0000', '1.0000', NULL, NULL, '1000.0000', '1000.0000', '1000.0000', '1000.0000', 1, 0, NULL, NULL, 0),
+(6, 1, '2015-05-27 10:43:49', '2015-05-27 10:45:36', NULL, 0, 0, 0, 1, '1.0000', 0, '1.0000', '1.0000', 'EUR', 'EUR', 'EUR', '560.0000', '560.0000', 'guest', NULL, 3, 0, 'jana.mathauserova@ubk.cz', NULL, 'Jana', NULL, 'Mathauserova', NULL, NULL, NULL, 1, 1, '::1', NULL, '100000002', NULL, NULL, 'EUR', '1.0000', '1.0000', NULL, NULL, '555.0000', '555.0000', '555.0000', '555.0000', 1, 0, NULL, NULL, 0),
+(7, 1, '2015-05-27 11:43:58', '2015-05-27 11:43:59', NULL, 1, 0, 0, 1, '1.0000', 0, '1.0000', '1.0000', 'EUR', 'EUR', 'EUR', '1000.0000', '1000.0000', NULL, NULL, 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '::1', NULL, NULL, NULL, NULL, 'EUR', '1.0000', '1.0000', NULL, NULL, '1000.0000', '1000.0000', '1000.0000', '1000.0000', 1, 0, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -16144,7 +16786,7 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote_address` (
   `vat_request_date` text COMMENT 'Vat Request Date',
   `vat_request_success` smallint(6) DEFAULT NULL COMMENT 'Vat Request Success',
   `gift_message_id` int(11) DEFAULT NULL COMMENT 'Gift Message Id'
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Address';
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Address';
 
 --
 -- Vypisuji data pro tabulku `sales_flat_quote_address`
@@ -16160,7 +16802,11 @@ INSERT INTO `sales_flat_quote_address` (`address_id`, `quote_id`, `created_at`, 
 (7, 4, '2015-05-19 10:40:52', '2015-05-19 11:26:08', NULL, 0, NULL, 'billing', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', NULL, 'a:0:{}', NULL, NULL, NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL, NULL),
 (8, 4, '2015-05-19 10:40:52', '2015-05-19 11:26:08', NULL, 0, NULL, 'shipping', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 0, NULL, NULL, '200.0000', '1555.0000', '1555.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1555.0000', '1555.0000', NULL, 'a:0:{}', NULL, '0.0000', '0.0000', '1555.0000', NULL, '0.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL, NULL),
 (9, 5, '2015-05-20 05:42:09', '2015-05-20 05:42:09', NULL, 0, NULL, 'billing', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', NULL, 'a:0:{}', NULL, NULL, NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL, NULL),
-(10, 5, '2015-05-20 05:42:09', '2015-05-20 05:42:09', NULL, 0, NULL, 'shipping', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 0, NULL, NULL, '100.0000', '1000.0000', '1000.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1000.0000', '1000.0000', NULL, 'a:0:{}', NULL, '0.0000', '0.0000', '1000.0000', NULL, '0.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL, NULL);
+(10, 5, '2015-05-20 05:42:09', '2015-05-20 05:42:09', NULL, 0, NULL, 'shipping', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 0, NULL, NULL, '100.0000', '1000.0000', '1000.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1000.0000', '1000.0000', NULL, 'a:0:{}', NULL, '0.0000', '0.0000', '1000.0000', NULL, '0.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 6, '2015-05-27 10:43:50', '2015-05-27 10:45:36', NULL, 1, NULL, 'billing', 'jana.mathauserova@ubk.cz', NULL, 'Jana', NULL, 'Mathauserova', NULL, NULL, 'Chodov 158', 'Chodov', NULL, NULL, '30100', 'CZ', '123 456 789', NULL, 0, 0, 0, NULL, NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', NULL, 'a:0:{}', NULL, NULL, NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 6, '2015-05-27 10:43:50', '2015-05-27 10:45:36', NULL, 0, NULL, 'shipping', 'jana.mathauserova@ubk.cz', NULL, 'Jana', NULL, 'Mathauserova', NULL, NULL, 'Chodov 158', 'Chodov', NULL, NULL, '30100', 'CZ', '123 456 789', NULL, 1, 0, 0, 'flatrate_flatrate', 'Flat Rate - Fixed', '100.0000', '555.0000', '555.0000', '0.0000', '0.0000', '0.0000', '0.0000', '5.0000', '5.0000', '0.0000', '0.0000', '0.0000', '0.0000', '560.0000', '560.0000', NULL, 'a:0:{}', NULL, '0.0000', '0.0000', '555.0000', NULL, '0.0000', '0.0000', '0.0000', NULL, '5.0000', '5.0000', NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 7, '2015-05-27 11:43:59', '2015-05-27 11:43:59', NULL, 0, NULL, 'billing', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', NULL, 'a:0:{}', NULL, NULL, NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 7, '2015-05-27 11:43:59', '2015-05-27 11:43:59', NULL, 0, NULL, 'shipping', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 0, NULL, NULL, '100.0000', '1000.0000', '1000.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1000.0000', '1000.0000', NULL, 'a:0:{}', NULL, '0.0000', '0.0000', '1000.0000', NULL, '0.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -16273,7 +16919,7 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote_item` (
   `weee_tax_applied_row_amount` decimal(12,4) DEFAULT NULL COMMENT 'Weee Tax Applied Row Amount',
   `base_weee_tax_applied_amount` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Applied Amount',
   `base_weee_tax_applied_row_amnt` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Applied Row Amnt'
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Item';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Item';
 
 --
 -- Vypisuji data pro tabulku `sales_flat_quote_item`
@@ -16285,7 +16931,9 @@ INSERT INTO `sales_flat_quote_item` (`item_id`, `quote_id`, `created_at`, `updat
 (3, 3, '2015-05-19 09:26:45', '2015-05-19 09:26:45', 1, 1, NULL, 0, '1', 'Laptop A', NULL, NULL, NULL, 0, 0, 0, '100.0000', '1.0000', '1000.0000', '1000.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1000.0000', '1000.0000', '0.0000', '100.0000', 'simple', NULL, NULL, NULL, NULL, NULL, '1000.0000', '1000.0000', '1000.0000', '1000.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', NULL),
 (4, 4, '2015-05-19 10:40:52', '2015-05-19 10:40:52', 11, 1, NULL, 0, '25', 'Phone E', NULL, NULL, NULL, 0, 0, 0, '100.0000', '1.0000', '1000.0000', '1000.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1000.0000', '1000.0000', '0.0000', '100.0000', 'simple', NULL, NULL, NULL, NULL, NULL, '1000.0000', '1000.0000', '1000.0000', '1000.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', NULL),
 (5, 4, '2015-05-19 11:26:07', '2015-05-19 11:26:07', 13, 1, NULL, 0, '31', 'Tablet A', NULL, NULL, NULL, 0, 0, 0, '100.0000', '1.0000', '555.0000', '555.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '555.0000', '555.0000', '0.0000', '100.0000', 'simple', NULL, NULL, NULL, NULL, NULL, '555.0000', '555.0000', '555.0000', '555.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', NULL),
-(6, 5, '2015-05-20 05:42:09', '2015-05-20 05:42:09', 10, 1, NULL, 0, '24', 'Phone D', NULL, NULL, NULL, 0, 0, 0, '100.0000', '1.0000', '1000.0000', '1000.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1000.0000', '1000.0000', '0.0000', '100.0000', 'simple', NULL, NULL, NULL, NULL, NULL, '1000.0000', '1000.0000', '1000.0000', '1000.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', NULL);
+(6, 5, '2015-05-20 05:42:09', '2015-05-20 05:42:09', 10, 1, NULL, 0, '24', 'Phone D', NULL, NULL, NULL, 0, 0, 0, '100.0000', '1.0000', '1000.0000', '1000.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1000.0000', '1000.0000', '0.0000', '100.0000', 'simple', NULL, NULL, NULL, NULL, NULL, '1000.0000', '1000.0000', '1000.0000', '1000.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', NULL),
+(7, 6, '2015-05-27 10:43:50', '2015-05-27 10:43:50', 13, 1, NULL, 0, '31', 'Tablet A', NULL, NULL, NULL, 0, 0, 0, '100.0000', '1.0000', '555.0000', '555.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '555.0000', '555.0000', '0.0000', '100.0000', 'simple', NULL, NULL, NULL, NULL, NULL, '555.0000', '555.0000', '555.0000', '555.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', NULL),
+(8, 7, '2015-05-27 11:43:59', '2015-05-27 11:43:59', 11, 1, NULL, 0, '25', 'Phone E', NULL, NULL, NULL, 0, 0, 0, '100.0000', '1.0000', '1000.0000', '1000.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1000.0000', '1000.0000', '0.0000', '100.0000', 'simple', NULL, NULL, NULL, NULL, NULL, '1000.0000', '1000.0000', '1000.0000', '1000.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', NULL);
 
 -- --------------------------------------------------------
 
@@ -16300,7 +16948,7 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote_item_option` (
   `product_id` int(10) unsigned NOT NULL COMMENT 'Product Id',
   `code` varchar(255) NOT NULL COMMENT 'Code',
   `value` text COMMENT 'Value'
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Item Option';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Item Option';
 
 --
 -- Vypisuji data pro tabulku `sales_flat_quote_item_option`
@@ -16312,7 +16960,9 @@ INSERT INTO `sales_flat_quote_item_option` (`option_id`, `item_id`, `product_id`
 (3, 3, 1, 'info_buyRequest', 'a:4:{s:4:"uenc";s:32:"aHR0cDovL2xvY2FsaG9zdC9tYWdlMi8,";s:7:"product";s:1:"1";s:8:"form_key";s:16:"OxHlY0mD3n6WW1HF";s:3:"qty";i:1;}'),
 (4, 4, 11, 'info_buyRequest', 'a:4:{s:4:"uenc";s:32:"aHR0cDovL2xvY2FsaG9zdC9tYWdlMi8,";s:7:"product";s:2:"11";s:8:"form_key";s:16:"3jW9QOaDaIPvZpj2";s:3:"qty";i:1;}'),
 (5, 5, 13, 'info_buyRequest', 'a:4:{s:4:"uenc";s:48:"aHR0cDovL2xvY2FsaG9zdC9tYWdlMi90YWJsZXRzLmh0bWw,";s:7:"product";s:2:"13";s:8:"form_key";s:16:"3jW9QOaDaIPvZpj2";s:3:"qty";i:1;}'),
-(6, 6, 10, 'info_buyRequest', 'a:5:{s:4:"uenc";s:48:"aHR0cDovL2xvY2FsaG9zdC9tYWdlMi9waG9uZS1kLmh0bWw,";s:7:"product";s:2:"10";s:8:"form_key";s:16:"kzIPftX0siD259tE";s:15:"related_product";s:0:"";s:3:"qty";s:1:"1";}');
+(6, 6, 10, 'info_buyRequest', 'a:5:{s:4:"uenc";s:48:"aHR0cDovL2xvY2FsaG9zdC9tYWdlMi9waG9uZS1kLmh0bWw,";s:7:"product";s:2:"10";s:8:"form_key";s:16:"kzIPftX0siD259tE";s:15:"related_product";s:0:"";s:3:"qty";s:1:"1";}'),
+(7, 7, 13, 'info_buyRequest', 'a:4:{s:4:"uenc";s:48:"aHR0cDovL2xvY2FsaG9zdC9tYWdlMi90YWJsZXRzLmh0bWw,";s:7:"product";s:2:"13";s:8:"form_key";s:16:"InYLc0l0USf1MI7y";s:3:"qty";i:1;}'),
+(8, 8, 11, 'info_buyRequest', 'a:4:{s:4:"uenc";s:32:"aHR0cDovL2xvY2FsaG9zdC9tYWdlMi8,";s:7:"product";s:2:"11";s:8:"form_key";s:16:"InYLc0l0USf1MI7y";s:3:"qty";i:1;}');
 
 -- --------------------------------------------------------
 
@@ -16344,14 +16994,15 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote_payment` (
   `paypal_payer_id` varchar(255) DEFAULT NULL COMMENT 'Paypal Payer Id',
   `paypal_payer_status` varchar(255) DEFAULT NULL COMMENT 'Paypal Payer Status',
   `paypal_correlation_id` varchar(255) DEFAULT NULL COMMENT 'Paypal Correlation Id'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Payment';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Payment';
 
 --
 -- Vypisuji data pro tabulku `sales_flat_quote_payment`
 --
 
 INSERT INTO `sales_flat_quote_payment` (`payment_id`, `quote_id`, `created_at`, `updated_at`, `method`, `cc_type`, `cc_number_enc`, `cc_last4`, `cc_cid_enc`, `cc_owner`, `cc_exp_month`, `cc_exp_year`, `cc_ss_owner`, `cc_ss_start_month`, `cc_ss_start_year`, `po_number`, `additional_data`, `cc_ss_issue`, `additional_information`, `paypal_payer_id`, `paypal_payer_status`, `paypal_correlation_id`) VALUES
-(1, 1, '2015-05-15 07:58:04', '2015-05-15 07:59:12', 'checkmo', NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1, 1, '2015-05-15 07:58:04', '2015-05-15 07:59:12', 'checkmo', NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 6, '2015-05-27 10:44:24', '2015-05-27 10:45:36', 'checkmo', NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -16373,14 +17024,15 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote_shipping_rate` (
   `price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Price',
   `error_message` text COMMENT 'Error Message',
   `method_title` text COMMENT 'Method Title'
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Shipping Rate';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Shipping Rate';
 
 --
 -- Vypisuji data pro tabulku `sales_flat_quote_shipping_rate`
 --
 
 INSERT INTO `sales_flat_quote_shipping_rate` (`rate_id`, `address_id`, `created_at`, `updated_at`, `carrier`, `carrier_title`, `code`, `method`, `method_description`, `price`, `error_message`, `method_title`) VALUES
-(3, 2, '2015-05-15 07:59:09', '2015-05-15 07:59:12', 'flatrate', 'Flat Rate', 'flatrate_flatrate', 'flatrate', NULL, '110.0000', NULL, 'Fixed');
+(3, 2, '2015-05-15 07:59:09', '2015-05-15 07:59:12', 'flatrate', 'Flat Rate', 'flatrate_flatrate', 'flatrate', NULL, '110.0000', NULL, 'Fixed'),
+(8, 12, '2015-05-27 10:45:28', '2015-05-27 10:45:36', 'flatrate', 'Flat Rate', 'flatrate_flatrate', 'flatrate', NULL, '5.0000', NULL, 'Fixed');
 
 -- --------------------------------------------------------
 
@@ -16405,7 +17057,14 @@ CREATE TABLE IF NOT EXISTS `sales_flat_shipment` (
   `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At',
   `packages` text COMMENT 'Packed Products in Packages',
   `shipping_label` mediumblob COMMENT 'Shipping Label Content'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment';
+
+--
+-- Vypisuji data pro tabulku `sales_flat_shipment`
+--
+
+INSERT INTO `sales_flat_shipment` (`entity_id`, `store_id`, `total_weight`, `total_qty`, `email_sent`, `order_id`, `customer_id`, `shipping_address_id`, `billing_address_id`, `shipment_status`, `increment_id`, `created_at`, `updated_at`, `packages`, `shipping_label`) VALUES
+(1, 1, NULL, '1.0000', NULL, 2, NULL, 4, 3, NULL, '100000001', '2015-05-27 10:48:33', '2015-05-27 10:48:33', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -16443,6 +17102,13 @@ CREATE TABLE IF NOT EXISTS `sales_flat_shipment_grid` (
   `shipping_name` varchar(255) DEFAULT NULL COMMENT 'Shipping Name'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment Grid';
 
+--
+-- Vypisuji data pro tabulku `sales_flat_shipment_grid`
+--
+
+INSERT INTO `sales_flat_shipment_grid` (`entity_id`, `store_id`, `total_qty`, `order_id`, `shipment_status`, `increment_id`, `order_increment_id`, `created_at`, `order_created_at`, `shipping_name`) VALUES
+(1, 1, '1.0000', 2, NULL, '100000001', '100000002', '2015-05-27 10:48:33', '2015-05-27 10:45:36', 'Jana Mathauserova');
+
 -- --------------------------------------------------------
 
 --
@@ -16463,7 +17129,14 @@ CREATE TABLE IF NOT EXISTS `sales_flat_shipment_item` (
   `description` text COMMENT 'Description',
   `name` varchar(255) DEFAULT NULL COMMENT 'Name',
   `sku` varchar(255) DEFAULT NULL COMMENT 'Sku'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment Item';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment Item';
+
+--
+-- Vypisuji data pro tabulku `sales_flat_shipment_item`
+--
+
+INSERT INTO `sales_flat_shipment_item` (`entity_id`, `parent_id`, `row_total`, `price`, `weight`, `qty`, `product_id`, `order_item_id`, `additional_data`, `description`, `name`, `sku`) VALUES
+(1, 1, NULL, '555.0000', '100.0000', '1.0000', 13, 2, NULL, NULL, 'Tablet A', '31');
 
 -- --------------------------------------------------------
 
@@ -17156,7 +17829,14 @@ CREATE TABLE IF NOT EXISTS `widget_instance` (
   `store_ids` varchar(255) NOT NULL DEFAULT '0' COMMENT 'Store ids',
   `widget_parameters` text COMMENT 'Widget parameters',
   `sort_order` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort order'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Instances of Widget for Package Theme';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Instances of Widget for Package Theme';
+
+--
+-- Vypisuji data pro tabulku `widget_instance`
+--
+
+INSERT INTO `widget_instance` (`instance_id`, `instance_type`, `package_theme`, `title`, `store_ids`, `widget_parameters`, `sort_order`) VALUES
+(1, 'cms/widget_block', 'dubloo/default', 'Flyout mini cart', '0', 'a:1:{s:8:"block_id";s:1:"6";}', 1);
 
 -- --------------------------------------------------------
 
@@ -19310,7 +19990,7 @@ ALTER TABLE `cataloginventory_stock`
 -- AUTO_INCREMENT pro tabulku `cataloginventory_stock_item`
 --
 ALTER TABLE `cataloginventory_stock_item`
-  MODIFY `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item Id',AUTO_INCREMENT=25;
+  MODIFY `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item Id',AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT pro tabulku `catalogrule`
 --
@@ -19330,7 +20010,7 @@ ALTER TABLE `catalogrule_product_price`
 -- AUTO_INCREMENT pro tabulku `catalogsearch_fulltext`
 --
 ALTER TABLE `catalogsearch_fulltext`
-  MODIFY `fulltext_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',AUTO_INCREMENT=95;
+  MODIFY `fulltext_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',AUTO_INCREMENT=97;
 --
 -- AUTO_INCREMENT pro tabulku `catalogsearch_query`
 --
@@ -19375,32 +20055,32 @@ ALTER TABLE `catalog_compare_item`
 -- AUTO_INCREMENT pro tabulku `catalog_product_bundle_option`
 --
 ALTER TABLE `catalog_product_bundle_option`
-  MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Id';
+  MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Id',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pro tabulku `catalog_product_bundle_option_value`
 --
 ALTER TABLE `catalog_product_bundle_option_value`
-  MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+  MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value Id',AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pro tabulku `catalog_product_bundle_selection`
 --
 ALTER TABLE `catalog_product_bundle_selection`
-  MODIFY `selection_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Selection Id';
+  MODIFY `selection_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Selection Id',AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT pro tabulku `catalog_product_entity`
 --
 ALTER TABLE `catalog_product_entity`
-  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',AUTO_INCREMENT=17;
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT pro tabulku `catalog_product_entity_datetime`
 --
 ALTER TABLE `catalog_product_entity_datetime`
-  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=145;
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=181;
 --
 -- AUTO_INCREMENT pro tabulku `catalog_product_entity_decimal`
 --
 ALTER TABLE `catalog_product_entity_decimal`
-  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=118;
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=124;
 --
 -- AUTO_INCREMENT pro tabulku `catalog_product_entity_gallery`
 --
@@ -19415,17 +20095,17 @@ ALTER TABLE `catalog_product_entity_group_price`
 -- AUTO_INCREMENT pro tabulku `catalog_product_entity_int`
 --
 ALTER TABLE `catalog_product_entity_int`
-  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=90;
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=97;
 --
 -- AUTO_INCREMENT pro tabulku `catalog_product_entity_media_gallery`
 --
 ALTER TABLE `catalog_product_entity_media_gallery`
-  MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=19;
+  MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT pro tabulku `catalog_product_entity_text`
 --
 ALTER TABLE `catalog_product_entity_text`
-  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=97;
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=111;
 --
 -- AUTO_INCREMENT pro tabulku `catalog_product_entity_tier_price`
 --
@@ -19435,7 +20115,7 @@ ALTER TABLE `catalog_product_entity_tier_price`
 -- AUTO_INCREMENT pro tabulku `catalog_product_entity_varchar`
 --
 ALTER TABLE `catalog_product_entity_varchar`
-  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=414;
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=482;
 --
 -- AUTO_INCREMENT pro tabulku `catalog_product_link`
 --
@@ -19520,7 +20200,7 @@ ALTER TABLE `catalog_product_super_link`
 -- AUTO_INCREMENT pro tabulku `checkout_agreement`
 --
 ALTER TABLE `checkout_agreement`
-  MODIFY `agreement_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Agreement Id';
+  MODIFY `agreement_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Agreement Id',AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pro tabulku `cms_block`
 --
@@ -19535,17 +20215,17 @@ ALTER TABLE `cms_page`
 -- AUTO_INCREMENT pro tabulku `core_config_data`
 --
 ALTER TABLE `core_config_data`
-  MODIFY `config_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Config Id',AUTO_INCREMENT=309;
+  MODIFY `config_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Config Id',AUTO_INCREMENT=324;
 --
 -- AUTO_INCREMENT pro tabulku `core_email_queue`
 --
 ALTER TABLE `core_email_queue`
-  MODIFY `message_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Message Id',AUTO_INCREMENT=2;
+  MODIFY `message_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Message Id',AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pro tabulku `core_email_queue_recipients`
 --
 ALTER TABLE `core_email_queue_recipients`
-  MODIFY `recipient_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Recipient Id',AUTO_INCREMENT=2;
+  MODIFY `recipient_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Recipient Id',AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pro tabulku `core_email_template`
 --
@@ -19585,7 +20265,7 @@ ALTER TABLE `core_translate`
 -- AUTO_INCREMENT pro tabulku `core_url_rewrite`
 --
 ALTER TABLE `core_url_rewrite`
-  MODIFY `url_rewrite_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rewrite Id',AUTO_INCREMENT=249;
+  MODIFY `url_rewrite_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rewrite Id',AUTO_INCREMENT=253;
 --
 -- AUTO_INCREMENT pro tabulku `core_variable`
 --
@@ -19830,7 +20510,7 @@ ALTER TABLE `eav_entity_int`
 -- AUTO_INCREMENT pro tabulku `eav_entity_store`
 --
 ALTER TABLE `eav_entity_store`
-  MODIFY `entity_store_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Store Id',AUTO_INCREMENT=2;
+  MODIFY `entity_store_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Store Id',AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pro tabulku `eav_entity_text`
 --
@@ -19875,7 +20555,7 @@ ALTER TABLE `importexport_importdata`
 -- AUTO_INCREMENT pro tabulku `index_event`
 --
 ALTER TABLE `index_event`
-  MODIFY `event_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Event Id',AUTO_INCREMENT=64;
+  MODIFY `event_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Event Id',AUTO_INCREMENT=67;
 --
 -- AUTO_INCREMENT pro tabulku `index_process`
 --
@@ -19900,12 +20580,12 @@ ALTER TABLE `log_summary_type`
 -- AUTO_INCREMENT pro tabulku `log_url_info`
 --
 ALTER TABLE `log_url_info`
-  MODIFY `url_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'URL ID',AUTO_INCREMENT=1837;
+  MODIFY `url_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'URL ID',AUTO_INCREMENT=1955;
 --
 -- AUTO_INCREMENT pro tabulku `log_visitor`
 --
 ALTER TABLE `log_visitor`
-  MODIFY `visitor_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Visitor ID',AUTO_INCREMENT=1303;
+  MODIFY `visitor_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Visitor ID',AUTO_INCREMENT=1370;
 --
 -- AUTO_INCREMENT pro tabulku `log_visitor_online`
 --
@@ -19930,7 +20610,7 @@ ALTER TABLE `newsletter_queue_link`
 -- AUTO_INCREMENT pro tabulku `newsletter_subscriber`
 --
 ALTER TABLE `newsletter_subscriber`
-  MODIFY `subscriber_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Subscriber Id';
+  MODIFY `subscriber_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Subscriber Id',AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pro tabulku `newsletter_template`
 --
@@ -20030,7 +20710,7 @@ ALTER TABLE `report_compared_product_index`
 -- AUTO_INCREMENT pro tabulku `report_event`
 --
 ALTER TABLE `report_event`
-  MODIFY `event_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Event Id',AUTO_INCREMENT=72;
+  MODIFY `event_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Event Id',AUTO_INCREMENT=76;
 --
 -- AUTO_INCREMENT pro tabulku `report_event_types`
 --
@@ -20055,7 +20735,7 @@ ALTER TABLE `report_viewed_product_aggregated_yearly`
 -- AUTO_INCREMENT pro tabulku `report_viewed_product_index`
 --
 ALTER TABLE `report_viewed_product_index`
-  MODIFY `index_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Index Id',AUTO_INCREMENT=59;
+  MODIFY `index_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Index Id',AUTO_INCREMENT=61;
 --
 -- AUTO_INCREMENT pro tabulku `review`
 --
@@ -20140,52 +20820,52 @@ ALTER TABLE `sales_flat_creditmemo_item`
 -- AUTO_INCREMENT pro tabulku `sales_flat_invoice`
 --
 ALTER TABLE `sales_flat_invoice`
-  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pro tabulku `sales_flat_invoice_comment`
 --
 ALTER TABLE `sales_flat_invoice_comment`
-  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pro tabulku `sales_flat_invoice_item`
 --
 ALTER TABLE `sales_flat_invoice_item`
-  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pro tabulku `sales_flat_order`
 --
 ALTER TABLE `sales_flat_order`
-  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=2;
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pro tabulku `sales_flat_order_address`
 --
 ALTER TABLE `sales_flat_order_address`
-  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=3;
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pro tabulku `sales_flat_order_item`
 --
 ALTER TABLE `sales_flat_order_item`
-  MODIFY `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item Id',AUTO_INCREMENT=2;
+  MODIFY `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item Id',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pro tabulku `sales_flat_order_payment`
 --
 ALTER TABLE `sales_flat_order_payment`
-  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=2;
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pro tabulku `sales_flat_order_status_history`
 --
 ALTER TABLE `sales_flat_order_status_history`
-  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=2;
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pro tabulku `sales_flat_quote`
 --
 ALTER TABLE `sales_flat_quote`
-  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=6;
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pro tabulku `sales_flat_quote_address`
 --
 ALTER TABLE `sales_flat_quote_address`
-  MODIFY `address_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Address Id',AUTO_INCREMENT=11;
+  MODIFY `address_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Address Id',AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT pro tabulku `sales_flat_quote_address_item`
 --
@@ -20195,27 +20875,27 @@ ALTER TABLE `sales_flat_quote_address_item`
 -- AUTO_INCREMENT pro tabulku `sales_flat_quote_item`
 --
 ALTER TABLE `sales_flat_quote_item`
-  MODIFY `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item Id',AUTO_INCREMENT=7;
+  MODIFY `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item Id',AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT pro tabulku `sales_flat_quote_item_option`
 --
 ALTER TABLE `sales_flat_quote_item_option`
-  MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Id',AUTO_INCREMENT=7;
+  MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Id',AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT pro tabulku `sales_flat_quote_payment`
 --
 ALTER TABLE `sales_flat_quote_payment`
-  MODIFY `payment_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Payment Id',AUTO_INCREMENT=2;
+  MODIFY `payment_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Payment Id',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pro tabulku `sales_flat_quote_shipping_rate`
 --
 ALTER TABLE `sales_flat_quote_shipping_rate`
-  MODIFY `rate_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rate Id',AUTO_INCREMENT=4;
+  MODIFY `rate_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rate Id',AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT pro tabulku `sales_flat_shipment`
 --
 ALTER TABLE `sales_flat_shipment`
-  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pro tabulku `sales_flat_shipment_comment`
 --
@@ -20225,7 +20905,7 @@ ALTER TABLE `sales_flat_shipment_comment`
 -- AUTO_INCREMENT pro tabulku `sales_flat_shipment_item`
 --
 ALTER TABLE `sales_flat_shipment_item`
-  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pro tabulku `sales_flat_shipment_track`
 --
@@ -20370,7 +21050,7 @@ ALTER TABLE `widget`
 -- AUTO_INCREMENT pro tabulku `widget_instance`
 --
 ALTER TABLE `widget_instance`
-  MODIFY `instance_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Instance Id';
+  MODIFY `instance_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Instance Id',AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pro tabulku `widget_instance_page`
 --
