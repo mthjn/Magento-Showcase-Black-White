@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * TestNamespace_TestModule extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       TestNamespace
+ * @package        TestNamespace_TestModule
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<layout>
+    
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="testnamespace_testmodule"><name>imageurl_comments</name><path>testnamespace_testmodule/imageurl_customer_comment</path><label>ImagesURL Comments</label></action>
+        </reference>
+    </customer_account>
+    <testnamespace_testmodule_imageurl_index translate="label" module="testnamespace_testmodule">
+        <label>ImagesURL list</label>
+        <update handle="page_two_columns_left" />
+        <reference name="content">
+            <block type="testnamespace_testmodule/imageurl_list" name="imageurl_list" template="testnamespace_testmodule/imageurl/list.phtml" />
+        </reference>
+    </testnamespace_testmodule_imageurl_index>
+    <testnamespace_testmodule_imageurl_view translate="label" module="testnamespace_testmodule">
+        <label>ImageURL view page</label>
+        <update handle="page_one_column" />
+        <reference name="content">
+            <block type="testnamespace_testmodule/imageurl_view" name="imageurl_view" template="testnamespace_testmodule/imageurl/view.phtml" />
+            <block type="testnamespace_testmodule/imageurl_comment_list" name="imageurl.comments_list" as="imageurl_comment_list" template="testnamespace_testmodule/imageurl/comment/list.phtml">
+                <block type="testnamespace_testmodule/imageurl_comment_form" name="comment_form" as="comment_form" template="testnamespace_testmodule/imageurl/comment/form.phtml" />
+            </block>
+        </reference>
+    </testnamespace_testmodule_imageurl_view>
+    <testnamespace_testmodule_imageurl_rss translate="label" module="testnamespace_testmodule">
+        <label>ImagesURL rss feed</label>
+        <block type="testnamespace_testmodule/imageurl_rss" output="toHtml" name="testnamespace_testmodule.imageurl.rss" />
+    </testnamespace_testmodule_imageurl_rss>
+    <rss_index_index>
+        <reference name="content">
+            <block type="testnamespace_testmodule/rss" name="testmodule.rss" template="testnamespace_testmodule/rss.phtml">
+                <action method="addFeed" ifconfig="testnamespace_testmodule/imageurl/rss" translate="label" module="testnamespace_testmodule">
+                    <label>ImagesURL</label>
+                    <url helper="testnamespace_testmodule/imageurl/getRssUrl" />
+                </action>
+            </block>
+        </reference>
+    </rss_index_index>
+    <testnamespace_testmodule_imageurl_customer_comment_index translate="label" module="testnamespace_testmodule">
+        <label>My ImagesURL comments</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="testnamespace_testmodule/imageurl_customer_comment_list" name="customer_imageurl_comments" template="testnamespace_testmodule/imageurl/customer/comment/list.phtml"/>
+        </reference>
+    </testnamespace_testmodule_imageurl_customer_comment_index>
+    <testnamespace_testmodule_imageurl_customer_comment_view translate="label" module="testnamespace_testmodule">
+        <label>My ImagesURL comment view</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="testnamespace_testmodule/imageurl_customer_comment_view" name="customer_imageurl_comment" template="testnamespace_testmodule/imageurl/customer/comment/view.phtml"/>
+        </reference>
+    </testnamespace_testmodule_imageurl_customer_comment_view>
+</layout>

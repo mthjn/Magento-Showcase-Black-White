@@ -1,0 +1,47 @@
+<?php
+/**
+ * TestNamespace_TestModule extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       TestNamespace
+ * @package        TestNamespace_TestModule
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * ImageURL comments list template
+ *
+ * @category    TestNamespace
+ * @package     TestNamespace_TestModule
+ * @author      Ultimate Module Creator
+ */
+?>
+<?php $_imageurl = $this->getImageurl()?>
+<?php if ($_imageurl->getAllowComments()) : ?>
+    <?php $_comments = $this->getComments(); ?>
+    <?php if (count($_comments)) : ?>
+        <div class="box-collateral box-reviews" id="imageurl-reviews">
+            <h2><?php echo $this->__('Comments for: %s', $_imageurl->getAbclink()) ?></h2>
+            <?php echo $this->getPagerHtml() ?>
+            <dl>
+                <?php foreach ($_comments as $_comment):?>
+                <dt>
+                    <div class="author"><?php echo $this->__('On %s %s wrote:', $this->formatDate($_comment->getCreatedAt(), 'long'), $this->escapeHtml($_comment->getName()))?></div>
+                    <strong><?php echo $this->escapeHtml($_comment->getTitle()) ?></strong>
+                </dt>
+                <dd>
+                    <?php echo nl2br($this->escapeHtml($_comment->getComment())) ?>
+                </dd>
+                <?php endforeach; ?>
+            </dl>
+            <?php echo $this->getPagerHtml() ?>
+        </div>
+    <?php endif;?>
+    <?php echo $this->getChildHtml('comment_form') ?>
+<?php endif;?>

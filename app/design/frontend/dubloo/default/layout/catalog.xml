@@ -54,16 +54,18 @@ Default layout, loads most of the pages
         </reference>-->
         <reference name="right">
             <!-- Permanent callouts -->
-            <block type="core/template" name="right.permanent.callout" template="callouts/right_col.phtml">-->
+            <block type="core/template" name="right.permanent.callout" template="callouts/right_col.phtml">
                 <action method="setImgSrc"><src>images/media/unboxed.jpg</src></action>
+
                 <action method="setImgAlt" translate="alt" module="catalog">
                   <alt>Lorem ipsum dolor sit amet</alt>
                 </action>
                 <action method="setLinkUrl"><url>laptops/posh.html</url></action>
             </block>
 
-            <block type="core/template" name="right.permanent.callout.bottom" template="callouts/right_col.phtml">-->
+            <block type="core/template" name="right.permanent.callout.bottom" template="callouts/right_col.phtml">
                 <action method="setImgSrc"><src>images/media/SidebarDeal.png</src></action>
+                
                 <action method="setImgAlt" translate="alt" module="catalog">
                   <alt>The real deal</alt>
                 </action>

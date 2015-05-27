@@ -180,12 +180,6 @@
                     </block>-->
 
                 <!-- Custom blocks-->
-                  <block type="page/html_wrapper" name="sale" as="sale">
-                   <action method="setElementClass"><value>links</value></action>
-                      <block type="cms/block" name="summer_sale">
-                          <action method="setBlockId"><block_id>summer_sale</block_id></action>
-                      </block>
-                  </block>
 
                   <block type="page/html_wrapper" name="fromheader" as="fromheader">
                    <action method="setElementClass"><value>links</value></action>
@@ -193,6 +187,14 @@
                           <action method="setBlockId"><block_id>from_header</block_id></action>
                       </block>
                   </block>
+
+                  <block type="page/html_wrapper" name="sale" as="sale">
+                   <action method="setElementClass"><value>links</value></action>
+                      <block type="cms/block" name="summer_sale">
+                          <action method="setBlockId"><block_id>summer_sale</block_id></action>
+                      </block>
+                  </block>
+
 </block>
                 <!-- This static block can be created and populated in admin. The footer_links cms block can be used as a starting point. -->
                 <!--<block type="cms/block" name="footer_social_links">

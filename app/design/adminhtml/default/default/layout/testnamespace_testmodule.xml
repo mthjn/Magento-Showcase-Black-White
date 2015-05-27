@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * TestNamespace_TestModule extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       TestNamespace
+ * @package        TestNamespace_TestModule
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+--> 
+<layout>
+    <adminhtml_testmodule_imageurl_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>system/testnamespace_testmodule/imageurl</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="testnamespace_testmodule/adminhtml_imageurl" name="imageurl" />
+
+        </reference>
+    </adminhtml_testmodule_imageurl_index>
+    <adminhtml_testmodule_imageurl_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="testnamespace_testmodule/adminhtml_imageurl_grid" name="imageurl_grid"/>
+        </block>
+    </adminhtml_testmodule_imageurl_grid>
+    <!-- Imageurl add/edit action -->
+    <adminhtml_testmodule_imageurl_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>system/testnamespace_testmodule/imageurl</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="testnamespace_testmodule/adminhtml_imageurl_edit" name="imageurl_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="testnamespace_testmodule/adminhtml_imageurl_edit_tabs" name="imageurl_tabs"></block>
+        </reference>
+    </adminhtml_testmodule_imageurl_edit>
+
+    <adminhtml_testmodule_imageurl_comment_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>system/testnamespace_testmodule/imageurl_comment</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="testnamespace_testmodule/adminhtml_imageurl_comment" name="imageurl_comment_grid"/>
+        </reference>
+    </adminhtml_testmodule_imageurl_comment_index>
+    <adminhtml_testmodule_imageurl_comment_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="testnamespace_testmodule/adminhtml_imageurl_comment_grid" name="imageurl_comment_grid"/>
+        </block>
+    </adminhtml_testmodule_imageurl_comment_grid>
+    <adminhtml_testmodule_imageurl_comment_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>system/testnamespace_testmodule/imageurl_comment</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="testnamespace_testmodule/adminhtml_imageurl_comment_edit" name="imageurl_comment_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="testnamespace_testmodule/adminhtml_imageurl_comment_edit_tabs" name="imageurl_comment_tabs"></block>
+        </reference>
+    </adminhtml_testmodule_imageurl_comment_edit>
+</layout>

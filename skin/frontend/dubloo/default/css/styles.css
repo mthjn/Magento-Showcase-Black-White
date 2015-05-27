@@ -29,6 +29,7 @@
 /*
  * Corrects `block` display not defined in IE 8/9.
  */
+/* http://localhost/mage2/skin/frontend/dubloo/default/images/ButtonWhite.png */
 article,
 aside,
 details,
@@ -1345,6 +1346,7 @@ a.button:hover {
   float: right;
   width: 25%;
   padding-right: 0;
+  padding-left: 30px;
   /* Remove the 15px padding */
 }
 .col-right img {
@@ -1372,10 +1374,14 @@ a.button:hover {
 .col2-right-layout .col-main {
   padding-left: 0;
   /* Remove the 15px padding */
+  border-right: 1px solid #666;
+  padding-right: 30px;
+
 }
 
 .col3-layout .col-right {
   width: 20.83333%;
+
 }
 .col3-layout .col-wrapper {
   float: left;
@@ -1429,6 +1435,7 @@ a.button:hover {
     margin-bottom: 10px;
     float: none;
     width: auto;
+    border-right:0;
   }
 
   .col3-layout .col-wrapper {
@@ -4289,7 +4296,34 @@ p.product-name a:hover {
 .products-list .product-name a {
   font-weight: 500;
 }
-
+.slidein {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+  background: rgba(255,255,255,0.6);
+  position: relative;
+  z-index: 99;
+  margin-top: -40px;
+  padding: 10px 0;
+  bottom:-10px;
+  visibility:hidden;
+  transition: bottom 1s ease;
+}
+.slideactive {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+  background: rgba(255,255,255,0.6);
+  position: relative;
+  z-index: 99;
+  margin-top: -40px;
+  padding: 10px 0;
+  bottom: 0;
+  visibility:visible;
+  transition: bottom 1s ease;
+}
 /* ============================================ *
  * Product Grid
  * ============================================ */
@@ -4323,8 +4357,9 @@ p.product-name a:hover {
 }
 
 .products-grid .product-image img {
-  width: 100%;
+  width: 80%;
   height: auto;
+  margin: 0 auto;
 }
 .products-grid .product-image img:hidden {
   display: none;
@@ -5412,8 +5447,8 @@ p.product-name a:hover {
     display: block;
     width: 100%;
     position: relative;
-    border: 1px solid #cccccc;
-    background-color: #f4f4f4;
+    border: 1px solid #fff;
+    background-color: #fff;
   }
   .product-collateral .toggle-tabs li {
     float: left;
@@ -5434,11 +5469,11 @@ p.product-name a:hover {
     text-transform: uppercase;
     font-size: 12px;
     position: relative;
-    bottom: -1px;
+    bottom: 0px;
   }
   .product-collateral .toggle-tabs li.current {
-    border-right: 1px solid #cccccc;
-    border-left: 1px solid #cccccc;
+    border-right: 1px solid #fff;
+    border-left: 1px solid #fff;
   }
   .product-collateral .toggle-tabs li.current > span {
     background-color: #FFFFFF;
@@ -5466,7 +5501,7 @@ p.product-name a:hover {
     width: 100%;
     display: none;
     padding: 15px;
-    border: 1px solid #cccccc;
+    border: 1px solid #fff;
     border-top: 0;
   }
   .product-collateral > dl > dd.current {
@@ -5525,7 +5560,7 @@ p.product-name a:hover {
     margin: 0;
     border-width: 0 1px;
     border-style: solid;
-    border-color: #cccccc;
+    border-color: white;
   }
   .product-collateral > dl > dd:last-child {
     border-width: 0 1px 1px 1px;
@@ -7717,6 +7752,10 @@ body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-l
   cursor: default;
 }
 
+.bannerimage {
+  max-width: 220px;
+  margin: 0 auto;
+}
 /* ============================================ *
  * Customer
  * ============================================ */
@@ -10698,6 +10737,19 @@ div.calendar table td.button {
 
 /* items of the week */
 
+ .homepagetitle {
+   background: url('http://localhost/mage2/skin/frontend/dubloo/default/images/ButtonWhite.png');
+   background-repeat: no-repeat;
+   background-size: contain;
+   background-position: center;
+   height: 45px;
+   padding: 15px;
+   text-align: center;
+   margin-bottom: -40px;
+   z-index: 9;
+   position: relative;
+ }
+
  .homepageselection {
    width:100%;
    float:left;
@@ -10738,6 +10790,7 @@ div.calendar table td.button {
 .product-arrivals {
   width:100%;
   float: left;
+  padding-top: 30px;
 }
 
 
@@ -10798,3 +10851,11 @@ div.calendar table td.button {
       visibility:hidden;
     }
   }
+
+  .fwrap {
+    width: 100%;
+    float:left;
+  }
+ .fwrap .links {
+   width:25% !important;
+ }

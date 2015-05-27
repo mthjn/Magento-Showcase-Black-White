@@ -1,0 +1,36 @@
+<?php
+/**
+ * TestNamespace_TestModule extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       TestNamespace
+ * @package        TestNamespace_TestModule
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * ImageURL view widget template
+ *
+ * @category    TestNamespace
+ * @package     TestNamespace_TestModule
+ * @author      Ultimate Module Creator
+ */
+?>
+<?php $_imageurl = $this->getCurrentImageurl();?>
+<?php if ($_imageurl) :?>
+    <div class="imageurl-widget-view">
+        <h3><?php echo $_imageurl->getAbclink()?></h3>
+        <div>
+            <div class="abclink-widget">
+                <?php echo Mage::helper('testnamespace_testmodule')->__('ABC Link');?>:<?php echo $_imageurl->getAbclink();?>
+            </div>
+
+        </div>
+    </div>
+<?php endif;?>

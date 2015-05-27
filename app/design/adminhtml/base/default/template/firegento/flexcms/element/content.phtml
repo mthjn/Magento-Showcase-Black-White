@@ -1,0 +1,9 @@
+<?php /** @var Mage_Core_Block_Template $this */ ?>
+
+<div class="flexcms_element">
+    <h5><?php echo $this->getElementType() ?></h5>
+    <?php foreach ($this->getElements() as $element): ?>
+        <?php /** @var Varien_Data_Form_Element_Abstract $element */ ?>
+        <?php echo $element->getHtml() ?>
+    <?php endforeach ?>
+</div>
