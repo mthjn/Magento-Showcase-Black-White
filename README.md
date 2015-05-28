@@ -42,8 +42,8 @@ add js into footer or better as a custom block via a xml file.
       
       
    
-      function showPopUp() {
-      PopUp = new Window({
+        ...
+        PopUp = new Window({
         id: 'omg',
         className:'PopUp',
         destroyOnClose: true,
@@ -58,6 +58,7 @@ add js into footer or better as a custom block via a xml file.
         PopUp.showCenter(true);
         }
         //window.onload = showPopUp();
+        ...
           
         
   must be a valid url with the actual content. sort out how to close the window nicely.  
