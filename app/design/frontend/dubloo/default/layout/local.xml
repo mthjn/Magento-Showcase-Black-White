@@ -41,7 +41,9 @@
         <action method="addItem"><type>skin_js</type><name>js/foundation/foundation.js</name><params/></action>-->
         <!--<remove name="catalog.compare.sidebar" />-->
         <remove name="right.permanent.callout" />
+        <!-- pop up -->
         
+
     </reference>
 </default>
 </layout>

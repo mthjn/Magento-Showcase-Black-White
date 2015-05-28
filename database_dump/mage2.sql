@@ -1,30 +1,11 @@
--- phpMyAdmin SQL Dump
--- version 4.3.11
--- http://www.phpmyadmin.net
---
--- Počítač: 127.0.0.1
--- Vytvořeno: Stř 27. kvě 2015, 16:35
--- Verze serveru: 5.6.24
--- Verze PHP: 5.6.8
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
---
--- Databáze: `mage2`
---
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `adminnotification_inbox`
---
 
 DROP TABLE IF EXISTS `adminnotification_inbox`;
 CREATE TABLE IF NOT EXISTS `adminnotification_inbox` (
@@ -37,10 +18,6 @@ CREATE TABLE IF NOT EXISTS `adminnotification_inbox` (
   `is_read` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Flag if notification read',
   `is_remove` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Flag if notification might be removed'
 ) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8 COMMENT='Adminnotification Inbox';
-
---
--- Vypisuji data pro tabulku `adminnotification_inbox`
---
 
 INSERT INTO `adminnotification_inbox` (`notification_id`, `severity`, `date_added`, `title`, `description`, `url`, `is_read`, `is_remove`) VALUES
 (1, 4, '2008-07-25 03:24:40', 'Magento 1.1 Production Version Now Available', 'We are thrilled to announce the availability of the production release of Magento 1.1. Read more about the release in the Magento Blog.', 'http://www.magentocommerce.com/blog/comments/magento-11-is-here-1/', 0, 1),
@@ -132,24 +109,12 @@ INSERT INTO `adminnotification_inbox` (`notification_id`, `severity`, `date_adde
 (87, 1, '2015-04-23 17:43:31', 'Urgent: Immediately install Magento critical security patches', 'It is critical for you to download and install 2 previously-released security patches (SUPEE-5344 and SUPEE-1533) from the Magento Community Edition download page (https://www.magentocommerce.com/products/downloads/magento/).  Please do this immediately, as Check Point Software Technologies has published a technical description of how they discovered the issue, which we feel might serve as a tutorial for implementing an attack against your website. ', 'https://www.magentocommerce.com/products/downloads/magento/', 0, 1),
 (88, 1, '2015-05-14 22:34:01', 'Important: New Magento Security Patch - Install it Now', 'It is important for you to download and install a new security patch (SUPEE-5994) from the Magento Community Edition download page (https://www.magentocommerce.com/products/downloads/magento/).  Please apply this critical update immediately to help protect your site from exposure to multiple security vulnerabilities impacting all versions of the Magento Community Edition software. Please note that this patch should be installed in addition to the recent Shoplift patch (SUPEE-5344).', 'https://www.magentocommerce.com/products/downloads/magento/', 0, 1);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `admin_assert`
---
-
 DROP TABLE IF EXISTS `admin_assert`;
 CREATE TABLE IF NOT EXISTS `admin_assert` (
   `assert_id` int(10) unsigned NOT NULL COMMENT 'Assert ID',
   `assert_type` varchar(20) DEFAULT NULL COMMENT 'Assert Type',
   `assert_data` text COMMENT 'Assert Data'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Admin Assert Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `admin_role`
---
 
 DROP TABLE IF EXISTS `admin_role`;
 CREATE TABLE IF NOT EXISTS `admin_role` (
@@ -162,19 +127,9 @@ CREATE TABLE IF NOT EXISTS `admin_role` (
   `role_name` varchar(50) DEFAULT NULL COMMENT 'Role Name'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Admin Role Table';
 
---
--- Vypisuji data pro tabulku `admin_role`
---
-
 INSERT INTO `admin_role` (`role_id`, `parent_id`, `tree_level`, `sort_order`, `role_type`, `user_id`, `role_name`) VALUES
 (1, 0, 1, 1, 'G', 0, 'Administrators'),
 (2, 1, 2, 0, 'U', 1, 'J');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `admin_rule`
---
 
 DROP TABLE IF EXISTS `admin_rule`;
 CREATE TABLE IF NOT EXISTS `admin_rule` (
@@ -187,18 +142,8 @@ CREATE TABLE IF NOT EXISTS `admin_rule` (
   `permission` varchar(10) DEFAULT NULL COMMENT 'Permission'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Admin Rule Table';
 
---
--- Vypisuji data pro tabulku `admin_rule`
---
-
 INSERT INTO `admin_rule` (`rule_id`, `role_id`, `resource_id`, `privileges`, `assert_id`, `role_type`, `permission`) VALUES
 (1, 1, 'all', NULL, 0, 'G', 'allow');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `admin_user`
---
 
 DROP TABLE IF EXISTS `admin_user`;
 CREATE TABLE IF NOT EXISTS `admin_user` (
@@ -219,18 +164,8 @@ CREATE TABLE IF NOT EXISTS `admin_user` (
   `rp_token_created_at` timestamp NULL DEFAULT NULL COMMENT 'Reset Password Link Token Creation Date'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Admin User Table';
 
---
--- Vypisuji data pro tabulku `admin_user`
---
-
 INSERT INTO `admin_user` (`user_id`, `firstname`, `lastname`, `email`, `username`, `password`, `created`, `modified`, `logdate`, `lognum`, `reload_acl_flag`, `is_active`, `extra`, `rp_token`, `rp_token_created_at`) VALUES
-(1, 'J', 'M', 'jakjn@omg.com', 'user', 'f13039f6343a424b3b7a00a59e541e43:1VLMQpY78y8UHTOKLctPkOA67mKCkwd4', '2015-05-14 13:15:02', '2015-05-14 13:15:02', '2015-05-27 10:03:02', 29, 0, 1, 'a:1:{s:11:"configState";a:57:{s:14:"design_package";s:1:"1";s:12:"design_theme";s:1:"0";s:11:"design_head";s:1:"0";s:13:"design_header";s:1:"1";s:13:"design_footer";s:1:"1";s:16:"design_watermark";s:1:"1";s:17:"design_pagination";s:1:"1";s:12:"design_email";s:1:"1";s:15:"payment_account";s:1:"1";s:32:"payment_paypal_payment_solutions";s:1:"1";s:19:"payment_wps_express";s:1:"1";s:37:"payment_wps_express_checkout_required";s:1:"1";s:54:"payment_wps_express_checkout_required_express_checkout";s:1:"1";s:28:"payment_settings_wps_express";s:1:"1";s:37:"payment_settings_wps_express_advanced";s:1:"1";s:37:"payment_wps_express_billing_agreement";s:1:"0";s:37:"payment_wps_express_settlement_report";s:1:"0";s:28:"payment_wps_express_frontend";s:1:"1";s:24:"payment_express_checkout";s:1:"0";s:33:"payment_express_checkout_required";s:1:"1";s:50:"payment_express_checkout_required_express_checkout";s:1:"1";s:19:"payment_settings_ec";s:1:"1";s:28:"payment_settings_ec_advanced";s:1:"0";s:42:"payment_express_checkout_billing_agreement";s:1:"0";s:42:"payment_express_checkout_settlement_report";s:1:"0";s:33:"payment_express_checkout_frontend";s:1:"0";s:14:"payment_ccsave";s:1:"0";s:15:"payment_checkmo";s:1:"0";s:12:"payment_free";s:1:"0";s:20:"payment_banktransfer";s:1:"0";s:22:"payment_cashondelivery";s:1:"0";s:21:"payment_purchaseorder";s:1:"0";s:31:"payment_authorizenet_directpost";s:1:"0";s:20:"payment_authorizenet";s:1:"0";s:18:"persistent_options";s:1:"1";s:31:"advanced_modules_disable_output";s:1:"1";s:16:"currency_options";s:1:"1";s:20:"currency_webservicex";s:1:"0";s:15:"currency_import";s:1:"0";s:7:"web_url";s:1:"1";s:7:"web_seo";s:1:"1";s:12:"web_unsecure";s:1:"0";s:10:"web_secure";s:1:"0";s:11:"web_default";s:1:"0";s:9:"web_polls";s:1:"0";s:10:"web_cookie";s:1:"0";s:11:"web_session";s:1:"0";s:24:"web_browser_capabilities";s:1:"0";s:26:"cssslidyslider_mainoptions";s:1:"0";s:26:"cssslidyslider_slideritem1";s:1:"1";s:26:"cssslidyslider_slideritem2";s:1:"1";s:26:"cssslidyslider_slideritem3";s:1:"1";s:26:"cssslidyslider_slideritem4";s:1:"1";s:15:"general_country";s:1:"0";s:14:"general_region";s:1:"0";s:14:"general_locale";s:1:"1";s:25:"general_store_information";s:1:"1";}}', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `api2_acl_attribute`
---
+(1, 'J', 'M', 'jakjn@omg.com', 'user', 'f13039f6343a424b3b7a00a59e541e43:1VLMQpY78y8UHTOKLctPkOA67mKCkwd4', '2015-05-14 13:15:02', '2015-05-14 13:15:02', '2015-05-28 09:02:44', 30, 0, 1, 'a:1:{s:11:"configState";a:57:{s:14:"design_package";s:1:"1";s:12:"design_theme";s:1:"0";s:11:"design_head";s:1:"0";s:13:"design_header";s:1:"1";s:13:"design_footer";s:1:"1";s:16:"design_watermark";s:1:"1";s:17:"design_pagination";s:1:"1";s:12:"design_email";s:1:"1";s:15:"payment_account";s:1:"1";s:32:"payment_paypal_payment_solutions";s:1:"1";s:19:"payment_wps_express";s:1:"1";s:37:"payment_wps_express_checkout_required";s:1:"1";s:54:"payment_wps_express_checkout_required_express_checkout";s:1:"1";s:28:"payment_settings_wps_express";s:1:"1";s:37:"payment_settings_wps_express_advanced";s:1:"1";s:37:"payment_wps_express_billing_agreement";s:1:"0";s:37:"payment_wps_express_settlement_report";s:1:"0";s:28:"payment_wps_express_frontend";s:1:"1";s:24:"payment_express_checkout";s:1:"0";s:33:"payment_express_checkout_required";s:1:"1";s:50:"payment_express_checkout_required_express_checkout";s:1:"1";s:19:"payment_settings_ec";s:1:"1";s:28:"payment_settings_ec_advanced";s:1:"0";s:42:"payment_express_checkout_billing_agreement";s:1:"0";s:42:"payment_express_checkout_settlement_report";s:1:"0";s:33:"payment_express_checkout_frontend";s:1:"0";s:14:"payment_ccsave";s:1:"0";s:15:"payment_checkmo";s:1:"0";s:12:"payment_free";s:1:"0";s:20:"payment_banktransfer";s:1:"0";s:22:"payment_cashondelivery";s:1:"0";s:21:"payment_purchaseorder";s:1:"0";s:31:"payment_authorizenet_directpost";s:1:"0";s:20:"payment_authorizenet";s:1:"0";s:18:"persistent_options";s:1:"1";s:31:"advanced_modules_disable_output";s:1:"1";s:16:"currency_options";s:1:"1";s:20:"currency_webservicex";s:1:"0";s:15:"currency_import";s:1:"0";s:7:"web_url";s:1:"1";s:7:"web_seo";s:1:"1";s:12:"web_unsecure";s:1:"0";s:10:"web_secure";s:1:"0";s:11:"web_default";s:1:"0";s:9:"web_polls";s:1:"0";s:10:"web_cookie";s:1:"0";s:11:"web_session";s:1:"0";s:24:"web_browser_capabilities";s:1:"0";s:26:"cssslidyslider_mainoptions";s:1:"0";s:26:"cssslidyslider_slideritem1";s:1:"1";s:26:"cssslidyslider_slideritem2";s:1:"1";s:26:"cssslidyslider_slideritem3";s:1:"1";s:26:"cssslidyslider_slideritem4";s:1:"1";s:15:"general_country";s:1:"0";s:14:"general_region";s:1:"0";s:14:"general_locale";s:1:"1";s:25:"general_store_information";s:1:"1";}}', NULL, NULL);
 
 DROP TABLE IF EXISTS `api2_acl_attribute`;
 CREATE TABLE IF NOT EXISTS `api2_acl_attribute` (
@@ -241,12 +176,6 @@ CREATE TABLE IF NOT EXISTS `api2_acl_attribute` (
   `allowed_attributes` text COMMENT 'Allowed attributes'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api2 Filter ACL Attributes';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `api2_acl_role`
---
-
 DROP TABLE IF EXISTS `api2_acl_role`;
 CREATE TABLE IF NOT EXISTS `api2_acl_role` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
@@ -255,19 +184,9 @@ CREATE TABLE IF NOT EXISTS `api2_acl_role` (
   `role_name` varchar(255) NOT NULL COMMENT 'Name of role'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Api2 Global ACL Roles';
 
---
--- Vypisuji data pro tabulku `api2_acl_role`
---
-
 INSERT INTO `api2_acl_role` (`entity_id`, `created_at`, `updated_at`, `role_name`) VALUES
 (1, '2015-05-14 15:13:51', NULL, 'Guest'),
 (2, '2015-05-14 15:13:51', NULL, 'Customer');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `api2_acl_rule`
---
 
 DROP TABLE IF EXISTS `api2_acl_rule`;
 CREATE TABLE IF NOT EXISTS `api2_acl_rule` (
@@ -277,23 +196,11 @@ CREATE TABLE IF NOT EXISTS `api2_acl_rule` (
   `privilege` varchar(20) DEFAULT NULL COMMENT 'ACL Privilege'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api2 Global ACL Rules';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `api2_acl_user`
---
-
 DROP TABLE IF EXISTS `api2_acl_user`;
 CREATE TABLE IF NOT EXISTS `api2_acl_user` (
   `admin_id` int(10) unsigned NOT NULL COMMENT 'Admin ID',
   `role_id` int(10) unsigned NOT NULL COMMENT 'Role ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api2 Global ACL Users';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `api_assert`
---
 
 DROP TABLE IF EXISTS `api_assert`;
 CREATE TABLE IF NOT EXISTS `api_assert` (
@@ -301,12 +208,6 @@ CREATE TABLE IF NOT EXISTS `api_assert` (
   `assert_type` varchar(20) DEFAULT NULL COMMENT 'Assert type',
   `assert_data` text COMMENT 'Assert additional data'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api ACL Asserts';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `api_role`
---
 
 DROP TABLE IF EXISTS `api_role`;
 CREATE TABLE IF NOT EXISTS `api_role` (
@@ -319,12 +220,6 @@ CREATE TABLE IF NOT EXISTS `api_role` (
   `role_name` varchar(50) DEFAULT NULL COMMENT 'Role name'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api ACL Roles';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `api_rule`
---
-
 DROP TABLE IF EXISTS `api_rule`;
 CREATE TABLE IF NOT EXISTS `api_rule` (
   `rule_id` int(10) unsigned NOT NULL COMMENT 'Api rule Id',
@@ -336,24 +231,12 @@ CREATE TABLE IF NOT EXISTS `api_rule` (
   `api_permission` varchar(10) DEFAULT NULL COMMENT 'Permission'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api ACL Rules';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `api_session`
---
-
 DROP TABLE IF EXISTS `api_session`;
 CREATE TABLE IF NOT EXISTS `api_session` (
   `user_id` int(10) unsigned NOT NULL COMMENT 'User id',
   `logdate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Login date',
   `sessid` varchar(40) DEFAULT NULL COMMENT 'Sessioin id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api Sessions';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `api_user`
---
 
 DROP TABLE IF EXISTS `api_user`;
 CREATE TABLE IF NOT EXISTS `api_user` (
@@ -370,12 +253,6 @@ CREATE TABLE IF NOT EXISTS `api_user` (
   `is_active` smallint(6) NOT NULL DEFAULT '1' COMMENT 'Account status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api Users';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `captcha_log`
---
-
 DROP TABLE IF EXISTS `captcha_log`;
 CREATE TABLE IF NOT EXISTS `captcha_log` (
   `type` varchar(32) NOT NULL COMMENT 'Type',
@@ -384,30 +261,14 @@ CREATE TABLE IF NOT EXISTS `captcha_log` (
   `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Update Time'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Count Login Attempts';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `cataloginventory_stock`
---
-
 DROP TABLE IF EXISTS `cataloginventory_stock`;
 CREATE TABLE IF NOT EXISTS `cataloginventory_stock` (
   `stock_id` smallint(5) unsigned NOT NULL COMMENT 'Stock Id',
   `stock_name` varchar(255) DEFAULT NULL COMMENT 'Stock Name'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Cataloginventory Stock';
 
---
--- Vypisuji data pro tabulku `cataloginventory_stock`
---
-
 INSERT INTO `cataloginventory_stock` (`stock_id`, `stock_name`) VALUES
 (1, 'Default');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `cataloginventory_stock_item`
---
 
 DROP TABLE IF EXISTS `cataloginventory_stock_item`;
 CREATE TABLE IF NOT EXISTS `cataloginventory_stock_item` (
@@ -438,10 +299,6 @@ CREATE TABLE IF NOT EXISTS `cataloginventory_stock_item` (
   `is_decimal_divided` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Divided into Multiple Boxes for Shipping'
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COMMENT='Cataloginventory Stock Item';
 
---
--- Vypisuji data pro tabulku `cataloginventory_stock_item`
---
-
 INSERT INTO `cataloginventory_stock_item` (`item_id`, `product_id`, `stock_id`, `qty`, `min_qty`, `use_config_min_qty`, `is_qty_decimal`, `backorders`, `use_config_backorders`, `min_sale_qty`, `use_config_min_sale_qty`, `max_sale_qty`, `use_config_max_sale_qty`, `is_in_stock`, `low_stock_date`, `notify_stock_qty`, `use_config_notify_stock_qty`, `manage_stock`, `use_config_manage_stock`, `stock_status_changed_auto`, `use_config_qty_increments`, `qty_increments`, `use_config_enable_qty_inc`, `enable_qty_increments`, `is_decimal_divided`) VALUES
 (1, 1, 1, '122.0000', '0.0000', 1, 0, 0, 1, '1.0000', 1, '0.0000', 1, 1, NULL, NULL, 1, 0, 1, 0, 1, '0.0000', 1, 0, 0),
 (2, 2, 1, '33.0000', '0.0000', 1, 0, 0, 1, '1.0000', 1, '0.0000', 1, 1, NULL, NULL, 1, 0, 1, 0, 1, '0.0000', 1, 0, 0),
@@ -461,12 +318,6 @@ INSERT INTO `cataloginventory_stock_item` (`item_id`, `product_id`, `stock_id`, 
 (24, 16, 1, '0.0000', '0.0000', 1, 0, 0, 1, '1.0000', 1, '0.0000', 1, 0, '2015-05-15 07:26:37', NULL, 1, 0, 1, 1, 1, '0.0000', 1, 0, 0),
 (25, 17, 1, '0.0000', '0.0000', 1, 0, 0, 1, '1.0000', 1, '0.0000', 1, 1, NULL, NULL, 1, 1, 0, 0, 1, '0.0000', 1, 0, 0);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `cataloginventory_stock_status`
---
-
 DROP TABLE IF EXISTS `cataloginventory_stock_status`;
 CREATE TABLE IF NOT EXISTS `cataloginventory_stock_status` (
   `product_id` int(10) unsigned NOT NULL COMMENT 'Product Id',
@@ -475,10 +326,6 @@ CREATE TABLE IF NOT EXISTS `cataloginventory_stock_status` (
   `qty` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Qty',
   `stock_status` smallint(5) unsigned NOT NULL COMMENT 'Stock Status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Cataloginventory Stock Status';
-
---
--- Vypisuji data pro tabulku `cataloginventory_stock_status`
---
 
 INSERT INTO `cataloginventory_stock_status` (`product_id`, `website_id`, `stock_id`, `qty`, `stock_status`) VALUES
 (1, 1, 1, '122.0000', 1),
@@ -499,12 +346,6 @@ INSERT INTO `cataloginventory_stock_status` (`product_id`, `website_id`, `stock_
 (16, 1, 1, '0.0000', 0),
 (17, 1, 1, '0.0000', 1);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `cataloginventory_stock_status_idx`
---
-
 DROP TABLE IF EXISTS `cataloginventory_stock_status_idx`;
 CREATE TABLE IF NOT EXISTS `cataloginventory_stock_status_idx` (
   `product_id` int(10) unsigned NOT NULL COMMENT 'Product Id',
@@ -513,10 +354,6 @@ CREATE TABLE IF NOT EXISTS `cataloginventory_stock_status_idx` (
   `qty` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Qty',
   `stock_status` smallint(5) unsigned NOT NULL COMMENT 'Stock Status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Cataloginventory Stock Status Indexer Idx';
-
---
--- Vypisuji data pro tabulku `cataloginventory_stock_status_idx`
---
 
 INSERT INTO `cataloginventory_stock_status_idx` (`product_id`, `website_id`, `stock_id`, `qty`, `stock_status`) VALUES
 (1, 1, 1, '122.0000', 1),
@@ -531,16 +368,11 @@ INSERT INTO `cataloginventory_stock_status_idx` (`product_id`, `website_id`, `st
 (10, 1, 1, '33.0000', 1),
 (11, 1, 1, '122.0000', 1),
 (12, 1, 1, '33.0000', 1),
-(13, 1, 1, '122.0000', 1),
+(13, 1, 1, '121.0000', 1),
 (14, 1, 1, '122.0000', 1),
 (15, 1, 1, '100.0000', 1),
-(16, 1, 1, '0.0000', 0);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `cataloginventory_stock_status_tmp`
---
+(16, 1, 1, '0.0000', 0),
+(17, 1, 1, '0.0000', 1);
 
 DROP TABLE IF EXISTS `cataloginventory_stock_status_tmp`;
 CREATE TABLE IF NOT EXISTS `cataloginventory_stock_status_tmp` (
@@ -550,12 +382,6 @@ CREATE TABLE IF NOT EXISTS `cataloginventory_stock_status_tmp` (
   `qty` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Qty',
   `stock_status` smallint(5) unsigned NOT NULL COMMENT 'Stock Status'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Cataloginventory Stock Status Indexer Tmp';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalogrule`
---
 
 DROP TABLE IF EXISTS `catalogrule`;
 CREATE TABLE IF NOT EXISTS `catalogrule` (
@@ -576,22 +402,10 @@ CREATE TABLE IF NOT EXISTS `catalogrule` (
   `sub_discount_amount` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Discount Amount For Subitems'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CatalogRule';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalogrule_affected_product`
---
-
 DROP TABLE IF EXISTS `catalogrule_affected_product`;
 CREATE TABLE IF NOT EXISTS `catalogrule_affected_product` (
   `product_id` int(10) unsigned NOT NULL COMMENT 'Product Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CatalogRule Affected Product';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalogrule_customer_group`
---
 
 DROP TABLE IF EXISTS `catalogrule_customer_group`;
 CREATE TABLE IF NOT EXISTS `catalogrule_customer_group` (
@@ -599,24 +413,12 @@ CREATE TABLE IF NOT EXISTS `catalogrule_customer_group` (
   `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Rules To Customer Groups Relations';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalogrule_group_website`
---
-
 DROP TABLE IF EXISTS `catalogrule_group_website`;
 CREATE TABLE IF NOT EXISTS `catalogrule_group_website` (
   `rule_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Rule Id',
   `customer_group_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Customer Group Id',
   `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CatalogRule Group Website';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalogrule_product`
---
 
 DROP TABLE IF EXISTS `catalogrule_product`;
 CREATE TABLE IF NOT EXISTS `catalogrule_product` (
@@ -635,12 +437,6 @@ CREATE TABLE IF NOT EXISTS `catalogrule_product` (
   `sub_discount_amount` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Discount Amount For Subitems'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CatalogRule Product';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalogrule_product_price`
---
-
 DROP TABLE IF EXISTS `catalogrule_product_price`;
 CREATE TABLE IF NOT EXISTS `catalogrule_product_price` (
   `rule_product_price_id` int(10) unsigned NOT NULL COMMENT 'Rule Product PriceId',
@@ -653,23 +449,11 @@ CREATE TABLE IF NOT EXISTS `catalogrule_product_price` (
   `earliest_end_date` date DEFAULT NULL COMMENT 'Earliest EndDate'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CatalogRule Product Price';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalogrule_website`
---
-
 DROP TABLE IF EXISTS `catalogrule_website`;
 CREATE TABLE IF NOT EXISTS `catalogrule_website` (
   `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule Id',
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Rules To Websites Relations';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalogsearch_fulltext`
---
 
 DROP TABLE IF EXISTS `catalogsearch_fulltext`;
 CREATE TABLE IF NOT EXISTS `catalogsearch_fulltext` (
@@ -677,35 +461,25 @@ CREATE TABLE IF NOT EXISTS `catalogsearch_fulltext` (
   `product_id` int(10) unsigned NOT NULL COMMENT 'Product ID',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
   `data_index` longtext COMMENT 'Data index'
-) ENGINE=MyISAM AUTO_INCREMENT=97 DEFAULT CHARSET=utf8 COMMENT='Catalog search result table';
-
---
--- Vypisuji data pro tabulku `catalogsearch_fulltext`
---
+) ENGINE=MyISAM AUTO_INCREMENT=113 DEFAULT CHARSET=utf8 COMMENT='Catalog search result table';
 
 INSERT INTO `catalogsearch_fulltext` (`fulltext_id`, `product_id`, `store_id`, `data_index`) VALUES
-(80, 1, 1, '1|None|Laptop A|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
-(81, 2, 1, '2|None|Laptop B|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
-(82, 3, 1, '3|None|Laptop C|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
-(83, 4, 1, '4|None|Laptop D|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
-(84, 5, 1, '5|None|Laptop E|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
-(85, 6, 1, '6|None|Laptop F|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
-(86, 7, 1, '21|None|Phone A|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
-(87, 8, 1, '22|None|Phone B|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
-(88, 9, 1, '23|None|Phone C|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
-(89, 10, 1, '24|None|Phone D|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
-(90, 11, 1, '25|None|Phone E|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
-(91, 12, 1, '26|None|Phone F|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
-(93, 14, 1, '32|None|Tablet B|Lorem ipsum dolor sit amet.|Lorem ipsum. This should be on homepage. This should be on homepage.|555|1'),
-(92, 13, 1, '31|None|Tablet A|Lorem ipsum dolor sit amet.|Lorem ipsum. This should be on homepage.|555|1'),
-(94, 15, 1, '33|None|Tablet C|Lorem ipsum dolor sit amet.|Lorem ipsum. This should be on homepage. This should be on homepage. This should be on homepage.|555|1'),
-(96, 17, 1, '789|Bundled product 1|Laptop A|Laptop B|Laptop D|Tablet C|Laptop C|Phone C|This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product.|Lorem ipsum dolor sit amet.|Lorem ipsum dolor sit amet.|Lorem ipsum dolor sit amet.|Lorem ipsum dolor sit amet.|Lorem ipsum dolor sit amet.|Lorem ipsum dolor sit amet.|This is a bundled product.|Lorem ipsum.|Lorem ipsum.|Lorem ipsum.|Lorem ipsum. This should be on homepage. This should be on homepage. This should be on homepage.|Lorem ipsum.|Lorem ipsum.|None|None|None|None|None|None|1000|1000|1000|555|1000|1000|Option 2|Bundle Co-Items|1');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalogsearch_query`
---
+(112, 17, 1, '789|Bundled product 1|Laptop A|Laptop B|Laptop D|Tablet C|Laptop C|Phone C|This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product. This is a bundled product.|Lorem ipsum dolor sit amet.|Lorem ipsum dolor sit amet.|Lorem ipsum dolor sit amet.|Lorem ipsum dolor sit amet.|Lorem ipsum dolor sit amet.|Lorem ipsum dolor sit amet.|This is a bundled product.|Lorem ipsum.|Lorem ipsum.|Lorem ipsum.|Lorem ipsum. This should be on homepage. This should be on homepage. This should be on homepage.|Lorem ipsum.|Lorem ipsum.|None|None|None|None|None|None|1000|1000|1000|555|1000|1000|Option 2|Bundle Co-Items|1'),
+(111, 15, 1, '33|None|Tablet C|Lorem ipsum dolor sit amet.|Lorem ipsum. This should be on homepage. This should be on homepage. This should be on homepage.|555|1'),
+(110, 14, 1, '32|None|Tablet B|Lorem ipsum dolor sit amet.|Lorem ipsum. This should be on homepage. This should be on homepage.|555|1'),
+(109, 13, 1, '31|None|Tablet A|Lorem ipsum dolor sit amet.|Lorem ipsum. This should be on homepage.|555|1'),
+(108, 12, 1, '26|None|Phone F|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
+(107, 11, 1, '25|None|Phone E|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
+(105, 9, 1, '23|None|Phone C|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
+(106, 10, 1, '24|None|Phone D|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
+(99, 3, 1, '3|None|Laptop C|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
+(100, 4, 1, '4|None|Laptop D|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
+(101, 5, 1, '5|None|Laptop E|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
+(102, 6, 1, '6|None|Laptop F|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
+(103, 7, 1, '21|None|Phone A|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
+(104, 8, 1, '22|None|Phone B|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
+(97, 1, 1, '1|None|Laptop A|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1'),
+(98, 2, 1, '2|None|Laptop B|Lorem ipsum dolor sit amet.|Lorem ipsum.|1000|1');
 
 DROP TABLE IF EXISTS `catalogsearch_query`;
 CREATE TABLE IF NOT EXISTS `catalogsearch_query` (
@@ -722,19 +496,9 @@ CREATE TABLE IF NOT EXISTS `catalogsearch_query` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Updated at'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Catalog search query table';
 
---
--- Vypisuji data pro tabulku `catalogsearch_query`
---
-
 INSERT INTO `catalogsearch_query` (`query_id`, `query_text`, `num_results`, `popularity`, `redirect`, `synonym_for`, `store_id`, `display_in_terms`, `is_active`, `is_processed`, `updated_at`) VALUES
 (1, 'a', 15, 1, NULL, NULL, 1, 1, 1, 0, '2015-05-18 05:55:17'),
 (2, 'aa', 0, 1, NULL, NULL, 1, 1, 1, 0, '2015-05-20 07:59:02');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalogsearch_result`
---
 
 DROP TABLE IF EXISTS `catalogsearch_result`;
 CREATE TABLE IF NOT EXISTS `catalogsearch_result` (
@@ -743,35 +507,17 @@ CREATE TABLE IF NOT EXISTS `catalogsearch_result` (
   `relevance` decimal(20,4) NOT NULL DEFAULT '0.0000' COMMENT 'Relevance'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog search result table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_anc_categs_index_idx`
---
-
 DROP TABLE IF EXISTS `catalog_category_anc_categs_index_idx`;
 CREATE TABLE IF NOT EXISTS `catalog_category_anc_categs_index_idx` (
   `category_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Category ID',
   `path` varchar(255) DEFAULT NULL COMMENT 'Path'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Anchor Indexer Index Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_anc_categs_index_tmp`
---
-
 DROP TABLE IF EXISTS `catalog_category_anc_categs_index_tmp`;
 CREATE TABLE IF NOT EXISTS `catalog_category_anc_categs_index_tmp` (
   `category_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Category ID',
   `path` varchar(255) DEFAULT NULL COMMENT 'Path'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Category Anchor Indexer Temp Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_anc_products_index_idx`
---
 
 DROP TABLE IF EXISTS `catalog_category_anc_products_index_idx`;
 CREATE TABLE IF NOT EXISTS `catalog_category_anc_products_index_idx` (
@@ -780,24 +526,12 @@ CREATE TABLE IF NOT EXISTS `catalog_category_anc_products_index_idx` (
   `position` int(10) unsigned DEFAULT NULL COMMENT 'Position'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Anchor Product Indexer Index Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_anc_products_index_tmp`
---
-
 DROP TABLE IF EXISTS `catalog_category_anc_products_index_tmp`;
 CREATE TABLE IF NOT EXISTS `catalog_category_anc_products_index_tmp` (
   `category_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Category ID',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
   `position` int(10) unsigned DEFAULT NULL COMMENT 'Position'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Category Anchor Product Indexer Temp Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_entity`
---
 
 DROP TABLE IF EXISTS `catalog_category_entity`;
 CREATE TABLE IF NOT EXISTS `catalog_category_entity` (
@@ -812,10 +546,6 @@ CREATE TABLE IF NOT EXISTS `catalog_category_entity` (
   `level` int(11) NOT NULL DEFAULT '0' COMMENT 'Tree Level',
   `children_count` int(11) NOT NULL COMMENT 'Child Count'
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Table';
-
---
--- Vypisuji data pro tabulku `catalog_category_entity`
---
 
 INSERT INTO `catalog_category_entity` (`entity_id`, `entity_type_id`, `attribute_set_id`, `parent_id`, `created_at`, `updated_at`, `path`, `position`, `level`, `children_count`) VALUES
 (1, 3, 0, 0, '2015-05-14 13:14:01', '2015-05-14 13:14:01', '1', 0, 0, 12),
@@ -832,12 +562,6 @@ INSERT INTO `catalog_category_entity` (`entity_id`, `entity_type_id`, `attribute
 (13, 3, 3, 2, '2015-05-19 07:48:01', '2015-05-19 07:48:01', '1/2/13', 4, 2, 0),
 (14, 3, 3, 2, '2015-05-19 07:51:08', '2015-05-19 07:54:10', '1/2/14', 5, 2, 0);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_entity_datetime`
---
-
 DROP TABLE IF EXISTS `catalog_category_entity_datetime`;
 CREATE TABLE IF NOT EXISTS `catalog_category_entity_datetime` (
   `value_id` int(11) NOT NULL COMMENT 'Value ID',
@@ -847,10 +571,6 @@ CREATE TABLE IF NOT EXISTS `catalog_category_entity_datetime` (
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` datetime DEFAULT NULL COMMENT 'Value'
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Datetime Attribute Backend Table';
-
---
--- Vypisuji data pro tabulku `catalog_category_entity_datetime`
---
 
 INSERT INTO `catalog_category_entity_datetime` (`value_id`, `entity_type_id`, `attribute_id`, `store_id`, `entity_id`, `value`) VALUES
 (3, 3, 59, 0, 4, NULL),
@@ -876,12 +596,6 @@ INSERT INTO `catalog_category_entity_datetime` (`value_id`, `entity_type_id`, `a
 (25, 3, 59, 0, 14, NULL),
 (26, 3, 60, 0, 14, NULL);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_entity_decimal`
---
-
 DROP TABLE IF EXISTS `catalog_category_entity_decimal`;
 CREATE TABLE IF NOT EXISTS `catalog_category_entity_decimal` (
   `value_id` int(11) NOT NULL COMMENT 'Value ID',
@@ -891,10 +605,6 @@ CREATE TABLE IF NOT EXISTS `catalog_category_entity_decimal` (
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` decimal(12,4) DEFAULT NULL COMMENT 'Value'
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Decimal Attribute Backend Table';
-
---
--- Vypisuji data pro tabulku `catalog_category_entity_decimal`
---
 
 INSERT INTO `catalog_category_entity_decimal` (`value_id`, `entity_type_id`, `attribute_id`, `store_id`, `entity_id`, `value`) VALUES
 (2, 3, 70, 0, 4, NULL),
@@ -909,12 +619,6 @@ INSERT INTO `catalog_category_entity_decimal` (`value_id`, `entity_type_id`, `at
 (11, 3, 70, 0, 13, NULL),
 (12, 3, 70, 0, 14, NULL);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_entity_int`
---
-
 DROP TABLE IF EXISTS `catalog_category_entity_int`;
 CREATE TABLE IF NOT EXISTS `catalog_category_entity_int` (
   `value_id` int(11) NOT NULL COMMENT 'Value ID',
@@ -924,10 +628,6 @@ CREATE TABLE IF NOT EXISTS `catalog_category_entity_int` (
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` int(11) DEFAULT NULL COMMENT 'Value'
 ) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Integer Attribute Backend Table';
-
---
--- Vypisuji data pro tabulku `catalog_category_entity_int`
---
 
 INSERT INTO `catalog_category_entity_int` (`value_id`, `entity_type_id`, `attribute_id`, `store_id`, `entity_id`, `value`) VALUES
 (1, 3, 67, 0, 1, 1),
@@ -1003,12 +703,6 @@ INSERT INTO `catalog_category_entity_int` (`value_id`, `entity_type_id`, `attrib
 (79, 3, 68, 0, 14, 0),
 (80, 3, 69, 0, 14, 0);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_entity_text`
---
-
 DROP TABLE IF EXISTS `catalog_category_entity_text`;
 CREATE TABLE IF NOT EXISTS `catalog_category_entity_text` (
   `value_id` int(11) NOT NULL COMMENT 'Value ID',
@@ -1018,10 +712,6 @@ CREATE TABLE IF NOT EXISTS `catalog_category_entity_text` (
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` text COMMENT 'Value'
 ) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Text Attribute Backend Table';
-
---
--- Vypisuji data pro tabulku `catalog_category_entity_text`
---
 
 INSERT INTO `catalog_category_entity_text` (`value_id`, `entity_type_id`, `attribute_id`, `store_id`, `entity_id`, `value`) VALUES
 (1, 3, 65, 0, 1, NULL),
@@ -1084,12 +774,6 @@ INSERT INTO `catalog_category_entity_text` (`value_id`, `entity_type_id`, `attri
 (67, 3, 62, 0, 14, NULL),
 (68, 3, 65, 0, 14, NULL);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_entity_varchar`
---
-
 DROP TABLE IF EXISTS `catalog_category_entity_varchar`;
 CREATE TABLE IF NOT EXISTS `catalog_category_entity_varchar` (
   `value_id` int(11) NOT NULL COMMENT 'Value ID',
@@ -1099,10 +783,6 @@ CREATE TABLE IF NOT EXISTS `catalog_category_entity_varchar` (
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` varchar(255) DEFAULT NULL COMMENT 'Value'
 ) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Varchar Attribute Backend Table';
-
---
--- Vypisuji data pro tabulku `catalog_category_entity_varchar`
---
 
 INSERT INTO `catalog_category_entity_varchar` (`value_id`, `entity_type_id`, `attribute_id`, `store_id`, `entity_id`, `value`) VALUES
 (1, 3, 41, 0, 1, 'Root Catalog'),
@@ -1201,12 +881,6 @@ INSERT INTO `catalog_category_entity_varchar` (`value_id`, `entity_type_id`, `at
 (103, 3, 57, 1, 14, 'new.html'),
 (104, 3, 57, 0, 14, 'new.html');
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_flat_store_1`
---
-
 DROP TABLE IF EXISTS `catalog_category_flat_store_1`;
 CREATE TABLE IF NOT EXISTS `catalog_category_flat_store_1` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'entity_id',
@@ -1246,10 +920,6 @@ CREATE TABLE IF NOT EXISTS `catalog_category_flat_store_1` (
   `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Flat (Store 1)';
 
---
--- Vypisuji data pro tabulku `catalog_category_flat_store_1`
---
-
 INSERT INTO `catalog_category_flat_store_1` (`entity_id`, `parent_id`, `created_at`, `updated_at`, `path`, `position`, `level`, `children_count`, `store_id`, `all_children`, `available_sort_by`, `children`, `custom_apply_to_products`, `custom_design`, `custom_design_from`, `custom_design_to`, `custom_layout_update`, `custom_use_parent_settings`, `default_sort_by`, `description`, `display_mode`, `filter_price_range`, `image`, `include_in_menu`, `is_active`, `is_anchor`, `landing_page`, `meta_description`, `meta_keywords`, `meta_title`, `name`, `page_layout`, `path_in_store`, `url_key`, `url_path`) VALUES
 (1, 0, '2015-05-14 13:14:01', '2015-05-14 13:14:01', '1', 0, 0, 10, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'Root Catalog', NULL, NULL, 'root-catalog', NULL),
 (2, 1, '2015-05-14 13:14:02', '2015-05-14 13:14:02', '1/2', 1, 1, 9, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PRODUCTS', NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, 'Default Category', NULL, NULL, 'default-category', NULL),
@@ -1263,22 +933,12 @@ INSERT INTO `catalog_category_flat_store_1` (`entity_id`, `parent_id`, `created_
 (11, 6, '2015-05-15 04:40:34', '2015-05-15 04:40:34', '1/2/6/11', 2, 3, 0, 1, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 0, NULL, 'Lorem ipsum.', 'PRODUCTS', NULL, NULL, 1, 1, 0, NULL, NULL, NULL, NULL, 'Brand B', NULL, NULL, 'brand-b', 'tablets/brand-b.html'),
 (12, 6, '2015-05-15 04:40:45', '2015-05-15 04:40:45', '1/2/6/12', 3, 3, 0, 1, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 0, NULL, 'Lorem ipsum.', 'PRODUCTS', NULL, NULL, 1, 1, 0, NULL, NULL, NULL, NULL, 'Brand C', NULL, NULL, 'brand-c', 'tablets/brand-c.html');
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_product`
---
-
 DROP TABLE IF EXISTS `catalog_category_product`;
 CREATE TABLE IF NOT EXISTS `catalog_category_product` (
   `category_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Category ID',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
   `position` int(11) NOT NULL DEFAULT '0' COMMENT 'Position'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product To Category Linkage Table';
-
---
--- Vypisuji data pro tabulku `catalog_category_product`
---
 
 INSERT INTO `catalog_category_product` (`category_id`, `product_id`, `position`) VALUES
 (4, 1, 1),
@@ -1322,12 +982,6 @@ INSERT INTO `catalog_category_product` (`category_id`, `product_id`, `position`)
 (14, 11, 1),
 (14, 17, 1);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_product_index`
---
-
 DROP TABLE IF EXISTS `catalog_category_product_index`;
 CREATE TABLE IF NOT EXISTS `catalog_category_product_index` (
   `category_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Category ID',
@@ -1337,10 +991,6 @@ CREATE TABLE IF NOT EXISTS `catalog_category_product_index` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `visibility` smallint(5) unsigned NOT NULL COMMENT 'Visibility'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Product Index';
-
---
--- Vypisuji data pro tabulku `catalog_category_product_index`
---
 
 INSERT INTO `catalog_category_product_index` (`category_id`, `product_id`, `position`, `is_parent`, `store_id`, `visibility`) VALUES
 (2, 1, 20005, 0, 1, 4),
@@ -1358,7 +1008,7 @@ INSERT INTO `catalog_category_product_index` (`category_id`, `product_id`, `posi
 (2, 13, 20007, 0, 1, 4),
 (2, 14, 30010, 0, 1, 4),
 (2, 15, 40009, 0, 1, 4),
-(2, 17, 150001, 0, 1, 4),
+(2, 17, 50011, 0, 1, 4),
 (2, 16, 0, 1, 1, 4),
 (4, 1, 1, 1, 1, 4),
 (4, 2, 1, 1, 1, 4),
@@ -1401,35 +1051,17 @@ INSERT INTO `catalog_category_product_index` (`category_id`, `product_id`, `posi
 (14, 11, 1, 1, 1, 4),
 (14, 17, 1, 1, 1, 4);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_product_index_enbl_idx`
---
-
 DROP TABLE IF EXISTS `catalog_category_product_index_enbl_idx`;
 CREATE TABLE IF NOT EXISTS `catalog_category_product_index_enbl_idx` (
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
   `visibility` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Visibility'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Product Enabled Indexer Index Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_product_index_enbl_tmp`
---
-
 DROP TABLE IF EXISTS `catalog_category_product_index_enbl_tmp`;
 CREATE TABLE IF NOT EXISTS `catalog_category_product_index_enbl_tmp` (
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
   `visibility` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Visibility'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Category Product Enabled Indexer Temp Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_product_index_idx`
---
 
 DROP TABLE IF EXISTS `catalog_category_product_index_idx`;
 CREATE TABLE IF NOT EXISTS `catalog_category_product_index_idx` (
@@ -1441,12 +1073,6 @@ CREATE TABLE IF NOT EXISTS `catalog_category_product_index_idx` (
   `visibility` smallint(5) unsigned NOT NULL COMMENT 'Visibility'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Product Indexer Index Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_category_product_index_tmp`
---
-
 DROP TABLE IF EXISTS `catalog_category_product_index_tmp`;
 CREATE TABLE IF NOT EXISTS `catalog_category_product_index_tmp` (
   `category_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Category ID',
@@ -1457,12 +1083,6 @@ CREATE TABLE IF NOT EXISTS `catalog_category_product_index_tmp` (
   `visibility` smallint(5) unsigned NOT NULL COMMENT 'Visibility'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Category Product Indexer Temp Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_compare_item`
---
-
 DROP TABLE IF EXISTS `catalog_compare_item`;
 CREATE TABLE IF NOT EXISTS `catalog_compare_item` (
   `catalog_compare_item_id` int(10) unsigned NOT NULL COMMENT 'Compare Item ID',
@@ -1472,21 +1092,11 @@ CREATE TABLE IF NOT EXISTS `catalog_compare_item` (
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store ID'
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Catalog Compare Table';
 
---
--- Vypisuji data pro tabulku `catalog_compare_item`
---
-
 INSERT INTO `catalog_compare_item` (`catalog_compare_item_id`, `visitor_id`, `customer_id`, `product_id`, `store_id`) VALUES
 (1, 3, NULL, 1, 1),
 (2, 3, NULL, 10, 1),
 (3, 687, NULL, 13, 1),
 (4, 687, NULL, 14, 1);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_eav_attribute`
---
 
 DROP TABLE IF EXISTS `catalog_eav_attribute`;
 CREATE TABLE IF NOT EXISTS `catalog_eav_attribute` (
@@ -1510,10 +1120,6 @@ CREATE TABLE IF NOT EXISTS `catalog_eav_attribute` (
   `is_wysiwyg_enabled` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is WYSIWYG Enabled',
   `is_used_for_promo_rules` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Used For Promo Rules'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog EAV Attribute Table';
-
---
--- Vypisuji data pro tabulku `catalog_eav_attribute`
---
 
 INSERT INTO `catalog_eav_attribute` (`attribute_id`, `frontend_input_renderer`, `is_global`, `is_visible`, `is_searchable`, `is_filterable`, `is_comparable`, `is_visible_on_front`, `is_html_allowed_on_front`, `is_used_for_price_rules`, `is_filterable_in_search`, `used_in_product_listing`, `used_for_sort_by`, `is_configurable`, `apply_to`, `is_visible_in_advanced_search`, `position`, `is_wysiwyg_enabled`, `is_used_for_promo_rules`) VALUES
 (41, NULL, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NULL, 0, 0, 0, 0),
@@ -1609,12 +1215,6 @@ INSERT INTO `catalog_eav_attribute` (`attribute_id`, `frontend_input_renderer`, 
 (131, NULL, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 'downloadable', 0, 0, 0, 0),
 (132, NULL, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 'downloadable', 0, 0, 0, 0);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_bundle_option`
---
-
 DROP TABLE IF EXISTS `catalog_product_bundle_option`;
 CREATE TABLE IF NOT EXISTS `catalog_product_bundle_option` (
   `option_id` int(10) unsigned NOT NULL COMMENT 'Option Id',
@@ -1624,19 +1224,9 @@ CREATE TABLE IF NOT EXISTS `catalog_product_bundle_option` (
   `type` varchar(255) DEFAULT NULL COMMENT 'Type'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Option';
 
---
--- Vypisuji data pro tabulku `catalog_product_bundle_option`
---
-
 INSERT INTO `catalog_product_bundle_option` (`option_id`, `parent_id`, `required`, `position`, `type`) VALUES
 (1, 17, 1, 0, 'select'),
 (2, 17, 1, 0, 'select');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_bundle_option_value`
---
 
 DROP TABLE IF EXISTS `catalog_product_bundle_option_value`;
 CREATE TABLE IF NOT EXISTS `catalog_product_bundle_option_value` (
@@ -1646,19 +1236,9 @@ CREATE TABLE IF NOT EXISTS `catalog_product_bundle_option_value` (
   `title` varchar(255) DEFAULT NULL COMMENT 'Title'
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Option Value';
 
---
--- Vypisuji data pro tabulku `catalog_product_bundle_option_value`
---
-
 INSERT INTO `catalog_product_bundle_option_value` (`value_id`, `option_id`, `store_id`, `title`) VALUES
 (2, 2, 0, 'Option 2'),
 (3, 1, 0, 'Bundle Co-Items');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_bundle_price_index`
---
 
 DROP TABLE IF EXISTS `catalog_product_bundle_price_index`;
 CREATE TABLE IF NOT EXISTS `catalog_product_bundle_price_index` (
@@ -1668,12 +1248,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_bundle_price_index` (
   `min_price` decimal(12,4) NOT NULL COMMENT 'Min Price',
   `max_price` decimal(12,4) NOT NULL COMMENT 'Max Price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Price Index';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_bundle_selection`
---
 
 DROP TABLE IF EXISTS `catalog_product_bundle_selection`;
 CREATE TABLE IF NOT EXISTS `catalog_product_bundle_selection` (
@@ -1689,10 +1263,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_bundle_selection` (
   `selection_can_change_qty` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Selection Can Change Qty'
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Selection';
 
---
--- Vypisuji data pro tabulku `catalog_product_bundle_selection`
---
-
 INSERT INTO `catalog_product_bundle_selection` (`selection_id`, `option_id`, `parent_product_id`, `product_id`, `position`, `is_default`, `selection_price_type`, `selection_price_value`, `selection_qty`, `selection_can_change_qty`) VALUES
 (1, 1, 17, 1, 0, 0, 0, '0.0000', '1.0000', 1),
 (2, 1, 17, 2, 0, 0, 0, '0.0000', '1.0000', 1),
@@ -1703,12 +1273,6 @@ INSERT INTO `catalog_product_bundle_selection` (`selection_id`, `option_id`, `pa
 (7, 2, 17, 9, 0, 0, 0, '0.0000', '1.0000', 1),
 (8, 2, 17, 15, 0, 0, 0, '0.0000', '1.0000', 1);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_bundle_selection_price`
---
-
 DROP TABLE IF EXISTS `catalog_product_bundle_selection_price`;
 CREATE TABLE IF NOT EXISTS `catalog_product_bundle_selection_price` (
   `selection_id` int(10) unsigned NOT NULL COMMENT 'Selection Id',
@@ -1716,12 +1280,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_bundle_selection_price` (
   `selection_price_type` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Selection Price Type',
   `selection_price_value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Selection Price Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Selection Price';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_bundle_stock_index`
---
 
 DROP TABLE IF EXISTS `catalog_product_bundle_stock_index`;
 CREATE TABLE IF NOT EXISTS `catalog_product_bundle_stock_index` (
@@ -1732,24 +1290,12 @@ CREATE TABLE IF NOT EXISTS `catalog_product_bundle_stock_index` (
   `stock_status` smallint(6) DEFAULT '0' COMMENT 'Stock Status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Stock Index';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_enabled_index`
---
-
 DROP TABLE IF EXISTS `catalog_product_enabled_index`;
 CREATE TABLE IF NOT EXISTS `catalog_product_enabled_index` (
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `visibility` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Visibility'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Visibility Index Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_entity`
---
 
 DROP TABLE IF EXISTS `catalog_product_entity`;
 CREATE TABLE IF NOT EXISTS `catalog_product_entity` (
@@ -1763,10 +1309,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity` (
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Creation Time',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Update Time'
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Table';
-
---
--- Vypisuji data pro tabulku `catalog_product_entity`
---
 
 INSERT INTO `catalog_product_entity` (`entity_id`, `entity_type_id`, `attribute_set_id`, `type_id`, `sku`, `has_options`, `required_options`, `created_at`, `updated_at`) VALUES
 (1, 4, 4, 'simple', '1', 0, 0, '2015-05-15 04:42:37', '2015-05-19 07:52:23'),
@@ -1787,12 +1329,6 @@ INSERT INTO `catalog_product_entity` (`entity_id`, `entity_type_id`, `attribute_
 (16, 4, 9, 'simple', '11111', 0, 0, '2015-05-15 07:25:47', '2015-05-15 07:26:37'),
 (17, 4, 4, 'bundle', '789', 1, 1, '2015-05-27 11:55:41', '2015-05-27 11:59:01');
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_entity_datetime`
---
-
 DROP TABLE IF EXISTS `catalog_product_entity_datetime`;
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_datetime` (
   `value_id` int(11) NOT NULL COMMENT 'Value ID',
@@ -1801,11 +1337,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_datetime` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` datetime DEFAULT NULL COMMENT 'Value'
-) ENGINE=InnoDB AUTO_INCREMENT=181 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Datetime Attribute Backend Table';
-
---
--- Vypisuji data pro tabulku `catalog_product_entity_datetime`
---
+) ENGINE=InnoDB AUTO_INCREMENT=151 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Datetime Attribute Backend Table';
 
 INSERT INTO `catalog_product_entity_datetime` (`value_id`, `entity_type_id`, `attribute_id`, `store_id`, `entity_id`, `value`) VALUES
 (1, 4, 93, 0, 1, NULL),
@@ -1911,12 +1443,6 @@ INSERT INTO `catalog_product_entity_datetime` (`value_id`, `entity_type_id`, `at
 (149, 4, 104, 0, 17, NULL),
 (150, 4, 105, 0, 17, NULL);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_entity_decimal`
---
-
 DROP TABLE IF EXISTS `catalog_product_entity_decimal`;
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_decimal` (
   `value_id` int(11) NOT NULL COMMENT 'Value ID',
@@ -1925,11 +1451,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_decimal` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` decimal(12,4) DEFAULT NULL COMMENT 'Value'
-) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Decimal Attribute Backend Table';
-
---
--- Vypisuji data pro tabulku `catalog_product_entity_decimal`
---
+) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Decimal Attribute Backend Table';
 
 INSERT INTO `catalog_product_entity_decimal` (`value_id`, `entity_type_id`, `attribute_id`, `store_id`, `entity_id`, `value`) VALUES
 (1, 4, 80, 0, 1, '100.0000'),
@@ -1998,12 +1520,6 @@ INSERT INTO `catalog_product_entity_decimal` (`value_id`, `entity_type_id`, `att
 (117, 4, 120, 0, 16, NULL),
 (118, 4, 76, 0, 17, NULL);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_entity_gallery`
---
-
 DROP TABLE IF EXISTS `catalog_product_entity_gallery`;
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_gallery` (
   `value_id` int(11) NOT NULL COMMENT 'Value ID',
@@ -2015,12 +1531,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_gallery` (
   `value` varchar(255) DEFAULT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Gallery Attribute Backend Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_entity_group_price`
---
-
 DROP TABLE IF EXISTS `catalog_product_entity_group_price`;
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_group_price` (
   `value_id` int(11) NOT NULL COMMENT 'Value ID',
@@ -2031,12 +1541,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_group_price` (
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Group Price Attribute Backend Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_entity_int`
---
-
 DROP TABLE IF EXISTS `catalog_product_entity_int`;
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_int` (
   `value_id` int(11) NOT NULL COMMENT 'Value ID',
@@ -2046,10 +1550,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_int` (
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` int(11) DEFAULT NULL COMMENT 'Value'
 ) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Integer Attribute Backend Table';
-
---
--- Vypisuji data pro tabulku `catalog_product_entity_int`
---
 
 INSERT INTO `catalog_product_entity_int` (`value_id`, `entity_type_id`, `attribute_id`, `store_id`, `entity_id`, `value`) VALUES
 (1, 4, 96, 0, 1, 1),
@@ -2124,12 +1624,6 @@ INSERT INTO `catalog_product_entity_int` (`value_id`, `entity_type_id`, `attribu
 (95, 4, 126, 0, 17, 1),
 (96, 4, 127, 0, 17, 0);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_entity_media_gallery`
---
-
 DROP TABLE IF EXISTS `catalog_product_entity_media_gallery`;
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_media_gallery` (
   `value_id` int(10) unsigned NOT NULL COMMENT 'Value ID',
@@ -2137,10 +1631,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_media_gallery` (
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` varchar(255) DEFAULT NULL COMMENT 'Value'
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Media Gallery Attribute Backend Table';
-
---
--- Vypisuji data pro tabulku `catalog_product_entity_media_gallery`
---
 
 INSERT INTO `catalog_product_entity_media_gallery` (`value_id`, `attribute_id`, `entity_id`, `value`) VALUES
 (1, 88, 6, '/l/a/laptop.jpg'),
@@ -2163,12 +1653,6 @@ INSERT INTO `catalog_product_entity_media_gallery` (`value_id`, `attribute_id`, 
 (18, 88, 9, '/l/a/laptop-731904_1920.jpg'),
 (19, 88, 17, '/8/4/8468788107_bb6c21b0e4_k_1.jpg');
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_entity_media_gallery_value`
---
-
 DROP TABLE IF EXISTS `catalog_product_entity_media_gallery_value`;
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_media_gallery_value` (
   `value_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Value ID',
@@ -2177,10 +1661,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_media_gallery_value` (
   `position` int(10) unsigned DEFAULT NULL COMMENT 'Position',
   `disabled` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Disabled'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Media Gallery Attribute Value Table';
-
---
--- Vypisuji data pro tabulku `catalog_product_entity_media_gallery_value`
---
 
 INSERT INTO `catalog_product_entity_media_gallery_value` (`value_id`, `store_id`, `label`, `position`, `disabled`) VALUES
 (1, 0, NULL, 1, 0),
@@ -2203,12 +1683,6 @@ INSERT INTO `catalog_product_entity_media_gallery_value` (`value_id`, `store_id`
 (18, 0, NULL, 1, 0),
 (19, 0, NULL, 1, 0);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_entity_text`
---
-
 DROP TABLE IF EXISTS `catalog_product_entity_text`;
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_text` (
   `value_id` int(11) NOT NULL COMMENT 'Value ID',
@@ -2217,11 +1691,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_text` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` text COMMENT 'Value'
-) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Text Attribute Backend Table';
-
---
--- Vypisuji data pro tabulku `catalog_product_entity_text`
---
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Text Attribute Backend Table';
 
 INSERT INTO `catalog_product_entity_text` (`value_id`, `entity_type_id`, `attribute_id`, `store_id`, `entity_id`, `value`) VALUES
 (1, 4, 72, 0, 1, 'Lorem ipsum dolor sit amet. '),
@@ -2293,12 +1763,6 @@ INSERT INTO `catalog_product_entity_text` (`value_id`, `entity_type_id`, `attrib
 (99, 4, 83, 0, 17, NULL),
 (100, 4, 106, 0, 17, NULL);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_entity_tier_price`
---
-
 DROP TABLE IF EXISTS `catalog_product_entity_tier_price`;
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_tier_price` (
   `value_id` int(11) NOT NULL COMMENT 'Value ID',
@@ -2310,12 +1774,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_tier_price` (
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Tier Price Attribute Backend Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_entity_varchar`
---
-
 DROP TABLE IF EXISTS `catalog_product_entity_varchar`;
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_varchar` (
   `value_id` int(11) NOT NULL COMMENT 'Value ID',
@@ -2324,11 +1782,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_varchar` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `value` varchar(255) DEFAULT NULL COMMENT 'Value'
-) ENGINE=InnoDB AUTO_INCREMENT=482 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Varchar Attribute Backend Table';
-
---
--- Vypisuji data pro tabulku `catalog_product_entity_varchar`
---
+) ENGINE=InnoDB AUTO_INCREMENT=432 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Varchar Attribute Backend Table';
 
 INSERT INTO `catalog_product_entity_varchar` (`value_id`, `entity_type_id`, `attribute_id`, `store_id`, `entity_id`, `value`) VALUES
 (1, 4, 71, 0, 1, 'Laptop A'),
@@ -2660,12 +2114,6 @@ INSERT INTO `catalog_product_entity_varchar` (`value_id`, `entity_type_id`, `att
 (430, 4, 113, 0, 17, NULL),
 (431, 4, 114, 0, 17, NULL);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_flat_1`
---
-
 DROP TABLE IF EXISTS `catalog_product_flat_1`;
 CREATE TABLE IF NOT EXISTS `catalog_product_flat_1` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'entity_id',
@@ -2711,10 +2159,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_flat_1` (
   `weight_type` int(11) DEFAULT NULL COMMENT 'weight_type'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Flat (Store 1)';
 
---
--- Vypisuji data pro tabulku `catalog_product_flat_1`
---
-
 INSERT INTO `catalog_product_flat_1` (`entity_id`, `attribute_set_id`, `type_id`, `cost`, `created_at`, `gift_message_available`, `has_options`, `image_label`, `is_recurring`, `links_exist`, `links_purchased_separately`, `links_title`, `msrp`, `msrp_display_actual_price_type`, `msrp_enabled`, `name`, `news_from_date`, `news_to_date`, `price`, `price_type`, `price_view`, `recurring_profile`, `required_options`, `shipment_type`, `short_description`, `sku`, `sku_type`, `small_image`, `small_image_label`, `special_from_date`, `special_price`, `special_to_date`, `tax_class_id`, `thumbnail`, `thumbnail_label`, `updated_at`, `url_key`, `url_path`, `visibility`, `weight`, `weight_type`) VALUES
 (1, 4, 'simple', NULL, '2015-05-15 04:42:37', NULL, 0, NULL, 0, NULL, NULL, NULL, NULL, '4', 2, 'Laptop A', NULL, NULL, '1000.0000', NULL, NULL, NULL, 0, NULL, 'Lorem ipsum.', '1', NULL, '/m/a/mac_1.jpg', NULL, NULL, NULL, NULL, 0, '/m/a/mac_1.jpg', NULL, '2015-05-15 05:41:43', 'laptop-a', 'laptop-a.html', 4, '100.0000', NULL),
 (2, 4, 'simple', NULL, '2015-05-15 04:59:19', NULL, 0, NULL, 0, NULL, NULL, NULL, NULL, '4', 2, 'Laptop B', NULL, NULL, '1000.0000', NULL, NULL, NULL, 0, NULL, 'Lorem ipsum.', '2', NULL, 'no_selection', NULL, NULL, NULL, NULL, 0, 'no_selection', NULL, '2015-05-15 05:32:24', 'laptop-b', 'laptop-b.html', 4, '100.0000', NULL),
@@ -2729,12 +2173,6 @@ INSERT INTO `catalog_product_flat_1` (`entity_id`, `attribute_set_id`, `type_id`
 (11, 4, 'simple', NULL, '2015-05-15 05:54:36', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, '4', 2, 'Phone E', NULL, NULL, '1000.0000', NULL, NULL, NULL, 0, NULL, 'Lorem ipsum.', '25', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-05-15 05:56:54', 'phone-e', 'phone-e.html', 4, '100.0000', NULL),
 (12, 4, 'simple', NULL, '2015-05-15 05:54:36', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, '4', 2, 'Phone F', NULL, NULL, '1000.0000', NULL, NULL, NULL, 0, NULL, 'Lorem ipsum.', '26', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-05-15 05:56:54', 'phone-f', 'phone-f.html', 4, '100.0000', NULL);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_eav`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_eav`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_eav` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
@@ -2742,10 +2180,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_eav` (
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
   `value` int(10) unsigned NOT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product EAV Index Table';
-
---
--- Vypisuji data pro tabulku `catalog_product_index_eav`
---
 
 INSERT INTO `catalog_product_index_eav` (`entity_id`, `attribute_id`, `store_id`, `value`) VALUES
 (1, 121, 1, 0),
@@ -2765,12 +2199,6 @@ INSERT INTO `catalog_product_index_eav` (`entity_id`, `attribute_id`, `store_id`
 (15, 121, 1, 0),
 (17, 121, 1, 0);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_eav_decimal`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_eav_decimal`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_eav_decimal` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
@@ -2778,12 +2206,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_eav_decimal` (
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
   `value` decimal(12,4) NOT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product EAV Decimal Index Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_eav_decimal_idx`
---
 
 DROP TABLE IF EXISTS `catalog_product_index_eav_decimal_idx`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_eav_decimal_idx` (
@@ -2793,12 +2215,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_eav_decimal_idx` (
   `value` decimal(12,4) NOT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product EAV Decimal Indexer Index Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_eav_decimal_tmp`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_eav_decimal_tmp`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_eav_decimal_tmp` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
@@ -2807,12 +2223,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_eav_decimal_tmp` (
   `value` decimal(12,4) NOT NULL COMMENT 'Value'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product EAV Decimal Indexer Temp Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_eav_idx`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_eav_idx`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_eav_idx` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
@@ -2820,10 +2230,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_eav_idx` (
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
   `value` int(10) unsigned NOT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product EAV Indexer Index Table';
-
---
--- Vypisuji data pro tabulku `catalog_product_index_eav_idx`
---
 
 INSERT INTO `catalog_product_index_eav_idx` (`entity_id`, `attribute_id`, `store_id`, `value`) VALUES
 (1, 121, 1, 0),
@@ -2840,13 +2246,8 @@ INSERT INTO `catalog_product_index_eav_idx` (`entity_id`, `attribute_id`, `store
 (12, 121, 1, 0),
 (13, 121, 1, 0),
 (14, 121, 1, 0),
-(15, 121, 1, 0);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_eav_tmp`
---
+(15, 121, 1, 0),
+(17, 121, 1, 0);
 
 DROP TABLE IF EXISTS `catalog_product_index_eav_tmp`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_eav_tmp` (
@@ -2856,25 +2257,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_eav_tmp` (
   `value` int(10) unsigned NOT NULL COMMENT 'Value'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product EAV Indexer Temp Table';
 
---
--- Vypisuji data pro tabulku `catalog_product_index_eav_tmp`
---
-
-INSERT INTO `catalog_product_index_eav_tmp` (`entity_id`, `attribute_id`, `store_id`, `value`) VALUES
-(1, 121, 1, 0),
-(2, 121, 1, 0),
-(3, 121, 1, 0),
-(4, 121, 1, 0),
-(9, 121, 1, 0),
-(15, 121, 1, 0),
-(17, 121, 1, 0);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_group_price`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_group_price`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_group_price` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
@@ -2882,12 +2264,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_group_price` (
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID',
   `price` decimal(12,4) DEFAULT NULL COMMENT 'Min Price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Group Price Index Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price`
---
 
 DROP TABLE IF EXISTS `catalog_product_index_price`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price` (
@@ -2902,10 +2278,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price` (
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Index Table';
-
---
--- Vypisuji data pro tabulku `catalog_product_index_price`
---
 
 INSERT INTO `catalog_product_index_price` (`entity_id`, `customer_group_id`, `website_id`, `tax_class_id`, `price`, `final_price`, `min_price`, `max_price`, `tier_price`, `group_price`) VALUES
 (1, 0, 1, 0, '1000.0000', '1000.0000', '1000.0000', '1000.0000', NULL, NULL),
@@ -2973,12 +2345,6 @@ INSERT INTO `catalog_product_index_price` (`entity_id`, `customer_group_id`, `we
 (17, 2, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL),
 (17, 3, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_bundle_idx`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_price_bundle_idx`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_idx` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
@@ -2999,11 +2365,11 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_idx` (
   `group_price_percent` decimal(12,4) DEFAULT NULL COMMENT 'Group Price Percent'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Index Price Bundle Idx';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_bundle_opt_idx`
---
+INSERT INTO `catalog_product_index_price_bundle_idx` (`entity_id`, `customer_group_id`, `website_id`, `tax_class_id`, `price_type`, `special_price`, `tier_percent`, `orig_price`, `price`, `min_price`, `max_price`, `tier_price`, `base_tier`, `group_price`, `base_group_price`, `group_price_percent`) VALUES
+(17, 0, 1, 0, 0, '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL),
+(17, 1, 1, 0, 0, '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL),
+(17, 2, 1, 0, 0, '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL),
+(17, 3, 1, 0, 0, '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL);
 
 DROP TABLE IF EXISTS `catalog_product_index_price_bundle_opt_idx`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_opt_idx` (
@@ -3020,11 +2386,15 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_opt_idx` (
   `alt_group_price` decimal(12,4) DEFAULT NULL COMMENT 'Alt Group Price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Index Price Bundle Opt Idx';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_bundle_opt_tmp`
---
+INSERT INTO `catalog_product_index_price_bundle_opt_idx` (`entity_id`, `customer_group_id`, `website_id`, `option_id`, `min_price`, `alt_price`, `max_price`, `tier_price`, `alt_tier_price`, `group_price`, `alt_group_price`) VALUES
+(17, 0, 1, 1, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
+(17, 0, 1, 2, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
+(17, 1, 1, 1, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
+(17, 1, 1, 2, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
+(17, 2, 1, 1, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
+(17, 2, 1, 2, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
+(17, 3, 1, 1, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
+(17, 3, 1, 2, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000');
 
 DROP TABLE IF EXISTS `catalog_product_index_price_bundle_opt_tmp`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_opt_tmp` (
@@ -3041,26 +2411,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_opt_tmp` (
   `alt_group_price` decimal(12,4) DEFAULT NULL COMMENT 'Alt Group Price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Index Price Bundle Opt Tmp';
 
---
--- Vypisuji data pro tabulku `catalog_product_index_price_bundle_opt_tmp`
---
-
-INSERT INTO `catalog_product_index_price_bundle_opt_tmp` (`entity_id`, `customer_group_id`, `website_id`, `option_id`, `min_price`, `alt_price`, `max_price`, `tier_price`, `alt_tier_price`, `group_price`, `alt_group_price`) VALUES
-(17, 0, 1, 1, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
-(17, 0, 1, 2, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
-(17, 1, 1, 1, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
-(17, 1, 1, 2, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
-(17, 2, 1, 1, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
-(17, 2, 1, 2, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
-(17, 3, 1, 1, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000'),
-(17, 3, 1, 2, '555.0000', '0.0000', '1000.0000', NULL, '0.0000', NULL, '0.0000');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_bundle_sel_idx`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_price_bundle_sel_idx`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_sel_idx` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
@@ -3075,31 +2425,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_sel_idx` (
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Index Price Bundle Sel Idx';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_bundle_sel_tmp`
---
-
-DROP TABLE IF EXISTS `catalog_product_index_price_bundle_sel_tmp`;
-CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_sel_tmp` (
-  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
-  `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group Id',
-  `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id',
-  `option_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Option Id',
-  `selection_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Selection Id',
-  `group_type` smallint(5) unsigned DEFAULT '0' COMMENT 'Group Type',
-  `is_required` smallint(5) unsigned DEFAULT '0' COMMENT 'Is Required',
-  `price` decimal(12,4) DEFAULT NULL COMMENT 'Price',
-  `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
-  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Index Price Bundle Sel Tmp';
-
---
--- Vypisuji data pro tabulku `catalog_product_index_price_bundle_sel_tmp`
---
-
-INSERT INTO `catalog_product_index_price_bundle_sel_tmp` (`entity_id`, `customer_group_id`, `website_id`, `option_id`, `selection_id`, `group_type`, `is_required`, `price`, `tier_price`, `group_price`) VALUES
+INSERT INTO `catalog_product_index_price_bundle_sel_idx` (`entity_id`, `customer_group_id`, `website_id`, `option_id`, `selection_id`, `group_type`, `is_required`, `price`, `tier_price`, `group_price`) VALUES
 (17, 0, 1, 1, 1, 0, 1, '1000.0000', NULL, NULL),
 (17, 0, 1, 1, 2, 0, 1, '1000.0000', NULL, NULL),
 (17, 0, 1, 1, 3, 0, 1, '1000.0000', NULL, NULL),
@@ -3129,11 +2455,19 @@ INSERT INTO `catalog_product_index_price_bundle_sel_tmp` (`entity_id`, `customer
 (17, 3, 1, 2, 7, 0, 1, '1000.0000', NULL, NULL),
 (17, 3, 1, 2, 8, 0, 1, '555.0000', NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_bundle_tmp`
---
+DROP TABLE IF EXISTS `catalog_product_index_price_bundle_sel_tmp`;
+CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_sel_tmp` (
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
+  `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group Id',
+  `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id',
+  `option_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Option Id',
+  `selection_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Selection Id',
+  `group_type` smallint(5) unsigned DEFAULT '0' COMMENT 'Group Type',
+  `is_required` smallint(5) unsigned DEFAULT '0' COMMENT 'Is Required',
+  `price` decimal(12,4) DEFAULT NULL COMMENT 'Price',
+  `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
+  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
+) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Index Price Bundle Sel Tmp';
 
 DROP TABLE IF EXISTS `catalog_product_index_price_bundle_tmp`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_tmp` (
@@ -3155,22 +2489,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_tmp` (
   `group_price_percent` decimal(12,4) DEFAULT NULL COMMENT 'Group Price Percent'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Index Price Bundle Tmp';
 
---
--- Vypisuji data pro tabulku `catalog_product_index_price_bundle_tmp`
---
-
-INSERT INTO `catalog_product_index_price_bundle_tmp` (`entity_id`, `customer_group_id`, `website_id`, `tax_class_id`, `price_type`, `special_price`, `tier_percent`, `orig_price`, `price`, `min_price`, `max_price`, `tier_price`, `base_tier`, `group_price`, `base_group_price`, `group_price_percent`) VALUES
-(17, 0, 1, 0, 0, '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL),
-(17, 1, 1, 0, 0, '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL),
-(17, 2, 1, 0, 0, '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL),
-(17, 3, 1, 0, 0, '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_cfg_opt_agr_idx`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_price_cfg_opt_agr_idx`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_cfg_opt_agr_idx` (
   `parent_id` int(10) unsigned NOT NULL COMMENT 'Parent ID',
@@ -3181,12 +2499,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_cfg_opt_agr_idx` (
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Config Option Aggregate Index Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_cfg_opt_agr_tmp`
---
 
 DROP TABLE IF EXISTS `catalog_product_index_price_cfg_opt_agr_tmp`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_cfg_opt_agr_tmp` (
@@ -3199,12 +2511,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_cfg_opt_agr_tmp` (
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Config Option Aggregate Temp Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_cfg_opt_idx`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_price_cfg_opt_idx`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_cfg_opt_idx` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
@@ -3215,12 +2521,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_cfg_opt_idx` (
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Config Option Index Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_cfg_opt_tmp`
---
 
 DROP TABLE IF EXISTS `catalog_product_index_price_cfg_opt_tmp`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_cfg_opt_tmp` (
@@ -3233,12 +2533,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_cfg_opt_tmp` (
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Config Option Temp Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_downlod_idx`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_price_downlod_idx`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_downlod_idx` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
@@ -3248,12 +2542,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_downlod_idx` (
   `max_price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Maximum price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Indexer Table for price of downloadable products';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_downlod_tmp`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_price_downlod_tmp`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_downlod_tmp` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
@@ -3262,12 +2550,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_downlod_tmp` (
   `min_price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Minimum price',
   `max_price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Maximum price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Temporary Indexer Table for price of downloadable products';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_final_idx`
---
 
 DROP TABLE IF EXISTS `catalog_product_index_price_final_idx`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_final_idx` (
@@ -3285,12 +2567,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_final_idx` (
   `base_group_price` decimal(12,4) DEFAULT NULL COMMENT 'Base Group Price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Final Index Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_final_tmp`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_price_final_tmp`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_final_tmp` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
@@ -3307,12 +2583,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_final_tmp` (
   `base_group_price` decimal(12,4) DEFAULT NULL COMMENT 'Base Group Price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Final Temp Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_idx`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_price_idx`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_idx` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
@@ -3326,10 +2596,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_idx` (
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Index Table';
-
---
--- Vypisuji data pro tabulku `catalog_product_index_price_idx`
---
 
 INSERT INTO `catalog_product_index_price_idx` (`entity_id`, `customer_group_id`, `website_id`, `tax_class_id`, `price`, `final_price`, `min_price`, `max_price`, `tier_price`, `group_price`) VALUES
 (1, 0, 1, 0, '1000.0000', '1000.0000', '1000.0000', '1000.0000', NULL, NULL),
@@ -3391,13 +2657,11 @@ INSERT INTO `catalog_product_index_price_idx` (`entity_id`, `customer_group_id`,
 (15, 0, 1, 0, '555.0000', '555.0000', '555.0000', '555.0000', NULL, NULL),
 (15, 1, 1, 0, '555.0000', '555.0000', '555.0000', '555.0000', NULL, NULL),
 (15, 2, 1, 0, '555.0000', '555.0000', '555.0000', '555.0000', NULL, NULL),
-(15, 3, 1, 0, '555.0000', '555.0000', '555.0000', '555.0000', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_opt_agr_idx`
---
+(15, 3, 1, 0, '555.0000', '555.0000', '555.0000', '555.0000', NULL, NULL),
+(17, 0, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL),
+(17, 1, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL),
+(17, 2, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL),
+(17, 3, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL);
 
 DROP TABLE IF EXISTS `catalog_product_index_price_opt_agr_idx`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_opt_agr_idx` (
@@ -3411,12 +2675,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_opt_agr_idx` (
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Option Aggregate Index Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_opt_agr_tmp`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_price_opt_agr_tmp`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_opt_agr_tmp` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
@@ -3429,12 +2687,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_opt_agr_tmp` (
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Option Aggregate Temp Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_opt_idx`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_price_opt_idx`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_opt_idx` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
@@ -3446,12 +2698,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_opt_idx` (
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Option Index Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_opt_tmp`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_price_opt_tmp`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_opt_tmp` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
@@ -3462,12 +2708,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_opt_tmp` (
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Option Temp Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_price_tmp`
---
 
 DROP TABLE IF EXISTS `catalog_product_index_price_tmp`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_price_tmp` (
@@ -3483,22 +2723,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_tmp` (
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Temp Table';
 
---
--- Vypisuji data pro tabulku `catalog_product_index_price_tmp`
---
-
-INSERT INTO `catalog_product_index_price_tmp` (`entity_id`, `customer_group_id`, `website_id`, `tax_class_id`, `price`, `final_price`, `min_price`, `max_price`, `tier_price`, `group_price`) VALUES
-(17, 0, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL),
-(17, 1, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL),
-(17, 2, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL),
-(17, 3, 1, 0, '0.0000', '0.0000', '1110.0000', '2000.0000', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_tier_price`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_tier_price`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_tier_price` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
@@ -3507,12 +2731,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_tier_price` (
   `min_price` decimal(12,4) DEFAULT NULL COMMENT 'Min Price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Tier Price Index Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_index_website`
---
-
 DROP TABLE IF EXISTS `catalog_product_index_website`;
 CREATE TABLE IF NOT EXISTS `catalog_product_index_website` (
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID',
@@ -3520,18 +2738,8 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_website` (
   `rate` float DEFAULT '1' COMMENT 'Rate'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Website Index Table';
 
---
--- Vypisuji data pro tabulku `catalog_product_index_website`
---
-
 INSERT INTO `catalog_product_index_website` (`website_id`, `website_date`, `rate`) VALUES
-(1, '2015-05-27', 1);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_link`
---
+(1, '2015-05-28', 1);
 
 DROP TABLE IF EXISTS `catalog_product_link`;
 CREATE TABLE IF NOT EXISTS `catalog_product_link` (
@@ -3541,12 +2749,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_link` (
   `link_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Link Type ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product To Product Linkage Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_link_attribute`
---
-
 DROP TABLE IF EXISTS `catalog_product_link_attribute`;
 CREATE TABLE IF NOT EXISTS `catalog_product_link_attribute` (
   `product_link_attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Product Link Attribute ID',
@@ -3555,22 +2757,12 @@ CREATE TABLE IF NOT EXISTS `catalog_product_link_attribute` (
   `data_type` varchar(32) DEFAULT NULL COMMENT 'Data Type'
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Link Attribute Table';
 
---
--- Vypisuji data pro tabulku `catalog_product_link_attribute`
---
-
 INSERT INTO `catalog_product_link_attribute` (`product_link_attribute_id`, `link_type_id`, `product_link_attribute_code`, `data_type`) VALUES
 (1, 1, 'position', 'int'),
 (2, 3, 'position', 'int'),
 (3, 3, 'qty', 'decimal'),
 (4, 4, 'position', 'int'),
 (5, 5, 'position', 'int');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_link_attribute_decimal`
---
 
 DROP TABLE IF EXISTS `catalog_product_link_attribute_decimal`;
 CREATE TABLE IF NOT EXISTS `catalog_product_link_attribute_decimal` (
@@ -3580,12 +2772,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_link_attribute_decimal` (
   `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Link Decimal Attribute Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_link_attribute_int`
---
-
 DROP TABLE IF EXISTS `catalog_product_link_attribute_int`;
 CREATE TABLE IF NOT EXISTS `catalog_product_link_attribute_int` (
   `value_id` int(10) unsigned NOT NULL COMMENT 'Value ID',
@@ -3593,12 +2779,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_link_attribute_int` (
   `link_id` int(10) unsigned NOT NULL COMMENT 'Link ID',
   `value` int(11) NOT NULL DEFAULT '0' COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Link Integer Attribute Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_link_attribute_varchar`
---
 
 DROP TABLE IF EXISTS `catalog_product_link_attribute_varchar`;
 CREATE TABLE IF NOT EXISTS `catalog_product_link_attribute_varchar` (
@@ -3608,33 +2788,17 @@ CREATE TABLE IF NOT EXISTS `catalog_product_link_attribute_varchar` (
   `value` varchar(255) DEFAULT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Link Varchar Attribute Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_link_type`
---
-
 DROP TABLE IF EXISTS `catalog_product_link_type`;
 CREATE TABLE IF NOT EXISTS `catalog_product_link_type` (
   `link_type_id` smallint(5) unsigned NOT NULL COMMENT 'Link Type ID',
   `code` varchar(32) DEFAULT NULL COMMENT 'Code'
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Link Type Table';
 
---
--- Vypisuji data pro tabulku `catalog_product_link_type`
---
-
 INSERT INTO `catalog_product_link_type` (`link_type_id`, `code`) VALUES
 (1, 'relation'),
 (3, 'super'),
 (4, 'up_sell'),
 (5, 'cross_sell');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_option`
---
 
 DROP TABLE IF EXISTS `catalog_product_option`;
 CREATE TABLE IF NOT EXISTS `catalog_product_option` (
@@ -3650,12 +2814,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_option` (
   `sort_order` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_option_price`
---
-
 DROP TABLE IF EXISTS `catalog_product_option_price`;
 CREATE TABLE IF NOT EXISTS `catalog_product_option_price` (
   `option_price_id` int(10) unsigned NOT NULL COMMENT 'Option Price ID',
@@ -3665,12 +2823,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_option_price` (
   `price_type` varchar(7) NOT NULL DEFAULT 'fixed' COMMENT 'Price Type'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Price Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_option_title`
---
-
 DROP TABLE IF EXISTS `catalog_product_option_title`;
 CREATE TABLE IF NOT EXISTS `catalog_product_option_title` (
   `option_title_id` int(10) unsigned NOT NULL COMMENT 'Option Title ID',
@@ -3678,12 +2830,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_option_title` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `title` varchar(255) DEFAULT NULL COMMENT 'Title'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Title Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_option_type_price`
---
 
 DROP TABLE IF EXISTS `catalog_product_option_type_price`;
 CREATE TABLE IF NOT EXISTS `catalog_product_option_type_price` (
@@ -3694,12 +2840,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_option_type_price` (
   `price_type` varchar(7) NOT NULL DEFAULT 'fixed' COMMENT 'Price Type'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Type Price Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_option_type_title`
---
-
 DROP TABLE IF EXISTS `catalog_product_option_type_title`;
 CREATE TABLE IF NOT EXISTS `catalog_product_option_type_title` (
   `option_type_title_id` int(10) unsigned NOT NULL COMMENT 'Option Type Title ID',
@@ -3707,12 +2847,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_option_type_title` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `title` varchar(255) DEFAULT NULL COMMENT 'Title'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Type Title Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_option_type_value`
---
 
 DROP TABLE IF EXISTS `catalog_product_option_type_value`;
 CREATE TABLE IF NOT EXISTS `catalog_product_option_type_value` (
@@ -3722,21 +2856,11 @@ CREATE TABLE IF NOT EXISTS `catalog_product_option_type_value` (
   `sort_order` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Type Value Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_relation`
---
-
 DROP TABLE IF EXISTS `catalog_product_relation`;
 CREATE TABLE IF NOT EXISTS `catalog_product_relation` (
   `parent_id` int(10) unsigned NOT NULL COMMENT 'Parent ID',
   `child_id` int(10) unsigned NOT NULL COMMENT 'Child ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Relation Table';
-
---
--- Vypisuji data pro tabulku `catalog_product_relation`
---
 
 INSERT INTO `catalog_product_relation` (`parent_id`, `child_id`) VALUES
 (17, 1),
@@ -3747,12 +2871,6 @@ INSERT INTO `catalog_product_relation` (`parent_id`, `child_id`) VALUES
 (17, 15),
 (17, 16);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_super_attribute`
---
-
 DROP TABLE IF EXISTS `catalog_product_super_attribute`;
 CREATE TABLE IF NOT EXISTS `catalog_product_super_attribute` (
   `product_super_attribute_id` int(10) unsigned NOT NULL COMMENT 'Product Super Attribute ID',
@@ -3760,12 +2878,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_super_attribute` (
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute ID',
   `position` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Position'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Super Attribute Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_super_attribute_label`
---
 
 DROP TABLE IF EXISTS `catalog_product_super_attribute_label`;
 CREATE TABLE IF NOT EXISTS `catalog_product_super_attribute_label` (
@@ -3775,12 +2887,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_super_attribute_label` (
   `use_default` smallint(5) unsigned DEFAULT '0' COMMENT 'Use Default Value',
   `value` varchar(255) DEFAULT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Super Attribute Label Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_super_attribute_pricing`
---
 
 DROP TABLE IF EXISTS `catalog_product_super_attribute_pricing`;
 CREATE TABLE IF NOT EXISTS `catalog_product_super_attribute_pricing` (
@@ -3792,12 +2898,6 @@ CREATE TABLE IF NOT EXISTS `catalog_product_super_attribute_pricing` (
   `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Super Attribute Pricing Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_super_link`
---
-
 DROP TABLE IF EXISTS `catalog_product_super_link`;
 CREATE TABLE IF NOT EXISTS `catalog_product_super_link` (
   `link_id` int(10) unsigned NOT NULL COMMENT 'Link ID',
@@ -3805,21 +2905,11 @@ CREATE TABLE IF NOT EXISTS `catalog_product_super_link` (
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Parent ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Super Link Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `catalog_product_website`
---
-
 DROP TABLE IF EXISTS `catalog_product_website`;
 CREATE TABLE IF NOT EXISTS `catalog_product_website` (
   `product_id` int(10) unsigned NOT NULL COMMENT 'Product ID',
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product To Website Linkage Table';
-
---
--- Vypisuji data pro tabulku `catalog_product_website`
---
 
 INSERT INTO `catalog_product_website` (`product_id`, `website_id`) VALUES
 (1, 1),
@@ -3840,12 +2930,6 @@ INSERT INTO `catalog_product_website` (`product_id`, `website_id`) VALUES
 (16, 1),
 (17, 1);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `checkout_agreement`
---
-
 DROP TABLE IF EXISTS `checkout_agreement`;
 CREATE TABLE IF NOT EXISTS `checkout_agreement` (
   `agreement_id` int(10) unsigned NOT NULL COMMENT 'Agreement Id',
@@ -3857,18 +2941,8 @@ CREATE TABLE IF NOT EXISTS `checkout_agreement` (
   `is_html` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Is Html'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Checkout Agreement';
 
---
--- Vypisuji data pro tabulku `checkout_agreement`
---
-
 INSERT INTO `checkout_agreement` (`agreement_id`, `name`, `content`, `content_height`, `checkbox_text`, `is_active`, `is_html`) VALUES
 (1, 'Condition 1', 'I agree that lorem ipsum.', NULL, 'I agree that bla bla.', 0, 0);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `checkout_agreement_store`
---
 
 DROP TABLE IF EXISTS `checkout_agreement_store`;
 CREATE TABLE IF NOT EXISTS `checkout_agreement_store` (
@@ -3876,18 +2950,8 @@ CREATE TABLE IF NOT EXISTS `checkout_agreement_store` (
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Checkout Agreement Store';
 
---
--- Vypisuji data pro tabulku `checkout_agreement_store`
---
-
 INSERT INTO `checkout_agreement_store` (`agreement_id`, `store_id`) VALUES
 (1, 1);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `cms_block`
---
 
 DROP TABLE IF EXISTS `cms_block`;
 CREATE TABLE IF NOT EXISTS `cms_block` (
@@ -3898,11 +2962,7 @@ CREATE TABLE IF NOT EXISTS `cms_block` (
   `creation_time` timestamp NULL DEFAULT NULL COMMENT 'Block Creation Time',
   `update_time` timestamp NULL DEFAULT NULL COMMENT 'Block Modification Time',
   `is_active` smallint(6) NOT NULL DEFAULT '1' COMMENT 'Is Block Active'
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='CMS Block Table';
-
---
--- Vypisuji data pro tabulku `cms_block`
---
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='CMS Block Table';
 
 INSERT INTO `cms_block` (`block_id`, `title`, `identifier`, `content`, `creation_time`, `update_time`, `is_active`) VALUES
 (1, 'Footer Links', 'footer_links', '<ul>\r\n<li><a href="{{store direct_url="about-magento-demo-store"}}">About Us</a></li>\r\n<li><a href="{{store direct_url="customer-service"}}">Customer Service</a></li>\r\n<li class="last privacy"><a href="{{store direct_url="privacy-policy-cookie-restriction-mode"}}">Privacy Policy</a></li>\r\n</ul>', '2015-05-14 13:13:55', '2015-05-18 06:57:37', 1),
@@ -3911,23 +2971,14 @@ INSERT INTO `cms_block` (`block_id`, `title`, `identifier`, `content`, `creation
 (5, 'Sidebar Banner', 'sidebar_banner', '<p><img class="bannerimage" alt="" src="{{media url="wysiwyg/banner2.png"}}" /></p>', '2015-05-20 04:39:19', '2015-05-27 10:07:10', 1),
 (6, 'Sidebar Text', 'sidebar_text', '<h2>This is a sidebar block</h2>\r\n<p>"This could probably be a happy customer review."</p>\r\n<p>-- <em>John Doe</em></p>', '2015-05-20 05:19:55', '2015-05-20 05:19:55', 1),
 (7, 'From Header Links', 'from_header', '<div class="block-title"><strong><span>More about us</span></strong></div>\r\n<ul>\r\n<li><a href="#">Save 10 quid</a></li>\r\n<li><a href="#">Invite friends</a></li>\r\n<li><a href="#">Get a gift card</a></li>\r\n</ul>', '2015-05-20 10:41:25', '2015-05-20 11:52:10', 1),
-(8, 'Company', 'company', '<div class="block-title"><strong><span>Company</span></strong></div>\r\n<ul>\r\n<li><a href="{{store url=""}}about-magento-demo-store/">About Us</a></li>\r\n<li>Contact Us</li>\r\n<li><a href="{{store url=""}}privacy-policy-cookie-restriction-mode/">Privacy Policy</a></li>\r\n</ul>', '2015-05-20 11:01:22', '2015-05-20 11:48:06', 1);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `cms_block_store`
---
+(8, 'Company', 'company', '<div class="block-title"><strong><span>Company</span></strong></div>\r\n<ul>\r\n<li><a href="{{store url=""}}about-magento-demo-store/">About Us</a></li>\r\n<li>Contact Us</li>\r\n<li><a href="{{store url=""}}privacy-policy-cookie-restriction-mode/">Privacy Policy</a></li>\r\n</ul>', '2015-05-20 11:01:22', '2015-05-20 11:48:06', 1),
+(9, 'Popup', 'popup', '<div id="popup_id">\r\n<h2>Opt In</h2>\r\n<h3><a onclick="closePopUp()" href="#">X</a></h3>\r\n<form id="popup-newsletter-validate-detail" action="###" method="post"><fieldset><legend>Newsletter</legend> <label for="newsletter-signup-popup">Sign up for our newsletter:</label>\r\n<div class="input-box"><button id="popup_button" class="btns" type="submit"><span>Opt In</span></button> <img class="v-middle spinner" style="display: none;" title="Loading next step..." alt="Loading next step..." src="#" /> <input id="newsletter-signup-popup" class="input-text required-entry validate-email" type="text" name="email" />\r\n<p>Opt out option</p>\r\n</div>\r\n</fieldset></form></div>', '2015-05-28 09:19:15', '2015-05-28 09:38:06', 1);
 
 DROP TABLE IF EXISTS `cms_block_store`;
 CREATE TABLE IF NOT EXISTS `cms_block_store` (
   `block_id` smallint(6) NOT NULL COMMENT 'Block ID',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CMS Block To Store Linkage Table';
-
---
--- Vypisuji data pro tabulku `cms_block_store`
---
 
 INSERT INTO `cms_block_store` (`block_id`, `store_id`) VALUES
 (3, 0),
@@ -3936,13 +2987,8 @@ INSERT INTO `cms_block_store` (`block_id`, `store_id`) VALUES
 (5, 1),
 (6, 1),
 (7, 1),
-(8, 1);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `cms_page`
---
+(8, 1),
+(9, 1);
 
 DROP TABLE IF EXISTS `cms_page`;
 CREATE TABLE IF NOT EXISTS `cms_page` (
@@ -3964,11 +3010,7 @@ CREATE TABLE IF NOT EXISTS `cms_page` (
   `custom_layout_update_xml` text COMMENT 'Page Custom Layout Update Content',
   `custom_theme_from` date DEFAULT NULL COMMENT 'Page Custom Theme Active From Date',
   `custom_theme_to` date DEFAULT NULL COMMENT 'Page Custom Theme Active To Date'
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='CMS Page Table';
-
---
--- Vypisuji data pro tabulku `cms_page`
---
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='CMS Page Table';
 
 INSERT INTO `cms_page` (`page_id`, `title`, `root_template`, `meta_keywords`, `meta_description`, `identifier`, `content_heading`, `content`, `creation_time`, `update_time`, `is_active`, `sort_order`, `layout_update_xml`, `custom_theme`, `custom_root_template`, `custom_layout_update_xml`, `custom_theme_from`, `custom_theme_to`) VALUES
 (1, '404 Not Found 1', 'two_columns_right', 'Page keywords', 'Page description', 'no-route', NULL, '\n<div class="page-title"><h1>Whoops, our bad...</h1></div>\n<dl>\n    <dt>The page you requested was not found, and we have a fine guess why.</dt>\n    <dd>\n        <ul class="disc">\n            <li>If you typed the URL directly, please make sure the spelling is correct.</li>\n            <li>If you clicked on a link to get here, the link is outdated.</li>\n        </ul>\n    </dd>\n</dl>\n<dl>\n    <dt>What can you do?</dt>\n    <dd>Have no fear, help is near! There are many ways you can get back on track with Magento Store.</dd>\n    <dd>\n        <ul class="disc">\n            <li><a href="#" onclick="history.go(-1); return false;">Go back</a> to the previous page.</li>\n            <li>Use the search bar at the top of the page to search for your products.</li>\n            <li>Follow these links to get you back on track!<br /><a href="{{store url=""}}">Store Home</a>\n            <span class="separator">|</span> <a href="{{store url="customer/account"}}">My Account</a></li>\n        </ul>\n    </dd>\n</dl>\n', '2015-05-14 13:13:55', '2015-05-14 13:13:55', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -3976,13 +3018,8 @@ INSERT INTO `cms_page` (`page_id`, `title`, `root_template`, `meta_keywords`, `m
 (3, 'About Us', 'two_columns_right', NULL, NULL, 'about-magento-demo-store', NULL, '<div class="page-title">\r\n<p>{{customVar code=CSS_Slider}}</p>\r\n<h1>About Magento Store</h1>\r\n</div>\r\n<div class="col3-set">\r\n<div class="col-1">\r\n<p style="line-height: 1.2em;"><small>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit. Mauris pulvinar erat non massa. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede.</small></p>\r\n<p style="color: #888; font: 1.2em/1.4em georgia, serif;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit. Mauris pulvinar erat non massa. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede. Cras vel libero id lectus rhoncus porta.</p>\r\n</div>\r\n<div class="col-2">\r\n<p><strong style="color: #de036f;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit.</strong></p>\r\n<p>Vivamus tortor nisl, lobortis in, faucibus et, tempus at, dui. Nunc risus. Proin scelerisque augue. Nam ullamcorper. Phasellus id massa. Pellentesque nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc augue. Aenean sed justo non leo vehicula laoreet. Praesent ipsum libero, auctor ac, tempus nec, tempor nec, justo.</p>\r\n<p>Maecenas ullamcorper, odio vel tempus egestas, dui orci faucibus orci, sit amet aliquet lectus dolor et quam. Pellentesque consequat luctus purus. Nunc et risus. Etiam a nibh. Phasellus dignissim metus eget nisi. Vestibulum sapien dolor, aliquet nec, porta ac, malesuada a, libero. Praesent feugiat purus eget est. Nulla facilisi. Vestibulum tincidunt sapien eu velit. Mauris purus. Maecenas eget mauris eu orci accumsan feugiat. Pellentesque eget velit. Nunc tincidunt.</p>\r\n</div>\r\n<div class="col-3">\r\n<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit. Mauris pulvinar erat non massa. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede. Cras vel libero id lectus rhoncus porta. Suspendisse convallis felis ac enim. Vivamus tortor nisl, lobortis in, faucibus et, tempus at, dui. Nunc risus. Proin scelerisque augue. Nam ullamcorper</p>\r\n<p><strong style="color: #de036f;">Maecenas ullamcorper, odio vel tempus egestas, dui orci faucibus orci, sit amet aliquet lectus dolor et quam. Pellentesque consequat luctus purus.</strong></p>\r\n<p>Nunc et risus. Etiam a nibh. Phasellus dignissim metus eget nisi.</p>\r\n<div class="divider">&nbsp;</div>\r\n<p>To all of you, from all of us at Magento Store - Thank you and Happy eCommerce!</p>\r\n<p style="line-height: 1.2em;"><strong style="font: italic 2em Georgia, serif;">John Doe</strong><br /> <small>Some important guy</small></p>\r\n</div>\r\n</div>', '2015-05-14 13:13:56', '2015-05-21 08:06:18', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL),
 (4, 'Customer Service', 'three_columns', NULL, NULL, 'customer-service', NULL, '<div class="page-title">\n<h1>Customer Service</h1>\n</div>\n<ul class="disc">\n<li><a href="#answer1">Shipping &amp; Delivery</a></li>\n<li><a href="#answer2">Privacy &amp; Security</a></li>\n<li><a href="#answer3">Returns &amp; Replacements</a></li>\n<li><a href="#answer4">Ordering</a></li>\n<li><a href="#answer5">Payment, Pricing &amp; Promotions</a></li>\n<li><a href="#answer6">Viewing Orders</a></li>\n<li><a href="#answer7">Updating Account Information</a></li>\n</ul>\n<dl>\n<dt id="answer1">Shipping &amp; Delivery</dt>\n<dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit.\nMauris pulvinar erat non massa. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede.\nCras vel libero id lectus rhoncus porta. Suspendisse convallis felis ac enim. Vivamus tortor nisl, lobortis in,\nfaucibus et, tempus at, dui. Nunc risus. Proin scelerisque augue. Nam ullamcorper. Phasellus id massa.\nPellentesque nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\nNunc augue. Aenean sed justo non leo vehicula laoreet. Praesent ipsum libero, auctor ac, tempus nec, tempor nec,\njusto.</dd>\n<dt id="answer2">Privacy &amp; Security</dt>\n<dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit.\nMauris pulvinar erat non massa. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede.\nCras vel libero id lectus rhoncus porta. Suspendisse convallis felis ac enim. Vivamus tortor nisl, lobortis in,\nfaucibus et, tempus at, dui. Nunc risus. Proin scelerisque augue. Nam ullamcorper. Phasellus id massa.\nPellentesque nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\nNunc augue. Aenean sed justo non leo vehicula laoreet. Praesent ipsum libero, auctor ac, tempus nec, tempor nec,\njusto.</dd>\n<dt id="answer3">Returns &amp; Replacements</dt>\n<dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit.\nMauris pulvinar erat non massa. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede.\nCras vel libero id lectus rhoncus porta. Suspendisse convallis felis ac enim. Vivamus tortor nisl, lobortis in,\nfaucibus et, tempus at, dui. Nunc risus. Proin scelerisque augue. Nam ullamcorper. Phasellus id massa.\nPellentesque nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\nNunc augue. Aenean sed justo non leo vehicula laoreet. Praesent ipsum libero, auctor ac, tempus nec, tempor nec,\njusto.</dd>\n<dt id="answer4">Ordering</dt>\n<dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit.\nMauris pulvinar erat non massa. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede.\nCras vel libero id lectus rhoncus porta. Suspendisse convallis felis ac enim. Vivamus tortor nisl, lobortis in,\nfaucibus et, tempus at, dui. Nunc risus. Proin scelerisque augue. Nam ullamcorper. Phasellus id massa.\nPellentesque nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\nNunc augue. Aenean sed justo non leo vehicula laoreet. Praesent ipsum libero, auctor ac, tempus nec, tempor nec,\njusto.</dd>\n<dt id="answer5">Payment, Pricing &amp; Promotions</dt>\n<dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit.\nMauris pulvinar erat non massa. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede.\nCras vel libero id lectus rhoncus porta. Suspendisse convallis felis ac enim. Vivamus tortor nisl, lobortis in,\nfaucibus et, tempus at, dui. Nunc risus. Proin scelerisque augue. Nam ullamcorper. Phasellus id massa.\nPellentesque nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\nNunc augue. Aenean sed justo non leo vehicula laoreet. Praesent ipsum libero, auctor ac, tempus nec, tempor nec,\njusto.</dd>\n<dt id="answer6">Viewing Orders</dt>\n<dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit.\nMauris pulvinar erat non massa. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede.\nCras vel libero id lectus rhoncus porta. Suspendisse convallis felis ac enim. Vivamus tortor nisl, lobortis in,\nfaucibus et, tempus at, dui. Nunc risus. Proin scelerisque augue. Nam ullamcorper. Phasellus id massa.\n Pellentesque nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\n Nunc augue. Aenean sed justo non leo vehicula laoreet. Praesent ipsum libero, auctor ac, tempus nec, tempor nec,\n justo.</dd>\n<dt id="answer7">Updating Account Information</dt>\n<dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit.\n Mauris pulvinar erat non massa. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede.\n Cras vel libero id lectus rhoncus porta. Suspendisse convallis felis ac enim. Vivamus tortor nisl, lobortis in,\n faucibus et, tempus at, dui. Nunc risus. Proin scelerisque augue. Nam ullamcorper. Phasellus id massa.\n Pellentesque nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\n Nunc augue. Aenean sed justo non leo vehicula laoreet. Praesent ipsum libero, auctor ac, tempus nec, tempor nec,\n justo.</dd>\n</dl>', '2015-05-14 13:13:56', '2015-05-14 13:13:56', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL),
 (5, 'Enable Cookies', 'one_column', NULL, NULL, 'enable-cookies', NULL, '<div class="std">\n    <ul class="messages">\n        <li class="notice-msg">\n            <ul>\n                <li>Please enable cookies in your web browser to continue.</li>\n            </ul>\n        </li>\n    </ul>\n    <div class="page-title">\n        <h1><a name="top"></a>What are Cookies?</h1>\n    </div>\n    <p>Cookies are short pieces of data that are sent to your computer when you visit a website.\n    On later visits, this data is then returned to that website. Cookies allow us to recognize you automatically\n    whenever you visit our site so that we can personalize your experience and provide you with better service.\n    We also use cookies (and similar browser data, such as Flash cookies) for fraud prevention and other purposes.\n     If your web browser is set to refuse cookies from our website, you will not be able to complete a purchase\n     or take advantage of certain features of our website, such as storing items in your Shopping Cart or\n     receiving personalized recommendations. As a result, we strongly encourage you to configure your web\n     browser to accept cookies from our website.</p>\n    <h2 class="subtitle">Enabling Cookies</h2>\n    <ul class="disc">\n        <li><a href="#ie7">Internet Explorer 7.x</a></li>\n        <li><a href="#ie6">Internet Explorer 6.x</a></li>\n        <li><a href="#firefox">Mozilla/Firefox</a></li>\n        <li><a href="#opera">Opera 7.x</a></li>\n    </ul>\n    <h3><a name="ie7"></a>Internet Explorer 7.x</h3>\n    <ol>\n        <li>\n            <p>Start Internet Explorer</p>\n        </li>\n        <li>\n            <p>Under the <strong>Tools</strong> menu, click <strong>Internet Options</strong></p>\n            <p><img src="{{skin url="images/cookies/ie7-1.gif"}}" alt="" /></p>\n        </li>\n        <li>\n            <p>Click the <strong>Privacy</strong> tab</p>\n            <p><img src="{{skin url="images/cookies/ie7-2.gif"}}" alt="" /></p>\n        </li>\n        <li>\n            <p>Click the <strong>Advanced</strong> button</p>\n            <p><img src="{{skin url="images/cookies/ie7-3.gif"}}" alt="" /></p>\n        </li>\n        <li>\n            <p>Put a check mark in the box for <strong>Override Automatic Cookie Handling</strong>,\n            put another check mark in the <strong>Always accept session cookies </strong>box</p>\n            <p><img src="{{skin url="images/cookies/ie7-4.gif"}}" alt="" /></p>\n        </li>\n        <li>\n            <p>Click <strong>OK</strong></p>\n            <p><img src="{{skin url="images/cookies/ie7-5.gif"}}" alt="" /></p>\n        </li>\n        <li>\n            <p>Click <strong>OK</strong></p>\n            <p><img src="{{skin url="images/cookies/ie7-6.gif"}}" alt="" /></p>\n        </li>\n        <li>\n            <p>Restart Internet Explore</p>\n        </li>\n    </ol>\n    <p class="a-top"><a href="#top">Back to Top</a></p>\n    <h3><a name="ie6"></a>Internet Explorer 6.x</h3>\n    <ol>\n        <li>\n            <p>Select <strong>Internet Options</strong> from the Tools menu</p>\n            <p><img src="{{skin url="images/cookies/ie6-1.gif"}}" alt="" /></p>\n        </li>\n        <li>\n            <p>Click on the <strong>Privacy</strong> tab</p>\n        </li>\n        <li>\n            <p>Click the <strong>Default</strong> button (or manually slide the bar down to <strong>Medium</strong>)\n            under <strong>Settings</strong>. Click <strong>OK</strong></p>\n            <p><img src="{{skin url="images/cookies/ie6-2.gif"}}" alt="" /></p>\n        </li>\n    </ol>\n    <p class="a-top"><a href="#top">Back to Top</a></p>\n    <h3><a name="firefox"></a>Mozilla/Firefox</h3>\n    <ol>\n        <li>\n            <p>Click on the <strong>Tools</strong>-menu in Mozilla</p>\n        </li>\n        <li>\n            <p>Click on the <strong>Options...</strong> item in the menu - a new window open</p>\n        </li>\n        <li>\n            <p>Click on the <strong>Privacy</strong> selection in the left part of the window. (See image below)</p>\n            <p><img src="{{skin url="images/cookies/firefox.png"}}" alt="" /></p>\n        </li>\n        <li>\n            <p>Expand the <strong>Cookies</strong> section</p>\n        </li>\n        <li>\n            <p>Check the <strong>Enable cookies</strong> and <strong>Accept cookies normally</strong> checkboxes</p>\n        </li>\n        <li>\n            <p>Save changes by clicking <strong>Ok</strong>.</p>\n        </li>\n    </ol>\n    <p class="a-top"><a href="#top">Back to Top</a></p>\n    <h3><a name="opera"></a>Opera 7.x</h3>\n    <ol>\n        <li>\n            <p>Click on the <strong>Tools</strong> menu in Opera</p>\n        </li>\n        <li>\n            <p>Click on the <strong>Preferences...</strong> item in the menu - a new window open</p>\n        </li>\n        <li>\n            <p>Click on the <strong>Privacy</strong> selection near the bottom left of the window. (See image below)</p>\n            <p><img src="{{skin url="images/cookies/opera.png"}}" alt="" /></p>\n        </li>\n        <li>\n            <p>The <strong>Enable cookies</strong> checkbox must be checked, and <strong>Accept all cookies</strong>\n            should be selected in the &quot;<strong>Normal cookies</strong>&quot; drop-down</p>\n        </li>\n        <li>\n            <p>Save changes by clicking <strong>Ok</strong></p>\n        </li>\n    </ol>\n    <p class="a-top"><a href="#top">Back to Top</a></p>\n</div>\n', '2015-05-14 13:13:56', '2015-05-14 13:13:56', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 'Privacy Policy', 'one_column', NULL, NULL, 'privacy-policy-cookie-restriction-mode', 'Privacy Policy', '<p style="color: #ff0000; font-weight: bold; font-size: 13px">\n    Please replace this text with you Privacy Policy.\n    Please add any additional cookies your website uses below (e.g., Google Analytics)\n</p>\n<p>\n    This privacy policy sets out how {{config path="general/store_information/name"}} uses and protects any information\n    that you give {{config path="general/store_information/name"}} when you use this website.\n    {{config path="general/store_information/name"}} is committed to ensuring that your privacy is protected.\n    Should we ask you to provide certain information by which you can be identified when using this website,\n    then you can be assured that it will only be used in accordance with this privacy statement.\n    {{config path="general/store_information/name"}} may change this policy from time to time by updating this page.\n    You should check this page from time to time to ensure that you are happy with any changes.\n</p>\n<h2>What we collect</h2>\n<p>We may collect the following information:</p>\n<ul>\n    <li>name</li>\n    <li>contact information including email address</li>\n    <li>demographic information such as postcode, preferences and interests</li>\n    <li>other information relevant to customer surveys and/or offers</li>\n</ul>\n<p>\n    For the exhaustive list of cookies we collect see the <a href="#list">List of cookies we collect</a> section.\n</p>\n<h2>What we do with the information we gather</h2>\n<p>\n    We require this information to understand your needs and provide you with a better service,\n    and in particular for the following reasons:\n</p>\n<ul>\n    <li>Internal record keeping.</li>\n    <li>We may use the information to improve our products and services.</li>\n    <li>\n        We may periodically send promotional emails about new products, special offers or other information which we\n        think you may find interesting using the email address which you have provided.\n    </li>\n    <li>\n        From time to time, we may also use your information to contact you for market research purposes.\n        We may contact you by email, phone, fax or mail. We may use the information to customise the website\n        according to your interests.\n    </li>\n</ul>\n<h2>Security</h2>\n<p>\n    We are committed to ensuring that your information is secure. In order to prevent unauthorised access or disclosure,\n    we have put in place suitable physical, electronic and managerial procedures to safeguard and secure\n    the information we collect online.\n</p>\n<h2>How we use cookies</h2>\n<p>\n    A cookie is a small file which asks permission to be placed on your computer''s hard drive.\n    Once you agree, the file is added and the cookie helps analyse web traffic or lets you know when you visit\n    a particular site. Cookies allow web applications to respond to you as an individual. The web application\n    can tailor its operations to your needs, likes and dislikes by gathering and remembering information about\n    your preferences.\n</p>\n<p>\n    We use traffic log cookies to identify which pages are being used. This helps us analyse data about web page traffic\n    and improve our website in order to tailor it to customer needs. We only use this information for statistical\n    analysis purposes and then the data is removed from the system.\n</p>\n<p>\n    Overall, cookies help us provide you with a better website, by enabling us to monitor which pages you find useful\n    and which you do not. A cookie in no way gives us access to your computer or any information about you,\n    other than the data you choose to share with us. You can choose to accept or decline cookies.\n    Most web browsers automatically accept cookies, but you can usually modify your browser setting\n    to decline cookies if you prefer. This may prevent you from taking full advantage of the website.\n</p>\n<h2>Links to other websites</h2>\n<p>\n    Our website may contain links to other websites of interest. However, once you have used these links\n    to leave our site, you should note that we do not have any control over that other website.\n    Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst\n    visiting such sites and such sites are not governed by this privacy statement.\n    You should exercise caution and look at the privacy statement applicable to the website in question.\n</p>\n<h2>Controlling your personal information</h2>\n<p>You may choose to restrict the collection or use of your personal information in the following ways:</p>\n<ul>\n    <li>\n        whenever you are asked to fill in a form on the website, look for the box that you can click to indicate\n        that you do not want the information to be used by anybody for direct marketing purposes\n    </li>\n    <li>\n        if you have previously agreed to us using your personal information for direct marketing purposes,\n        you may change your mind at any time by writing to or emailing us at\n        {{config path="trans_email/ident_general/email"}}\n    </li>\n</ul>\n<p>\n    We will not sell, distribute or lease your personal information to third parties unless we have your permission\n    or are required by law to do so. We may use your personal information to send you promotional information\n    about third parties which we think you may find interesting if you tell us that you wish this to happen.\n</p>\n<p>\n    You may request details of personal information which we hold about you under the Data Protection Act 1998.\n    A small fee will be payable. If you would like a copy of the information held on you please write to\n    {{config path="general/store_information/address"}}.\n</p>\n<p>\n    If you believe that any information we are holding on you is incorrect or incomplete,\n    please write to or email us as soon as possible, at the above address.\n    We will promptly correct any information found to be incorrect.\n</p>\n<h2><a name="list"></a>List of cookies we collect</h2>\n<p>The table below lists the cookies we collect and what information they store.</p>\n<table class="data-table">\n    <thead>\n        <tr>\n            <th>COOKIE name</th>\n            <th>COOKIE Description</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <th>CART</th>\n            <td>The association with your shopping cart.</td>\n        </tr>\n        <tr>\n            <th>CATEGORY_INFO</th>\n            <td>Stores the category info on the page, that allows to display pages more quickly.</td>\n        </tr>\n        <tr>\n            <th>COMPARE</th>\n            <td>The items that you have in the Compare Products list.</td>\n        </tr>\n        <tr>\n            <th>CURRENCY</th>\n            <td>Your preferred currency</td>\n        </tr>\n        <tr>\n            <th>CUSTOMER</th>\n            <td>An encrypted version of your customer id with the store.</td>\n        </tr>\n        <tr>\n            <th>CUSTOMER_AUTH</th>\n            <td>An indicator if you are currently logged into the store.</td>\n        </tr>\n        <tr>\n            <th>CUSTOMER_INFO</th>\n            <td>An encrypted version of the customer group you belong to.</td>\n        </tr>\n        <tr>\n            <th>CUSTOMER_SEGMENT_IDS</th>\n            <td>Stores the Customer Segment ID</td>\n        </tr>\n        <tr>\n            <th>EXTERNAL_NO_CACHE</th>\n            <td>A flag, which indicates whether caching is disabled or not.</td>\n        </tr>\n        <tr>\n            <th>FRONTEND</th>\n            <td>You sesssion ID on the server.</td>\n        </tr>\n        <tr>\n            <th>GUEST-VIEW</th>\n            <td>Allows guests to edit their orders.</td>\n        </tr>\n        <tr>\n            <th>LAST_CATEGORY</th>\n            <td>The last category you visited.</td>\n        </tr>\n        <tr>\n            <th>LAST_PRODUCT</th>\n            <td>The most recent product you have viewed.</td>\n        </tr>\n        <tr>\n            <th>NEWMESSAGE</th>\n            <td>Indicates whether a new message has been received.</td>\n        </tr>\n        <tr>\n            <th>NO_CACHE</th>\n            <td>Indicates whether it is allowed to use cache.</td>\n        </tr>\n        <tr>\n            <th>PERSISTENT_SHOPPING_CART</th>\n            <td>A link to information about your cart and viewing history if you have asked the site.</td>\n        </tr>\n        <tr>\n            <th>POLL</th>\n            <td>The ID of any polls you have recently voted in.</td>\n        </tr>\n        <tr>\n            <th>POLLN</th>\n            <td>Information on what polls you have voted on.</td>\n        </tr>\n        <tr>\n            <th>RECENTLYCOMPARED</th>\n            <td>The items that you have recently compared.            </td>\n        </tr>\n        <tr>\n            <th>STF</th>\n            <td>Information on products you have emailed to friends.</td>\n        </tr>\n        <tr>\n            <th>STORE</th>\n            <td>The store view or language you have selected.</td>\n        </tr>\n        <tr>\n            <th>USER_ALLOWED_SAVE_COOKIE</th>\n            <td>Indicates whether a customer allowed to use cookies.</td>\n        </tr>\n        <tr>\n            <th>VIEWED_PRODUCT_IDS</th>\n            <td>The products that you have recently viewed.</td>\n        </tr>\n        <tr>\n            <th>WISHLIST</th>\n            <td>An encrypted list of products added to your Wishlist.</td>\n        </tr>\n        <tr>\n            <th>WISHLIST_CNT</th>\n            <td>The number of items in your Wishlist.</td>\n        </tr>\n    </tbody>\n</table>', '2015-05-14 13:13:56', '2015-05-14 13:13:56', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `cms_page_store`
---
+(6, 'Privacy Policy', 'one_column', NULL, NULL, 'privacy-policy-cookie-restriction-mode', 'Privacy Policy', '<p style="color: #ff0000; font-weight: bold; font-size: 13px">\n    Please replace this text with you Privacy Policy.\n    Please add any additional cookies your website uses below (e.g., Google Analytics)\n</p>\n<p>\n    This privacy policy sets out how {{config path="general/store_information/name"}} uses and protects any information\n    that you give {{config path="general/store_information/name"}} when you use this website.\n    {{config path="general/store_information/name"}} is committed to ensuring that your privacy is protected.\n    Should we ask you to provide certain information by which you can be identified when using this website,\n    then you can be assured that it will only be used in accordance with this privacy statement.\n    {{config path="general/store_information/name"}} may change this policy from time to time by updating this page.\n    You should check this page from time to time to ensure that you are happy with any changes.\n</p>\n<h2>What we collect</h2>\n<p>We may collect the following information:</p>\n<ul>\n    <li>name</li>\n    <li>contact information including email address</li>\n    <li>demographic information such as postcode, preferences and interests</li>\n    <li>other information relevant to customer surveys and/or offers</li>\n</ul>\n<p>\n    For the exhaustive list of cookies we collect see the <a href="#list">List of cookies we collect</a> section.\n</p>\n<h2>What we do with the information we gather</h2>\n<p>\n    We require this information to understand your needs and provide you with a better service,\n    and in particular for the following reasons:\n</p>\n<ul>\n    <li>Internal record keeping.</li>\n    <li>We may use the information to improve our products and services.</li>\n    <li>\n        We may periodically send promotional emails about new products, special offers or other information which we\n        think you may find interesting using the email address which you have provided.\n    </li>\n    <li>\n        From time to time, we may also use your information to contact you for market research purposes.\n        We may contact you by email, phone, fax or mail. We may use the information to customise the website\n        according to your interests.\n    </li>\n</ul>\n<h2>Security</h2>\n<p>\n    We are committed to ensuring that your information is secure. In order to prevent unauthorised access or disclosure,\n    we have put in place suitable physical, electronic and managerial procedures to safeguard and secure\n    the information we collect online.\n</p>\n<h2>How we use cookies</h2>\n<p>\n    A cookie is a small file which asks permission to be placed on your computer''s hard drive.\n    Once you agree, the file is added and the cookie helps analyse web traffic or lets you know when you visit\n    a particular site. Cookies allow web applications to respond to you as an individual. The web application\n    can tailor its operations to your needs, likes and dislikes by gathering and remembering information about\n    your preferences.\n</p>\n<p>\n    We use traffic log cookies to identify which pages are being used. This helps us analyse data about web page traffic\n    and improve our website in order to tailor it to customer needs. We only use this information for statistical\n    analysis purposes and then the data is removed from the system.\n</p>\n<p>\n    Overall, cookies help us provide you with a better website, by enabling us to monitor which pages you find useful\n    and which you do not. A cookie in no way gives us access to your computer or any information about you,\n    other than the data you choose to share with us. You can choose to accept or decline cookies.\n    Most web browsers automatically accept cookies, but you can usually modify your browser setting\n    to decline cookies if you prefer. This may prevent you from taking full advantage of the website.\n</p>\n<h2>Links to other websites</h2>\n<p>\n    Our website may contain links to other websites of interest. However, once you have used these links\n    to leave our site, you should note that we do not have any control over that other website.\n    Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst\n    visiting such sites and such sites are not governed by this privacy statement.\n    You should exercise caution and look at the privacy statement applicable to the website in question.\n</p>\n<h2>Controlling your personal information</h2>\n<p>You may choose to restrict the collection or use of your personal information in the following ways:</p>\n<ul>\n    <li>\n        whenever you are asked to fill in a form on the website, look for the box that you can click to indicate\n        that you do not want the information to be used by anybody for direct marketing purposes\n    </li>\n    <li>\n        if you have previously agreed to us using your personal information for direct marketing purposes,\n        you may change your mind at any time by writing to or emailing us at\n        {{config path="trans_email/ident_general/email"}}\n    </li>\n</ul>\n<p>\n    We will not sell, distribute or lease your personal information to third parties unless we have your permission\n    or are required by law to do so. We may use your personal information to send you promotional information\n    about third parties which we think you may find interesting if you tell us that you wish this to happen.\n</p>\n<p>\n    You may request details of personal information which we hold about you under the Data Protection Act 1998.\n    A small fee will be payable. If you would like a copy of the information held on you please write to\n    {{config path="general/store_information/address"}}.\n</p>\n<p>\n    If you believe that any information we are holding on you is incorrect or incomplete,\n    please write to or email us as soon as possible, at the above address.\n    We will promptly correct any information found to be incorrect.\n</p>\n<h2><a name="list"></a>List of cookies we collect</h2>\n<p>The table below lists the cookies we collect and what information they store.</p>\n<table class="data-table">\n    <thead>\n        <tr>\n            <th>COOKIE name</th>\n            <th>COOKIE Description</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <th>CART</th>\n            <td>The association with your shopping cart.</td>\n        </tr>\n        <tr>\n            <th>CATEGORY_INFO</th>\n            <td>Stores the category info on the page, that allows to display pages more quickly.</td>\n        </tr>\n        <tr>\n            <th>COMPARE</th>\n            <td>The items that you have in the Compare Products list.</td>\n        </tr>\n        <tr>\n            <th>CURRENCY</th>\n            <td>Your preferred currency</td>\n        </tr>\n        <tr>\n            <th>CUSTOMER</th>\n            <td>An encrypted version of your customer id with the store.</td>\n        </tr>\n        <tr>\n            <th>CUSTOMER_AUTH</th>\n            <td>An indicator if you are currently logged into the store.</td>\n        </tr>\n        <tr>\n            <th>CUSTOMER_INFO</th>\n            <td>An encrypted version of the customer group you belong to.</td>\n        </tr>\n        <tr>\n            <th>CUSTOMER_SEGMENT_IDS</th>\n            <td>Stores the Customer Segment ID</td>\n        </tr>\n        <tr>\n            <th>EXTERNAL_NO_CACHE</th>\n            <td>A flag, which indicates whether caching is disabled or not.</td>\n        </tr>\n        <tr>\n            <th>FRONTEND</th>\n            <td>You sesssion ID on the server.</td>\n        </tr>\n        <tr>\n            <th>GUEST-VIEW</th>\n            <td>Allows guests to edit their orders.</td>\n        </tr>\n        <tr>\n            <th>LAST_CATEGORY</th>\n            <td>The last category you visited.</td>\n        </tr>\n        <tr>\n            <th>LAST_PRODUCT</th>\n            <td>The most recent product you have viewed.</td>\n        </tr>\n        <tr>\n            <th>NEWMESSAGE</th>\n            <td>Indicates whether a new message has been received.</td>\n        </tr>\n        <tr>\n            <th>NO_CACHE</th>\n            <td>Indicates whether it is allowed to use cache.</td>\n        </tr>\n        <tr>\n            <th>PERSISTENT_SHOPPING_CART</th>\n            <td>A link to information about your cart and viewing history if you have asked the site.</td>\n        </tr>\n        <tr>\n            <th>POLL</th>\n            <td>The ID of any polls you have recently voted in.</td>\n        </tr>\n        <tr>\n            <th>POLLN</th>\n            <td>Information on what polls you have voted on.</td>\n        </tr>\n        <tr>\n            <th>RECENTLYCOMPARED</th>\n            <td>The items that you have recently compared.            </td>\n        </tr>\n        <tr>\n            <th>STF</th>\n            <td>Information on products you have emailed to friends.</td>\n        </tr>\n        <tr>\n            <th>STORE</th>\n            <td>The store view or language you have selected.</td>\n        </tr>\n        <tr>\n            <th>USER_ALLOWED_SAVE_COOKIE</th>\n            <td>Indicates whether a customer allowed to use cookies.</td>\n        </tr>\n        <tr>\n            <th>VIEWED_PRODUCT_IDS</th>\n            <td>The products that you have recently viewed.</td>\n        </tr>\n        <tr>\n            <th>WISHLIST</th>\n            <td>An encrypted list of products added to your Wishlist.</td>\n        </tr>\n        <tr>\n            <th>WISHLIST_CNT</th>\n            <td>The number of items in your Wishlist.</td>\n        </tr>\n    </tbody>\n</table>', '2015-05-14 13:13:56', '2015-05-14 13:13:56', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'NL Popup', 'one_column', NULL, NULL, 'newsletter', NULL, '<div id="nl_inner">\r\n<h2 onclick="return omg.close(this)">Opt In</h2>\r\n<form id="popup-newsletter-validate-detail" action="###" method="post"><fieldset><legend>Newsletter</legend> <label for="newsletter-signup-popup">Sign up for our newsletter:</label>\r\n<div class="input-box"><button id="popup_button" class="btns" type="submit"><span>Opt In</span></button> <img class="v-middle spinner" style="display: none;" title="Loading next step..." alt="Loading next step..." src="#" /> <input id="newsletter-signup-popup" class="input-text required-entry validate-email" type="text" name="email" />\r\n<p>Optout option</p>\r\n</div>\r\n</fieldset></form></div>', '2015-05-28 09:03:42', '2015-05-28 10:17:59', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL);
 
 DROP TABLE IF EXISTS `cms_page_store`;
 CREATE TABLE IF NOT EXISTS `cms_page_store` (
@@ -3990,23 +3027,14 @@ CREATE TABLE IF NOT EXISTS `cms_page_store` (
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CMS Page To Store Linkage Table';
 
---
--- Vypisuji data pro tabulku `cms_page_store`
---
-
 INSERT INTO `cms_page_store` (`page_id`, `store_id`) VALUES
 (1, 0),
 (4, 0),
 (5, 0),
 (6, 0),
 (2, 1),
-(3, 1);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_cache`
---
+(3, 1),
+(7, 1);
 
 DROP TABLE IF EXISTS `core_cache`;
 CREATE TABLE IF NOT EXISTS `core_cache` (
@@ -4017,21 +3045,11 @@ CREATE TABLE IF NOT EXISTS `core_cache` (
   `expire_time` int(11) DEFAULT NULL COMMENT 'Cache Expiration Time'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Caches';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_cache_option`
---
-
 DROP TABLE IF EXISTS `core_cache_option`;
 CREATE TABLE IF NOT EXISTS `core_cache_option` (
   `code` varchar(32) NOT NULL COMMENT 'Code',
   `value` smallint(6) DEFAULT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Cache Options';
-
---
--- Vypisuji data pro tabulku `core_cache_option`
---
 
 INSERT INTO `core_cache_option` (`code`, `value`) VALUES
 ('block_html', 0),
@@ -4043,23 +3061,11 @@ INSERT INTO `core_cache_option` (`code`, `value`) VALUES
 ('layout', 0),
 ('translate', 0);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_cache_tag`
---
-
 DROP TABLE IF EXISTS `core_cache_tag`;
 CREATE TABLE IF NOT EXISTS `core_cache_tag` (
   `tag` varchar(100) NOT NULL COMMENT 'Tag',
   `cache_id` varchar(200) NOT NULL COMMENT 'Cache Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tag Caches';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_config_data`
---
 
 DROP TABLE IF EXISTS `core_config_data`;
 CREATE TABLE IF NOT EXISTS `core_config_data` (
@@ -4069,10 +3075,6 @@ CREATE TABLE IF NOT EXISTS `core_config_data` (
   `path` varchar(255) NOT NULL DEFAULT 'general' COMMENT 'Config Path',
   `value` text COMMENT 'Config Value'
 ) ENGINE=InnoDB AUTO_INCREMENT=324 DEFAULT CHARSET=utf8 COMMENT='Config Data';
-
---
--- Vypisuji data pro tabulku `core_config_data`
---
 
 INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value`) VALUES
 (1, 'default', 0, 'general/region/display_all', '1'),
@@ -4399,12 +3401,6 @@ INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value
 (322, 'default', 0, 'general/store_information/address', 'Store\r\nStreet X XX\r\nG4C BH'),
 (323, 'default', 0, 'design/email/logo', 'default/SomeLogo.png');
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_email_queue`
---
-
 DROP TABLE IF EXISTS `core_email_queue`;
 CREATE TABLE IF NOT EXISTS `core_email_queue` (
   `message_id` int(10) unsigned NOT NULL COMMENT 'Message Id',
@@ -4418,20 +3414,10 @@ CREATE TABLE IF NOT EXISTS `core_email_queue` (
   `processed_at` timestamp NULL DEFAULT NULL COMMENT 'Finish Time'
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Email Queue';
 
---
--- Vypisuji data pro tabulku `core_email_queue`
---
-
 INSERT INTO `core_email_queue` (`message_id`, `entity_id`, `entity_type`, `event_type`, `message_body_hash`, `message_body`, `message_parameters`, `created_at`, `processed_at`) VALUES
 (1, 1, 'order', 'new_order', '8c2773e35c1bf9f82bf0ce1933fed0b2', '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n<html xmlns="http://www.w3.org/1999/xhtml" style="background-color: #ebebeb;">\n<head>\n<meta http-equiv="Content-Type" content="text/html; charset=utf-8">\n<meta name="viewport" content="initial-scale=1.0, width=device-width">\n</head>\n<body style="font-family: Verdana, Arial; font-weight: normal; margin: 0; padding: 0; text-align: left; color: #333333; background-color: #ebebeb; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background: #ebebeb; font-size: 12px;">\n<style type="text/css">\n/* each line with !important */\n\n</style>\n<!-- Begin wrapper table --><table width="100%" cellpadding="0" cellspacing="0" border="0" id="background-table" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0 auto; background-color: #ebebeb; font-size: 12px;"><tr>\n<td valign="top" class="container-td" align="center" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0; width: 100%;">\n            <table cellpadding="0" cellspacing="0" border="0" align="center" class="container-table" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0 auto; width: 600px;">\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n                        <table cellpadding="0" cellspacing="0" border="0" class="logo-container" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;"><tr>\n<td class="logo" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 15px 0px 10px 5px; margin: 0;">\n                                    <a href="http://localhost/mage2/" style="color: #3696c2; float: left; display: block;">\n                                        <img width="165" height="48" src="http://localhost/mage2/skin/frontend/dubloo/default/images/logo_email.gif" alt="Main Website Store" border="0" style="-ms-interpolation-mode: bicubic; outline: none; text-decoration: none;"></a>\n                                </td>\n                            </tr></table>\n</td>\n                </tr>\n<tr>\n<td valign="top" class="top-content" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 5px; margin: 0; border: 1px solid #ebebeb; background: #FFF;">\n                    <!-- Begin Content -->\n\n\n\n<table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;">\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0;"><tr>\n<td class="email-heading" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0 1%; margin: 0; background: #e1f0f8; border-right: 1px dashed #c3ced4; text-align: center; width: 58%;">\n                        <h1 style="font-family: Verdana, Arial; font-weight: 700; font-size: 16px; margin: 1em 0; line-height: 20px; text-transform: uppercase; margin-top: 25px;">Thank you for your order from Main Website Store.</h1>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; line-height: 20px; margin: 1em 0;">Once your package ships we will send an email with a link to track your order. Your order summary is below. Thank you again for your business.</p>\n                    </td>\n                    <td class="store-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 2%; margin: 0; background: #e1f0f8; width: 40%;">\n                        <h4 style="font-family: Verdana, Arial; font-weight: bold; margin-bottom: 5px; font-size: 12px; margin-top: 13px;">Order Questions?</h4>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 11px; line-height: 17px; margin: 1em 0;">\n                            \n                            \n                            \n                            <b>Email:</b> <a href="mailto:support@example.com" style="color: #3696c2; text-decoration: underline;">support@example.com</a>\n                            \n                        </p>\n                    </td>\n                </tr></table>\n</td>\n    </tr>\n<tr>\n<td class="order-details" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 5px 15px; margin: 0; text-align: center;">\n            <h3 style="font-family: Verdana, Arial; font-weight: normal; font-size: 17px; margin-bottom: 10px; margin-top: 15px;">Your order <span class="no-link">#100000001</span>\n</h3>\n            <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 11px; margin: 1em 0 15px;">Placed on May 15, 2015 2:59:12 AM PDT</p>\n        </td>\n    </tr>\n<tr class="order-information"><td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            \n            \n\n            </td></tr>\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table class="items" cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 10px 15px; margin: 0; width: 100%;">\n<thead><tr>\n<th class="cell-name" style="font-family: Verdana, Arial; font-weight: 700; padding: 10px 15px; background: #f1f1f1; text-transform: uppercase; text-align: left; font-size: 11px;">\n                                                            Item in your order                                                    </th>\n                        <th class="cell-name align-center" style="font-family: Verdana, Arial; font-weight: 700; padding: 10px 15px; background: #f1f1f1; text-transform: uppercase; text-align: center; font-size: 11px;">\n                            Qty                        </th>\n                        <th class="cell-name align-right" style="font-family: Verdana, Arial; font-weight: 700; padding: 10px 15px; background: #f1f1f1; text-transform: uppercase; text-align: right; font-size: 11px;">\n                            Price                        </th>\n                    </tr></thead>\n<tbody><tr>\n<td class="cell-content product-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0; border-top: 1px solid #ebebeb; text-align: left;">\n        <p class="product-name" style="font-family: Verdana, Arial; font-weight: bold; margin: 0 0 5px 0; color: #636363; font-style: normal; text-rendering: optimizeLegibility; text-transform: uppercase; line-height: 1.4; font-size: 14px; float: left; width: 100%; display: block;">Tablet C</p>\n        <p class="sku" style="font-family: Verdana, Arial; font-weight: normal; margin: 0 0 5px; float: left; width: 100%; display: block;">SKU: 33</p>\n                                                                                                            </td>\n            <td class="cell-content align-center" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0; border-top: 1px solid #ebebeb;">22</td>\n            <td class="cell-content align-right" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0; border-top: 1px solid #ebebeb;">\n                                                                                <span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€12,210.00</span>                    \n\n                                    \n\n                            </td>\n        </tr></tbody>\n</table>\n</td>\n    </tr>\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table class="table-totals" cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%; background: #e1f0f8;"><tr>\n<td class="padding-totals" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 20px 15px; margin: 0; text-align: right; line-height: 20px;">\n            <table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;">\n<tr class="subtotal">\n<td colspan="3" align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        Subtotal                    </td>\n        <td align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€12,210.00</span>                    </td>\n    </tr>\n<tr class="shipping" style="padding-bottom: 5px;">\n<td colspan="3" align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        Shipping &amp; Handling                    </td>\n        <td align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€110.00</span>                    </td>\n    </tr>\n<tr class="grand_total">\n<td colspan="3" align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <strong style="font-family: Verdana, Arial; font-weight: normal;">Grand Total</strong>\n                    </td>\n        <td align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <strong style="font-family: Verdana, Arial; font-weight: normal;"><span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€12,320.00</span></strong>\n                    </td>\n    </tr>\n</table>\n</td>\n    </tr></table>\n</td>\n    </tr>\n<table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0;">\n<tr>\n<td class="address-details" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; padding-top: 10px; text-align: left;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Bill to:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 12px; line-height: 18px; margin-bottom: 15px; margin-top: 2px;"><span class="no-link">aa aaa<br>\n\nromg<br>\n\n\n\nbarelw,  Alabama, 78958<br>\nUnited States<br>\nT: 7896354123\n\n</span></p>\n                    </td>\n                    \n                    <td class="address-details" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; padding-top: 10px; text-align: left;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Ship to:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 12px; line-height: 18px; margin-bottom: 15px; margin-top: 2px;"><span class="no-link">aa aaa<br>\n\nromg<br>\n\n\n\nbarelw,  Alabama, 78958<br>\nUnited States<br>\nT: 7896354123\n\n</span></p>\n                    </td>\n                    \n                </tr>\n<tr>\n<td class="method-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; text-align: left; padding-bottom: 10px;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; text-align: left; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Shipping method:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; text-align: left; font-size: 12px; margin-top: 2px; margin-bottom: 30px; line-height: 18px; padding: 0;">Flat Rate - Fixed</p>\n                    </td>\n                    \n                    <td class="method-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; text-align: left; padding-bottom: 10px;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; text-align: left; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Payment method:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; text-align: left; font-size: 12px; margin-top: 2px; margin-bottom: 30px; line-height: 18px; padding: 0;">Check / Money order</p>\n\n                    </td>\n                </tr>\n</table>\n</table>\n<!-- End Content -->\n</td>\n                </tr>\n</table>\n<h5 class="closing-text" style="font-family: Verdana, Arial; font-weight: normal; text-align: center; font-size: 22px; line-height: 32px; margin-bottom: 75px; margin-top: 30px;">Thank you, Main Website Store!</h5>\n        </td>\n    </tr></table>\n<!-- End wrapper table -->\n</body>\n</html>\n', 'a:7:{s:7:"subject";s:41:"Main Website Store: New Order # 100000001";s:17:"return_path_email";N;s:8:"is_plain";b:0;s:10:"from_email";s:17:"sales@example.com";s:9:"from_name";s:5:"Sales";s:8:"reply_to";N;s:9:"return_to";N;}', '2015-05-15 07:59:13', NULL),
 (2, 2, 'order', 'new_order', '6b4363f33ab622254a39e74f7214e94e', '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n<html xmlns="http://www.w3.org/1999/xhtml" style="background-color: #ebebeb;">\n<head>\n<meta http-equiv="Content-Type" content="text/html; charset=utf-8">\n<meta name="viewport" content="initial-scale=1.0, width=device-width">\n</head>\n<body style="font-family: Verdana, Arial; font-weight: normal; margin: 0; padding: 0; text-align: left; color: #333333; background-color: #ebebeb; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background: #ebebeb; font-size: 12px;">\n<style type="text/css">\n/* each line with !important */\n\n</style>\n<!-- Begin wrapper table --><table width="100%" cellpadding="0" cellspacing="0" border="0" id="background-table" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0 auto; background-color: #ebebeb; font-size: 12px;"><tr>\n<td valign="top" class="container-td" align="center" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0; width: 100%;">\n            <table cellpadding="0" cellspacing="0" border="0" align="center" class="container-table" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0 auto; width: 600px;">\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n                        <table cellpadding="0" cellspacing="0" border="0" class="logo-container" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;"><tr>\n<td class="logo" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 15px 0px 10px 5px; margin: 0;">\n                                    <a href="http://localhost/mage2/" style="color: #3696c2; float: left; display: block;">\n                                        <img width="160" height="90" src="http://localhost/mage2/media/email/logo/default/SomeLogo.png" alt="Some Logo" border="0" style="-ms-interpolation-mode: bicubic; outline: none; text-decoration: none;"></a>\n                                </td>\n                            </tr></table>\n</td>\n                </tr>\n<tr>\n<td valign="top" class="top-content" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 5px; margin: 0; border: 1px solid #ebebeb; background: #FFF;">\n                    <!-- Begin Content -->\n\n\n\n<table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;">\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0;"><tr>\n<td class="email-heading" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0 1%; margin: 0; background: #e1f0f8; border-right: 1px dashed #c3ced4; text-align: center; width: 58%;">\n                        <h1 style="font-family: Verdana, Arial; font-weight: 700; font-size: 16px; margin: 1em 0; line-height: 20px; text-transform: uppercase; margin-top: 25px;">Thank you for your order from Responsive Mage Store.</h1>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; line-height: 20px; margin: 1em 0;">Once your package ships we will send an email with a link to track your order. Your order summary is below. Thank you again for your business.</p>\n                    </td>\n                    <td class="store-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 2%; margin: 0; background: #e1f0f8; width: 40%;">\n                        <h4 style="font-family: Verdana, Arial; font-weight: bold; margin-bottom: 5px; font-size: 12px; margin-top: 13px;">Order Questions?</h4>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 11px; line-height: 17px; margin: 1em 0;">\n                            \n                            <b>Call Us:</b>\n                            <a href="tel:" style="color: #3696c2; text-decoration: underline;">123 456 789</a><br><span class="no-link">Mo-Fr 7-15</span><br><b>Email:</b> <a href="mailto:support@example.com" style="color: #3696c2; text-decoration: underline;">support@example.com</a>\n                            \n                        </p>\n                    </td>\n                </tr></table>\n</td>\n    </tr>\n<tr>\n<td class="order-details" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 5px 15px; margin: 0; text-align: center;">\n            <h3 style="font-family: Verdana, Arial; font-weight: normal; font-size: 17px; margin-bottom: 10px; margin-top: 15px;">Your order <span class="no-link">#100000002</span>\n</h3>\n            <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 11px; margin: 1em 0 15px;">Placed on May 27, 2015 2:45:36 PM CEST</p>\n        </td>\n    </tr>\n<tr class="order-information"><td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            \n            \n\n            </td></tr>\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table class="items" cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 10px 15px; margin: 0; width: 100%;">\n<thead><tr>\n<th class="cell-name" style="font-family: Verdana, Arial; font-weight: 700; padding: 10px 15px; background: #f1f1f1; text-transform: uppercase; text-align: left; font-size: 11px;">\n                                                            Item in your order                                                    </th>\n                        <th class="cell-name align-center" style="font-family: Verdana, Arial; font-weight: 700; padding: 10px 15px; background: #f1f1f1; text-transform: uppercase; text-align: center; font-size: 11px;">\n                            Qty                        </th>\n                        <th class="cell-name align-right" style="font-family: Verdana, Arial; font-weight: 700; padding: 10px 15px; background: #f1f1f1; text-transform: uppercase; text-align: right; font-size: 11px;">\n                            Price                        </th>\n                    </tr></thead>\n<tbody><tr>\n<td class="cell-content product-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0; border-top: 1px solid #ebebeb; text-align: left;">\n        <p class="product-name" style="font-family: Verdana, Arial; font-weight: bold; margin: 0 0 5px 0; color: #636363; font-style: normal; text-rendering: optimizeLegibility; text-transform: uppercase; line-height: 1.4; font-size: 14px; float: left; width: 100%; display: block;">Tablet A</p>\n        <p class="sku" style="font-family: Verdana, Arial; font-weight: normal; margin: 0 0 5px; float: left; width: 100%; display: block;">SKU: 31</p>\n                                                                                                            </td>\n            <td class="cell-content align-center" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0; border-top: 1px solid #ebebeb;">1</td>\n            <td class="cell-content align-right" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0; border-top: 1px solid #ebebeb;">\n                                                                                <span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€555.00</span>                    \n\n                                    \n\n                            </td>\n        </tr></tbody>\n</table>\n</td>\n    </tr>\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table class="table-totals" cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%; background: #e1f0f8;"><tr>\n<td class="padding-totals" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 20px 15px; margin: 0; text-align: right; line-height: 20px;">\n            <table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;">\n<tr class="subtotal">\n<td colspan="3" align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        Subtotal                    </td>\n        <td align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€555.00</span>                    </td>\n    </tr>\n<tr class="shipping" style="padding-bottom: 5px;">\n<td colspan="3" align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        Shipping &amp; Handling                    </td>\n        <td align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€5.00</span>                    </td>\n    </tr>\n<tr class="grand_total">\n<td colspan="3" align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <strong style="font-family: Verdana, Arial; font-weight: normal;">Grand Total</strong>\n                    </td>\n        <td align="right" style="padding: 3px 9px; font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; margin: 0;">\n                        <strong style="font-family: Verdana, Arial; font-weight: normal;"><span class="price" style=''font-family: "Helvetica Neue", Verdana, Arial, sans-serif;''>€560.00</span></strong>\n                    </td>\n    </tr>\n</table>\n</td>\n    </tr></table>\n</td>\n    </tr>\n<table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0;">\n<tr>\n<td class="address-details" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; padding-top: 10px; text-align: left;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Bill to:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 12px; line-height: 18px; margin-bottom: 15px; margin-top: 2px;"><span class="no-link">Jana Mathauserova<br>\n\nChodov 158<br>\n\n\n\nChodov,  30100<br>\nCzech Republic<br>\nT: 123 456 789\n\n</span></p>\n                    </td>\n                    \n                    <td class="address-details" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; padding-top: 10px; text-align: left;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Ship to:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; font-size: 12px; line-height: 18px; margin-bottom: 15px; margin-top: 2px;"><span class="no-link">Jana Mathauserova<br>\n\nChodov 158<br>\n\n\n\nChodov,  30100<br>\nCzech Republic<br>\nT: 123 456 789\n\n</span></p>\n                    </td>\n                    \n                </tr>\n<tr>\n<td class="method-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; text-align: left; padding-bottom: 10px;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; text-align: left; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Shipping method:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; text-align: left; font-size: 12px; margin-top: 2px; margin-bottom: 30px; line-height: 18px; padding: 0;">Flat Rate - Fixed</p>\n                    </td>\n                    \n                    <td class="method-info" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px 0; margin: 0; text-align: left; padding-bottom: 10px;">\n                        <h6 style="font-family: Verdana, Arial; font-weight: 700; text-align: left; font-size: 12px; margin-bottom: 0px; margin-top: 5px; text-transform: uppercase;">Payment method:</h6>\n                        <p style="font-family: Verdana, Arial; font-weight: normal; text-align: left; font-size: 12px; margin-top: 2px; margin-bottom: 30px; line-height: 18px; padding: 0;">Check / Money order</p>\n\n                    </td>\n                </tr>\n</table>\n</table>\n<!-- End Content -->\n</td>\n                </tr>\n</table>\n<h5 class="closing-text" style="font-family: Verdana, Arial; font-weight: normal; text-align: center; font-size: 22px; line-height: 32px; margin-bottom: 75px; margin-top: 30px;">Thank you, Responsive Mage Store!</h5>\n        </td>\n    </tr></table>\n<!-- End wrapper table -->\n</body>\n</html>\n', 'a:7:{s:7:"subject";s:44:"Responsive Mage Store: New Order # 100000002";s:17:"return_path_email";N;s:8:"is_plain";b:0;s:10:"from_email";s:17:"sales@example.com";s:9:"from_name";s:5:"Sales";s:8:"reply_to";N;s:9:"return_to";N;}', '2015-05-27 10:45:36', NULL),
 (3, 2, 'order', 'update_order', 'f93773a4c34ce7885d5085d6502c58bc', '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n<html xmlns="http://www.w3.org/1999/xhtml" style="background-color: #ebebeb;">\n<head>\n<meta http-equiv="Content-Type" content="text/html; charset=utf-8">\n<meta name="viewport" content="initial-scale=1.0, width=device-width">\n</head>\n<body style="font-family: Verdana, Arial; font-weight: normal; margin: 0; padding: 0; text-align: left; color: #333333; background-color: #ebebeb; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background: #ebebeb; font-size: 12px;">\n<style type="text/css">\n/* each line with !important */\n\n</style>\n<!-- Begin wrapper table --><table width="100%" cellpadding="0" cellspacing="0" border="0" id="background-table" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0 auto; background-color: #ebebeb; font-size: 12px;"><tr>\n<td valign="top" class="container-td" align="center" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0; width: 100%;">\n            <table cellpadding="0" cellspacing="0" border="0" align="center" class="container-table" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0 auto; width: 600px;">\n<tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n                        <table cellpadding="0" cellspacing="0" border="0" class="logo-container" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;"><tr>\n<td class="logo" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 15px 0px 10px 5px; margin: 0;">\n                                    <a href="http://localhost/mage2/" style="color: #3696c2; float: left; display: block;">\n                                        <img width="160" height="90" src="http://localhost/mage2/media/email/logo/default/SomeLogo.png" alt="Some Logo" border="0" style="-ms-interpolation-mode: bicubic; outline: none; text-decoration: none;"></a>\n                                </td>\n                            </tr></table>\n</td>\n                </tr>\n<tr>\n<td valign="top" class="top-content" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 5px; margin: 0; border: 1px solid #ebebeb; background: #FFF;">\n                    <!-- Begin Content -->\n\n\n\n<table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0; width: 100%;"><tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 0; margin: 0;">\n            <table cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 0;"><tr>\n<td class="action-content" style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 20px 15px; margin: 0; line-height: 18px;">\n                        <h1 style="font-family: Verdana, Arial; font-weight: bold; font-size: 25px; margin-bottom: 25px; margin-top: 5px; line-height: 28px;">Jana Mathauserova,</h1>\n                        <p style="font-family: Verdana, Arial; font-weight: normal;">Your order <span class="no-link">#100000002</span> has been updated to: <strong style="font-family: Verdana, Arial; font-weight: normal;">Pending</strong></p>\n                        \n                        <table cellspacing="0" cellpadding="0" class="message-container" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0; margin: 15px 0; width: 100%; background-color: #fffdd9; border: 1px solid #fff74c;"><tr>\n<td style="font-family: Verdana, Arial; font-weight: normal; border-collapse: collapse; vertical-align: top; padding: 10px 15px; margin: 0;">hey</td>\n                            </tr></table>\n<p style="font-family: Verdana, Arial; font-weight: normal;">You can check the status of your order by <a href="http://localhost/mage2/customer/account/" style="color: #3696c2;">logging into your account</a>.</p>\n                        <p style="font-family: Verdana, Arial; font-weight: normal;">\n                            If you have any questions, please feel free to contact us at\n                            <a href="mailto:support@example.com" style="color: #3696c2;">support@example.com</a>\n                             or by phone at <a href="tel:" style="color: #3696c2;">123 456 789</a>.\n                        </p>\n                    </td>\n                </tr></table>\n</td>\n    </tr></table>\n<!-- End Content -->\n</td>\n                </tr>\n</table>\n<h5 class="closing-text" style="font-family: Verdana, Arial; font-weight: normal; text-align: center; font-size: 22px; line-height: 32px; margin-bottom: 75px; margin-top: 30px;">Thank you, Responsive Mage Store!</h5>\n        </td>\n    </tr></table>\n<!-- End wrapper table -->\n</body>\n</html>\n', 'a:7:{s:7:"subject";s:47:"Responsive Mage Store: Order # 100000002 update";s:17:"return_path_email";N;s:8:"is_plain";b:0;s:10:"from_email";s:17:"sales@example.com";s:9:"from_name";s:5:"Sales";s:8:"reply_to";N;s:9:"return_to";N;}', '2015-05-27 10:47:16', NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_email_queue_recipients`
---
 
 DROP TABLE IF EXISTS `core_email_queue_recipients`;
 CREATE TABLE IF NOT EXISTS `core_email_queue_recipients` (
@@ -4442,20 +3428,10 @@ CREATE TABLE IF NOT EXISTS `core_email_queue_recipients` (
   `email_type` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Email Type'
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Email Queue';
 
---
--- Vypisuji data pro tabulku `core_email_queue_recipients`
---
-
 INSERT INTO `core_email_queue_recipients` (`recipient_id`, `message_id`, `recipient_email`, `recipient_name`, `email_type`) VALUES
 (1, 1, 'aaa@gmail.com', 'aa aaa', 0),
 (2, 2, 'jana.mathauserova@ubk.cz', 'Jana Mathauserova', 0),
 (3, 3, 'jana.mathauserova@ubk.cz', 'Jana Mathauserova', 0);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_email_template`
---
 
 DROP TABLE IF EXISTS `core_email_template`;
 CREATE TABLE IF NOT EXISTS `core_email_template` (
@@ -4473,12 +3449,6 @@ CREATE TABLE IF NOT EXISTS `core_email_template` (
   `orig_template_variables` text COMMENT 'Original Template Variables'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Email Templates';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_flag`
---
-
 DROP TABLE IF EXISTS `core_flag`;
 CREATE TABLE IF NOT EXISTS `core_flag` (
   `flag_id` int(10) unsigned NOT NULL COMMENT 'Flag Id',
@@ -4488,19 +3458,9 @@ CREATE TABLE IF NOT EXISTS `core_flag` (
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Date of Last Flag Update'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Flag';
 
---
--- Vypisuji data pro tabulku `core_flag`
---
-
 INSERT INTO `core_flag` (`flag_id`, `flag_code`, `state`, `flag_data`, `last_update`) VALUES
 (1, 'admin_notification_survey', 0, 'a:1:{s:13:"survey_viewed";b:1;}', '2015-05-14 13:15:02'),
 (2, 'catalog_product_flat', 0, 'a:2:{s:8:"is_built";b:1;s:16:"is_store_built_1";b:1;}', '2015-05-15 05:57:44');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_layout_link`
---
 
 DROP TABLE IF EXISTS `core_layout_link`;
 CREATE TABLE IF NOT EXISTS `core_layout_link` (
@@ -4512,12 +3472,6 @@ CREATE TABLE IF NOT EXISTS `core_layout_link` (
   `layout_update_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Layout Update Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Layout Link';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_layout_update`
---
-
 DROP TABLE IF EXISTS `core_layout_update`;
 CREATE TABLE IF NOT EXISTS `core_layout_update` (
   `layout_update_id` int(10) unsigned NOT NULL COMMENT 'Layout Update Id',
@@ -4526,22 +3480,12 @@ CREATE TABLE IF NOT EXISTS `core_layout_update` (
   `sort_order` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Sort Order'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Layout Updates';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_resource`
---
-
 DROP TABLE IF EXISTS `core_resource`;
 CREATE TABLE IF NOT EXISTS `core_resource` (
   `code` varchar(50) NOT NULL COMMENT 'Resource Code',
   `version` varchar(50) DEFAULT NULL COMMENT 'Resource Version',
   `data_version` varchar(50) DEFAULT NULL COMMENT 'Data Version'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Resources';
-
---
--- Vypisuji data pro tabulku `core_resource`
---
 
 INSERT INTO `core_resource` (`code`, `version`, `data_version`) VALUES
 ('adminnotification_setup', '1.6.0.0', '1.6.0.0'),
@@ -4597,24 +3541,12 @@ INSERT INTO `core_resource` (`code`, `version`, `data_version`) VALUES
 ('widget_setup', '1.6.0.0', '1.6.0.0'),
 ('wishlist_setup', '1.6.0.0', '1.6.0.0');
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_session`
---
-
 DROP TABLE IF EXISTS `core_session`;
 CREATE TABLE IF NOT EXISTS `core_session` (
   `session_id` varchar(255) NOT NULL COMMENT 'Session Id',
   `session_expires` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Date of Session Expiration',
   `session_data` mediumblob NOT NULL COMMENT 'Session Data'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Database Sessions Storage';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_store`
---
 
 DROP TABLE IF EXISTS `core_store`;
 CREATE TABLE IF NOT EXISTS `core_store` (
@@ -4627,19 +3559,9 @@ CREATE TABLE IF NOT EXISTS `core_store` (
   `is_active` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Activity'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Stores';
 
---
--- Vypisuji data pro tabulku `core_store`
---
-
 INSERT INTO `core_store` (`store_id`, `code`, `website_id`, `group_id`, `name`, `sort_order`, `is_active`) VALUES
 (0, 'admin', 0, 0, 'Admin', 0, 1),
 (1, 'default', 1, 1, 'Default Store View', 0, 1);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_store_group`
---
 
 DROP TABLE IF EXISTS `core_store_group`;
 CREATE TABLE IF NOT EXISTS `core_store_group` (
@@ -4650,19 +3572,9 @@ CREATE TABLE IF NOT EXISTS `core_store_group` (
   `default_store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Default Store Id'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Store Groups';
 
---
--- Vypisuji data pro tabulku `core_store_group`
---
-
 INSERT INTO `core_store_group` (`group_id`, `website_id`, `name`, `root_category_id`, `default_store_id`) VALUES
 (0, 0, 'Default', 0, 0),
 (1, 1, 'Main Website Store', 2, 1);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_translate`
---
 
 DROP TABLE IF EXISTS `core_translate`;
 CREATE TABLE IF NOT EXISTS `core_translate` (
@@ -4673,12 +3585,6 @@ CREATE TABLE IF NOT EXISTS `core_translate` (
   `locale` varchar(20) NOT NULL DEFAULT 'en_US' COMMENT 'Locale',
   `crc_string` bigint(20) NOT NULL DEFAULT '1591228201' COMMENT 'Translation String CRC32 Hash'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Translations';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_url_rewrite`
---
 
 DROP TABLE IF EXISTS `core_url_rewrite`;
 CREATE TABLE IF NOT EXISTS `core_url_rewrite` (
@@ -4692,11 +3598,7 @@ CREATE TABLE IF NOT EXISTS `core_url_rewrite` (
   `description` varchar(255) DEFAULT NULL COMMENT 'Deascription',
   `category_id` int(10) unsigned DEFAULT NULL COMMENT 'Category Id',
   `product_id` int(10) unsigned DEFAULT NULL COMMENT 'Product Id'
-) ENGINE=InnoDB AUTO_INCREMENT=253 DEFAULT CHARSET=utf8 COMMENT='Url Rewrites';
-
---
--- Vypisuji data pro tabulku `core_url_rewrite`
---
+) ENGINE=InnoDB AUTO_INCREMENT=252 DEFAULT CHARSET=utf8 COMMENT='Url Rewrites';
 
 INSERT INTO `core_url_rewrite` (`url_rewrite_id`, `store_id`, `id_path`, `request_path`, `target_path`, `is_system`, `options`, `description`, `category_id`, `product_id`) VALUES
 (1, 1, 'category/4', 'laptops.html', 'catalog/category/view/id/4', 1, NULL, NULL, 4, NULL),
@@ -4770,12 +3672,6 @@ INSERT INTO `core_url_rewrite` (`url_rewrite_id`, `store_id`, `id_path`, `reques
 (250, 1, 'product/17/13', 'top/bundle-1.html', 'catalog/product/view/id/17/category/13', 1, NULL, NULL, 13, 17),
 (251, 1, 'product/17/14', 'new/bundle-1.html', 'catalog/product/view/id/17/category/14', 1, NULL, NULL, 14, 17);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_variable`
---
-
 DROP TABLE IF EXISTS `core_variable`;
 CREATE TABLE IF NOT EXISTS `core_variable` (
   `variable_id` int(10) unsigned NOT NULL COMMENT 'Variable Id',
@@ -4783,19 +3679,9 @@ CREATE TABLE IF NOT EXISTS `core_variable` (
   `name` varchar(255) DEFAULT NULL COMMENT 'Variable Name'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Variables';
 
---
--- Vypisuji data pro tabulku `core_variable`
---
-
 INSERT INTO `core_variable` (`variable_id`, `code`, `name`) VALUES
 (1, 'msg_yellow', 'Yellow One Line Message'),
 (2, 'CSS_Slider', 'css_slider');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_variable_value`
---
 
 DROP TABLE IF EXISTS `core_variable_value`;
 CREATE TABLE IF NOT EXISTS `core_variable_value` (
@@ -4806,19 +3692,9 @@ CREATE TABLE IF NOT EXISTS `core_variable_value` (
   `html_value` text COMMENT 'Html Value'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Variable Value';
 
---
--- Vypisuji data pro tabulku `core_variable_value`
---
-
 INSERT INTO `core_variable_value` (`value_id`, `variable_id`, `store_id`, `plain_value`, `html_value`) VALUES
 (1, 1, 0, 'Want to try out our products? Visit our showroom.', '<div id="yellowmsg"><p id="yellowmsgtext">Want to try out our products? Visit our <a href="#">showroom</a>. <span id="closeyellow">X</span></p></div>'),
 (2, 2, 0, 'Please enable JavaScript to see this content.', '<div id="slidy-container" style="width: 100%; overflow: hidden;margin-top: -7px;">\r\n   <figure id="slidy">\r\n    <img src="http://i1065.photobucket.com/albums/u381/jana2511/NL5/ipad-605439_1920_zpsb04bojgw.jpg" alt>\r\n    <img src="http://i1065.photobucket.com/albums/u381/jana2511/NL5/MomPreneurs_virtuell_arbeiten_zpsusllhcnu.jpg" alt>\r\n    <img src="http://i1065.photobucket.com/albums/u381/jana2511/NL5/ipad-605439_1920_zpsb04bojgw.jpg" alt>\r\n    <img src="http://i1065.photobucket.com/albums/u381/jana2511/NL4/office-620822_1920-1050x700_zpsgpfln1f2.jpg" alt>\r\n   </figure>\r\n</div>\r\n<script type="text/javascript">\r\n    var timeOnSlide = 4,\r\n    timeBetweenSlides = 1,\r\n    animationstring = ''animation'',\r\n    animation = false,\r\n    keyframeprefix = '''',\r\n    domPrefixes = ''Webkit Moz O Khtml''.split('' ''),\r\n    pfx = '''',\r\n    slidy = document.getElementById("slidy");\r\nif (slidy.style.animationName !== undefined) { animation = true; }\r\nif ( animation === false ) {\r\n    for ( var i = 0; i < domPrefixes.length; i++ ) {\r\n    if ( slidy.style[ domPrefixes[i] + ''AnimationName'' ] !== undefined ) {\r\n    pfx = domPrefixes[ i ];\r\n    animationstring = pfx + ''Animation'';\r\n    keyframeprefix = ''-'' + pfx.toLowerCase() + ''-'';\r\n    animation = true;\r\n    break;\r\n    } } }\r\nif ( animation === false ) {\r\n    // fallback\r\n} else {\r\n    var images = slidy.getElementsByTagName("img"),\r\n    firstImg = images[0],\r\n    imgWrap = firstImg.cloneNode(false);\r\n    slidy.appendChild(imgWrap);\r\n      var imgCount = images.length,\r\n      totalTime = (timeOnSlide + timeBetweenSlides) * (imgCount - 1),\r\n      slideRatio = (timeOnSlide / totalTime)*100,\r\n      moveRatio = (timeBetweenSlides / totalTime)*100,\r\n      basePercentage = 100/imgCount,\r\n      position = 0,\r\n        css = document.createElement("style");\r\n        css.type = "text/css";\r\n        css.innerHTML += "#slidy { text-align: left; margin: 0; font-size: 0; position: relative; width: " + (imgCount * 100) + "%; }";\r\n        css.innerHTML += "#slidy img { float: left; width: " + basePercentage + "%; }";\r\n        css.innerHTML += "@"+keyframeprefix+"keyframes slidy {";\r\nfor (i=0;i<(imgCount-1); i++) {\r\n      position+= slideRatio;\r\n      css.innerHTML += position+"% { left: -"+(i * 100)+"%; }";\r\n      position += moveRatio;\r\n      css.innerHTML += position+"% { left: -"+((i+1) * 100)+"%; }";\r\n}\r\n  css.innerHTML += "}";\r\n  css.innerHTML += "#slidy { left: 0%; "+keyframeprefix+"transform: translate3d(0,0,0); "+keyframeprefix+"animation: "+totalTime+"s slidy infinite; }";\r\n  document.body.appendChild(css);\r\n}\r\n</script>\r\n');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `core_website`
---
 
 DROP TABLE IF EXISTS `core_website`;
 CREATE TABLE IF NOT EXISTS `core_website` (
@@ -4830,19 +3706,9 @@ CREATE TABLE IF NOT EXISTS `core_website` (
   `is_default` smallint(5) unsigned DEFAULT '0' COMMENT 'Defines Is Website Default'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Websites';
 
---
--- Vypisuji data pro tabulku `core_website`
---
-
 INSERT INTO `core_website` (`website_id`, `code`, `name`, `sort_order`, `default_group_id`, `is_default`) VALUES
 (0, 'admin', 'Admin', 0, 0, 0),
 (1, 'base', 'Main Website', 0, 1, 1);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `coupon_aggregated`
---
 
 DROP TABLE IF EXISTS `coupon_aggregated`;
 CREATE TABLE IF NOT EXISTS `coupon_aggregated` (
@@ -4861,12 +3727,6 @@ CREATE TABLE IF NOT EXISTS `coupon_aggregated` (
   `rule_name` varchar(255) DEFAULT NULL COMMENT 'Rule Name'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Coupon Aggregated';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `coupon_aggregated_order`
---
-
 DROP TABLE IF EXISTS `coupon_aggregated_order`;
 CREATE TABLE IF NOT EXISTS `coupon_aggregated_order` (
   `id` int(10) unsigned NOT NULL COMMENT 'Id',
@@ -4880,12 +3740,6 @@ CREATE TABLE IF NOT EXISTS `coupon_aggregated_order` (
   `total_amount` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Total Amount',
   `rule_name` varchar(255) DEFAULT NULL COMMENT 'Rule Name'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Coupon Aggregated Order';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `coupon_aggregated_updated`
---
 
 DROP TABLE IF EXISTS `coupon_aggregated_updated`;
 CREATE TABLE IF NOT EXISTS `coupon_aggregated_updated` (
@@ -4904,12 +3758,6 @@ CREATE TABLE IF NOT EXISTS `coupon_aggregated_updated` (
   `rule_name` varchar(255) DEFAULT NULL COMMENT 'Rule Name'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Coupon Aggregated Updated';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `cron_schedule`
---
-
 DROP TABLE IF EXISTS `cron_schedule`;
 CREATE TABLE IF NOT EXISTS `cron_schedule` (
   `schedule_id` int(10) unsigned NOT NULL COMMENT 'Schedule Id',
@@ -4921,12 +3769,6 @@ CREATE TABLE IF NOT EXISTS `cron_schedule` (
   `executed_at` timestamp NULL DEFAULT NULL COMMENT 'Executed At',
   `finished_at` timestamp NULL DEFAULT NULL COMMENT 'Finished At'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Cron Schedule';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `customer_address_entity`
---
 
 DROP TABLE IF EXISTS `customer_address_entity`;
 CREATE TABLE IF NOT EXISTS `customer_address_entity` (
@@ -4940,12 +3782,6 @@ CREATE TABLE IF NOT EXISTS `customer_address_entity` (
   `is_active` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Is Active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `customer_address_entity_datetime`
---
-
 DROP TABLE IF EXISTS `customer_address_entity_datetime`;
 CREATE TABLE IF NOT EXISTS `customer_address_entity_datetime` (
   `value_id` int(11) NOT NULL COMMENT 'Value Id',
@@ -4954,12 +3790,6 @@ CREATE TABLE IF NOT EXISTS `customer_address_entity_datetime` (
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
   `value` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Datetime';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `customer_address_entity_decimal`
---
 
 DROP TABLE IF EXISTS `customer_address_entity_decimal`;
 CREATE TABLE IF NOT EXISTS `customer_address_entity_decimal` (
@@ -4970,12 +3800,6 @@ CREATE TABLE IF NOT EXISTS `customer_address_entity_decimal` (
   `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Decimal';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `customer_address_entity_int`
---
-
 DROP TABLE IF EXISTS `customer_address_entity_int`;
 CREATE TABLE IF NOT EXISTS `customer_address_entity_int` (
   `value_id` int(11) NOT NULL COMMENT 'Value Id',
@@ -4984,12 +3808,6 @@ CREATE TABLE IF NOT EXISTS `customer_address_entity_int` (
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
   `value` int(11) NOT NULL DEFAULT '0' COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Int';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `customer_address_entity_text`
---
 
 DROP TABLE IF EXISTS `customer_address_entity_text`;
 CREATE TABLE IF NOT EXISTS `customer_address_entity_text` (
@@ -5000,12 +3818,6 @@ CREATE TABLE IF NOT EXISTS `customer_address_entity_text` (
   `value` text NOT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Text';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `customer_address_entity_varchar`
---
-
 DROP TABLE IF EXISTS `customer_address_entity_varchar`;
 CREATE TABLE IF NOT EXISTS `customer_address_entity_varchar` (
   `value_id` int(11) NOT NULL COMMENT 'Value Id',
@@ -5014,12 +3826,6 @@ CREATE TABLE IF NOT EXISTS `customer_address_entity_varchar` (
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
   `value` varchar(255) DEFAULT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Varchar';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `customer_eav_attribute`
---
 
 DROP TABLE IF EXISTS `customer_eav_attribute`;
 CREATE TABLE IF NOT EXISTS `customer_eav_attribute` (
@@ -5032,10 +3838,6 @@ CREATE TABLE IF NOT EXISTS `customer_eav_attribute` (
   `sort_order` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order',
   `data_model` varchar(255) DEFAULT NULL COMMENT 'Data Model'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Eav Attribute';
-
---
--- Vypisuji data pro tabulku `customer_eav_attribute`
---
 
 INSERT INTO `customer_eav_attribute` (`attribute_id`, `is_visible`, `input_filter`, `multiline_count`, `validate_rules`, `is_system`, `sort_order`, `data_model`) VALUES
 (1, 1, NULL, 0, NULL, 1, 10, NULL),
@@ -5079,12 +3881,6 @@ INSERT INTO `customer_eav_attribute` (`attribute_id`, `is_visible`, `input_filte
 (39, 0, NULL, 0, NULL, 1, 0, NULL),
 (40, 0, NULL, 0, NULL, 1, 0, NULL);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `customer_eav_attribute_website`
---
-
 DROP TABLE IF EXISTS `customer_eav_attribute_website`;
 CREATE TABLE IF NOT EXISTS `customer_eav_attribute_website` (
   `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute Id',
@@ -5094,12 +3890,6 @@ CREATE TABLE IF NOT EXISTS `customer_eav_attribute_website` (
   `default_value` text COMMENT 'Default Value',
   `multiline_count` smallint(5) unsigned DEFAULT NULL COMMENT 'Multiline Count'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Eav Attribute Website';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `customer_entity`
---
 
 DROP TABLE IF EXISTS `customer_entity`;
 CREATE TABLE IF NOT EXISTS `customer_entity` (
@@ -5117,19 +3907,9 @@ CREATE TABLE IF NOT EXISTS `customer_entity` (
   `disable_auto_group_change` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Disable automatic group change based on VAT ID'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Customer Entity';
 
---
--- Vypisuji data pro tabulku `customer_entity`
---
-
 INSERT INTO `customer_entity` (`entity_id`, `entity_type_id`, `attribute_set_id`, `website_id`, `email`, `group_id`, `increment_id`, `store_id`, `created_at`, `updated_at`, `is_active`, `disable_auto_group_change`) VALUES
 (1, 1, 0, 1, 'johndoe@gmail.com', 2, NULL, 0, '2015-05-18 11:04:04', '2015-05-18 11:06:33', 1, 0),
 (2, 1, 0, 1, 'jennydoe@gmail.com', 1, NULL, 0, '2015-05-18 11:07:06', '2015-05-18 11:07:06', 1, 0);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `customer_entity_datetime`
---
 
 DROP TABLE IF EXISTS `customer_entity_datetime`;
 CREATE TABLE IF NOT EXISTS `customer_entity_datetime` (
@@ -5140,12 +3920,6 @@ CREATE TABLE IF NOT EXISTS `customer_entity_datetime` (
   `value` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Datetime';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `customer_entity_decimal`
---
-
 DROP TABLE IF EXISTS `customer_entity_decimal`;
 CREATE TABLE IF NOT EXISTS `customer_entity_decimal` (
   `value_id` int(11) NOT NULL COMMENT 'Value Id',
@@ -5154,12 +3928,6 @@ CREATE TABLE IF NOT EXISTS `customer_entity_decimal` (
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
   `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Decimal';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `customer_entity_int`
---
 
 DROP TABLE IF EXISTS `customer_entity_int`;
 CREATE TABLE IF NOT EXISTS `customer_entity_int` (
@@ -5170,12 +3938,6 @@ CREATE TABLE IF NOT EXISTS `customer_entity_int` (
   `value` int(11) NOT NULL DEFAULT '0' COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Int';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `customer_entity_text`
---
-
 DROP TABLE IF EXISTS `customer_entity_text`;
 CREATE TABLE IF NOT EXISTS `customer_entity_text` (
   `value_id` int(11) NOT NULL COMMENT 'Value Id',
@@ -5185,12 +3947,6 @@ CREATE TABLE IF NOT EXISTS `customer_entity_text` (
   `value` text NOT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Text';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `customer_entity_varchar`
---
-
 DROP TABLE IF EXISTS `customer_entity_varchar`;
 CREATE TABLE IF NOT EXISTS `customer_entity_varchar` (
   `value_id` int(11) NOT NULL COMMENT 'Value Id',
@@ -5199,10 +3955,6 @@ CREATE TABLE IF NOT EXISTS `customer_entity_varchar` (
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
   `value` varchar(255) DEFAULT NULL COMMENT 'Value'
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COMMENT='Customer Entity Varchar';
-
---
--- Vypisuji data pro tabulku `customer_entity_varchar`
---
 
 INSERT INTO `customer_entity_varchar` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
 (1, 1, 4, 1, NULL),
@@ -5222,21 +3974,11 @@ INSERT INTO `customer_entity_varchar` (`value_id`, `entity_type_id`, `attribute_
 (19, 1, 12, 2, '48753f82c038aa1ae6cda5654400a5c6:qozj8fPOkknZa4YhXO0bRkqkSNZZ7uuJ'),
 (20, 1, 3, 2, 'Admin');
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `customer_form_attribute`
---
-
 DROP TABLE IF EXISTS `customer_form_attribute`;
 CREATE TABLE IF NOT EXISTS `customer_form_attribute` (
   `form_code` varchar(32) NOT NULL COMMENT 'Form Code',
   `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Form Attribute';
-
---
--- Vypisuji data pro tabulku `customer_form_attribute`
---
 
 INSERT INTO `customer_form_attribute` (`form_code`, `attribute_id`) VALUES
 ('adminhtml_customer', 1),
@@ -5334,12 +4076,6 @@ INSERT INTO `customer_form_attribute` (`form_code`, `attribute_id`) VALUES
 ('customer_address_edit', 36),
 ('customer_register_address', 36);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `customer_group`
---
-
 DROP TABLE IF EXISTS `customer_group`;
 CREATE TABLE IF NOT EXISTS `customer_group` (
   `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group Id',
@@ -5347,21 +4083,11 @@ CREATE TABLE IF NOT EXISTS `customer_group` (
   `tax_class_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Tax Class Id'
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Customer Group';
 
---
--- Vypisuji data pro tabulku `customer_group`
---
-
 INSERT INTO `customer_group` (`customer_group_id`, `customer_group_code`, `tax_class_id`) VALUES
 (0, 'NOT LOGGED IN', 3),
 (1, 'General', 3),
 (2, 'Wholesale', 3),
 (3, 'Retailer', 3);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `dataflow_batch`
---
 
 DROP TABLE IF EXISTS `dataflow_batch`;
 CREATE TABLE IF NOT EXISTS `dataflow_batch` (
@@ -5373,12 +4099,6 @@ CREATE TABLE IF NOT EXISTS `dataflow_batch` (
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dataflow Batch';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `dataflow_batch_export`
---
-
 DROP TABLE IF EXISTS `dataflow_batch_export`;
 CREATE TABLE IF NOT EXISTS `dataflow_batch_export` (
   `batch_export_id` bigint(20) unsigned NOT NULL COMMENT 'Batch Export Id',
@@ -5386,12 +4106,6 @@ CREATE TABLE IF NOT EXISTS `dataflow_batch_export` (
   `batch_data` longtext COMMENT 'Batch Data',
   `status` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dataflow Batch Export';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `dataflow_batch_import`
---
 
 DROP TABLE IF EXISTS `dataflow_batch_import`;
 CREATE TABLE IF NOT EXISTS `dataflow_batch_import` (
@@ -5401,12 +4115,6 @@ CREATE TABLE IF NOT EXISTS `dataflow_batch_import` (
   `status` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dataflow Batch Import';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `dataflow_import_data`
---
-
 DROP TABLE IF EXISTS `dataflow_import_data`;
 CREATE TABLE IF NOT EXISTS `dataflow_import_data` (
   `import_id` int(11) NOT NULL COMMENT 'Import Id',
@@ -5415,12 +4123,6 @@ CREATE TABLE IF NOT EXISTS `dataflow_import_data` (
   `value` text COMMENT 'Value',
   `status` int(11) NOT NULL DEFAULT '0' COMMENT 'Status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dataflow Import Data';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `dataflow_profile`
---
 
 DROP TABLE IF EXISTS `dataflow_profile`;
 CREATE TABLE IF NOT EXISTS `dataflow_profile` (
@@ -5436,10 +4138,6 @@ CREATE TABLE IF NOT EXISTS `dataflow_profile` (
   `data_transfer` varchar(11) DEFAULT NULL COMMENT 'Data Transfer'
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Dataflow Profile';
 
---
--- Vypisuji data pro tabulku `dataflow_profile`
---
-
 INSERT INTO `dataflow_profile` (`profile_id`, `name`, `created_at`, `updated_at`, `actions_xml`, `gui_data`, `direction`, `entity_type`, `store_id`, `data_transfer`) VALUES
 (1, 'Export All Products', '2015-05-14 13:13:55', '2015-05-14 13:13:55', '<action type="catalog/convert_adapter_product" method="load">\\r\\n    <var name="store"><![CDATA[0]]></var>\\r\\n</action>\\r\\n\\r\\n<action type="catalog/convert_parser_product" method="unparse">\\r\\n    <var name="store"><![CDATA[0]]></var>\\r\\n</action>\\r\\n\\r\\n<action type="dataflow/convert_mapper_column" method="map">\\r\\n</action>\\r\\n\\r\\n<action type="dataflow/convert_parser_csv" method="unparse">\\r\\n    <var name="delimiter"><![CDATA[,]]></var>\\r\\n    <var name="enclose"><![CDATA["]]></var>\\r\\n    <var name="fieldnames">true</var>\\r\\n</action>\\r\\n\\r\\n<action type="dataflow/convert_adapter_io" method="save">\\r\\n    <var name="type">file</var>\\r\\n    <var name="path">var/export</var>\\r\\n    <var name="filename"><![CDATA[export_all_products.csv]]></var>\\r\\n</action>\\r\\n\\r\\n', 'a:5:{s:4:"file";a:7:{s:4:"type";s:4:"file";s:8:"filename";s:23:"export_all_products.csv";s:4:"path";s:10:"var/export";s:4:"host";s:0:"";s:4:"user";s:0:"";s:8:"password";s:0:"";s:7:"passive";s:0:"";}s:5:"parse";a:5:{s:4:"type";s:3:"csv";s:12:"single_sheet";s:0:"";s:9:"delimiter";s:1:",";s:7:"enclose";s:1:""";s:10:"fieldnames";s:4:"true";}s:3:"map";a:3:{s:14:"only_specified";s:0:"";s:7:"product";a:2:{s:2:"db";a:0:{}s:4:"file";a:0:{}}s:8:"customer";a:2:{s:2:"db";a:0:{}s:4:"file";a:0:{}}}s:7:"product";a:1:{s:6:"filter";a:8:{s:4:"name";s:0:"";s:3:"sku";s:0:"";s:4:"type";s:1:"0";s:13:"attribute_set";s:0:"";s:5:"price";a:2:{s:4:"from";s:0:"";s:2:"to";s:0:"";}s:3:"qty";a:2:{s:4:"from";s:0:"";s:2:"to";s:0:"";}s:10:"visibility";s:1:"0";s:6:"status";s:1:"0";}}s:8:"customer";a:1:{s:6:"filter";a:10:{s:9:"firstname";s:0:"";s:8:"lastname";s:0:"";s:5:"email";s:0:"";s:5:"group";s:1:"0";s:10:"adressType";s:15:"default_billing";s:9:"telephone";s:0:"";s:8:"postcode";s:0:"";s:7:"country";s:0:"";s:6:"region";s:0:"";s:10:"created_at";a:2:{s:4:"from";s:0:"";s:2:"to";s:0:"";}}}}', 'export', 'product', 0, 'file'),
 (2, 'Export Product Stocks', '2015-05-14 13:13:55', '2015-05-14 13:13:55', '<action type="catalog/convert_adapter_product" method="load">\\r\\n    <var name="store"><![CDATA[0]]></var>\\r\\n</action>\\r\\n\\r\\n<action type="catalog/convert_parser_product" method="unparse">\\r\\n    <var name="store"><![CDATA[0]]></var>\\r\\n</action>\\r\\n\\r\\n<action type="dataflow/convert_mapper_column" method="map">\\r\\n</action>\\r\\n\\r\\n<action type="dataflow/convert_parser_csv" method="unparse">\\r\\n    <var name="delimiter"><![CDATA[,]]></var>\\r\\n    <var name="enclose"><![CDATA["]]></var>\\r\\n    <var name="fieldnames">true</var>\\r\\n</action>\\r\\n\\r\\n<action type="dataflow/convert_adapter_io" method="save">\\r\\n    <var name="type">file</var>\\r\\n    <var name="path">var/export</var>\\r\\n    <var name="filename"><![CDATA[export_all_products.csv]]></var>\\r\\n</action>\\r\\n\\r\\n', 'a:5:{s:4:"file";a:7:{s:4:"type";s:4:"file";s:8:"filename";s:25:"export_product_stocks.csv";s:4:"path";s:10:"var/export";s:4:"host";s:0:"";s:4:"user";s:0:"";s:8:"password";s:0:"";s:7:"passive";s:0:"";}s:5:"parse";a:5:{s:4:"type";s:3:"csv";s:12:"single_sheet";s:0:"";s:9:"delimiter";s:1:",";s:7:"enclose";s:1:""";s:10:"fieldnames";s:4:"true";}s:3:"map";a:3:{s:14:"only_specified";s:4:"true";s:7:"product";a:2:{s:2:"db";a:4:{i:1;s:5:"store";i:2;s:3:"sku";i:3;s:3:"qty";i:4;s:11:"is_in_stock";}s:4:"file";a:4:{i:1;s:5:"store";i:2;s:3:"sku";i:3;s:3:"qty";i:4;s:11:"is_in_stock";}}s:8:"customer";a:2:{s:2:"db";a:0:{}s:4:"file";a:0:{}}}s:7:"product";a:1:{s:6:"filter";a:8:{s:4:"name";s:0:"";s:3:"sku";s:0:"";s:4:"type";s:1:"0";s:13:"attribute_set";s:0:"";s:5:"price";a:2:{s:4:"from";s:0:"";s:2:"to";s:0:"";}s:3:"qty";a:2:{s:4:"from";s:0:"";s:2:"to";s:0:"";}s:10:"visibility";s:1:"0";s:6:"status";s:1:"0";}}s:8:"customer";a:1:{s:6:"filter";a:10:{s:9:"firstname";s:0:"";s:8:"lastname";s:0:"";s:5:"email";s:0:"";s:5:"group";s:1:"0";s:10:"adressType";s:15:"default_billing";s:9:"telephone";s:0:"";s:8:"postcode";s:0:"";s:7:"country";s:0:"";s:6:"region";s:0:"";s:10:"created_at";a:2:{s:4:"from";s:0:"";s:2:"to";s:0:"";}}}}', 'export', 'product', 0, 'file'),
@@ -5447,12 +4145,6 @@ INSERT INTO `dataflow_profile` (`profile_id`, `name`, `created_at`, `updated_at`
 (4, 'Import Product Stocks', '2015-05-14 13:13:55', '2015-05-14 13:13:55', '<action type="dataflow/convert_parser_csv" method="parse">\\r\\n    <var name="delimiter"><![CDATA[,]]></var>\\r\\n    <var name="enclose"><![CDATA["]]></var>\\r\\n    <var name="fieldnames">true</var>\\r\\n    <var name="store"><![CDATA[0]]></var>\\r\\n    <var name="adapter">catalog/convert_adapter_product</var>\\r\\n    <var name="method">parse</var>\\r\\n</action>', 'a:5:{s:4:"file";a:7:{s:4:"type";s:4:"file";s:8:"filename";s:18:"export_product.csv";s:4:"path";s:10:"var/export";s:4:"host";s:0:"";s:4:"user";s:0:"";s:8:"password";s:0:"";s:7:"passive";s:0:"";}s:5:"parse";a:5:{s:4:"type";s:3:"csv";s:12:"single_sheet";s:0:"";s:9:"delimiter";s:1:",";s:7:"enclose";s:1:""";s:10:"fieldnames";s:4:"true";}s:3:"map";a:3:{s:14:"only_specified";s:0:"";s:7:"product";a:2:{s:2:"db";a:0:{}s:4:"file";a:0:{}}s:8:"customer";a:2:{s:2:"db";a:0:{}s:4:"file";a:0:{}}}s:7:"product";a:1:{s:6:"filter";a:8:{s:4:"name";s:0:"";s:3:"sku";s:0:"";s:4:"type";s:1:"0";s:13:"attribute_set";s:0:"";s:5:"price";a:2:{s:4:"from";s:0:"";s:2:"to";s:0:"";}s:3:"qty";a:2:{s:4:"from";s:0:"";s:2:"to";s:0:"";}s:10:"visibility";s:1:"0";s:6:"status";s:1:"0";}}s:8:"customer";a:1:{s:6:"filter";a:10:{s:9:"firstname";s:0:"";s:8:"lastname";s:0:"";s:5:"email";s:0:"";s:5:"group";s:1:"0";s:10:"adressType";s:15:"default_billing";s:9:"telephone";s:0:"";s:8:"postcode";s:0:"";s:7:"country";s:0:"";s:6:"region";s:0:"";s:10:"created_at";a:2:{s:4:"from";s:0:"";s:2:"to";s:0:"";}}}}', 'import', 'product', 0, 'interactive'),
 (5, 'Export Customers', '2015-05-14 13:13:55', '2015-05-14 13:13:55', '<action type="customer/convert_adapter_customer" method="load">\\r\\n    <var name="store"><![CDATA[0]]></var>\\r\\n    <var name="filter/adressType"><![CDATA[default_billing]]></var>\\r\\n</action>\\r\\n\\r\\n<action type="customer/convert_parser_customer" method="unparse">\\r\\n    <var name="store"><![CDATA[0]]></var>\\r\\n</action>\\r\\n\\r\\n<action type="dataflow/convert_mapper_column" method="map">\\r\\n</action>\\r\\n\\r\\n<action type="dataflow/convert_parser_csv" method="unparse">\\r\\n    <var name="delimiter"><![CDATA[,]]></var>\\r\\n    <var name="enclose"><![CDATA["]]></var>\\r\\n    <var name="fieldnames">true</var>\\r\\n</action>\\r\\n\\r\\n<action type="dataflow/convert_adapter_io" method="save">\\r\\n    <var name="type">file</var>\\r\\n    <var name="path">var/export</var>\\r\\n    <var name="filename"><![CDATA[export_customers.csv]]></var>\\r\\n</action>\\r\\n\\r\\n', 'a:5:{s:4:"file";a:7:{s:4:"type";s:4:"file";s:8:"filename";s:20:"export_customers.csv";s:4:"path";s:10:"var/export";s:4:"host";s:0:"";s:4:"user";s:0:"";s:8:"password";s:0:"";s:7:"passive";s:0:"";}s:5:"parse";a:5:{s:4:"type";s:3:"csv";s:12:"single_sheet";s:0:"";s:9:"delimiter";s:1:",";s:7:"enclose";s:1:""";s:10:"fieldnames";s:4:"true";}s:3:"map";a:3:{s:14:"only_specified";s:0:"";s:7:"product";a:2:{s:2:"db";a:0:{}s:4:"file";a:0:{}}s:8:"customer";a:2:{s:2:"db";a:0:{}s:4:"file";a:0:{}}}s:7:"product";a:1:{s:6:"filter";a:8:{s:4:"name";s:0:"";s:3:"sku";s:0:"";s:4:"type";s:1:"0";s:13:"attribute_set";s:0:"";s:5:"price";a:2:{s:4:"from";s:0:"";s:2:"to";s:0:"";}s:3:"qty";a:2:{s:4:"from";s:0:"";s:2:"to";s:0:"";}s:10:"visibility";s:1:"0";s:6:"status";s:1:"0";}}s:8:"customer";a:1:{s:6:"filter";a:10:{s:9:"firstname";s:0:"";s:8:"lastname";s:0:"";s:5:"email";s:0:"";s:5:"group";s:1:"0";s:10:"adressType";s:15:"default_billing";s:9:"telephone";s:0:"";s:8:"postcode";s:0:"";s:7:"country";s:0:"";s:6:"region";s:0:"";s:10:"created_at";a:2:{s:4:"from";s:0:"";s:2:"to";s:0:"";}}}}', 'export', 'customer', 0, 'file'),
 (6, 'Import Customers', '2015-05-14 13:13:55', '2015-05-14 13:13:55', '<action type="dataflow/convert_parser_csv" method="parse">\\r\\n    <var name="delimiter"><![CDATA[,]]></var>\\r\\n    <var name="enclose"><![CDATA["]]></var>\\r\\n    <var name="fieldnames">true</var>\\r\\n    <var name="store"><![CDATA[0]]></var>\\r\\n    <var name="adapter">customer/convert_adapter_customer</var>\\r\\n    <var name="method">parse</var>\\r\\n</action>', 'a:5:{s:4:"file";a:7:{s:4:"type";s:4:"file";s:8:"filename";s:19:"export_customer.csv";s:4:"path";s:10:"var/export";s:4:"host";s:0:"";s:4:"user";s:0:"";s:8:"password";s:0:"";s:7:"passive";s:0:"";}s:5:"parse";a:5:{s:4:"type";s:3:"csv";s:12:"single_sheet";s:0:"";s:9:"delimiter";s:1:",";s:7:"enclose";s:1:""";s:10:"fieldnames";s:4:"true";}s:3:"map";a:3:{s:14:"only_specified";s:0:"";s:7:"product";a:2:{s:2:"db";a:0:{}s:4:"file";a:0:{}}s:8:"customer";a:2:{s:2:"db";a:0:{}s:4:"file";a:0:{}}}s:7:"product";a:1:{s:6:"filter";a:8:{s:4:"name";s:0:"";s:3:"sku";s:0:"";s:4:"type";s:1:"0";s:13:"attribute_set";s:0:"";s:5:"price";a:2:{s:4:"from";s:0:"";s:2:"to";s:0:"";}s:3:"qty";a:2:{s:4:"from";s:0:"";s:2:"to";s:0:"";}s:10:"visibility";s:1:"0";s:6:"status";s:1:"0";}}s:8:"customer";a:1:{s:6:"filter";a:10:{s:9:"firstname";s:0:"";s:8:"lastname";s:0:"";s:5:"email";s:0:"";s:5:"group";s:1:"0";s:10:"adressType";s:15:"default_billing";s:9:"telephone";s:0:"";s:8:"postcode";s:0:"";s:7:"country";s:0:"";s:6:"region";s:0:"";s:10:"created_at";a:2:{s:4:"from";s:0:"";s:2:"to";s:0:"";}}}}', 'import', 'customer', 0, 'interactive');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `dataflow_profile_history`
---
 
 DROP TABLE IF EXISTS `dataflow_profile_history`;
 CREATE TABLE IF NOT EXISTS `dataflow_profile_history` (
@@ -5463,10 +4155,6 @@ CREATE TABLE IF NOT EXISTS `dataflow_profile_history` (
   `performed_at` timestamp NULL DEFAULT NULL COMMENT 'Performed At'
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Dataflow Profile History';
 
---
--- Vypisuji data pro tabulku `dataflow_profile_history`
---
-
 INSERT INTO `dataflow_profile_history` (`history_id`, `profile_id`, `action_code`, `user_id`, `performed_at`) VALUES
 (1, 1, 'create', 0, '2015-05-14 13:13:55'),
 (2, 2, 'create', 0, '2015-05-14 13:13:55'),
@@ -5474,12 +4162,6 @@ INSERT INTO `dataflow_profile_history` (`history_id`, `profile_id`, `action_code
 (4, 4, 'create', 0, '2015-05-14 13:13:55'),
 (5, 5, 'create', 0, '2015-05-14 13:13:55'),
 (6, 6, 'create', 0, '2015-05-14 13:13:55');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `dataflow_session`
---
 
 DROP TABLE IF EXISTS `dataflow_session`;
 CREATE TABLE IF NOT EXISTS `dataflow_session` (
@@ -5492,12 +4174,6 @@ CREATE TABLE IF NOT EXISTS `dataflow_session` (
   `comment` varchar(255) DEFAULT NULL COMMENT 'Comment'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dataflow Session';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `design_change`
---
-
 DROP TABLE IF EXISTS `design_change`;
 CREATE TABLE IF NOT EXISTS `design_change` (
   `design_change_id` int(11) NOT NULL COMMENT 'Design Change Id',
@@ -5507,22 +4183,12 @@ CREATE TABLE IF NOT EXISTS `design_change` (
   `date_to` date DEFAULT NULL COMMENT 'Last Date of Design Activity'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Design Changes';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `directory_country`
---
-
 DROP TABLE IF EXISTS `directory_country`;
 CREATE TABLE IF NOT EXISTS `directory_country` (
   `country_id` varchar(2) NOT NULL DEFAULT '' COMMENT 'Country Id in ISO-2',
   `iso2_code` varchar(2) DEFAULT NULL COMMENT 'Country ISO-2 format',
   `iso3_code` varchar(3) DEFAULT NULL COMMENT 'Country ISO-3'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Directory Country';
-
---
--- Vypisuji data pro tabulku `directory_country`
---
 
 INSERT INTO `directory_country` (`country_id`, `iso2_code`, `iso3_code`) VALUES
 ('AD', 'AD', 'AND'),
@@ -5772,12 +4438,6 @@ INSERT INTO `directory_country` (`country_id`, `iso2_code`, `iso3_code`) VALUES
 ('ZM', 'ZM', 'ZMB'),
 ('ZW', 'ZW', 'ZWE');
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `directory_country_format`
---
-
 DROP TABLE IF EXISTS `directory_country_format`;
 CREATE TABLE IF NOT EXISTS `directory_country_format` (
   `country_format_id` int(10) unsigned NOT NULL COMMENT 'Country Format Id',
@@ -5786,12 +4446,6 @@ CREATE TABLE IF NOT EXISTS `directory_country_format` (
   `format` text NOT NULL COMMENT 'Country Format'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Directory Country Format';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `directory_country_region`
---
-
 DROP TABLE IF EXISTS `directory_country_region`;
 CREATE TABLE IF NOT EXISTS `directory_country_region` (
   `region_id` int(10) unsigned NOT NULL COMMENT 'Region Id',
@@ -5799,10 +4453,6 @@ CREATE TABLE IF NOT EXISTS `directory_country_region` (
   `code` varchar(32) DEFAULT NULL COMMENT 'Region code',
   `default_name` varchar(255) DEFAULT NULL COMMENT 'Region Name'
 ) ENGINE=InnoDB AUTO_INCREMENT=485 DEFAULT CHARSET=utf8 COMMENT='Directory Country Region';
-
---
--- Vypisuji data pro tabulku `directory_country_region`
---
 
 INSERT INTO `directory_country_region` (`region_id`, `country_id`, `code`, `default_name`) VALUES
 (1, 'US', 'AL', 'Alabama'),
@@ -6290,22 +4940,12 @@ INSERT INTO `directory_country_region` (`region_id`, `country_id`, `code`, `defa
 (483, 'LT', 'LT-UT', 'Utenos Apskritis'),
 (484, 'LT', 'LT-VL', 'Vilniaus Apskritis');
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `directory_country_region_name`
---
-
 DROP TABLE IF EXISTS `directory_country_region_name`;
 CREATE TABLE IF NOT EXISTS `directory_country_region_name` (
   `locale` varchar(8) NOT NULL DEFAULT '' COMMENT 'Locale',
   `region_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Region Id',
   `name` varchar(255) DEFAULT NULL COMMENT 'Region Name'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Directory Country Region Name';
-
---
--- Vypisuji data pro tabulku `directory_country_region_name`
---
 
 INSERT INTO `directory_country_region_name` (`locale`, `region_id`, `name`) VALUES
 ('en_US', 1, 'Alabama'),
@@ -6793,12 +5433,6 @@ INSERT INTO `directory_country_region_name` (`locale`, `region_id`, `name`) VALU
 ('en_US', 483, 'Utenos Apskritis'),
 ('en_US', 484, 'Vilniaus Apskritis');
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `directory_currency_rate`
---
-
 DROP TABLE IF EXISTS `directory_currency_rate`;
 CREATE TABLE IF NOT EXISTS `directory_currency_rate` (
   `currency_from` varchar(3) NOT NULL DEFAULT '' COMMENT 'Currency Code Convert From',
@@ -6806,21 +5440,11 @@ CREATE TABLE IF NOT EXISTS `directory_currency_rate` (
   `rate` decimal(24,12) NOT NULL DEFAULT '0.000000000000' COMMENT 'Currency Conversion Rate'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Directory Currency Rate';
 
---
--- Vypisuji data pro tabulku `directory_currency_rate`
---
-
 INSERT INTO `directory_currency_rate` (`currency_from`, `currency_to`, `rate`) VALUES
 ('EUR', 'EUR', '1.000000000000'),
 ('EUR', 'USD', '1.415000000000'),
 ('USD', 'EUR', '0.706700000000'),
 ('USD', 'USD', '1.000000000000');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `downloadable_link`
---
 
 DROP TABLE IF EXISTS `downloadable_link`;
 CREATE TABLE IF NOT EXISTS `downloadable_link` (
@@ -6837,12 +5461,6 @@ CREATE TABLE IF NOT EXISTS `downloadable_link` (
   `sample_type` varchar(20) DEFAULT NULL COMMENT 'Sample Type'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Downloadable Link Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `downloadable_link_price`
---
-
 DROP TABLE IF EXISTS `downloadable_link_price`;
 CREATE TABLE IF NOT EXISTS `downloadable_link_price` (
   `price_id` int(10) unsigned NOT NULL COMMENT 'Price ID',
@@ -6850,12 +5468,6 @@ CREATE TABLE IF NOT EXISTS `downloadable_link_price` (
   `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website ID',
   `price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Downloadable Link Price Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `downloadable_link_purchased`
---
 
 DROP TABLE IF EXISTS `downloadable_link_purchased`;
 CREATE TABLE IF NOT EXISTS `downloadable_link_purchased` (
@@ -6870,12 +5482,6 @@ CREATE TABLE IF NOT EXISTS `downloadable_link_purchased` (
   `product_sku` varchar(255) DEFAULT NULL COMMENT 'Product sku',
   `link_section_title` varchar(255) DEFAULT NULL COMMENT 'Link_section_title'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Downloadable Link Purchased Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `downloadable_link_purchased_item`
---
 
 DROP TABLE IF EXISTS `downloadable_link_purchased_item`;
 CREATE TABLE IF NOT EXISTS `downloadable_link_purchased_item` (
@@ -6897,12 +5503,6 @@ CREATE TABLE IF NOT EXISTS `downloadable_link_purchased_item` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Update Time'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Downloadable Link Purchased Item Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `downloadable_link_title`
---
-
 DROP TABLE IF EXISTS `downloadable_link_title`;
 CREATE TABLE IF NOT EXISTS `downloadable_link_title` (
   `title_id` int(10) unsigned NOT NULL COMMENT 'Title ID',
@@ -6910,12 +5510,6 @@ CREATE TABLE IF NOT EXISTS `downloadable_link_title` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `title` varchar(255) DEFAULT NULL COMMENT 'Title'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Link Title Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `downloadable_sample`
---
 
 DROP TABLE IF EXISTS `downloadable_sample`;
 CREATE TABLE IF NOT EXISTS `downloadable_sample` (
@@ -6927,12 +5521,6 @@ CREATE TABLE IF NOT EXISTS `downloadable_sample` (
   `sort_order` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Downloadable Sample Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `downloadable_sample_title`
---
-
 DROP TABLE IF EXISTS `downloadable_sample_title`;
 CREATE TABLE IF NOT EXISTS `downloadable_sample_title` (
   `title_id` int(10) unsigned NOT NULL COMMENT 'Title ID',
@@ -6940,12 +5528,6 @@ CREATE TABLE IF NOT EXISTS `downloadable_sample_title` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `title` varchar(255) DEFAULT NULL COMMENT 'Title'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Downloadable Sample Title Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_attribute`
---
 
 DROP TABLE IF EXISTS `eav_attribute`;
 CREATE TABLE IF NOT EXISTS `eav_attribute` (
@@ -6967,10 +5549,6 @@ CREATE TABLE IF NOT EXISTS `eav_attribute` (
   `is_unique` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Defines Is Unique',
   `note` varchar(255) DEFAULT NULL COMMENT 'Note'
 ) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute';
-
---
--- Vypisuji data pro tabulku `eav_attribute`
---
 
 INSERT INTO `eav_attribute` (`attribute_id`, `entity_type_id`, `attribute_code`, `attribute_model`, `backend_model`, `backend_type`, `backend_table`, `frontend_model`, `frontend_input`, `frontend_label`, `frontend_class`, `source_model`, `is_required`, `is_user_defined`, `default_value`, `is_unique`, `note`) VALUES
 (1, 1, 'website_id', NULL, 'customer/customer_attribute_backend_website', 'static', NULL, NULL, 'select', 'Associate to Website', NULL, 'customer/customer_attribute_source_website', 1, 0, NULL, 0, NULL),
@@ -7106,12 +5684,6 @@ INSERT INTO `eav_attribute` (`attribute_id`, `entity_type_id`, `attribute_code`,
 (131, 4, 'links_exist', NULL, NULL, 'int', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '0', 0, NULL),
 (132, 4, 'pdfdownload', NULL, NULL, 'varchar', NULL, NULL, 'text', 'Format', NULL, NULL, 0, 1, NULL, 0, NULL);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_attribute_group`
---
-
 DROP TABLE IF EXISTS `eav_attribute_group`;
 CREATE TABLE IF NOT EXISTS `eav_attribute_group` (
   `attribute_group_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute Group Id',
@@ -7120,10 +5692,6 @@ CREATE TABLE IF NOT EXISTS `eav_attribute_group` (
   `sort_order` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Sort Order',
   `default_id` smallint(5) unsigned DEFAULT '0' COMMENT 'Default Id'
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Group';
-
---
--- Vypisuji data pro tabulku `eav_attribute_group`
---
 
 INSERT INTO `eav_attribute_group` (`attribute_group_id`, `attribute_set_id`, `attribute_group_name`, `sort_order`, `default_id`) VALUES
 (1, 1, 'General', 1, 1),
@@ -7152,12 +5720,6 @@ INSERT INTO `eav_attribute_group` (`attribute_group_id`, `attribute_set_id`, `at
 (24, 9, 'General', 1, 1),
 (25, 9, 'Download', 8, 0);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_attribute_label`
---
-
 DROP TABLE IF EXISTS `eav_attribute_label`;
 CREATE TABLE IF NOT EXISTS `eav_attribute_label` (
   `attribute_label_id` int(10) unsigned NOT NULL COMMENT 'Attribute Label Id',
@@ -7166,12 +5728,6 @@ CREATE TABLE IF NOT EXISTS `eav_attribute_label` (
   `value` varchar(255) DEFAULT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Label';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_attribute_option`
---
-
 DROP TABLE IF EXISTS `eav_attribute_option`;
 CREATE TABLE IF NOT EXISTS `eav_attribute_option` (
   `option_id` int(10) unsigned NOT NULL COMMENT 'Option Id',
@@ -7179,19 +5735,9 @@ CREATE TABLE IF NOT EXISTS `eav_attribute_option` (
   `sort_order` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Option';
 
---
--- Vypisuji data pro tabulku `eav_attribute_option`
---
-
 INSERT INTO `eav_attribute_option` (`option_id`, `attribute_id`, `sort_order`) VALUES
 (1, 18, 0),
 (2, 18, 1);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_attribute_option_value`
---
 
 DROP TABLE IF EXISTS `eav_attribute_option_value`;
 CREATE TABLE IF NOT EXISTS `eav_attribute_option_value` (
@@ -7201,19 +5747,9 @@ CREATE TABLE IF NOT EXISTS `eav_attribute_option_value` (
   `value` varchar(255) DEFAULT NULL COMMENT 'Value'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Option Value';
 
---
--- Vypisuji data pro tabulku `eav_attribute_option_value`
---
-
 INSERT INTO `eav_attribute_option_value` (`value_id`, `option_id`, `store_id`, `value`) VALUES
 (1, 1, 0, 'Male'),
 (2, 2, 0, 'Female');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_attribute_set`
---
 
 DROP TABLE IF EXISTS `eav_attribute_set`;
 CREATE TABLE IF NOT EXISTS `eav_attribute_set` (
@@ -7222,10 +5758,6 @@ CREATE TABLE IF NOT EXISTS `eav_attribute_set` (
   `attribute_set_name` varchar(255) DEFAULT NULL COMMENT 'Attribute Set Name',
   `sort_order` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Sort Order'
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Set';
-
---
--- Vypisuji data pro tabulku `eav_attribute_set`
---
 
 INSERT INTO `eav_attribute_set` (`attribute_set_id`, `entity_type_id`, `attribute_set_name`, `sort_order`) VALUES
 (1, 1, 'Default', 1),
@@ -7237,12 +5769,6 @@ INSERT INTO `eav_attribute_set` (`attribute_set_id`, `entity_type_id`, `attribut
 (7, 7, 'Default', 1),
 (8, 8, 'Default', 1),
 (9, 4, 'Downloadable', 0);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_entity`
---
 
 DROP TABLE IF EXISTS `eav_entity`;
 CREATE TABLE IF NOT EXISTS `eav_entity` (
@@ -7257,12 +5783,6 @@ CREATE TABLE IF NOT EXISTS `eav_entity` (
   `is_active` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Defines Is Entity Active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_entity_attribute`
---
-
 DROP TABLE IF EXISTS `eav_entity_attribute`;
 CREATE TABLE IF NOT EXISTS `eav_entity_attribute` (
   `entity_attribute_id` int(10) unsigned NOT NULL COMMENT 'Entity Attribute Id',
@@ -7272,10 +5792,6 @@ CREATE TABLE IF NOT EXISTS `eav_entity_attribute` (
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `sort_order` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Sort Order'
 ) ENGINE=InnoDB AUTO_INCREMENT=486 DEFAULT CHARSET=utf8 COMMENT='Eav Entity Attributes';
-
---
--- Vypisuji data pro tabulku `eav_entity_attribute`
---
 
 INSERT INTO `eav_entity_attribute` (`entity_attribute_id`, `entity_type_id`, `attribute_set_id`, `attribute_group_id`, `attribute_id`, `sort_order`) VALUES
 (1, 1, 1, 1, 1, 10),
@@ -7467,12 +5983,6 @@ INSERT INTO `eav_entity_attribute` (`entity_attribute_id`, `entity_type_id`, `at
 (483, 4, 9, 18, 122, 1),
 (485, 4, 9, 25, 132, 1);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_entity_datetime`
---
-
 DROP TABLE IF EXISTS `eav_entity_datetime`;
 CREATE TABLE IF NOT EXISTS `eav_entity_datetime` (
   `value_id` int(11) NOT NULL COMMENT 'Value Id',
@@ -7482,12 +5992,6 @@ CREATE TABLE IF NOT EXISTS `eav_entity_datetime` (
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
   `value` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Attribute Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity Value Prefix';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_entity_decimal`
---
 
 DROP TABLE IF EXISTS `eav_entity_decimal`;
 CREATE TABLE IF NOT EXISTS `eav_entity_decimal` (
@@ -7499,12 +6003,6 @@ CREATE TABLE IF NOT EXISTS `eav_entity_decimal` (
   `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Attribute Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity Value Prefix';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_entity_int`
---
-
 DROP TABLE IF EXISTS `eav_entity_int`;
 CREATE TABLE IF NOT EXISTS `eav_entity_int` (
   `value_id` int(11) NOT NULL COMMENT 'Value Id',
@@ -7515,12 +6013,6 @@ CREATE TABLE IF NOT EXISTS `eav_entity_int` (
   `value` int(11) NOT NULL DEFAULT '0' COMMENT 'Attribute Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity Value Prefix';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_entity_store`
---
-
 DROP TABLE IF EXISTS `eav_entity_store`;
 CREATE TABLE IF NOT EXISTS `eav_entity_store` (
   `entity_store_id` int(10) unsigned NOT NULL COMMENT 'Entity Store Id',
@@ -7530,20 +6022,10 @@ CREATE TABLE IF NOT EXISTS `eav_entity_store` (
   `increment_last_id` varchar(50) DEFAULT NULL COMMENT 'Last Incremented Id'
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Eav Entity Store';
 
---
--- Vypisuji data pro tabulku `eav_entity_store`
---
-
 INSERT INTO `eav_entity_store` (`entity_store_id`, `entity_type_id`, `store_id`, `increment_prefix`, `increment_last_id`) VALUES
 (1, 5, 1, '1', '100000002'),
 (2, 6, 1, '1', '100000001'),
 (3, 8, 1, '1', '100000001');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_entity_text`
---
 
 DROP TABLE IF EXISTS `eav_entity_text`;
 CREATE TABLE IF NOT EXISTS `eav_entity_text` (
@@ -7554,12 +6036,6 @@ CREATE TABLE IF NOT EXISTS `eav_entity_text` (
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
   `value` text NOT NULL COMMENT 'Attribute Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity Value Prefix';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_entity_type`
---
 
 DROP TABLE IF EXISTS `eav_entity_type`;
 CREATE TABLE IF NOT EXISTS `eav_entity_type` (
@@ -7581,10 +6057,6 @@ CREATE TABLE IF NOT EXISTS `eav_entity_type` (
   `entity_attribute_collection` varchar(255) DEFAULT NULL COMMENT 'Entity Attribute Collection'
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Eav Entity Type';
 
---
--- Vypisuji data pro tabulku `eav_entity_type`
---
-
 INSERT INTO `eav_entity_type` (`entity_type_id`, `entity_type_code`, `entity_model`, `attribute_model`, `entity_table`, `value_table_prefix`, `entity_id_field`, `is_data_sharing`, `data_sharing_key`, `default_attribute_set_id`, `increment_model`, `increment_per_store`, `increment_pad_length`, `increment_pad_char`, `additional_attribute_table`, `entity_attribute_collection`) VALUES
 (1, 'customer', 'customer/customer', 'customer/attribute', 'customer/entity', NULL, NULL, 1, 'default', 1, 'eav/entity_increment_numeric', 0, 8, '0', 'customer/eav_attribute', 'customer/attribute_collection'),
 (2, 'customer_address', 'customer/address', 'customer/attribute', 'customer/address_entity', NULL, NULL, 1, 'default', 2, NULL, 0, 8, '0', 'customer/eav_attribute', 'customer/address_attribute_collection'),
@@ -7594,12 +6066,6 @@ INSERT INTO `eav_entity_type` (`entity_type_id`, `entity_type_code`, `entity_mod
 (6, 'invoice', 'sales/order_invoice', NULL, 'sales/invoice', NULL, NULL, 1, 'default', 0, 'eav/entity_increment_numeric', 1, 8, '0', NULL, NULL),
 (7, 'creditmemo', 'sales/order_creditmemo', NULL, 'sales/creditmemo', NULL, NULL, 1, 'default', 0, 'eav/entity_increment_numeric', 1, 8, '0', NULL, NULL),
 (8, 'shipment', 'sales/order_shipment', NULL, 'sales/shipment', NULL, NULL, 1, 'default', 0, 'eav/entity_increment_numeric', 1, 8, '0', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_entity_varchar`
---
 
 DROP TABLE IF EXISTS `eav_entity_varchar`;
 CREATE TABLE IF NOT EXISTS `eav_entity_varchar` (
@@ -7611,12 +6077,6 @@ CREATE TABLE IF NOT EXISTS `eav_entity_varchar` (
   `value` varchar(255) DEFAULT NULL COMMENT 'Attribute Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity Value Prefix';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_form_element`
---
-
 DROP TABLE IF EXISTS `eav_form_element`;
 CREATE TABLE IF NOT EXISTS `eav_form_element` (
   `element_id` int(10) unsigned NOT NULL COMMENT 'Element Id',
@@ -7625,10 +6085,6 @@ CREATE TABLE IF NOT EXISTS `eav_form_element` (
   `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute Id',
   `sort_order` int(11) NOT NULL DEFAULT '0' COMMENT 'Sort Order'
 ) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8 COMMENT='Eav Form Element';
-
---
--- Vypisuji data pro tabulku `eav_form_element`
---
 
 INSERT INTO `eav_form_element` (`element_id`, `type_id`, `fieldset_id`, `attribute_id`, `sort_order`) VALUES
 (1, 1, NULL, 20, 0),
@@ -7684,12 +6140,6 @@ INSERT INTO `eav_form_element` (`element_id`, `type_id`, `fieldset_id`, `attribu
 (51, 5, 2, 30, 5),
 (52, 5, 2, 27, 6);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_form_fieldset`
---
-
 DROP TABLE IF EXISTS `eav_form_fieldset`;
 CREATE TABLE IF NOT EXISTS `eav_form_fieldset` (
   `fieldset_id` smallint(5) unsigned NOT NULL COMMENT 'Fieldset Id',
@@ -7698,19 +6148,9 @@ CREATE TABLE IF NOT EXISTS `eav_form_fieldset` (
   `sort_order` int(11) NOT NULL DEFAULT '0' COMMENT 'Sort Order'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Eav Form Fieldset';
 
---
--- Vypisuji data pro tabulku `eav_form_fieldset`
---
-
 INSERT INTO `eav_form_fieldset` (`fieldset_id`, `type_id`, `code`, `sort_order`) VALUES
 (1, 5, 'general', 1),
 (2, 5, 'address', 2);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_form_fieldset_label`
---
 
 DROP TABLE IF EXISTS `eav_form_fieldset_label`;
 CREATE TABLE IF NOT EXISTS `eav_form_fieldset_label` (
@@ -7719,19 +6159,9 @@ CREATE TABLE IF NOT EXISTS `eav_form_fieldset_label` (
   `label` varchar(255) NOT NULL COMMENT 'Label'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Form Fieldset Label';
 
---
--- Vypisuji data pro tabulku `eav_form_fieldset_label`
---
-
 INSERT INTO `eav_form_fieldset_label` (`fieldset_id`, `store_id`, `label`) VALUES
 (1, 0, 'Personal Information'),
 (2, 0, 'Address Information');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_form_type`
---
 
 DROP TABLE IF EXISTS `eav_form_type`;
 CREATE TABLE IF NOT EXISTS `eav_form_type` (
@@ -7743,10 +6173,6 @@ CREATE TABLE IF NOT EXISTS `eav_form_type` (
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id'
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Eav Form Type';
 
---
--- Vypisuji data pro tabulku `eav_form_type`
---
-
 INSERT INTO `eav_form_type` (`type_id`, `code`, `label`, `is_system`, `theme`, `store_id`) VALUES
 (1, 'checkout_onepage_register', 'checkout_onepage_register', 1, '', 0),
 (2, 'checkout_onepage_register_guest', 'checkout_onepage_register_guest', 1, '', 0),
@@ -7754,21 +6180,11 @@ INSERT INTO `eav_form_type` (`type_id`, `code`, `label`, `is_system`, `theme`, `
 (4, 'checkout_onepage_shipping_address', 'checkout_onepage_shipping_address', 1, '', 0),
 (5, 'checkout_multishipping_register', 'checkout_multishipping_register', 1, '', 0);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `eav_form_type_entity`
---
-
 DROP TABLE IF EXISTS `eav_form_type_entity`;
 CREATE TABLE IF NOT EXISTS `eav_form_type_entity` (
   `type_id` smallint(5) unsigned NOT NULL COMMENT 'Type Id',
   `entity_type_id` smallint(5) unsigned NOT NULL COMMENT 'Entity Type Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Form Type Entity';
-
---
--- Vypisuji data pro tabulku `eav_form_type_entity`
---
 
 INSERT INTO `eav_form_type_entity` (`type_id`, `entity_type_id`) VALUES
 (1, 1),
@@ -7780,12 +6196,6 @@ INSERT INTO `eav_form_type_entity` (`type_id`, `entity_type_id`) VALUES
 (4, 2),
 (5, 2);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `gift_message`
---
-
 DROP TABLE IF EXISTS `gift_message`;
 CREATE TABLE IF NOT EXISTS `gift_message` (
   `gift_message_id` int(10) unsigned NOT NULL COMMENT 'GiftMessage Id',
@@ -7795,12 +6205,6 @@ CREATE TABLE IF NOT EXISTS `gift_message` (
   `message` text COMMENT 'Message'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Gift Message';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `importexport_importdata`
---
-
 DROP TABLE IF EXISTS `importexport_importdata`;
 CREATE TABLE IF NOT EXISTS `importexport_importdata` (
   `id` int(10) unsigned NOT NULL COMMENT 'Id',
@@ -7809,18 +6213,8 @@ CREATE TABLE IF NOT EXISTS `importexport_importdata` (
   `data` longtext COMMENT 'Data'
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Import Data Table';
 
---
--- Vypisuji data pro tabulku `importexport_importdata`
---
-
 INSERT INTO `importexport_importdata` (`id`, `entity`, `behavior`, `data`) VALUES
 (4, 'catalog_product', 'append', '[{"sku":"31","_store":null,"_attribute_set":"Default","_type":"simple","_category":"Tablets","_root_category":"Default Category","_product_websites":"base","color":null,"cost":null,"country_of_manufacture":null,"created_at":"2015-05-15 06:42:37","custom_design":null,"custom_design_from":null,"custom_design_to":null,"custom_layout_update":null,"description":"Lorem ipsum dolor sit amet. ","gallery":null,"gift_message_available":null,"has_options":"0","image":"\\/m\\/a\\/mac_1.jpg","image_label":null,"manufacturer":null,"media_gallery":null,"meta_description":null,"meta_keyword":null,"meta_title":null,"minimal_price":null,"msrp":null,"msrp_display_actual_price_type":"Use config","msrp_enabled":"Use config","name":"Tablet A","news_from_date":null,"news_to_date":null,"options_container":"Product Info Column","page_layout":null,"price":"555.00","required_options":"0","short_description":"Lorem ipsum.","small_image":"\\/m\\/a\\/mac_1.jpg","small_image_label":null,"special_from_date":null,"special_price":null,"special_to_date":null,"status":"1","tax_class_id":"0","thumbnail":"\\/m\\/a\\/mac_1.jpg","thumbnail_label":null,"updated_at":"2015-05-15 07:41:43","url_key":null,"url_path":null,"visibility":"4","weight":"100.0000","qty":"122.0000","min_qty":"0.0000","use_config_min_qty":"1","is_qty_decimal":"0","backorders":"0","use_config_backorders":"1","min_sale_qty":"1.0000","use_config_min_sale_qty":"1","max_sale_qty":"0.0000","use_config_max_sale_qty":"1","is_in_stock":"1","notify_stock_qty":null,"use_config_notify_stock_qty":"1","manage_stock":"0","use_config_manage_stock":"1","stock_status_changed_auto":"0","use_config_qty_increments":"1","qty_increments":"0.0000","use_config_enable_qty_inc":"1","enable_qty_increments":"0","is_decimal_divided":"0","_links_related_sku":null,"_links_related_position":null,"_links_crosssell_sku":null,"_links_crosssell_position":null,"_links_upsell_sku":null,"_links_upsell_position":null,"_associated_sku":null,"_associated_default_qty":null,"_associated_position":null,"_tier_price_website":null,"_tier_price_customer_group":null,"_tier_price_qty":null,"_tier_price_price":null,"_group_price_website":null,"_group_price_customer_group":null,"_group_price_price":null,"_media_attribute_id":"88","_media_image":"\\/m\\/a\\/mac_1.jpg","_media_lable":null,"_media_position":"1","_media_is_disabled":"0"},{"sku":null,"_store":null,"_attribute_set":null,"_type":null,"_category":"Tablets\\/Brand A","_root_category":"Default Category","_product_websites":null,"color":null,"cost":null,"country_of_manufacture":null,"created_at":null,"custom_design":null,"custom_design_from":null,"custom_design_to":null,"custom_layout_update":null,"description":null,"gallery":null,"gift_message_available":null,"has_options":null,"image":null,"image_label":null,"manufacturer":null,"media_gallery":null,"meta_description":null,"meta_keyword":null,"meta_title":null,"minimal_price":null,"msrp":null,"msrp_display_actual_price_type":null,"msrp_enabled":null,"name":null,"news_from_date":null,"news_to_date":null,"options_container":null,"page_layout":null,"price":null,"required_options":null,"short_description":null,"small_image":null,"small_image_label":null,"special_from_date":null,"special_price":null,"special_to_date":null,"status":null,"tax_class_id":null,"thumbnail":null,"thumbnail_label":null,"updated_at":null,"url_key":null,"url_path":null,"visibility":null,"weight":null,"qty":null,"min_qty":null,"use_config_min_qty":null,"is_qty_decimal":null,"backorders":null,"use_config_backorders":null,"min_sale_qty":null,"use_config_min_sale_qty":null,"max_sale_qty":null,"use_config_max_sale_qty":null,"is_in_stock":null,"notify_stock_qty":null,"use_config_notify_stock_qty":null,"manage_stock":null,"use_config_manage_stock":null,"stock_status_changed_auto":null,"use_config_qty_increments":null,"qty_increments":null,"use_config_enable_qty_inc":null,"enable_qty_increments":null,"is_decimal_divided":null,"_links_related_sku":null,"_links_related_position":null,"_links_crosssell_sku":null,"_links_crosssell_position":null,"_links_upsell_sku":null,"_links_upsell_position":null,"_associated_sku":null,"_associated_default_qty":null,"_associated_position":null,"_tier_price_website":null,"_tier_price_customer_group":null,"_tier_price_qty":null,"_tier_price_price":null,"_group_price_website":null,"_group_price_customer_group":null,"_group_price_price":null,"_media_attribute_id":null,"_media_image":null,"_media_lable":null,"_media_position":null,"_media_is_disabled":null},{"sku":"32","_store":null,"_attribute_set":"Default","_type":"simple","_category":"Tablets","_root_category":"Default Category","_product_websites":"base","color":null,"cost":null,"country_of_manufacture":null,"created_at":"2015-05-15 06:42:37","custom_design":null,"custom_design_from":null,"custom_design_to":null,"custom_layout_update":null,"description":"Lorem ipsum dolor sit amet. ","gallery":null,"gift_message_available":null,"has_options":"0","image":"\\/m\\/a\\/mac_1.jpg","image_label":null,"manufacturer":null,"media_gallery":null,"meta_description":null,"meta_keyword":null,"meta_title":null,"minimal_price":null,"msrp":null,"msrp_display_actual_price_type":"Use config","msrp_enabled":"Use config","name":"Tablet B","news_from_date":null,"news_to_date":null,"options_container":"Product Info Column","page_layout":null,"price":"555.00","required_options":"0","short_description":"Lorem ipsum.","small_image":"\\/m\\/a\\/mac_1.jpg","small_image_label":null,"special_from_date":null,"special_price":null,"special_to_date":null,"status":"1","tax_class_id":"0","thumbnail":"\\/m\\/a\\/mac_1.jpg","thumbnail_label":null,"updated_at":"2015-05-15 07:41:43","url_key":null,"url_path":null,"visibility":"4","weight":"100.0000","qty":"122.0000","min_qty":"0.0000","use_config_min_qty":"1","is_qty_decimal":"0","backorders":"0","use_config_backorders":"1","min_sale_qty":"1.0000","use_config_min_sale_qty":"1","max_sale_qty":"0.0000","use_config_max_sale_qty":"1","is_in_stock":"1","notify_stock_qty":null,"use_config_notify_stock_qty":"1","manage_stock":"0","use_config_manage_stock":"1","stock_status_changed_auto":"0","use_config_qty_increments":"1","qty_increments":"0.0000","use_config_enable_qty_inc":"1","enable_qty_increments":"0","is_decimal_divided":"0","_links_related_sku":null,"_links_related_position":null,"_links_crosssell_sku":null,"_links_crosssell_position":null,"_links_upsell_sku":null,"_links_upsell_position":null,"_associated_sku":null,"_associated_default_qty":null,"_associated_position":null,"_tier_price_website":null,"_tier_price_customer_group":null,"_tier_price_qty":null,"_tier_price_price":null,"_group_price_website":null,"_group_price_customer_group":null,"_group_price_price":null,"_media_attribute_id":"88","_media_image":"\\/m\\/a\\/mac_1.jpg","_media_lable":null,"_media_position":"1","_media_is_disabled":"0"},{"sku":null,"_store":null,"_attribute_set":null,"_type":null,"_category":"Tablets\\/Brand B","_root_category":"Default Category","_product_websites":null,"color":null,"cost":null,"country_of_manufacture":null,"created_at":null,"custom_design":null,"custom_design_from":null,"custom_design_to":null,"custom_layout_update":null,"description":null,"gallery":null,"gift_message_available":null,"has_options":null,"image":null,"image_label":null,"manufacturer":null,"media_gallery":null,"meta_description":null,"meta_keyword":null,"meta_title":null,"minimal_price":null,"msrp":null,"msrp_display_actual_price_type":null,"msrp_enabled":null,"name":null,"news_from_date":null,"news_to_date":null,"options_container":null,"page_layout":null,"price":null,"required_options":null,"short_description":null,"small_image":null,"small_image_label":null,"special_from_date":null,"special_price":null,"special_to_date":null,"status":null,"tax_class_id":null,"thumbnail":null,"thumbnail_label":null,"updated_at":null,"url_key":null,"url_path":null,"visibility":null,"weight":null,"qty":null,"min_qty":null,"use_config_min_qty":null,"is_qty_decimal":null,"backorders":null,"use_config_backorders":null,"min_sale_qty":null,"use_config_min_sale_qty":null,"max_sale_qty":null,"use_config_max_sale_qty":null,"is_in_stock":null,"notify_stock_qty":null,"use_config_notify_stock_qty":null,"manage_stock":null,"use_config_manage_stock":null,"stock_status_changed_auto":null,"use_config_qty_increments":null,"qty_increments":null,"use_config_enable_qty_inc":null,"enable_qty_increments":null,"is_decimal_divided":null,"_links_related_sku":null,"_links_related_position":null,"_links_crosssell_sku":null,"_links_crosssell_position":null,"_links_upsell_sku":null,"_links_upsell_position":null,"_associated_sku":null,"_associated_default_qty":null,"_associated_position":null,"_tier_price_website":null,"_tier_price_customer_group":null,"_tier_price_qty":null,"_tier_price_price":null,"_group_price_website":null,"_group_price_customer_group":null,"_group_price_price":null,"_media_attribute_id":null,"_media_image":null,"_media_lable":null,"_media_position":null,"_media_is_disabled":null},{"sku":"33","_store":null,"_attribute_set":"Default","_type":"simple","_category":"Tablets","_root_category":"Default Category","_product_websites":"base","color":null,"cost":null,"country_of_manufacture":null,"created_at":"2015-05-15 06:42:37","custom_design":null,"custom_design_from":null,"custom_design_to":null,"custom_layout_update":null,"description":"Lorem ipsum dolor sit amet. ","gallery":null,"gift_message_available":null,"has_options":"0","image":"\\/m\\/a\\/mac_1.jpg","image_label":null,"manufacturer":null,"media_gallery":null,"meta_description":null,"meta_keyword":null,"meta_title":null,"minimal_price":null,"msrp":null,"msrp_display_actual_price_type":"Use config","msrp_enabled":"Use config","name":"Tablet C","news_from_date":null,"news_to_date":null,"options_container":"Product Info Column","page_layout":null,"price":"555.00","required_options":"0","short_description":"Lorem ipsum.","small_image":"\\/m\\/a\\/mac_1.jpg","small_image_label":null,"special_from_date":null,"special_price":null,"special_to_date":null,"status":"1","tax_class_id":"0","thumbnail":"\\/m\\/a\\/mac_1.jpg","thumbnail_label":null,"updated_at":"2015-05-15 07:41:43","url_key":null,"url_path":null,"visibility":"4","weight":"100.0000","qty":"122.0000","min_qty":"0.0000","use_config_min_qty":"1","is_qty_decimal":"0","backorders":"0","use_config_backorders":"1","min_sale_qty":"1.0000","use_config_min_sale_qty":"1","max_sale_qty":"0.0000","use_config_max_sale_qty":"1","is_in_stock":"1","notify_stock_qty":null,"use_config_notify_stock_qty":"1","manage_stock":"0","use_config_manage_stock":"1","stock_status_changed_auto":"0","use_config_qty_increments":"1","qty_increments":"0.0000","use_config_enable_qty_inc":"1","enable_qty_increments":"0","is_decimal_divided":"0","_links_related_sku":null,"_links_related_position":null,"_links_crosssell_sku":null,"_links_crosssell_position":null,"_links_upsell_sku":null,"_links_upsell_position":null,"_associated_sku":null,"_associated_default_qty":null,"_associated_position":null,"_tier_price_website":null,"_tier_price_customer_group":null,"_tier_price_qty":null,"_tier_price_price":null,"_group_price_website":null,"_group_price_customer_group":null,"_group_price_price":null,"_media_attribute_id":"88","_media_image":"\\/m\\/a\\/mac_1.jpg","_media_lable":null,"_media_position":"1","_media_is_disabled":"0"},{"sku":null,"_store":null,"_attribute_set":null,"_type":null,"_category":"Tablets\\/Brand C","_root_category":"Default Category","_product_websites":null,"color":null,"cost":null,"country_of_manufacture":null,"created_at":null,"custom_design":null,"custom_design_from":null,"custom_design_to":null,"custom_layout_update":null,"description":null,"gallery":null,"gift_message_available":null,"has_options":null,"image":null,"image_label":null,"manufacturer":null,"media_gallery":null,"meta_description":null,"meta_keyword":null,"meta_title":null,"minimal_price":null,"msrp":null,"msrp_display_actual_price_type":null,"msrp_enabled":null,"name":null,"news_from_date":null,"news_to_date":null,"options_container":null,"page_layout":null,"price":null,"required_options":null,"short_description":null,"small_image":null,"small_image_label":null,"special_from_date":null,"special_price":null,"special_to_date":null,"status":null,"tax_class_id":null,"thumbnail":null,"thumbnail_label":null,"updated_at":null,"url_key":null,"url_path":null,"visibility":null,"weight":null,"qty":null,"min_qty":null,"use_config_min_qty":null,"is_qty_decimal":null,"backorders":null,"use_config_backorders":null,"min_sale_qty":null,"use_config_min_sale_qty":null,"max_sale_qty":null,"use_config_max_sale_qty":null,"is_in_stock":null,"notify_stock_qty":null,"use_config_notify_stock_qty":null,"manage_stock":null,"use_config_manage_stock":null,"stock_status_changed_auto":null,"use_config_qty_increments":null,"qty_increments":null,"use_config_enable_qty_inc":null,"enable_qty_increments":null,"is_decimal_divided":null,"_links_related_sku":null,"_links_related_position":null,"_links_crosssell_sku":null,"_links_crosssell_position":null,"_links_upsell_sku":null,"_links_upsell_position":null,"_associated_sku":null,"_associated_default_qty":null,"_associated_position":null,"_tier_price_website":null,"_tier_price_customer_group":null,"_tier_price_qty":null,"_tier_price_price":null,"_group_price_website":null,"_group_price_customer_group":null,"_group_price_price":null,"_media_attribute_id":null,"_media_image":null,"_media_lable":null,"_media_position":null,"_media_is_disabled":null}]');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `index_event`
---
 
 DROP TABLE IF EXISTS `index_event`;
 CREATE TABLE IF NOT EXISTS `index_event` (
@@ -7832,10 +6226,6 @@ CREATE TABLE IF NOT EXISTS `index_event` (
   `old_data` mediumtext COMMENT 'Old Data',
   `new_data` mediumtext COMMENT 'New Data'
 ) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8 COMMENT='Index Event';
-
---
--- Vypisuji data pro tabulku `index_event`
---
 
 INSERT INTO `index_event` (`event_id`, `type`, `entity`, `entity_pk`, `created_at`, `old_data`, `new_data`) VALUES
 (1, 'save', 'catalog_category', 1, '2015-05-14 13:14:02', NULL, 'a:5:{s:35:"cataloginventory_stock_match_result";b:0;s:34:"catalog_product_price_match_result";b:0;s:24:"catalog_url_match_result";b:1;s:37:"catalog_category_product_match_result";b:1;s:35:"catalogsearch_fulltext_match_result";b:1;}'),
@@ -7905,12 +6295,6 @@ INSERT INTO `index_event` (`event_id`, `type`, `entity`, `entity_pk`, `created_a
 (65, 'catalog_reindex_price', 'catalog_product', 17, '2015-05-27 11:55:41', NULL, 'a:5:{s:35:"cataloginventory_stock_match_result";b:0;s:34:"catalog_product_price_match_result";b:1;s:24:"catalog_url_match_result";b:0;s:37:"catalog_category_product_match_result";b:0;s:35:"catalogsearch_fulltext_match_result";b:0;}'),
 (66, 'save', 'catalog_product', 17, '2015-05-27 11:55:42', NULL, 'a:5:{s:35:"cataloginventory_stock_match_result";b:1;s:34:"catalog_product_price_match_result";b:1;s:24:"catalog_url_match_result";b:1;s:37:"catalog_category_product_match_result";b:1;s:35:"catalogsearch_fulltext_match_result";b:1;}');
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `index_process`
---
-
 DROP TABLE IF EXISTS `index_process`;
 CREATE TABLE IF NOT EXISTS `index_process` (
   `process_id` int(10) unsigned NOT NULL COMMENT 'Process Id',
@@ -7921,26 +6305,16 @@ CREATE TABLE IF NOT EXISTS `index_process` (
   `mode` varchar(9) NOT NULL DEFAULT 'real_time' COMMENT 'Mode'
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='Index Process';
 
---
--- Vypisuji data pro tabulku `index_process`
---
-
 INSERT INTO `index_process` (`process_id`, `indexer_code`, `status`, `started_at`, `ended_at`, `mode`) VALUES
-(1, 'catalog_product_attribute', 'pending', '2015-05-27 11:59:02', '2015-05-27 11:59:02', 'real_time'),
-(2, 'catalog_product_price', 'pending', '2015-05-27 11:59:02', '2015-05-27 11:59:02', 'real_time'),
-(3, 'catalog_url', 'pending', '2015-05-27 11:59:02', '2015-05-27 11:59:02', 'real_time'),
+(1, 'catalog_product_attribute', 'pending', '2015-05-28 11:01:13', '2015-05-28 11:01:13', 'real_time'),
+(2, 'catalog_product_price', 'pending', '2015-05-28 11:01:13', '2015-05-28 11:01:14', 'real_time'),
+(3, 'catalog_url', 'pending', '2015-05-28 11:01:14', '2015-05-28 11:01:14', 'real_time'),
 (4, 'catalog_product_flat', 'require_reindex', '2015-05-15 05:57:44', '2015-05-15 05:57:44', 'real_time'),
 (5, 'catalog_category_flat', 'pending', '2015-05-15 05:57:44', '2015-05-15 05:57:44', 'real_time'),
-(6, 'catalog_category_product', 'pending', '2015-05-27 11:59:02', '2015-05-27 11:59:02', 'real_time'),
-(7, 'catalogsearch_fulltext', 'pending', '2015-05-27 11:59:02', '2015-05-27 11:59:02', 'real_time'),
-(8, 'cataloginventory_stock', 'pending', '2015-05-27 11:59:02', '2015-05-27 11:59:02', 'real_time'),
-(9, 'tag_summary', 'pending', '2015-05-27 11:59:02', '2015-05-27 11:59:02', 'real_time');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `index_process_event`
---
+(6, 'catalog_category_product', 'pending', '2015-05-28 11:01:14', '2015-05-28 11:01:14', 'real_time'),
+(7, 'catalogsearch_fulltext', 'pending', '2015-05-28 11:01:14', '2015-05-28 11:01:14', 'real_time'),
+(8, 'cataloginventory_stock', 'pending', '2015-05-28 11:01:13', '2015-05-28 11:01:13', 'real_time'),
+(9, 'tag_summary', 'pending', '2015-05-28 11:01:14', '2015-05-28 11:01:14', 'real_time');
 
 DROP TABLE IF EXISTS `index_process_event`;
 CREATE TABLE IF NOT EXISTS `index_process_event` (
@@ -7948,12 +6322,6 @@ CREATE TABLE IF NOT EXISTS `index_process_event` (
   `event_id` bigint(20) unsigned NOT NULL COMMENT 'Event Id',
   `status` varchar(7) NOT NULL DEFAULT 'new' COMMENT 'Status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Index Process Event';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `log_customer`
---
 
 DROP TABLE IF EXISTS `log_customer`;
 CREATE TABLE IF NOT EXISTS `log_customer` (
@@ -7965,12 +6333,6 @@ CREATE TABLE IF NOT EXISTS `log_customer` (
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Log Customers Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `log_quote`
---
-
 DROP TABLE IF EXISTS `log_quote`;
 CREATE TABLE IF NOT EXISTS `log_quote` (
   `quote_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Quote ID',
@@ -7979,22 +6341,12 @@ CREATE TABLE IF NOT EXISTS `log_quote` (
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT 'Deletion Time'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Log Quotes Table';
 
---
--- Vypisuji data pro tabulku `log_quote`
---
-
 INSERT INTO `log_quote` (`quote_id`, `visitor_id`, `created_at`, `deleted_at`) VALUES
 (2, 26, '2015-05-18 05:33:08', NULL),
 (3, 595, '2015-05-19 09:26:45', NULL),
 (4, 687, '2015-05-19 10:40:52', NULL),
 (5, 743, '2015-05-20 05:42:09', NULL),
 (7, 1290, '2015-05-27 11:43:59', NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `log_summary`
---
 
 DROP TABLE IF EXISTS `log_summary`;
 CREATE TABLE IF NOT EXISTS `log_summary` (
@@ -8006,12 +6358,6 @@ CREATE TABLE IF NOT EXISTS `log_summary` (
   `add_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Date'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Log Summary Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `log_summary_type`
---
-
 DROP TABLE IF EXISTS `log_summary_type`;
 CREATE TABLE IF NOT EXISTS `log_summary_type` (
   `type_id` smallint(5) unsigned NOT NULL COMMENT 'Type ID',
@@ -8020,19 +6366,9 @@ CREATE TABLE IF NOT EXISTS `log_summary_type` (
   `period_type` varchar(6) NOT NULL DEFAULT 'MINUTE' COMMENT 'Period Type'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Log Summary Types Table';
 
---
--- Vypisuji data pro tabulku `log_summary_type`
---
-
 INSERT INTO `log_summary_type` (`type_id`, `type_code`, `period`, `period_type`) VALUES
 (1, 'hour', 1, 'HOUR'),
 (2, 'day', 1, 'DAY');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `log_url`
---
 
 DROP TABLE IF EXISTS `log_url`;
 CREATE TABLE IF NOT EXISTS `log_url` (
@@ -8040,10 +6376,6 @@ CREATE TABLE IF NOT EXISTS `log_url` (
   `visitor_id` bigint(20) unsigned DEFAULT NULL COMMENT 'Visitor ID',
   `visit_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Visit Time'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Log URL Table';
-
---
--- Vypisuji data pro tabulku `log_url`
---
 
 INSERT INTO `log_url` (`url_id`, `visitor_id`, `visit_time`) VALUES
 (1, 1, '2015-05-14 13:17:46'),
@@ -10000,24 +8332,368 @@ INSERT INTO `log_url` (`url_id`, `visitor_id`, `visit_time`) VALUES
 (1951, 1366, '2015-05-27 12:32:16'),
 (1952, 1367, '2015-05-27 12:32:17'),
 (1953, 1368, '2015-05-27 12:32:34'),
-(1954, 1369, '2015-05-27 12:32:35');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `log_url_info`
---
+(1954, 1369, '2015-05-27 12:32:35'),
+(1955, 1370, '2015-05-28 03:59:15'),
+(1956, 1371, '2015-05-28 03:59:16'),
+(1957, 1372, '2015-05-28 04:00:26'),
+(1958, 1372, '2015-05-28 04:00:27'),
+(1959, 1372, '2015-05-28 04:25:28'),
+(1960, 1372, '2015-05-28 04:25:28'),
+(1961, 1373, '2015-05-28 07:01:06'),
+(1962, 1373, '2015-05-28 07:01:06'),
+(1963, 1373, '2015-05-28 07:01:57'),
+(1964, 1373, '2015-05-28 07:01:57'),
+(1965, 1373, '2015-05-28 07:04:27'),
+(1966, 1373, '2015-05-28 07:04:28'),
+(1967, 1374, '2015-05-28 07:32:14'),
+(1968, 1375, '2015-05-28 07:32:15'),
+(1969, 1376, '2015-05-28 07:33:37'),
+(1970, 1377, '2015-05-28 07:33:37'),
+(1971, 1378, '2015-05-28 07:33:48'),
+(1972, 1379, '2015-05-28 07:33:49'),
+(1973, 1380, '2015-05-28 07:34:03'),
+(1974, 1381, '2015-05-28 07:34:51'),
+(1975, 1382, '2015-05-28 07:34:51'),
+(1976, 1383, '2015-05-28 07:34:55'),
+(1977, 1384, '2015-05-28 08:42:28'),
+(1978, 1385, '2015-05-28 08:42:29'),
+(1979, 1386, '2015-05-28 08:42:33'),
+(1980, 1387, '2015-05-28 08:42:34'),
+(1981, 1388, '2015-05-28 08:46:10'),
+(1982, 1389, '2015-05-28 08:46:10'),
+(1983, 1390, '2015-05-28 08:46:15'),
+(1984, 1391, '2015-05-28 08:46:46'),
+(1985, 1392, '2015-05-28 08:46:51'),
+(1986, 1393, '2015-05-28 08:47:01'),
+(1987, 1394, '2015-05-28 08:47:02'),
+(1988, 1395, '2015-05-28 08:49:19'),
+(1989, 1396, '2015-05-28 08:49:20'),
+(1990, 1397, '2015-05-28 08:49:27'),
+(1991, 1398, '2015-05-28 08:50:29'),
+(1992, 1399, '2015-05-28 08:50:38'),
+(1993, 1400, '2015-05-28 08:50:39'),
+(1994, 1401, '2015-05-28 08:50:39'),
+(1995, 1402, '2015-05-28 08:54:26'),
+(1996, 1403, '2015-05-28 08:54:26'),
+(1997, 1404, '2015-05-28 08:54:26'),
+(1998, 1405, '2015-05-28 08:55:12'),
+(1999, 1406, '2015-05-28 08:55:50'),
+(2000, 1407, '2015-05-28 08:55:51'),
+(2001, 1408, '2015-05-28 08:55:51'),
+(2002, 1409, '2015-05-28 08:55:59'),
+(2003, 1410, '2015-05-28 08:55:59'),
+(2004, 1411, '2015-05-28 08:56:32'),
+(2005, 1412, '2015-05-28 08:56:32'),
+(2006, 1413, '2015-05-28 08:56:32'),
+(2007, 1414, '2015-05-28 08:57:30'),
+(2008, 1415, '2015-05-28 08:57:31'),
+(2009, 1416, '2015-05-28 08:57:31'),
+(2010, 1417, '2015-05-28 08:57:35'),
+(2011, 1418, '2015-05-28 08:57:35'),
+(2012, 1419, '2015-05-28 08:57:35'),
+(2013, 1420, '2015-05-28 09:02:08'),
+(2014, 1421, '2015-05-28 09:02:09'),
+(2015, 1422, '2015-05-28 09:02:09'),
+(2016, 1423, '2015-05-28 09:04:05'),
+(2017, 1423, '2015-05-28 09:04:05'),
+(2018, 1423, '2015-05-28 09:04:05'),
+(2019, 1423, '2015-05-28 09:04:06'),
+(2020, 1423, '2015-05-28 09:04:46'),
+(2021, 1423, '2015-05-28 09:04:47'),
+(2022, 1423, '2015-05-28 09:04:47'),
+(2023, 1423, '2015-05-28 09:04:48'),
+(2024, 1423, '2015-05-28 09:06:06'),
+(2025, 1423, '2015-05-28 09:06:07'),
+(2026, 1423, '2015-05-28 09:06:07'),
+(2027, 1423, '2015-05-28 09:06:08'),
+(2028, 1423, '2015-05-28 09:06:12'),
+(2029, 1423, '2015-05-28 09:06:12'),
+(2030, 1423, '2015-05-28 09:06:12'),
+(2031, 1423, '2015-05-28 09:06:13'),
+(2032, 1423, '2015-05-28 09:09:30'),
+(2033, 1423, '2015-05-28 09:09:31'),
+(2034, 1423, '2015-05-28 09:09:31'),
+(2035, 1423, '2015-05-28 09:10:45'),
+(2036, 1423, '2015-05-28 09:10:45'),
+(2037, 1423, '2015-05-28 09:10:46'),
+(2038, 1423, '2015-05-28 09:11:41'),
+(2039, 1423, '2015-05-28 09:11:41'),
+(2040, 1423, '2015-05-28 09:11:41'),
+(2041, 1423, '2015-05-28 09:11:42'),
+(2042, 1423, '2015-05-28 09:11:42'),
+(2043, 1423, '2015-05-28 09:11:43'),
+(2044, 1423, '2015-05-28 09:15:38'),
+(2045, 1423, '2015-05-28 09:15:38'),
+(2046, 1423, '2015-05-28 09:15:39'),
+(2047, 1423, '2015-05-28 09:15:50'),
+(2048, 1423, '2015-05-28 09:15:51'),
+(2049, 1423, '2015-05-28 09:15:51'),
+(2050, 1423, '2015-05-28 09:15:52'),
+(2051, 1423, '2015-05-28 09:15:52'),
+(2052, 1423, '2015-05-28 09:15:52'),
+(2053, 1423, '2015-05-28 09:15:54'),
+(2054, 1423, '2015-05-28 09:15:55'),
+(2055, 1423, '2015-05-28 09:15:55'),
+(2056, 1423, '2015-05-28 09:15:55'),
+(2057, 1423, '2015-05-28 09:20:11'),
+(2058, 1423, '2015-05-28 09:20:11'),
+(2059, 1423, '2015-05-28 09:20:12'),
+(2060, 1423, '2015-05-28 09:20:57'),
+(2061, 1423, '2015-05-28 09:20:58'),
+(2062, 1423, '2015-05-28 09:20:58'),
+(2063, 1423, '2015-05-28 09:21:17'),
+(2064, 1423, '2015-05-28 09:21:18'),
+(2065, 1423, '2015-05-28 09:21:18'),
+(2066, 1423, '2015-05-28 09:26:23'),
+(2067, 1423, '2015-05-28 09:26:23'),
+(2068, 1423, '2015-05-28 09:26:24'),
+(2069, 1423, '2015-05-28 09:27:00'),
+(2070, 1423, '2015-05-28 09:27:00'),
+(2071, 1423, '2015-05-28 09:27:00'),
+(2072, 1423, '2015-05-28 09:27:01'),
+(2073, 1423, '2015-05-28 09:27:53'),
+(2074, 1423, '2015-05-28 09:27:53'),
+(2075, 1423, '2015-05-28 09:27:54'),
+(2076, 1423, '2015-05-28 09:28:37'),
+(2077, 1423, '2015-05-28 09:28:38'),
+(2078, 1423, '2015-05-28 09:28:38'),
+(2079, 1423, '2015-05-28 09:28:39'),
+(2080, 1423, '2015-05-28 09:29:16'),
+(2081, 1423, '2015-05-28 09:29:17'),
+(2082, 1423, '2015-05-28 09:29:17'),
+(2083, 1423, '2015-05-28 09:29:17'),
+(2084, 1423, '2015-05-28 09:30:54'),
+(2085, 1423, '2015-05-28 09:30:55'),
+(2086, 1423, '2015-05-28 09:30:55'),
+(2087, 1423, '2015-05-28 09:30:59'),
+(2088, 1423, '2015-05-28 09:30:59'),
+(2089, 1423, '2015-05-28 09:30:59'),
+(2090, 1423, '2015-05-28 09:31:00'),
+(2091, 1423, '2015-05-28 09:35:08'),
+(2092, 1423, '2015-05-28 09:35:08'),
+(2093, 1423, '2015-05-28 09:35:09'),
+(2094, 1423, '2015-05-28 09:35:12'),
+(2095, 1423, '2015-05-28 09:35:13'),
+(2096, 1423, '2015-05-28 09:35:13'),
+(2097, 1423, '2015-05-28 09:35:14'),
+(2098, 1423, '2015-05-28 09:35:14'),
+(2099, 1423, '2015-05-28 09:35:15'),
+(2100, 1424, '2015-05-28 09:35:33'),
+(2101, 1425, '2015-05-28 09:35:33'),
+(2102, 1426, '2015-05-28 09:35:33'),
+(2103, 1427, '2015-05-28 09:35:44'),
+(2104, 1428, '2015-05-28 09:35:44'),
+(2105, 1429, '2015-05-28 09:35:44'),
+(2106, 1430, '2015-05-28 09:35:44'),
+(2107, 1431, '2015-05-28 09:35:56'),
+(2109, 1433, '2015-05-28 09:35:57'),
+(2108, 1432, '2015-05-28 09:35:57'),
+(2110, 1434, '2015-05-28 09:36:16'),
+(2111, 1436, '2015-05-28 09:36:17'),
+(2112, 1435, '2015-05-28 09:36:17'),
+(2113, 1437, '2015-05-28 09:36:21'),
+(2114, 1438, '2015-05-28 09:36:21'),
+(2115, 1439, '2015-05-28 09:36:22'),
+(2116, 1440, '2015-05-28 09:36:22'),
+(2117, 1441, '2015-05-28 09:36:33'),
+(2118, 1442, '2015-05-28 09:36:33'),
+(2119, 1443, '2015-05-28 09:36:33'),
+(2120, 1444, '2015-05-28 09:36:42'),
+(2121, 1446, '2015-05-28 09:36:43'),
+(2122, 1445, '2015-05-28 09:36:43'),
+(2123, 1447, '2015-05-28 09:37:38'),
+(2124, 1448, '2015-05-28 09:37:38'),
+(2125, 1449, '2015-05-28 09:37:38'),
+(2126, 1450, '2015-05-28 09:37:41'),
+(2127, 1452, '2015-05-28 09:37:42'),
+(2128, 1451, '2015-05-28 09:37:42'),
+(2129, 1453, '2015-05-28 09:37:49'),
+(2130, 1455, '2015-05-28 09:37:49'),
+(2131, 1454, '2015-05-28 09:37:49'),
+(2132, 1456, '2015-05-28 09:38:55'),
+(2133, 1457, '2015-05-28 09:38:55'),
+(2134, 1458, '2015-05-28 09:38:55'),
+(2135, 1459, '2015-05-28 09:38:59'),
+(2137, 1461, '2015-05-28 09:38:59'),
+(2136, 1460, '2015-05-28 09:38:59'),
+(2138, 1462, '2015-05-28 09:39:11'),
+(2139, 1463, '2015-05-28 09:39:12'),
+(2140, 1464, '2015-05-28 09:39:12'),
+(2141, 1465, '2015-05-28 09:39:16'),
+(2142, 1467, '2015-05-28 09:39:16'),
+(2143, 1466, '2015-05-28 09:39:16'),
+(2144, 1468, '2015-05-28 09:39:16'),
+(2145, 1469, '2015-05-28 09:39:17'),
+(2146, 1471, '2015-05-28 09:50:17'),
+(2147, 1470, '2015-05-28 09:50:17'),
+(2148, 1472, '2015-05-28 09:51:05'),
+(2149, 1473, '2015-05-28 09:51:06'),
+(2150, 1474, '2015-05-28 09:51:06'),
+(2151, 1475, '2015-05-28 09:53:34'),
+(2152, 1478, '2015-05-28 09:53:35'),
+(2153, 1477, '2015-05-28 09:53:35'),
+(2154, 1476, '2015-05-28 09:53:35'),
+(2155, 1479, '2015-05-28 09:53:35'),
+(2156, 1481, '2015-05-28 09:53:37'),
+(2157, 1480, '2015-05-28 09:53:37'),
+(2158, 1482, '2015-05-28 09:54:57'),
+(2159, 1483, '2015-05-28 09:54:57'),
+(2160, 1484, '2015-05-28 09:54:57'),
+(2161, 1485, '2015-05-28 09:55:03'),
+(2162, 1486, '2015-05-28 09:55:03'),
+(2163, 1488, '2015-05-28 09:55:03'),
+(2164, 1487, '2015-05-28 09:55:03'),
+(2165, 1489, '2015-05-28 09:55:04'),
+(2166, 1490, '2015-05-28 10:01:35'),
+(2167, 1491, '2015-05-28 10:01:36'),
+(2168, 1492, '2015-05-28 10:01:36'),
+(2169, 1493, '2015-05-28 10:01:38'),
+(2170, 1496, '2015-05-28 10:01:39'),
+(2171, 1495, '2015-05-28 10:01:39'),
+(2172, 1494, '2015-05-28 10:01:39'),
+(2173, 1497, '2015-05-28 10:01:40'),
+(2174, 1498, '2015-05-28 10:02:30'),
+(2175, 1499, '2015-05-28 10:02:31'),
+(2176, 1500, '2015-05-28 10:02:31'),
+(2177, 1501, '2015-05-28 10:02:35'),
+(2178, 1502, '2015-05-28 10:02:36'),
+(2179, 1503, '2015-05-28 10:02:36'),
+(2180, 1504, '2015-05-28 10:02:36'),
+(2181, 1505, '2015-05-28 10:02:36'),
+(2182, 1506, '2015-05-28 10:17:20'),
+(2183, 1507, '2015-05-28 10:17:21'),
+(2184, 1508, '2015-05-28 10:17:21'),
+(2185, 1509, '2015-05-28 10:17:28'),
+(2186, 1511, '2015-05-28 10:17:28'),
+(2187, 1510, '2015-05-28 10:17:28'),
+(2188, 1512, '2015-05-28 10:17:28'),
+(2189, 1513, '2015-05-28 10:17:29'),
+(2190, 1514, '2015-05-28 10:18:03'),
+(2191, 1516, '2015-05-28 10:18:04'),
+(2192, 1515, '2015-05-28 10:18:04'),
+(2193, 1517, '2015-05-28 10:18:11'),
+(2194, 1520, '2015-05-28 10:18:11'),
+(2195, 1519, '2015-05-28 10:18:11'),
+(2196, 1518, '2015-05-28 10:18:11'),
+(2197, 1521, '2015-05-28 10:18:12'),
+(2198, 1522, '2015-05-28 10:18:20'),
+(2199, 1523, '2015-05-28 10:18:21'),
+(2200, 1524, '2015-05-28 10:18:21'),
+(2201, 1525, '2015-05-28 10:20:32'),
+(2202, 1527, '2015-05-28 10:20:33'),
+(2203, 1526, '2015-05-28 10:20:33'),
+(2204, 1528, '2015-05-28 10:21:59'),
+(2205, 1529, '2015-05-28 10:22:00'),
+(2206, 1530, '2015-05-28 10:22:00'),
+(2207, 1531, '2015-05-28 10:23:04'),
+(2208, 1532, '2015-05-28 10:23:05'),
+(2209, 1533, '2015-05-28 10:23:05'),
+(2210, 1534, '2015-05-28 10:23:41'),
+(2211, 1536, '2015-05-28 10:23:42'),
+(2212, 1535, '2015-05-28 10:23:42'),
+(2213, 1537, '2015-05-28 10:24:32'),
+(2214, 1538, '2015-05-28 10:24:33'),
+(2215, 1539, '2015-05-28 10:24:33'),
+(2216, 1540, '2015-05-28 10:25:07'),
+(2217, 1541, '2015-05-28 10:25:08'),
+(2218, 1542, '2015-05-28 10:25:08'),
+(2219, 1543, '2015-05-28 10:25:26'),
+(2220, 1544, '2015-05-28 10:25:27'),
+(2221, 1545, '2015-05-28 10:25:27'),
+(2222, 1546, '2015-05-28 10:28:02'),
+(2223, 1548, '2015-05-28 10:28:03'),
+(2224, 1547, '2015-05-28 10:28:03'),
+(2225, 1549, '2015-05-28 10:50:39'),
+(2226, 1550, '2015-05-28 10:50:40'),
+(2227, 1551, '2015-05-28 10:50:40'),
+(2228, 1552, '2015-05-28 10:50:43'),
+(2229, 1553, '2015-05-28 10:50:44'),
+(2230, 1554, '2015-05-28 10:50:44'),
+(2231, 1555, '2015-05-28 10:51:08'),
+(2232, 1556, '2015-05-28 10:51:09'),
+(2233, 1557, '2015-05-28 10:51:09'),
+(2234, 1558, '2015-05-28 10:52:19'),
+(2235, 1559, '2015-05-28 10:52:20'),
+(2236, 1560, '2015-05-28 10:52:20'),
+(2237, 1561, '2015-05-28 10:52:50'),
+(2238, 1563, '2015-05-28 10:52:50'),
+(2239, 1562, '2015-05-28 10:52:50'),
+(2240, 1564, '2015-05-28 10:53:38'),
+(2241, 1565, '2015-05-28 10:53:39'),
+(2242, 1566, '2015-05-28 10:53:39'),
+(2243, 1567, '2015-05-28 10:54:02'),
+(2244, 1568, '2015-05-28 10:54:02'),
+(2245, 1569, '2015-05-28 10:54:02'),
+(2246, 1570, '2015-05-28 10:54:45'),
+(2247, 1571, '2015-05-28 10:54:45'),
+(2248, 1572, '2015-05-28 10:54:45'),
+(2249, 1573, '2015-05-28 10:56:00'),
+(2250, 1575, '2015-05-28 10:56:01'),
+(2251, 1574, '2015-05-28 10:56:01'),
+(2252, 1576, '2015-05-28 10:56:51'),
+(2253, 1578, '2015-05-28 10:56:51'),
+(2254, 1577, '2015-05-28 10:56:51'),
+(2255, 1579, '2015-05-28 10:57:09'),
+(2256, 1580, '2015-05-28 10:57:09'),
+(2257, 1581, '2015-05-28 10:57:09'),
+(2258, 1582, '2015-05-28 10:57:15'),
+(2259, 1583, '2015-05-28 10:57:15'),
+(2260, 1584, '2015-05-28 10:57:15'),
+(2261, 1585, '2015-05-28 10:57:33'),
+(2262, 1586, '2015-05-28 10:57:34'),
+(2263, 1587, '2015-05-28 10:59:37'),
+(2264, 1588, '2015-05-28 11:03:17'),
+(2265, 1589, '2015-05-28 11:03:18'),
+(2266, 1590, '2015-05-28 11:03:18'),
+(2267, 1591, '2015-05-28 11:06:05'),
+(2268, 1592, '2015-05-28 11:06:06'),
+(2269, 1593, '2015-05-28 11:06:06'),
+(2270, 1594, '2015-05-28 11:07:35'),
+(2271, 1595, '2015-05-28 11:07:35'),
+(2272, 1596, '2015-05-28 11:07:35'),
+(2273, 1597, '2015-05-28 11:07:49'),
+(2274, 1598, '2015-05-28 11:07:50'),
+(2275, 1599, '2015-05-28 11:07:50'),
+(2276, 1600, '2015-05-28 11:08:48'),
+(2277, 1601, '2015-05-28 11:08:49'),
+(2278, 1602, '2015-05-28 11:08:49'),
+(2279, 1603, '2015-05-28 11:08:55'),
+(2280, 1604, '2015-05-28 11:08:55'),
+(2281, 1605, '2015-05-28 11:09:14'),
+(2282, 1606, '2015-05-28 11:09:15'),
+(2283, 1607, '2015-05-28 11:09:15'),
+(2284, 1608, '2015-05-28 11:09:23'),
+(2285, 1609, '2015-05-28 11:09:23'),
+(2286, 1610, '2015-05-28 11:09:23'),
+(2287, 1611, '2015-05-28 11:09:50'),
+(2288, 1612, '2015-05-28 11:09:50'),
+(2289, 1613, '2015-05-28 11:09:50'),
+(2290, 1614, '2015-05-28 11:10:13'),
+(2291, 1615, '2015-05-28 11:10:14'),
+(2292, 1616, '2015-05-28 11:10:14'),
+(2293, 1617, '2015-05-28 11:10:42'),
+(2294, 1618, '2015-05-28 11:11:36'),
+(2295, 1619, '2015-05-28 11:11:37'),
+(2296, 1620, '2015-05-28 11:11:37'),
+(2297, 1621, '2015-05-28 11:12:38'),
+(2298, 1622, '2015-05-28 11:12:39'),
+(2299, 1623, '2015-05-28 11:12:39'),
+(2300, 1624, '2015-05-28 11:13:10'),
+(2301, 1625, '2015-05-28 11:13:11'),
+(2302, 1626, '2015-05-28 11:13:11'),
+(2303, 1627, '2015-05-28 11:13:42'),
+(2304, 1628, '2015-05-28 11:13:43'),
+(2305, 1629, '2015-05-28 11:13:43'),
+(2306, 1630, '2015-05-28 11:31:16'),
+(2307, 1632, '2015-05-28 11:31:17'),
+(2308, 1631, '2015-05-28 11:31:17');
 
 DROP TABLE IF EXISTS `log_url_info`;
 CREATE TABLE IF NOT EXISTS `log_url_info` (
   `url_id` bigint(20) unsigned NOT NULL COMMENT 'URL ID',
   `url` varchar(255) DEFAULT NULL COMMENT 'URL',
   `referer` varchar(255) DEFAULT NULL COMMENT 'Referrer'
-) ENGINE=InnoDB AUTO_INCREMENT=1955 DEFAULT CHARSET=utf8 COMMENT='Log URL Info Table';
-
---
--- Vypisuji data pro tabulku `log_url_info`
---
+) ENGINE=InnoDB AUTO_INCREMENT=2309 DEFAULT CHARSET=utf8 COMMENT='Log URL Info Table';
 
 INSERT INTO `log_url_info` (`url_id`, `url`, `referer`) VALUES
 (1, 'http://localhost/mage2/', NULL),
@@ -11976,13 +10652,361 @@ INSERT INTO `log_url_info` (`url_id`, `url`, `referer`) VALUES
 (1951, 'http://localhost/mage2/', NULL),
 (1952, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
 (1953, 'http://localhost/mage2/', NULL),
-(1954, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `log_visitor`
---
+(1954, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1955, 'http://localhost/mage2/', NULL),
+(1956, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1957, 'http://localhost/mage2/', NULL),
+(1958, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1959, 'http://localhost/mage2/', NULL),
+(1960, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1961, 'http://localhost/mage2/', NULL),
+(1962, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1963, 'http://localhost/mage2/', NULL),
+(1964, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1965, 'http://localhost/mage2/', NULL),
+(1966, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1967, 'http://localhost/mage2/', NULL),
+(1968, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1969, 'http://localhost/mage2/', NULL),
+(1970, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1971, 'http://localhost/mage2/', NULL),
+(1972, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1973, 'http://localhost/mage2/', NULL),
+(1974, 'http://localhost/mage2/', NULL),
+(1975, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1976, 'http://localhost/mage2/', NULL),
+(1977, 'http://localhost/mage2/catalog/category/view/id/7', 'http://localhost/mage2/'),
+(1978, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/laptops/posh.html/'),
+(1979, 'http://localhost/mage2/', 'http://localhost/mage2/laptops/posh.html/'),
+(1980, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1981, 'http://localhost/mage2/', 'http://localhost/mage2/laptops/posh.html/'),
+(1982, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1983, 'http://localhost/mage2/', 'http://localhost/mage2/laptops/posh.html/'),
+(1984, 'http://localhost/mage2/catalog/category/view/id/7', 'http://localhost/mage2/'),
+(1985, 'http://localhost/mage2/', NULL),
+(1986, 'http://localhost/mage2/', NULL),
+(1987, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1988, 'http://localhost/mage2/', NULL),
+(1989, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1990, 'http://localhost/mage2/', NULL),
+(1991, 'http://localhost/mage2/', NULL),
+(1992, 'http://localhost/mage2/', NULL),
+(1993, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1994, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(1995, 'http://localhost/mage2/', NULL),
+(1996, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(1997, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(1998, 'http://localhost/mage2/', NULL),
+(1999, 'http://localhost/mage2/', NULL),
+(2000, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2001, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2002, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2003, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2004, 'http://localhost/mage2/', NULL),
+(2005, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2006, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2007, 'http://localhost/mage2/', NULL),
+(2008, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2009, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2010, 'http://localhost/mage2/', 'http://localhost/mage2/'),
+(2011, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2012, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2013, 'http://localhost/mage2/', NULL),
+(2014, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2015, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2016, 'http://localhost/mage2/newsletter', NULL),
+(2017, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/newsletter'),
+(2018, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter'),
+(2019, 'http://localhost/mage2/newsletter', 'http://localhost/mage2/newsletter'),
+(2020, 'http://localhost/mage2/newsletter', NULL),
+(2021, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/newsletter'),
+(2022, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter'),
+(2023, 'http://localhost/mage2/newsletter', 'http://localhost/mage2/newsletter'),
+(2024, 'http://localhost/mage2/', 'http://localhost/mage2/newsletter'),
+(2025, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2026, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2027, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2028, 'http://localhost/mage2/newsletter', 'http://localhost/mage2/'),
+(2029, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/newsletter'),
+(2030, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter'),
+(2031, 'http://localhost/mage2/newsletter', 'http://localhost/mage2/newsletter'),
+(2032, 'http://localhost/mage2/', NULL),
+(2033, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2034, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2035, 'http://localhost/mage2/', NULL),
+(2036, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2037, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2038, 'http://localhost/mage2/newsletter', NULL),
+(2039, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter'),
+(2040, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/newsletter'),
+(2041, 'http://localhost/mage2/newsletter', 'http://localhost/mage2/newsletter'),
+(2042, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter'),
+(2043, 'http://localhost/mage2/newsletter', 'http://localhost/mage2/newsletter'),
+(2044, 'http://localhost/mage2/', 'http://localhost/mage2/newsletter'),
+(2045, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2046, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2047, 'http://localhost/mage2/newsletter', NULL),
+(2048, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter'),
+(2049, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/newsletter'),
+(2050, 'http://localhost/mage2/newsletter', 'http://localhost/mage2/newsletter'),
+(2051, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter'),
+(2052, 'http://localhost/mage2/newsletter', 'http://localhost/mage2/newsletter'),
+(2053, 'http://localhost/mage2/', 'http://localhost/mage2/newsletter'),
+(2054, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2055, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2056, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2057, 'http://localhost/mage2/', NULL),
+(2058, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2059, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2060, 'http://localhost/mage2/', NULL),
+(2061, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2062, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2063, 'http://localhost/mage2/', NULL),
+(2064, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2065, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2066, 'http://localhost/mage2/', NULL),
+(2067, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2068, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2069, 'http://localhost/mage2/', NULL),
+(2070, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2071, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2072, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2073, 'http://localhost/mage2/', NULL),
+(2074, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2075, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2076, 'http://localhost/mage2/', NULL),
+(2077, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2078, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2079, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2080, 'http://localhost/mage2/', NULL),
+(2081, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2082, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2083, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2084, 'http://localhost/mage2/', NULL),
+(2085, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2086, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2087, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/'),
+(2088, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/newsletter/'),
+(2089, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter/'),
+(2090, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2091, 'http://localhost/mage2/', NULL),
+(2092, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2093, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2094, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/'),
+(2095, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter/'),
+(2096, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/newsletter/'),
+(2097, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2098, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter/'),
+(2099, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2100, 'http://localhost/mage2/', NULL),
+(2101, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2102, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2103, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/'),
+(2104, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/newsletter/'),
+(2105, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter/'),
+(2106, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2107, 'http://localhost/mage2/', NULL),
+(2108, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2109, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2110, 'http://localhost/mage2/', NULL),
+(2111, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2112, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2113, 'http://localhost/mage2/newsletter/subscriber/new/', 'http://localhost/mage2/'),
+(2114, 'http://localhost/mage2/', 'http://localhost/mage2/'),
+(2115, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2116, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2117, 'http://localhost/mage2/', 'http://localhost/mage2/'),
+(2118, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2119, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2120, 'http://localhost/mage2/', NULL),
+(2121, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2122, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2123, 'http://localhost/mage2/', NULL),
+(2124, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2125, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2126, 'http://localhost/mage2/popup/', 'http://localhost/mage2/'),
+(2127, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/popup/'),
+(2128, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/popup/'),
+(2129, 'http://localhost/mage2/', NULL),
+(2130, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2131, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2132, 'http://localhost/mage2/', NULL),
+(2133, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2134, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2135, 'http://localhost/mage2/popup/', 'http://localhost/mage2/'),
+(2136, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/popup/'),
+(2137, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/popup/'),
+(2138, 'http://localhost/mage2/', NULL),
+(2139, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2140, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2141, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/'),
+(2142, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2143, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/newsletter/'),
+(2144, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter/'),
+(2145, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2146, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2147, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2148, 'http://localhost/mage2/', NULL),
+(2149, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2150, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2151, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/'),
+(2152, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2153, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter/'),
+(2154, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/newsletter/'),
+(2155, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2156, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2157, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2158, 'http://localhost/mage2/', NULL),
+(2159, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2160, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2161, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/'),
+(2162, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/newsletter/'),
+(2163, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2164, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter/'),
+(2165, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2166, 'http://localhost/mage2/', NULL),
+(2167, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2168, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2169, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/'),
+(2170, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2171, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter/'),
+(2172, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/newsletter/'),
+(2173, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2174, 'http://localhost/mage2/', NULL),
+(2175, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2176, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2177, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/'),
+(2178, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/newsletter/'),
+(2179, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2180, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter/'),
+(2181, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2182, 'http://localhost/mage2/', NULL),
+(2183, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2184, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2185, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/'),
+(2186, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2187, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/newsletter/'),
+(2188, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter/'),
+(2189, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2190, 'http://localhost/mage2/', NULL),
+(2191, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2192, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2193, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/'),
+(2194, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2195, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/newsletter/'),
+(2196, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/newsletter/'),
+(2197, 'http://localhost/mage2/newsletter/', 'http://localhost/mage2/newsletter/'),
+(2198, 'http://localhost/mage2/', NULL),
+(2199, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2200, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2201, 'http://localhost/mage2/', NULL),
+(2202, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2203, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2204, 'http://localhost/mage2/', NULL),
+(2205, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2206, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2207, 'http://localhost/mage2/', NULL),
+(2208, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2209, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2210, 'http://localhost/mage2/', NULL),
+(2211, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2212, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2213, 'http://localhost/mage2/', NULL),
+(2214, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2215, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2216, 'http://localhost/mage2/', NULL),
+(2217, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2218, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2219, 'http://localhost/mage2/', NULL),
+(2220, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2221, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2222, 'http://localhost/mage2/', NULL),
+(2223, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2224, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2225, 'http://localhost/mage2/', NULL),
+(2226, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2227, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2228, 'http://localhost/mage2/', NULL),
+(2229, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2230, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2231, 'http://localhost/mage2/', NULL),
+(2232, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2233, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2234, 'http://localhost/mage2/', NULL),
+(2235, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2236, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2237, 'http://localhost/mage2/', NULL),
+(2238, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2239, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2240, 'http://localhost/mage2/', NULL),
+(2241, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2242, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2243, 'http://localhost/mage2/', NULL),
+(2244, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2245, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2246, 'http://localhost/mage2/', NULL),
+(2247, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2248, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2249, 'http://localhost/mage2/', NULL),
+(2250, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2251, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2252, 'http://localhost/mage2/', NULL),
+(2253, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2254, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2255, 'http://localhost/mage2/', NULL),
+(2256, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2257, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2258, 'http://localhost/mage2/', NULL),
+(2259, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2260, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2261, 'http://localhost/mage2/', NULL),
+(2262, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2263, 'http://localhost/mage2/', NULL),
+(2264, 'http://localhost/mage2/', NULL),
+(2265, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2266, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2267, 'http://localhost/mage2/', NULL),
+(2268, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2269, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2270, 'http://localhost/mage2/', NULL),
+(2271, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2272, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2273, 'http://localhost/mage2/', NULL),
+(2274, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2275, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2276, 'http://localhost/mage2/', NULL),
+(2277, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2278, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2279, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2280, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2281, 'http://localhost/mage2/', NULL),
+(2282, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2283, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2284, 'http://localhost/mage2/', NULL),
+(2285, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2286, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2287, 'http://localhost/mage2/', NULL),
+(2288, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2289, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2290, 'http://localhost/mage2/', NULL),
+(2291, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2292, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2293, 'http://localhost/mage2/', NULL),
+(2294, 'http://localhost/mage2/', NULL),
+(2295, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2296, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2297, 'http://localhost/mage2/', NULL),
+(2298, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2299, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2300, 'http://localhost/mage2/', NULL),
+(2301, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2302, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2303, 'http://localhost/mage2/', NULL),
+(2304, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/'),
+(2305, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2306, 'http://localhost/mage2/', NULL),
+(2307, 'http://localhost/mage2/skin/frontend/base/default/css/madisonisland.css', 'http://localhost/mage2/'),
+(2308, 'http://localhost/mage2/js/prototype/windows/themes/magento.css', 'http://localhost/mage2/');
 
 DROP TABLE IF EXISTS `log_visitor`;
 CREATE TABLE IF NOT EXISTS `log_visitor` (
@@ -11992,11 +11016,7 @@ CREATE TABLE IF NOT EXISTS `log_visitor` (
   `last_visit_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Last Visit Time',
   `last_url_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT 'Last URL ID',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID'
-) ENGINE=InnoDB AUTO_INCREMENT=1370 DEFAULT CHARSET=utf8 COMMENT='Log Visitors Table';
-
---
--- Vypisuji data pro tabulku `log_visitor`
---
+) ENGINE=InnoDB AUTO_INCREMENT=1633 DEFAULT CHARSET=utf8 COMMENT='Log Visitors Table';
 
 INSERT INTO `log_visitor` (`visitor_id`, `session_id`, `first_visit_at`, `last_visit_at`, `last_url_id`, `store_id`) VALUES
 (1, 'ccnnc0biv07ets1b82706a5ls1', '2015-05-14 13:17:45', '2015-05-14 13:19:16', 2, 1),
@@ -13369,13 +12389,270 @@ INSERT INTO `log_visitor` (`visitor_id`, `session_id`, `first_visit_at`, `last_v
 (1366, 'q44jqsnlp2qtqg93bs2tcornd3', '2015-05-27 12:32:15', '2015-05-27 12:32:16', 1951, 1),
 (1367, '3lrq2a0qef5nm0b3df0gho6aj4', '2015-05-27 12:32:16', '2015-05-27 12:32:17', 1952, 1),
 (1368, 'ftltasu6dpe6b17hr594a0imv7', '2015-05-27 12:32:34', '2015-05-27 12:32:34', 1953, 1),
-(1369, '9sutvu8n0q2a762rqqmqu9aa94', '2015-05-27 12:32:35', '2015-05-27 12:32:35', 1954, 1);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `log_visitor_info`
---
+(1369, '9sutvu8n0q2a762rqqmqu9aa94', '2015-05-27 12:32:35', '2015-05-27 12:32:35', 1954, 1),
+(1370, 'f2lenn7qvlr6iqu5ka60i70410', '2015-05-28 03:59:13', '2015-05-28 03:59:15', 1955, 1),
+(1371, 'fnmm17tjlehc98opbbb34bqu51', '2015-05-28 03:59:16', '2015-05-28 03:59:16', 1956, 1),
+(1372, 'jldjdmhoi1k22qfd632bm91rl3', '2015-05-28 04:00:26', '2015-05-28 04:25:28', 1960, 1),
+(1373, '6totjh0l9ced4neame97ovq151', '2015-05-28 07:01:03', '2015-05-28 07:04:28', 1966, 1),
+(1374, 'r4rcnmij122h36jnr2v3bso6q1', '2015-05-28 07:32:14', '2015-05-28 07:32:14', 1967, 1),
+(1375, 'as4n27ld0b2ql8bvopqktm1fo5', '2015-05-28 07:32:15', '2015-05-28 07:32:15', 1968, 1),
+(1376, 'f97q0v465ihvfaelnfi55qki52', '2015-05-28 07:33:36', '2015-05-28 07:33:37', 1969, 1),
+(1377, '7gj4s2ic0mn622bthqo7rtaqc3', '2015-05-28 07:33:37', '2015-05-28 07:33:37', 1970, 1),
+(1378, 'a0sg76l2obhcelec4gtqljk637', '2015-05-28 07:33:48', '2015-05-28 07:33:48', 1971, 1),
+(1379, 'o30ojchallce0ekdlqp2jd55r0', '2015-05-28 07:33:48', '2015-05-28 07:33:49', 1972, 1),
+(1380, 'k605dh23gtvbd93oogm303s1t1', '2015-05-28 07:34:02', '2015-05-28 07:34:03', 1973, 1),
+(1381, 'i1na6l3subbuvfhu483ld3uc47', '2015-05-28 07:34:50', '2015-05-28 07:34:51', 1974, 1),
+(1382, '84v18vbunp0kiumd5dcnguu6a3', '2015-05-28 07:34:51', '2015-05-28 07:34:51', 1975, 1),
+(1383, '16ol176aco8cc9dhs6tr0epum3', '2015-05-28 07:34:54', '2015-05-28 07:34:55', 1976, 1),
+(1384, '4gbiufbd6dk2i1gkqd3g2hq717', '2015-05-28 08:42:28', '2015-05-28 08:42:28', 1977, 1),
+(1385, 'bjm85f0luqc5hnl9gmeml2sq66', '2015-05-28 08:42:29', '2015-05-28 08:42:29', 1978, 1),
+(1386, '91ddmevt58hrhpikfj0v6asog6', '2015-05-28 08:42:33', '2015-05-28 08:42:33', 1979, 1),
+(1387, 'n1vm55nnm4t5s16c5jcksb2kv1', '2015-05-28 08:42:33', '2015-05-28 08:42:34', 1980, 1),
+(1388, '5g3hkdbu8p39il0hc68babu3o1', '2015-05-28 08:46:09', '2015-05-28 08:46:10', 1981, 1),
+(1389, 't8ruatl1136nqo8jjfb2t3mi93', '2015-05-28 08:46:10', '2015-05-28 08:46:10', 1982, 1),
+(1390, '7ct8016ko8dn2rq1hf17oepgo7', '2015-05-28 08:46:15', '2015-05-28 08:46:15', 1983, 1),
+(1391, '948ao7jm81gi8k6huc8f6hkq31', '2015-05-28 08:46:45', '2015-05-28 08:46:46', 1984, 1),
+(1392, 'adbbamb0q1hnl2cc9o9dmmdin4', '2015-05-28 08:46:51', '2015-05-28 08:46:51', 1985, 1),
+(1393, '29unsirhg7giqt83pko474nqk4', '2015-05-28 08:47:01', '2015-05-28 08:47:01', 1986, 1),
+(1394, '3mmjah5t9jd0mqasqpia72lq33', '2015-05-28 08:47:01', '2015-05-28 08:47:02', 1987, 1),
+(1395, 'egfqufptqkmqrgpkdg0ci2kdn6', '2015-05-28 08:49:19', '2015-05-28 08:49:19', 1988, 1),
+(1396, 'h4vq047d4i112pieirjsu6nrh2', '2015-05-28 08:49:19', '2015-05-28 08:49:20', 1989, 1),
+(1397, '6115js40sbqavq5acag85p0er3', '2015-05-28 08:49:27', '2015-05-28 08:49:27', 1990, 1),
+(1398, 'g4hcfauo6tle9e6kpfd99lqm11', '2015-05-28 08:50:28', '2015-05-28 08:50:29', 1991, 1),
+(1399, 'nbhn58i63dk2db3cp9kv74teh6', '2015-05-28 08:50:38', '2015-05-28 08:50:38', 1992, 1),
+(1400, '4blfg05h3buleoqvv51pihn070', '2015-05-28 08:50:39', '2015-05-28 08:50:39', 1993, 1),
+(1401, '9vj9aeinp7pni496eisqi2bjv3', '2015-05-28 08:50:39', '2015-05-28 08:50:39', 1994, 1),
+(1402, '4huncls8hidaespkqegm5nglg1', '2015-05-28 08:54:25', '2015-05-28 08:54:26', 1995, 1),
+(1403, 'mc5ueqftm9o457jqk8goja82q1', '2015-05-28 08:54:26', '2015-05-28 08:54:26', 1996, 1),
+(1404, 'j6nacah3gqmug0sfapaoneeqk5', '2015-05-28 08:54:26', '2015-05-28 08:54:26', 1997, 1),
+(1405, 'lla0sru00c1sif8prv0qrkk407', '2015-05-28 08:55:12', '2015-05-28 08:55:12', 1998, 1),
+(1406, 'p90jnvgsvl2r27uimjc9icg2h2', '2015-05-28 08:55:50', '2015-05-28 08:55:50', 1999, 1),
+(1407, '2ueilc3n08h9q9oo4ngvnadph1', '2015-05-28 08:55:51', '2015-05-28 08:55:51', 2000, 1),
+(1408, 'gp2nc6u8aarj73bgtia24hap84', '2015-05-28 08:55:51', '2015-05-28 08:55:51', 2001, 1),
+(1409, 'aecsesktk839l9ji30p2bdhnl5', '2015-05-28 08:55:59', '2015-05-28 08:55:59', 2002, 1),
+(1410, '52sav2tretoimjbc0m9n65e836', '2015-05-28 08:55:59', '2015-05-28 08:55:59', 2003, 1),
+(1411, 'rqdt9fts4jnu50cdualt6vg3u0', '2015-05-28 08:56:31', '2015-05-28 08:56:32', 2004, 1),
+(1412, 'be70nmv724elvcp7piiqso6bk4', '2015-05-28 08:56:32', '2015-05-28 08:56:32', 2005, 1),
+(1413, 'bkgjuavjpmuu2ut5m0bh70sol1', '2015-05-28 08:56:32', '2015-05-28 08:56:32', 2006, 1),
+(1414, 'c7jp60cg9h4ambrqmr8bkkf0b0', '2015-05-28 08:57:30', '2015-05-28 08:57:30', 2007, 1),
+(1415, 'kf5135j7a5oaeo4un3kr1aal72', '2015-05-28 08:57:31', '2015-05-28 08:57:31', 2008, 1),
+(1416, '5f5pjla2qp4v7s62pkd3ncfht5', '2015-05-28 08:57:31', '2015-05-28 08:57:31', 2009, 1),
+(1417, 'j9aein12g0321rvnqid2s9sda4', '2015-05-28 08:57:34', '2015-05-28 08:57:35', 2010, 1),
+(1418, 't66i912a7nq8e7qkou94edbb87', '2015-05-28 08:57:35', '2015-05-28 08:57:35', 2011, 1),
+(1419, '5cfifo5p65qf46c52vbhc067t5', '2015-05-28 08:57:35', '2015-05-28 08:57:35', 2012, 1),
+(1420, 'eh54qvpnm3t4pqdspijo5l1cb4', '2015-05-28 09:02:08', '2015-05-28 09:02:08', 2013, 1),
+(1421, '28a9vl5p0aj52u1194clijil81', '2015-05-28 09:02:09', '2015-05-28 09:02:09', 2014, 1),
+(1422, 'u45utlnaqqp8ci1g5a6usqq3u2', '2015-05-28 09:02:09', '2015-05-28 09:02:09', 2015, 1),
+(1423, 'vqvaa6jergdvn7742gk7t19r52', '2015-05-28 09:04:04', '2015-05-28 09:35:15', 2099, 1),
+(1424, '0llsol81dpfsnrgd7c42ek04f6', '2015-05-28 09:35:32', '2015-05-28 09:35:33', 2100, 1),
+(1425, 'phqcnbnq4j177q2gpcq05pkj96', '2015-05-28 09:35:33', '2015-05-28 09:35:33', 2101, 1),
+(1426, 's69np81d8l558p82ej6e08ohl1', '2015-05-28 09:35:33', '2015-05-28 09:35:33', 2102, 1),
+(1427, 'jagfbs5c972aljf7di8thvsen4', '2015-05-28 09:35:43', '2015-05-28 09:35:44', 2103, 1),
+(1428, 'jd7kekk547tbe35ntb6s1bl6v2', '2015-05-28 09:35:44', '2015-05-28 09:35:44', 2104, 1),
+(1429, 'bpfrmo80h24n8aetl2af22kj54', '2015-05-28 09:35:44', '2015-05-28 09:35:44', 2105, 1),
+(1430, 'jqrpdr5bbus4evln9nt4vbgd92', '2015-05-28 09:35:44', '2015-05-28 09:35:44', 2106, 1),
+(1431, 'qu2k0sucn7cvblsqbjq1n7h6p3', '2015-05-28 09:35:56', '2015-05-28 09:35:56', 2107, 1),
+(1432, 'vdfg9kj3ns69tdqe73njmnqt52', '2015-05-28 09:35:57', '2015-05-28 09:35:57', 2108, 1),
+(1433, 'a84u6r3p55u8n45dumcu4d9902', '2015-05-28 09:35:57', '2015-05-28 09:35:57', 2109, 1),
+(1434, 'ob55fcjgms57cjec4v3reb8c65', '2015-05-28 09:36:16', '2015-05-28 09:36:16', 2110, 1),
+(1435, '88rq5fs9uljlcmd0511vat97g4', '2015-05-28 09:36:17', '2015-05-28 09:36:17', 2112, 1),
+(1436, '4gkr3a3f3h3lttoc80h4vc7i32', '2015-05-28 09:36:17', '2015-05-28 09:36:17', 2111, 1),
+(1437, 'dcc3e3pguuep2muernksu6pir2', '2015-05-28 09:36:21', '2015-05-28 09:36:21', 2113, 1),
+(1438, 'c7rbg6jk72m3ff8vmpr2tr4rg2', '2015-05-28 09:36:21', '2015-05-28 09:36:21', 2114, 1),
+(1439, 'lnq79ph5k54ppegt501o7qnue5', '2015-05-28 09:36:22', '2015-05-28 09:36:22', 2115, 1),
+(1440, 'p177quf65059gvo4ud5eqd9052', '2015-05-28 09:36:22', '2015-05-28 09:36:22', 2116, 1),
+(1441, '7aeu3861s4j0nv3c8vse3o2374', '2015-05-28 09:36:32', '2015-05-28 09:36:33', 2117, 1),
+(1442, '9nv5oss3dj508mckgpmumluj03', '2015-05-28 09:36:33', '2015-05-28 09:36:33', 2118, 1),
+(1443, 'vdjp0f6smj9qit5uu3akfobvp6', '2015-05-28 09:36:33', '2015-05-28 09:36:33', 2119, 1),
+(1444, 'obijgna34tc7sarpuk4cns4n41', '2015-05-28 09:36:42', '2015-05-28 09:36:42', 2120, 1),
+(1445, '1otr640u4q5pfpvmtu0ad84kp1', '2015-05-28 09:36:42', '2015-05-28 09:36:43', 2122, 1),
+(1446, '3dggu54m5okeskvq2gaft679m5', '2015-05-28 09:36:42', '2015-05-28 09:36:43', 2121, 1),
+(1447, 'it5j4tp9egpqnj6j93aq0i0io0', '2015-05-28 09:37:37', '2015-05-28 09:37:38', 2123, 1),
+(1448, 'phiacjudg0fo4dukmvknt88ad3', '2015-05-28 09:37:38', '2015-05-28 09:37:38', 2124, 1),
+(1449, '1d36vci029v771dbfrvto5j7d3', '2015-05-28 09:37:38', '2015-05-28 09:37:38', 2125, 1),
+(1450, 'vlc21t7j0l0puan7gq7i3d30p1', '2015-05-28 09:37:41', '2015-05-28 09:37:41', 2126, 1),
+(1451, 'fnmdtc6scm901esm25r6l2q3p6', '2015-05-28 09:37:42', '2015-05-28 09:37:42', 2128, 1),
+(1452, 'at3pgl71rmtoojrcjthvgiioq0', '2015-05-28 09:37:42', '2015-05-28 09:37:42', 2127, 1),
+(1453, 'qslvcs153s6o357aaba8caqmb5', '2015-05-28 09:37:49', '2015-05-28 09:37:49', 2129, 1),
+(1454, '3uq18jo8mara9ja2957rt2clj3', '2015-05-28 09:37:49', '2015-05-28 09:37:49', 2131, 1),
+(1455, 'klvgicdm9siteieolhkhj414e0', '2015-05-28 09:37:49', '2015-05-28 09:37:49', 2130, 1),
+(1456, 'a7qdrcgmk3gus66mrm6p4a7oq4', '2015-05-28 09:38:54', '2015-05-28 09:38:55', 2132, 1),
+(1457, '79lk5jbr9vkdhev0c47u1pcpt4', '2015-05-28 09:38:55', '2015-05-28 09:38:55', 2133, 1),
+(1458, 'r9qnuupki14gf68k4u00na3qt0', '2015-05-28 09:38:55', '2015-05-28 09:38:55', 2134, 1),
+(1459, '330hp7lp42c0b4f4pp7vjdm5l0', '2015-05-28 09:38:58', '2015-05-28 09:38:59', 2135, 1),
+(1460, 'sl3rel2b775fg4e4rpcp9u7vh1', '2015-05-28 09:38:59', '2015-05-28 09:38:59', 2136, 1),
+(1461, 'folloe0i6dtatq55m4bfbdp314', '2015-05-28 09:38:59', '2015-05-28 09:38:59', 2137, 1),
+(1462, '5gatd0uvqupfh8rn7d4dakh3c3', '2015-05-28 09:39:11', '2015-05-28 09:39:11', 2138, 1),
+(1463, '20ocimdvc9gbj1cqd75f78hre2', '2015-05-28 09:39:12', '2015-05-28 09:39:12', 2139, 1),
+(1464, 'seq6g8dbc3oiu49grbqm22lam0', '2015-05-28 09:39:12', '2015-05-28 09:39:12', 2140, 1),
+(1465, '7hoc0fvijh33t5qqt1ttfsmjq7', '2015-05-28 09:39:15', '2015-05-28 09:39:16', 2141, 1),
+(1466, 'i5ar30cdhlulk3sm2trjt53a42', '2015-05-28 09:39:16', '2015-05-28 09:39:16', 2143, 1),
+(1467, '6fh4d76oa6pvfqbf79l43d7hb3', '2015-05-28 09:39:16', '2015-05-28 09:39:16', 2142, 1),
+(1468, '15q0j71kf7bgkp2ti0lasnmb56', '2015-05-28 09:39:16', '2015-05-28 09:39:16', 2144, 1),
+(1469, 'el250garfcjtgpma04avjt3he6', '2015-05-28 09:39:17', '2015-05-28 09:39:17', 2145, 1),
+(1470, '63eqlmtl3706k44vvg8mlssgq4', '2015-05-28 09:50:17', '2015-05-28 09:50:17', 2147, 1),
+(1471, 'vbbefn9sshgrenuj2du1hka174', '2015-05-28 09:50:17', '2015-05-28 09:50:17', 2146, 1),
+(1472, 'aomas9jja1sitd7i1fu4ip88r2', '2015-05-28 09:51:05', '2015-05-28 09:51:05', 2148, 1),
+(1473, 'khp9jilrucg3imi5q1j3cd6jr7', '2015-05-28 09:51:06', '2015-05-28 09:51:06', 2149, 1),
+(1474, '15jib7v9f0qivmklosic81ku02', '2015-05-28 09:51:06', '2015-05-28 09:51:06', 2150, 1),
+(1475, '5fmvjhorhuujbut5qgd2s2pb37', '2015-05-28 09:53:34', '2015-05-28 09:53:34', 2151, 1),
+(1476, 'pfnk4vie860hv69ermre5n7o44', '2015-05-28 09:53:35', '2015-05-28 09:53:35', 2154, 1),
+(1477, 'mueojandntiksi6h84hg175e42', '2015-05-28 09:53:35', '2015-05-28 09:53:35', 2153, 1),
+(1478, '4keruks44asc77eakm8nblej75', '2015-05-28 09:53:35', '2015-05-28 09:53:35', 2152, 1),
+(1479, 'ojukib4j084g2m9quhspq45sk6', '2015-05-28 09:53:35', '2015-05-28 09:53:35', 2155, 1),
+(1480, '9radfq7g5jaqnej37cq56346m0', '2015-05-28 09:53:37', '2015-05-28 09:53:37', 2157, 1),
+(1481, 'u8bsc5ncmv5mogvjerulndk3d1', '2015-05-28 09:53:37', '2015-05-28 09:53:37', 2156, 1),
+(1482, 'dh7nkpldkbu516qk1k67v20c30', '2015-05-28 09:54:56', '2015-05-28 09:54:57', 2158, 1),
+(1483, 'u5hurafdgjutp0i72q65fs5ma6', '2015-05-28 09:54:57', '2015-05-28 09:54:57', 2159, 1),
+(1484, 'aee4pqgmpln39dln1mr3kh1tf7', '2015-05-28 09:54:57', '2015-05-28 09:54:57', 2160, 1),
+(1485, 'ihdj9csn6bs6jfdtgtbroop635', '2015-05-28 09:55:02', '2015-05-28 09:55:03', 2161, 1),
+(1486, 'gigs7nfar5u4n4fc0p7c7olsm3', '2015-05-28 09:55:03', '2015-05-28 09:55:03', 2162, 1),
+(1487, 'j711scgt6jtihiburkcldu6ek4', '2015-05-28 09:55:03', '2015-05-28 09:55:03', 2164, 1),
+(1488, 'np5k5m12h5i038i07ldj0c44h2', '2015-05-28 09:55:03', '2015-05-28 09:55:03', 2163, 1),
+(1489, '2j11gmopprjkj1jsrhiahj8vi1', '2015-05-28 09:55:04', '2015-05-28 09:55:04', 2165, 1),
+(1490, '8l4fl12f6pcvl42q46o6ieb0q2', '2015-05-28 10:01:35', '2015-05-28 10:01:35', 2166, 1),
+(1491, '1p8kfiv394dpj7q3j4tvvfnep6', '2015-05-28 10:01:36', '2015-05-28 10:01:36', 2167, 1),
+(1492, 'c9ebhevks2pn9708jvirbmbls6', '2015-05-28 10:01:36', '2015-05-28 10:01:36', 2168, 1),
+(1493, 'lep2v9kvnru56b96v943cra2t0', '2015-05-28 10:01:38', '2015-05-28 10:01:38', 2169, 1),
+(1494, 'dgtu2i2cvbdb0or6vv56jt4bg1', '2015-05-28 10:01:39', '2015-05-28 10:01:39', 2172, 1),
+(1495, 'lnojh7btccsc6sk8r5ah8ij3c4', '2015-05-28 10:01:39', '2015-05-28 10:01:39', 2171, 1),
+(1496, 'rplj9qp42s94q4o4e7uoo39sr6', '2015-05-28 10:01:39', '2015-05-28 10:01:39', 2170, 1),
+(1497, '97es74f39rd9lhgigd15673fq4', '2015-05-28 10:01:39', '2015-05-28 10:01:39', 2173, 1),
+(1498, 'f64r69m2oect9uhqotm2mqdcf3', '2015-05-28 10:02:30', '2015-05-28 10:02:30', 2174, 1),
+(1499, '547gk4jr1hp58e4c2mi5oc2sp2', '2015-05-28 10:02:31', '2015-05-28 10:02:31', 2175, 1),
+(1500, '3e0otu7gq3kpm4vl79fad848a6', '2015-05-28 10:02:31', '2015-05-28 10:02:31', 2176, 1),
+(1501, 'upms3s07o1bfc8icjbkgs9iso5', '2015-05-28 10:02:35', '2015-05-28 10:02:35', 2177, 1),
+(1502, '032gpsj2brbi4kalr2a6emk1q4', '2015-05-28 10:02:35', '2015-05-28 10:02:36', 2178, 1),
+(1503, '3og7u1hsl1tec1eu4gbp4scac7', '2015-05-28 10:02:35', '2015-05-28 10:02:36', 2179, 1),
+(1504, 'tl7vj08dai4hj8bf321s32n6a3', '2015-05-28 10:02:35', '2015-05-28 10:02:36', 2180, 1),
+(1505, 'dopqtbp9tv30et8dklq9296kj7', '2015-05-28 10:02:36', '2015-05-28 10:02:36', 2181, 1),
+(1506, '1nlh4ji0b52lgc7al3qk4b29h2', '2015-05-28 10:17:20', '2015-05-28 10:17:20', 2182, 1),
+(1507, 'o0dmotskrnlm1qvarae1h2t9l1', '2015-05-28 10:17:21', '2015-05-28 10:17:21', 2183, 1),
+(1508, '49rktgfs6e3no4cmqodulfcd96', '2015-05-28 10:17:21', '2015-05-28 10:17:21', 2184, 1),
+(1509, '1ks58juokb9r5sa5lsauv1arn1', '2015-05-28 10:17:28', '2015-05-28 10:17:28', 2185, 1),
+(1510, 'k0f43gsbermqvs42079etdjga3', '2015-05-28 10:17:28', '2015-05-28 10:17:28', 2187, 1),
+(1511, '43q3lmfna2ktso40lbe42pra94', '2015-05-28 10:17:28', '2015-05-28 10:17:28', 2186, 1),
+(1512, '9h944r7cjn4o83a0vcs4774aj7', '2015-05-28 10:17:28', '2015-05-28 10:17:28', 2188, 1),
+(1513, 'ag01p7s7ke1pc3ui66q1stfbg1', '2015-05-28 10:17:29', '2015-05-28 10:17:29', 2189, 1),
+(1514, 'vhch9u5us5cm7aj6273debauq5', '2015-05-28 10:18:02', '2015-05-28 10:18:03', 2190, 1),
+(1515, 'dkt64h0bh6udavq7uvecf21ke4', '2015-05-28 10:18:03', '2015-05-28 10:18:03', 2192, 1),
+(1516, '48uk0h1eqe8fb3ljqj6r4j2ee7', '2015-05-28 10:18:03', '2015-05-28 10:18:03', 2191, 1),
+(1517, 'ai6b6501f4dg8anrsakbbrecm7', '2015-05-28 10:18:10', '2015-05-28 10:18:11', 2193, 1),
+(1518, '6hpu8b2eb4d503s6i59dn65ek2', '2015-05-28 10:18:11', '2015-05-28 10:18:11', 2196, 1),
+(1519, '7ngev5rm7qs4rlshg8sup1j8c3', '2015-05-28 10:18:11', '2015-05-28 10:18:11', 2195, 1),
+(1520, 'p8pfhlvp7nn85che1pl07pdn36', '2015-05-28 10:18:11', '2015-05-28 10:18:11', 2194, 1),
+(1521, 'gq6f8gh5rokhojdk5fjo168fm2', '2015-05-28 10:18:12', '2015-05-28 10:18:12', 2197, 1),
+(1522, 'gb64bl97adrn1bsseb3a8ncie3', '2015-05-28 10:18:20', '2015-05-28 10:18:20', 2198, 1),
+(1523, '1qed6quh4f8odp6cpoe3na97j5', '2015-05-28 10:18:21', '2015-05-28 10:18:21', 2199, 1),
+(1524, 'i8g63al3fevfhgscj6iofnaor7', '2015-05-28 10:18:21', '2015-05-28 10:18:21', 2200, 1),
+(1525, 'echq32kgsf6ajg2nb8oj1oeq70', '2015-05-28 10:20:32', '2015-05-28 10:20:32', 2201, 1),
+(1526, '7cuopi5u5q2ic33a8lvagmsn72', '2015-05-28 10:20:32', '2015-05-28 10:20:33', 2203, 1),
+(1527, 'i19161lslb0si7kmmn50krju51', '2015-05-28 10:20:32', '2015-05-28 10:20:33', 2202, 1),
+(1528, '4vq21o50p1loj4vqdngjm010i4', '2015-05-28 10:21:59', '2015-05-28 10:21:59', 2204, 1),
+(1529, '7gvsf4cvifs84011rqj5nuieb1', '2015-05-28 10:22:00', '2015-05-28 10:22:00', 2205, 1),
+(1530, 'vssd57qomgds9kku2f5emtlho5', '2015-05-28 10:22:00', '2015-05-28 10:22:00', 2206, 1),
+(1531, 'o05kkovaq9t0eqdqg6p16so916', '2015-05-28 10:23:04', '2015-05-28 10:23:04', 2207, 1),
+(1532, '0k5ni6mms0hftfunro1fgce0e2', '2015-05-28 10:23:04', '2015-05-28 10:23:05', 2208, 1),
+(1533, 'gie0er1r6grm7qpquupeo77001', '2015-05-28 10:23:04', '2015-05-28 10:23:05', 2209, 1),
+(1534, 'o7pc1mmbt4ahsjte37avhis666', '2015-05-28 10:23:41', '2015-05-28 10:23:41', 2210, 1),
+(1535, 'vjvna769us7v57grpvj8mm7ac6', '2015-05-28 10:23:42', '2015-05-28 10:23:42', 2212, 1),
+(1536, 'h218o3kvns2o973qljdhd1cn95', '2015-05-28 10:23:42', '2015-05-28 10:23:42', 2211, 1),
+(1537, 'l7vacut6a7nqturrn71t2iihn5', '2015-05-28 10:24:32', '2015-05-28 10:24:32', 2213, 1),
+(1538, '03hdgdu310avfrcja5tu36lm22', '2015-05-28 10:24:33', '2015-05-28 10:24:33', 2214, 1),
+(1539, '9dse6kn6ptormf92bfablq6ku2', '2015-05-28 10:24:33', '2015-05-28 10:24:33', 2215, 1),
+(1540, 'poqit96qo4v2gtmt31ffmpv923', '2015-05-28 10:25:07', '2015-05-28 10:25:07', 2216, 1),
+(1541, 'mo7nv84u9j68me36sb3nvdd003', '2015-05-28 10:25:08', '2015-05-28 10:25:08', 2217, 1),
+(1542, 'ph3df52b6gvro1k2dtrkc5rmb3', '2015-05-28 10:25:08', '2015-05-28 10:25:08', 2218, 1),
+(1543, 't5j2tb7fimgijm5eq7j5ct5pc5', '2015-05-28 10:25:25', '2015-05-28 10:25:26', 2219, 1),
+(1544, 'dr3a4clhebp7besohn71q3qqt2', '2015-05-28 10:25:26', '2015-05-28 10:25:27', 2220, 1),
+(1545, 'gn62c06todt744lbregrqg7q03', '2015-05-28 10:25:26', '2015-05-28 10:25:27', 2221, 1),
+(1546, 'bs8bbc9knhs002f9e7s3a9c387', '2015-05-28 10:28:02', '2015-05-28 10:28:02', 2222, 1),
+(1547, 'aov203sn28940ef3fdl43adju1', '2015-05-28 10:28:02', '2015-05-28 10:28:03', 2224, 1),
+(1548, 'g5pb23li19gs71855v44kq3725', '2015-05-28 10:28:02', '2015-05-28 10:28:03', 2223, 1),
+(1549, '5n1hracf79l5dbu3h8jmh9tf74', '2015-05-28 10:50:39', '2015-05-28 10:50:39', 2225, 1),
+(1550, 'e5k605ukf82bfngbrf9e353t85', '2015-05-28 10:50:39', '2015-05-28 10:50:40', 2226, 1),
+(1551, 'd5tbh67lb5lac5u9t8bmbv3th3', '2015-05-28 10:50:39', '2015-05-28 10:50:40', 2227, 1),
+(1552, 'sn5lnd6m1cdffkc7uoo231fjg0', '2015-05-28 10:50:43', '2015-05-28 10:50:43', 2228, 1),
+(1553, 'gp9mrbv095ub36ccdkrufopjm0', '2015-05-28 10:50:43', '2015-05-28 10:50:44', 2229, 1),
+(1554, 'nhrpial8kt5r6o7fffr2i8vh96', '2015-05-28 10:50:43', '2015-05-28 10:50:44', 2230, 1),
+(1555, 'q86tu1sfqba2j9c9scgkslrne2', '2015-05-28 10:51:08', '2015-05-28 10:51:08', 2231, 1),
+(1556, 'knv33faf79eo4pvivserg2u8o1', '2015-05-28 10:51:08', '2015-05-28 10:51:09', 2232, 1),
+(1557, '3na8ehemn1e2fvn9i57o962g53', '2015-05-28 10:51:09', '2015-05-28 10:51:09', 2233, 1),
+(1558, '3sa43sd8prlg9linc3u3quqjm4', '2015-05-28 10:52:19', '2015-05-28 10:52:19', 2234, 1),
+(1559, 'a9i2sul78756p2d4kscbssj3o0', '2015-05-28 10:52:19', '2015-05-28 10:52:20', 2235, 1),
+(1560, '2jlpqkogfok3ai41ujc1n691d1', '2015-05-28 10:52:19', '2015-05-28 10:52:20', 2236, 1),
+(1561, 'ma2jh5f0l9q31vbop2065nua81', '2015-05-28 10:52:49', '2015-05-28 10:52:50', 2237, 1),
+(1562, 'qc3tjagcsigj6emrn6etkaklm3', '2015-05-28 10:52:50', '2015-05-28 10:52:50', 2239, 1),
+(1563, 'depj64hr710fbr8uvh5qk4odo3', '2015-05-28 10:52:50', '2015-05-28 10:52:50', 2238, 1),
+(1564, 'adhnkh5lp5vdm0vg30lb7t6n85', '2015-05-28 10:53:38', '2015-05-28 10:53:38', 2240, 1),
+(1565, 'nhm2fsib1u4ujljft3848o7ni1', '2015-05-28 10:53:38', '2015-05-28 10:53:39', 2241, 1),
+(1566, 'k83e0m9nr9ogmahm0brq19mej0', '2015-05-28 10:53:38', '2015-05-28 10:53:39', 2242, 1),
+(1567, 'app3b31rj23ig6oautn8bplfa2', '2015-05-28 10:54:01', '2015-05-28 10:54:02', 2243, 1),
+(1568, 'hm9qv7tj2p0h8dch568ad3q8c6', '2015-05-28 10:54:02', '2015-05-28 10:54:02', 2244, 1),
+(1569, 'tvms08u8eokgogrlakturp21v6', '2015-05-28 10:54:02', '2015-05-28 10:54:02', 2245, 1),
+(1570, 'n7prvitcua081hl5c2dvefvhd1', '2015-05-28 10:54:44', '2015-05-28 10:54:45', 2246, 1),
+(1571, 'cs0g1njln9gjg6g4ff0uns82e4', '2015-05-28 10:54:45', '2015-05-28 10:54:45', 2247, 1),
+(1572, 'pkcp8ckt071akn0pgjepaa2br3', '2015-05-28 10:54:45', '2015-05-28 10:54:45', 2248, 1),
+(1573, 'qfjk42j3rpkb5uh2qmun849ts5', '2015-05-28 10:56:00', '2015-05-28 10:56:00', 2249, 1),
+(1574, '0hcq636jbft12dds8isq6a0s41', '2015-05-28 10:56:00', '2015-05-28 10:56:01', 2251, 1),
+(1575, '0ut8fntkc5pmnsnceslr0u8ou5', '2015-05-28 10:56:00', '2015-05-28 10:56:01', 2250, 1),
+(1576, '4ut96meiqvnb91vmf2fpjae9j1', '2015-05-28 10:56:50', '2015-05-28 10:56:51', 2252, 1),
+(1577, 'bddboq2vdhju9usd6ucfr69306', '2015-05-28 10:56:51', '2015-05-28 10:56:51', 2254, 1),
+(1578, 'k3m173gh99ncipts4cf9vjpe16', '2015-05-28 10:56:51', '2015-05-28 10:56:51', 2253, 1),
+(1579, '86cr98nbhc2r1n56jbvo5uids6', '2015-05-28 10:57:08', '2015-05-28 10:57:09', 2255, 1),
+(1580, 'd4kf3jl51cpehcshumlgm6ivg5', '2015-05-28 10:57:09', '2015-05-28 10:57:09', 2256, 1),
+(1581, 'p7i0h7467qhgp1n01jft28nn97', '2015-05-28 10:57:09', '2015-05-28 10:57:09', 2257, 1),
+(1582, 'seddihcj2ua7eq6cg2ksqmal81', '2015-05-28 10:57:14', '2015-05-28 10:57:15', 2258, 1),
+(1583, 'f6isl84j04qmk21lq15uc81m55', '2015-05-28 10:57:15', '2015-05-28 10:57:15', 2259, 1),
+(1584, 'kv3o24467pjgp6e7g7d5n51tq5', '2015-05-28 10:57:15', '2015-05-28 10:57:15', 2260, 1),
+(1585, 'ml142jkrktqbsvdl3vq4961ku3', '2015-05-28 10:57:33', '2015-05-28 10:57:33', 2261, 1),
+(1586, 'qdf67ft5chem6a295i1tictl21', '2015-05-28 10:57:34', '2015-05-28 10:57:34', 2262, 1),
+(1587, 'uce1a1be5bnp1n4ffecq9b42l1', '2015-05-28 10:59:36', '2015-05-28 10:59:37', 2263, 1),
+(1588, '5pssl5q66ob0cjl8opkfk9kb22', '2015-05-28 11:03:17', '2015-05-28 11:03:17', 2264, 1),
+(1589, 'tcdsi6sqhi3ra7pf78fbt9i637', '2015-05-28 11:03:18', '2015-05-28 11:03:18', 2265, 1),
+(1590, 'jhjvoi4di4qmdk0qhdqc8hl8k0', '2015-05-28 11:03:18', '2015-05-28 11:03:18', 2266, 1),
+(1591, 'vb9ga84st8davd640jgnv1bit3', '2015-05-28 11:06:05', '2015-05-28 11:06:05', 2267, 1),
+(1592, 'kjpttji7u51vi36t87vcud41c2', '2015-05-28 11:06:06', '2015-05-28 11:06:06', 2268, 1),
+(1593, 'af8s4s91o7lek25d60ctebtjm3', '2015-05-28 11:06:06', '2015-05-28 11:06:06', 2269, 1),
+(1594, 'db0stpeq6r65dc12eq0o1h3gd5', '2015-05-28 11:07:34', '2015-05-28 11:07:35', 2270, 1),
+(1595, 'p4niv5fq6vurpc7fv4ioebq2u7', '2015-05-28 11:07:35', '2015-05-28 11:07:35', 2271, 1),
+(1596, 'vubbnd5mvcatkja7iv1krlkd01', '2015-05-28 11:07:35', '2015-05-28 11:07:35', 2272, 1),
+(1597, 'b6fs68umlul9nq806812lk2lk4', '2015-05-28 11:07:49', '2015-05-28 11:07:49', 2273, 1),
+(1598, 'vkp78c82p71jcrt1o6i5kk3pp4', '2015-05-28 11:07:50', '2015-05-28 11:07:50', 2274, 1),
+(1599, '9rsaumqgoiaa622hv1eocn3727', '2015-05-28 11:07:50', '2015-05-28 11:07:50', 2275, 1),
+(1600, 'i29tiddppq3smnt83e1dsmnto5', '2015-05-28 11:08:48', '2015-05-28 11:08:48', 2276, 1),
+(1601, 'upkpb4hcetg5o8tp25nb8sfr87', '2015-05-28 11:08:48', '2015-05-28 11:08:49', 2277, 1),
+(1602, 'd1dd9kpe60qvikd5ped53hf6s1', '2015-05-28 11:08:48', '2015-05-28 11:08:49', 2278, 1),
+(1603, 'voufj8clecsi3gcl2emlt9cai5', '2015-05-28 11:08:55', '2015-05-28 11:08:55', 2279, 1),
+(1604, '7onhgi8ljr7ovu831ds2h61q34', '2015-05-28 11:08:55', '2015-05-28 11:08:55', 2280, 1),
+(1605, '27bqogrna32qreqisvjtgvf3j7', '2015-05-28 11:09:14', '2015-05-28 11:09:14', 2281, 1),
+(1606, 'nbo5copiemfgo7vu2e62294aq5', '2015-05-28 11:09:15', '2015-05-28 11:09:15', 2282, 1),
+(1607, '2835ehhp7td42ccb76t03pmpr5', '2015-05-28 11:09:15', '2015-05-28 11:09:15', 2283, 1),
+(1608, 'htg5ag6127alj8ns08pff96vp6', '2015-05-28 11:09:22', '2015-05-28 11:09:23', 2284, 1),
+(1609, 'p9cpb13grgo8jvn2ir0j6gkr31', '2015-05-28 11:09:23', '2015-05-28 11:09:23', 2285, 1),
+(1610, '6h6gs0spcoh0ls24pb348lbe47', '2015-05-28 11:09:23', '2015-05-28 11:09:23', 2286, 1),
+(1611, 'ncdgrlvbth3kjik6su741u3qu1', '2015-05-28 11:09:49', '2015-05-28 11:09:50', 2287, 1),
+(1612, '0o399ulhh7l7dae5esf9itkcl7', '2015-05-28 11:09:50', '2015-05-28 11:09:50', 2288, 1),
+(1613, 'ka54mdmfoa8bm55d97v0l4d771', '2015-05-28 11:09:50', '2015-05-28 11:09:50', 2289, 1),
+(1614, 'jb4jgh6r7bmm8mf9jbb941gec5', '2015-05-28 11:10:13', '2015-05-28 11:10:13', 2290, 1),
+(1615, '8bkdlao58pedm3c4p2292alg66', '2015-05-28 11:10:14', '2015-05-28 11:10:14', 2291, 1),
+(1616, 'f51m6elkodnposdiulb82en847', '2015-05-28 11:10:14', '2015-05-28 11:10:14', 2292, 1),
+(1617, 'qdjvvmnfke59djh9ee8u4h2p66', '2015-05-28 11:10:42', '2015-05-28 11:10:42', 2293, 1),
+(1618, 'qo8k598o2tvheen1ss9jft7ln4', '2015-05-28 11:11:36', '2015-05-28 11:11:36', 2294, 1),
+(1619, 'jjqcu379fqigeho9p07bbbo3v7', '2015-05-28 11:11:37', '2015-05-28 11:11:37', 2295, 1),
+(1620, '28gs7u5j5vaq3ddo6652edcft2', '2015-05-28 11:11:37', '2015-05-28 11:11:37', 2296, 1),
+(1621, '81qodu35363m758hdu1c3obe46', '2015-05-28 11:12:38', '2015-05-28 11:12:38', 2297, 1),
+(1622, '229s464u5nakact7pp6vo00qh1', '2015-05-28 11:12:39', '2015-05-28 11:12:39', 2298, 1),
+(1623, '614r47fjbkb6dj8otaokmnrln2', '2015-05-28 11:12:39', '2015-05-28 11:12:39', 2299, 1),
+(1624, 'de418vnnfsbpnbm588dg02t175', '2015-05-28 11:13:10', '2015-05-28 11:13:10', 2300, 1),
+(1625, '58f3si2e7d1useho8hghgt9oc0', '2015-05-28 11:13:10', '2015-05-28 11:13:11', 2301, 1),
+(1626, 'o6bgn08huiuoa75canv9lcqjl3', '2015-05-28 11:13:10', '2015-05-28 11:13:11', 2302, 1),
+(1627, '9mtfr24h3sk0c19nvf30qv2np5', '2015-05-28 11:13:42', '2015-05-28 11:13:42', 2303, 1),
+(1628, 'fdg3rfutb6tcjl4vo3ibdhiqv4', '2015-05-28 11:13:43', '2015-05-28 11:13:43', 2304, 1),
+(1629, 'teh3cg52l9voa82n2k7db4hcl7', '2015-05-28 11:13:43', '2015-05-28 11:13:43', 2305, 1),
+(1630, '8u9mc1jmdtfde3trh0s9m75vi6', '2015-05-28 11:31:16', '2015-05-28 11:31:16', 2306, 1),
+(1631, 'uni3nlq36j11m1nso3q3fqkd21', '2015-05-28 11:31:16', '2015-05-28 11:31:17', 2308, 1),
+(1632, '2bjisomjorgirsj2mv96fdfh51', '2015-05-28 11:31:16', '2015-05-28 11:31:17', 2307, 1);
 
 DROP TABLE IF EXISTS `log_visitor_info`;
 CREATE TABLE IF NOT EXISTS `log_visitor_info` (
@@ -13387,10 +12664,6 @@ CREATE TABLE IF NOT EXISTS `log_visitor_info` (
   `server_addr` bigint(20) DEFAULT NULL COMMENT 'Server Address',
   `remote_addr` bigint(20) DEFAULT NULL COMMENT 'Remote Address'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Log Visitor Info Table';
-
---
--- Vypisuji data pro tabulku `log_visitor_info`
---
 
 INSERT INTO `log_visitor_info` (`visitor_id`, `http_referer`, `http_user_agent`, `http_accept_charset`, `http_accept_language`, `server_addr`, `remote_addr`) VALUES
 (1, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0', NULL, 'cs,en-US;q=0.7,en;q=0.3', 0, 0),
@@ -14765,13 +14038,271 @@ INSERT INTO `log_visitor_info` (`visitor_id`, `http_referer`, `http_user_agent`,
 (1366, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
 (1367, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
 (1368, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
-(1369, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `log_visitor_online`
---
+(1369, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1370, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1371, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1372, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0', NULL, 'cs,en-US;q=0.7,en;q=0.3', 0, 0),
+(1373, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0', NULL, 'cs,en-US;q=0.7,en;q=0.3', 0, 0),
+(1374, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1375, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1376, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1377, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1378, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1379, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1380, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1381, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1382, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1383, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1384, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1385, 'http://localhost/mage2/laptops/posh.html/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1386, 'http://localhost/mage2/laptops/posh.html/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1387, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1388, 'http://localhost/mage2/laptops/posh.html/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1389, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1390, 'http://localhost/mage2/laptops/posh.html/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1391, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1392, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1393, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1394, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1395, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1396, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1397, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1398, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1399, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1400, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1401, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1402, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1403, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1404, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1405, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1406, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1407, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1408, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1409, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1410, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1411, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1412, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1413, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1414, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1415, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1416, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1417, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1418, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1419, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1420, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1421, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1422, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1423, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0', NULL, 'cs,en-US;q=0.7,en;q=0.3', 0, 0),
+(1424, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1425, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1426, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1427, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1428, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1429, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1430, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1431, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1432, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1433, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1434, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1435, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1436, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1437, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1438, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1439, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1440, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1441, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1442, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1443, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1444, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1445, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1446, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1447, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1448, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1449, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1450, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1451, 'http://localhost/mage2/popup/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1452, 'http://localhost/mage2/popup/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1453, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1454, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1455, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1456, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1457, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0);
+INSERT INTO `log_visitor_info` (`visitor_id`, `http_referer`, `http_user_agent`, `http_accept_charset`, `http_accept_language`, `server_addr`, `remote_addr`) VALUES
+(1458, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1459, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1460, 'http://localhost/mage2/popup/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1461, 'http://localhost/mage2/popup/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1462, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1463, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1464, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1465, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1466, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1467, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1468, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1469, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1470, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1471, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1472, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1473, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1474, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1475, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1476, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1477, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1478, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1479, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1480, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1481, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1482, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1483, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1484, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1485, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1486, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1487, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1488, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1489, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1490, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1491, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1492, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1493, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1494, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1495, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1496, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1497, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1498, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1499, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1500, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1501, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1502, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1503, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1504, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1505, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1506, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1507, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1508, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1509, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1510, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1511, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1512, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1513, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1514, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1515, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1516, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1517, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1518, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1519, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1520, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1521, 'http://localhost/mage2/newsletter/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1522, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1523, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1524, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1525, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1526, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1527, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1528, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1529, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1530, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1531, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1532, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1533, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1534, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1535, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1536, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1537, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1538, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1539, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1540, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1541, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1542, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1543, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1544, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1545, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1546, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1547, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1548, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1549, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1550, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1551, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1552, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1553, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1554, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1555, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1556, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1557, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1558, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1559, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1560, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1561, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1562, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1563, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1564, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1565, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1566, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1567, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1568, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1569, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1570, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1571, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1572, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1573, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1574, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1575, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1576, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1577, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1578, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1579, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1580, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1581, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1582, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1583, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1584, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1585, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1586, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1587, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0', NULL, 'cs,en-US;q=0.7,en;q=0.3', 0, 0),
+(1588, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1589, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1590, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1591, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1592, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1593, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1594, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1595, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1596, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1597, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1598, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1599, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1600, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1601, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1602, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1603, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1604, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1605, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1606, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1607, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1608, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1609, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1610, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1611, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1612, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1613, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1614, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1615, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1616, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1617, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1618, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1619, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1620, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1621, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1622, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1623, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1624, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1625, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1626, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1627, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1628, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1629, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1630, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1631, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0),
+(1632, 'http://localhost/mage2/', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', NULL, 'cs-CZ,cs;q=0.8', 0, 0);
 
 DROP TABLE IF EXISTS `log_visitor_online`;
 CREATE TABLE IF NOT EXISTS `log_visitor_online` (
@@ -14784,12 +14315,6 @@ CREATE TABLE IF NOT EXISTS `log_visitor_online` (
   `last_url` varchar(255) DEFAULT NULL COMMENT 'Last URL'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Log Visitor Online Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `newsletter_problem`
---
-
 DROP TABLE IF EXISTS `newsletter_problem`;
 CREATE TABLE IF NOT EXISTS `newsletter_problem` (
   `problem_id` int(10) unsigned NOT NULL COMMENT 'Problem Id',
@@ -14798,12 +14323,6 @@ CREATE TABLE IF NOT EXISTS `newsletter_problem` (
   `problem_error_code` int(10) unsigned DEFAULT '0' COMMENT 'Problem Error Code',
   `problem_error_text` varchar(200) DEFAULT NULL COMMENT 'Problem Error Text'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Newsletter Problems';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `newsletter_queue`
---
 
 DROP TABLE IF EXISTS `newsletter_queue`;
 CREATE TABLE IF NOT EXISTS `newsletter_queue` (
@@ -14820,12 +14339,6 @@ CREATE TABLE IF NOT EXISTS `newsletter_queue` (
   `queue_finish_at` timestamp NULL DEFAULT NULL COMMENT 'Queue Finish At'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Newsletter Queue';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `newsletter_queue_link`
---
-
 DROP TABLE IF EXISTS `newsletter_queue_link`;
 CREATE TABLE IF NOT EXISTS `newsletter_queue_link` (
   `queue_link_id` int(10) unsigned NOT NULL COMMENT 'Queue Link Id',
@@ -14834,23 +14347,11 @@ CREATE TABLE IF NOT EXISTS `newsletter_queue_link` (
   `letter_sent_at` timestamp NULL DEFAULT NULL COMMENT 'Letter Sent At'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Newsletter Queue Link';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `newsletter_queue_store_link`
---
-
 DROP TABLE IF EXISTS `newsletter_queue_store_link`;
 CREATE TABLE IF NOT EXISTS `newsletter_queue_store_link` (
   `queue_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Queue Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Newsletter Queue Store Link';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `newsletter_subscriber`
---
 
 DROP TABLE IF EXISTS `newsletter_subscriber`;
 CREATE TABLE IF NOT EXISTS `newsletter_subscriber` (
@@ -14863,18 +14364,8 @@ CREATE TABLE IF NOT EXISTS `newsletter_subscriber` (
   `subscriber_confirm_code` varchar(32) DEFAULT 'NULL' COMMENT 'Subscriber Confirm Code'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Newsletter Subscriber';
 
---
--- Vypisuji data pro tabulku `newsletter_subscriber`
---
-
 INSERT INTO `newsletter_subscriber` (`subscriber_id`, `store_id`, `change_status_at`, `customer_id`, `subscriber_email`, `subscriber_status`, `subscriber_confirm_code`) VALUES
 (1, 1, NULL, 0, 'jana.mathauserova@ubk.cz', 1, 'g3v57wroknpxtyoabf6gk5hw25lhijue');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `newsletter_template`
---
 
 DROP TABLE IF EXISTS `newsletter_template`;
 CREATE TABLE IF NOT EXISTS `newsletter_template` (
@@ -14892,18 +14383,8 @@ CREATE TABLE IF NOT EXISTS `newsletter_template` (
   `modified_at` timestamp NULL DEFAULT NULL COMMENT 'Modified At'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Newsletter Template';
 
---
--- Vypisuji data pro tabulku `newsletter_template`
---
-
 INSERT INTO `newsletter_template` (`template_id`, `template_code`, `template_text`, `template_text_preprocessed`, `template_styles`, `template_type`, `template_subject`, `template_sender_name`, `template_sender_email`, `template_actual`, `added_at`, `modified_at`) VALUES
 (1, 'Example Newsletter Template', '{{template config_path="design/email/header"}}\n{{inlinecss file="email-inline.css"}}\n\n<table cellpadding="0" cellspacing="0" border="0">\n<tr>\n    <td class="full">\n        <table class="columns">\n            <tr>\n                <td class="email-heading">\n                    <h1>Welcome</h1>\n                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,\n                    sed do eiusmod tempor incididunt ut labore et.</p>\n                </td>\n                <td class="store-info">\n                    <h4>Contact Us</h4>\n                    <p>\n                        {{depend store_phone}}\n                        <b>Call Us:</b>\n                        <a href="tel:{{var phone}}">{{var store_phone}}</a><br>\n                        {{/depend}}\n                        {{depend store_hours}}\n                        <span class="no-link">{{var store_hours}}</span><br>\n                        {{/depend}}\n                        {{depend store_email}}\n                        <b>Email:</b> <a href="mailto:{{var store_email}}">{{var store_email}}</a>\n                        {{/depend}}\n                    </p>\n                </td>\n            </tr>\n        </table>\n    </td>\n</tr>\n<tr>\n    <td class="full">\n        <table class="columns">\n            <tr>\n                <td>\n                    <img width="600" src="http://placehold.it/600x200" class="main-image">\n                </td>\n                <td class="expander"></td>\n            </tr>\n        </table>\n        <table class="columns">\n            <tr>\n                <td class="panel">\n                    <p>Phasellus dictum sapien a neque luctus cursus. Pellentesque sem dolor, fringilla et pharetra\n                    vitae. <a href="#">Click it! &raquo;</a></p>\n                </td>\n                <td class="expander"></td>\n            </tr>\n        </table>\n    </td>\n</tr>\n<tr>\n    <td>\n        <table class="row">\n            <tr>\n                <td class="half left wrapper">\n                    <table class="columns">\n                        <tr>\n                            <td>\n                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor\n                                incididunt ut labore et. Lorem ipsum dolor sit amet, consectetur adipisicing elit,\n                                sed do eiusmod tempor incididunt ut labore et. Lorem ipsum dolor sit amet.</p>\n                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor\n                                incididunt ut labore et. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed\n                                do eiusmod tempor incididunt ut labore et. Lorem ipsum dolor sit amet.</p>\n                                <table class="button">\n                                    <tr>\n                                        <td>\n                                            <a href="#">Click Me!</a>\n                                        </td>\n                                    </tr>\n                                </table>\n                            </td>\n                            <td class="expander"></td>\n                        </tr>\n                    </table>\n                </td>\n                <td class="half right wrapper last">\n                    <table class="columns">\n                        <tr>\n                            <td class="panel sidebar-links">\n                                <h6>Header Thing</h6>\n                                <p>Sub-head or something</p>\n                                <table>\n                                    <tr>\n                                        <td>\n                                            <p><a href="#">Just a Plain Link &raquo;</a></p>\n                                        </td>\n                                    </tr>\n                                    <tr>\n                                        <td>\n                                            <hr/>\n                                        </td>\n                                    </tr>\n                                    <tr>\n                                        <td>\n                                            <p><a href="#">Just a Plain Link &raquo;</a></p>\n                                        </td>\n                                    </tr>\n                                    <tr>\n                                        <td>\n                                            <hr/>\n                                        </td>\n                                    </tr>\n                                    <tr>\n                                        <td>\n                                            <p><a href="#">Just a Plain Link &raquo;</a></p>\n                                        </td>\n                                    </tr>\n                                    <tr>\n                                        <td>\n                                            <hr/>\n                                        </td>\n                                    </tr>\n                                    <tr>\n                                        <td>\n                                            <p><a href="#">Just a Plain Link &raquo;</a></p>\n                                        </td>\n                                    </tr>\n                                    <tr>\n                                        <td>\n                                            <hr/>\n                                        </td>\n                                    </tr>\n                                    <tr>\n                                        <td>\n                                            <p><a href="#">Just a Plain Link &raquo;</a></p>\n                                        </td>\n                                    </tr>\n                                    <tr>\n                                        <td>\n                                            <hr/>\n                                        </td>\n                                    </tr>\n                                    <tr>\n                                        <td>\n                                            <p><a href="#">Just a Plain Link &raquo;</a></p>\n                                        </td>\n                                    </tr>\n                                    <tr>\n                                        <td>\n                                            <hr/>\n                                        </td>\n                                    </tr>\n                                    <tr>\n                                        <td>\n                                            <p><a href="#">Just a Plain Link &raquo;</a></p>\n                                        </td>\n                                    </tr>\n                                    <tr><td>&nbsp;</td></tr>\n                                </table>\n                            </td>\n                            <td class="expander"></td>\n                        </tr>\n                    </table>\n                    <br>\n                    <table class="columns">\n                        <tr>\n                            <td class="panel">\n                                <h6>Connect With Us:</h6>\n                                <table class="social-button facebook">\n                                    <tr>\n                                        <td>\n                                            <a href="#">Facebook</a>\n                                        </td>\n                                    </tr>\n                                </table>\n                                <hr>\n                                <table class="social-button twitter">\n                                    <tr>\n                                        <td>\n                                            <a href="#">Twitter</a>\n                                        </td>\n                                    </tr>\n                                </table>\n                                <hr>\n                                <table class="social-button google-plus">\n                                    <tr>\n                                        <td>\n                                            <a href="#">Google +</a>\n                                        </td>\n                                    </tr>\n                                </table>\n                                <br>\n                                <h6>Contact Info:</h6>\n                                {{depend store_phone}}\n                                <p>\n                                    <b>Call Us:</b>\n                                    <a href="tel:{{var phone}}">{{var store_phone}}</a>\n                                </p>\n                                {{/depend}}\n                                {{depend store_hours}}\n                                <p><span class="no-link">{{var store_hours}}</span><br></p>\n                                {{/depend}}\n                                {{depend store_email}}\n                                <p><b>Email:</b> <a href="mailto:{{var store_email}}">{{var store_email}}</a></p>\n                                {{/depend}}\n                            </td>\n                            <td class="expander"></td>\n                        </tr>\n                    </table>\n                </td>\n            </tr>\n        </table>\n        <table class="row">\n            <tr>\n                <td class="full wrapper">\n                    {{block type="catalog/product_new" template="email/catalog/product/new.phtml" products_count="4"\n                    column_count="4" }}\n                </td>\n            </tr>\n        </table>\n        <table class="row">\n            <tr>\n                <td class="full wrapper last">\n                    <table class="columns">\n                        <tr>\n                            <td align="center">\n                                <center>\n                                    <p><a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Unsubscribe</a></p>\n                                </center>\n                            </td>\n                            <td class="expander"></td>\n                        </tr>\n                    </table>\n                </td>\n            </tr>\n        </table>\n    </td>\n</tr>\n</table>\n\n{{template config_path="design/email/footer"}}', NULL, NULL, 2, 'Example Subject', 'Owner', 'owner@example.com', 1, '2015-05-14 13:14:02', '2015-05-14 13:14:03');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `oauth_consumer`
---
 
 DROP TABLE IF EXISTS `oauth_consumer`;
 CREATE TABLE IF NOT EXISTS `oauth_consumer` (
@@ -14917,23 +14398,11 @@ CREATE TABLE IF NOT EXISTS `oauth_consumer` (
   `rejected_callback_url` varchar(255) NOT NULL COMMENT 'Rejected callback URL'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='OAuth Consumers';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `oauth_nonce`
---
-
 DROP TABLE IF EXISTS `oauth_nonce`;
 CREATE TABLE IF NOT EXISTS `oauth_nonce` (
   `nonce` varchar(32) NOT NULL COMMENT 'Nonce String',
   `timestamp` int(10) unsigned NOT NULL COMMENT 'Nonce Timestamp'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='oauth_nonce';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `oauth_token`
---
 
 DROP TABLE IF EXISTS `oauth_token`;
 CREATE TABLE IF NOT EXISTS `oauth_token` (
@@ -14951,12 +14420,6 @@ CREATE TABLE IF NOT EXISTS `oauth_token` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Token creation timestamp'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='OAuth Tokens';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `paypal_cert`
---
-
 DROP TABLE IF EXISTS `paypal_cert`;
 CREATE TABLE IF NOT EXISTS `paypal_cert` (
   `cert_id` smallint(5) unsigned NOT NULL COMMENT 'Cert Id',
@@ -14964,12 +14427,6 @@ CREATE TABLE IF NOT EXISTS `paypal_cert` (
   `content` text COMMENT 'Content',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Paypal Certificate Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `paypal_payment_transaction`
---
 
 DROP TABLE IF EXISTS `paypal_payment_transaction`;
 CREATE TABLE IF NOT EXISTS `paypal_payment_transaction` (
@@ -14979,12 +14436,6 @@ CREATE TABLE IF NOT EXISTS `paypal_payment_transaction` (
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='PayPal Payflow Link Payment Transaction';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `paypal_settlement_report`
---
-
 DROP TABLE IF EXISTS `paypal_settlement_report`;
 CREATE TABLE IF NOT EXISTS `paypal_settlement_report` (
   `report_id` int(10) unsigned NOT NULL COMMENT 'Report Id',
@@ -14993,12 +14444,6 @@ CREATE TABLE IF NOT EXISTS `paypal_settlement_report` (
   `filename` varchar(24) DEFAULT NULL COMMENT 'Filename',
   `last_modified` timestamp NULL DEFAULT NULL COMMENT 'Last Modified'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Paypal Settlement Report Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `paypal_settlement_report_row`
---
 
 DROP TABLE IF EXISTS `paypal_settlement_report_row`;
 CREATE TABLE IF NOT EXISTS `paypal_settlement_report_row` (
@@ -15023,12 +14468,6 @@ CREATE TABLE IF NOT EXISTS `paypal_settlement_report_row` (
   `store_id` varchar(50) DEFAULT NULL COMMENT 'Store ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Paypal Settlement Report Row Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `persistent_session`
---
-
 DROP TABLE IF EXISTS `persistent_session`;
 CREATE TABLE IF NOT EXISTS `persistent_session` (
   `persistent_id` int(10) unsigned NOT NULL COMMENT 'Session id',
@@ -15038,12 +14477,6 @@ CREATE TABLE IF NOT EXISTS `persistent_session` (
   `info` text COMMENT 'Session Data',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Persistent Session';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `poll`
---
 
 DROP TABLE IF EXISTS `poll`;
 CREATE TABLE IF NOT EXISTS `poll` (
@@ -15058,18 +14491,8 @@ CREATE TABLE IF NOT EXISTS `poll` (
   `answers_display` smallint(6) DEFAULT NULL COMMENT 'Answers display'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Poll';
 
---
--- Vypisuji data pro tabulku `poll`
---
-
 INSERT INTO `poll` (`poll_id`, `poll_title`, `votes_count`, `store_id`, `date_posted`, `date_closed`, `active`, `closed`, `answers_display`) VALUES
 (1, 'What is your favorite color', 7, 0, '2015-05-14 13:14:02', NULL, 1, 0, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `poll_answer`
---
 
 DROP TABLE IF EXISTS `poll_answer`;
 CREATE TABLE IF NOT EXISTS `poll_answer` (
@@ -15080,21 +14503,11 @@ CREATE TABLE IF NOT EXISTS `poll_answer` (
   `answer_order` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Answers display'
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Poll Answers';
 
---
--- Vypisuji data pro tabulku `poll_answer`
---
-
 INSERT INTO `poll_answer` (`answer_id`, `poll_id`, `answer_title`, `votes_count`, `answer_order`) VALUES
 (1, 1, 'Green', 4, 0),
 (2, 1, 'Red', 1, 0),
 (3, 1, 'Black', 0, 0),
 (4, 1, 'Magenta', 2, 0);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `poll_store`
---
 
 DROP TABLE IF EXISTS `poll_store`;
 CREATE TABLE IF NOT EXISTS `poll_store` (
@@ -15102,18 +14515,8 @@ CREATE TABLE IF NOT EXISTS `poll_store` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Poll Store';
 
---
--- Vypisuji data pro tabulku `poll_store`
---
-
 INSERT INTO `poll_store` (`poll_id`, `store_id`) VALUES
 (1, 1);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `poll_vote`
---
 
 DROP TABLE IF EXISTS `poll_vote`;
 CREATE TABLE IF NOT EXISTS `poll_vote` (
@@ -15124,12 +14527,6 @@ CREATE TABLE IF NOT EXISTS `poll_vote` (
   `customer_id` int(11) DEFAULT NULL COMMENT 'Customer id',
   `vote_time` timestamp NULL DEFAULT NULL COMMENT 'Date closed'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Poll Vote';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `product_alert_price`
---
 
 DROP TABLE IF EXISTS `product_alert_price`;
 CREATE TABLE IF NOT EXISTS `product_alert_price` (
@@ -15144,12 +14541,6 @@ CREATE TABLE IF NOT EXISTS `product_alert_price` (
   `status` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Product alert status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Product Alert Price';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `product_alert_stock`
---
-
 DROP TABLE IF EXISTS `product_alert_stock`;
 CREATE TABLE IF NOT EXISTS `product_alert_stock` (
   `alert_stock_id` int(10) unsigned NOT NULL COMMENT 'Product alert stock id',
@@ -15162,12 +14553,6 @@ CREATE TABLE IF NOT EXISTS `product_alert_stock` (
   `status` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Product alert status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Product Alert Stock';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `rating`
---
-
 DROP TABLE IF EXISTS `rating`;
 CREATE TABLE IF NOT EXISTS `rating` (
   `rating_id` smallint(5) unsigned NOT NULL COMMENT 'Rating Id',
@@ -15176,20 +14561,10 @@ CREATE TABLE IF NOT EXISTS `rating` (
   `position` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Position On Frontend'
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Ratings';
 
---
--- Vypisuji data pro tabulku `rating`
---
-
 INSERT INTO `rating` (`rating_id`, `entity_id`, `rating_code`, `position`) VALUES
 (1, 1, 'Quality', 0),
 (2, 1, 'Value', 0),
 (3, 1, 'Price', 0);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `rating_entity`
---
 
 DROP TABLE IF EXISTS `rating_entity`;
 CREATE TABLE IF NOT EXISTS `rating_entity` (
@@ -15197,20 +14572,10 @@ CREATE TABLE IF NOT EXISTS `rating_entity` (
   `entity_code` varchar(64) NOT NULL COMMENT 'Entity Code'
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Rating entities';
 
---
--- Vypisuji data pro tabulku `rating_entity`
---
-
 INSERT INTO `rating_entity` (`entity_id`, `entity_code`) VALUES
 (1, 'product'),
 (2, 'product_review'),
 (3, 'review');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `rating_option`
---
 
 DROP TABLE IF EXISTS `rating_option`;
 CREATE TABLE IF NOT EXISTS `rating_option` (
@@ -15220,10 +14585,6 @@ CREATE TABLE IF NOT EXISTS `rating_option` (
   `value` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Option Value',
   `position` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Ration option position on frontend'
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='Rating options';
-
---
--- Vypisuji data pro tabulku `rating_option`
---
 
 INSERT INTO `rating_option` (`option_id`, `rating_id`, `code`, `value`, `position`) VALUES
 (1, 1, '1', 1, 1),
@@ -15242,12 +14603,6 @@ INSERT INTO `rating_option` (`option_id`, `rating_id`, `code`, `value`, `positio
 (14, 3, '4', 4, 4),
 (15, 3, '5', 5, 5);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `rating_option_vote`
---
-
 DROP TABLE IF EXISTS `rating_option_vote`;
 CREATE TABLE IF NOT EXISTS `rating_option_vote` (
   `vote_id` bigint(20) unsigned NOT NULL COMMENT 'Vote id',
@@ -15262,12 +14617,6 @@ CREATE TABLE IF NOT EXISTS `rating_option_vote` (
   `value` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Vote option value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Rating option values';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `rating_option_vote_aggregated`
---
-
 DROP TABLE IF EXISTS `rating_option_vote_aggregated`;
 CREATE TABLE IF NOT EXISTS `rating_option_vote_aggregated` (
   `primary_id` int(11) NOT NULL COMMENT 'Vote aggregation id',
@@ -15280,23 +14629,11 @@ CREATE TABLE IF NOT EXISTS `rating_option_vote_aggregated` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Rating vote aggregated';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `rating_store`
---
-
 DROP TABLE IF EXISTS `rating_store`;
 CREATE TABLE IF NOT EXISTS `rating_store` (
   `rating_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Rating Store';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `rating_title`
---
 
 DROP TABLE IF EXISTS `rating_title`;
 CREATE TABLE IF NOT EXISTS `rating_title` (
@@ -15304,12 +14641,6 @@ CREATE TABLE IF NOT EXISTS `rating_title` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `value` varchar(255) NOT NULL COMMENT 'Rating Label'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Rating Title';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `report_compared_product_index`
---
 
 DROP TABLE IF EXISTS `report_compared_product_index`;
 CREATE TABLE IF NOT EXISTS `report_compared_product_index` (
@@ -15321,10 +14652,6 @@ CREATE TABLE IF NOT EXISTS `report_compared_product_index` (
   `added_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Added At'
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Reports Compared Product Index Table';
 
---
--- Vypisuji data pro tabulku `report_compared_product_index`
---
-
 INSERT INTO `report_compared_product_index` (`index_id`, `visitor_id`, `customer_id`, `product_id`, `store_id`, `added_at`) VALUES
 (1, 3, NULL, 1, 1, '2015-05-15 04:45:06'),
 (2, 3, NULL, 10, 1, '2015-05-15 06:27:59'),
@@ -15332,12 +14659,6 @@ INSERT INTO `report_compared_product_index` (`index_id`, `visitor_id`, `customer
 (4, 687, NULL, 14, 1, '2015-05-19 11:26:03'),
 (5, 743, NULL, 14, 1, '2015-05-20 05:41:54'),
 (6, 743, NULL, 10, 1, '2015-05-20 05:42:01');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `report_event`
---
 
 DROP TABLE IF EXISTS `report_event`;
 CREATE TABLE IF NOT EXISTS `report_event` (
@@ -15349,10 +14670,6 @@ CREATE TABLE IF NOT EXISTS `report_event` (
   `subtype` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Subtype',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id'
 ) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8 COMMENT='Reports Event Table';
-
---
--- Vypisuji data pro tabulku `report_event`
---
 
 INSERT INTO `report_event` (`event_id`, `logged_at`, `event_type_id`, `object_id`, `subject_id`, `subtype`, `store_id`) VALUES
 (1, '2015-05-15 04:45:01', 1, 1, 3, 1, 1),
@@ -15431,22 +14748,12 @@ INSERT INTO `report_event` (`event_id`, `logged_at`, `event_type_id`, `object_id
 (74, '2015-05-27 11:37:20', 1, 7, 1326, 1, 1),
 (75, '2015-05-27 11:43:59', 4, 11, 1290, 1, 1);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `report_event_types`
---
-
 DROP TABLE IF EXISTS `report_event_types`;
 CREATE TABLE IF NOT EXISTS `report_event_types` (
   `event_type_id` smallint(5) unsigned NOT NULL COMMENT 'Event Type Id',
   `event_name` varchar(64) NOT NULL COMMENT 'Event Name',
   `customer_login` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Customer Login'
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Reports Event Type Table';
-
---
--- Vypisuji data pro tabulku `report_event_types`
---
 
 INSERT INTO `report_event_types` (`event_type_id`, `event_name`, `customer_login`) VALUES
 (1, 'catalog_product_view', 0),
@@ -15455,12 +14762,6 @@ INSERT INTO `report_event_types` (`event_type_id`, `event_name`, `customer_login
 (4, 'checkout_cart_add_product', 0),
 (5, 'wishlist_add_product', 0),
 (6, 'wishlist_share', 0);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `report_viewed_product_aggregated_daily`
---
 
 DROP TABLE IF EXISTS `report_viewed_product_aggregated_daily`;
 CREATE TABLE IF NOT EXISTS `report_viewed_product_aggregated_daily` (
@@ -15474,12 +14775,6 @@ CREATE TABLE IF NOT EXISTS `report_viewed_product_aggregated_daily` (
   `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Most Viewed Products Aggregated Daily';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `report_viewed_product_aggregated_monthly`
---
-
 DROP TABLE IF EXISTS `report_viewed_product_aggregated_monthly`;
 CREATE TABLE IF NOT EXISTS `report_viewed_product_aggregated_monthly` (
   `id` int(10) unsigned NOT NULL COMMENT 'Id',
@@ -15491,12 +14786,6 @@ CREATE TABLE IF NOT EXISTS `report_viewed_product_aggregated_monthly` (
   `views_num` int(11) NOT NULL DEFAULT '0' COMMENT 'Number of Views',
   `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Most Viewed Products Aggregated Monthly';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `report_viewed_product_aggregated_yearly`
---
 
 DROP TABLE IF EXISTS `report_viewed_product_aggregated_yearly`;
 CREATE TABLE IF NOT EXISTS `report_viewed_product_aggregated_yearly` (
@@ -15510,12 +14799,6 @@ CREATE TABLE IF NOT EXISTS `report_viewed_product_aggregated_yearly` (
   `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Most Viewed Products Aggregated Yearly';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `report_viewed_product_index`
---
-
 DROP TABLE IF EXISTS `report_viewed_product_index`;
 CREATE TABLE IF NOT EXISTS `report_viewed_product_index` (
   `index_id` bigint(20) unsigned NOT NULL COMMENT 'Index Id',
@@ -15525,10 +14808,6 @@ CREATE TABLE IF NOT EXISTS `report_viewed_product_index` (
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `added_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Added At'
 ) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8 COMMENT='Reports Viewed Product Index Table';
-
---
--- Vypisuji data pro tabulku `report_viewed_product_index`
---
 
 INSERT INTO `report_viewed_product_index` (`index_id`, `visitor_id`, `customer_id`, `product_id`, `store_id`, `added_at`) VALUES
 (1, 3, NULL, 1, 1, '2015-05-15 06:14:51'),
@@ -15571,12 +14850,6 @@ INSERT INTO `report_viewed_product_index` (`index_id`, `visitor_id`, `customer_i
 (58, 1290, NULL, 11, 1, '2015-05-27 10:36:26'),
 (60, 1326, NULL, 7, 1, '2015-05-27 11:37:20');
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `review`
---
-
 DROP TABLE IF EXISTS `review`;
 CREATE TABLE IF NOT EXISTS `review` (
   `review_id` bigint(20) unsigned NOT NULL COMMENT 'Review id',
@@ -15585,12 +14858,6 @@ CREATE TABLE IF NOT EXISTS `review` (
   `entity_pk_value` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product id',
   `status_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Status code'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Review base information';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `review_detail`
---
 
 DROP TABLE IF EXISTS `review_detail`;
 CREATE TABLE IF NOT EXISTS `review_detail` (
@@ -15603,32 +14870,16 @@ CREATE TABLE IF NOT EXISTS `review_detail` (
   `customer_id` int(10) unsigned DEFAULT NULL COMMENT 'Customer Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Review detail information';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `review_entity`
---
-
 DROP TABLE IF EXISTS `review_entity`;
 CREATE TABLE IF NOT EXISTS `review_entity` (
   `entity_id` smallint(5) unsigned NOT NULL COMMENT 'Review entity id',
   `entity_code` varchar(32) NOT NULL COMMENT 'Review entity code'
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Review entities';
 
---
--- Vypisuji data pro tabulku `review_entity`
---
-
 INSERT INTO `review_entity` (`entity_id`, `entity_code`) VALUES
 (1, 'product'),
 (2, 'customer'),
 (3, 'category');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `review_entity_summary`
---
 
 DROP TABLE IF EXISTS `review_entity_summary`;
 CREATE TABLE IF NOT EXISTS `review_entity_summary` (
@@ -15640,44 +14891,22 @@ CREATE TABLE IF NOT EXISTS `review_entity_summary` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Review aggregates';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `review_status`
---
-
 DROP TABLE IF EXISTS `review_status`;
 CREATE TABLE IF NOT EXISTS `review_status` (
   `status_id` smallint(5) unsigned NOT NULL COMMENT 'Status id',
   `status_code` varchar(32) NOT NULL COMMENT 'Status code'
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Review statuses';
 
---
--- Vypisuji data pro tabulku `review_status`
---
-
 INSERT INTO `review_status` (`status_id`, `status_code`) VALUES
 (1, 'Approved'),
 (2, 'Pending'),
 (3, 'Not Approved');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `review_store`
---
 
 DROP TABLE IF EXISTS `review_store`;
 CREATE TABLE IF NOT EXISTS `review_store` (
   `review_id` bigint(20) unsigned NOT NULL COMMENT 'Review Id',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Review Store';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `salesrule`
---
 
 DROP TABLE IF EXISTS `salesrule`;
 CREATE TABLE IF NOT EXISTS `salesrule` (
@@ -15707,12 +14936,6 @@ CREATE TABLE IF NOT EXISTS `salesrule` (
   `uses_per_coupon` int(11) NOT NULL DEFAULT '0' COMMENT 'Uses Per Coupon'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Salesrule';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `salesrule_coupon`
---
-
 DROP TABLE IF EXISTS `salesrule_coupon`;
 CREATE TABLE IF NOT EXISTS `salesrule_coupon` (
   `coupon_id` int(10) unsigned NOT NULL COMMENT 'Coupon Id',
@@ -15727,24 +14950,12 @@ CREATE TABLE IF NOT EXISTS `salesrule_coupon` (
   `type` smallint(6) DEFAULT '0' COMMENT 'Coupon Code Type'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Salesrule Coupon';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `salesrule_coupon_usage`
---
-
 DROP TABLE IF EXISTS `salesrule_coupon_usage`;
 CREATE TABLE IF NOT EXISTS `salesrule_coupon_usage` (
   `coupon_id` int(10) unsigned NOT NULL COMMENT 'Coupon Id',
   `customer_id` int(10) unsigned NOT NULL COMMENT 'Customer Id',
   `times_used` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Times Used'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Salesrule Coupon Usage';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `salesrule_customer`
---
 
 DROP TABLE IF EXISTS `salesrule_customer`;
 CREATE TABLE IF NOT EXISTS `salesrule_customer` (
@@ -15754,23 +14965,11 @@ CREATE TABLE IF NOT EXISTS `salesrule_customer` (
   `times_used` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Times Used'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Salesrule Customer';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `salesrule_customer_group`
---
-
 DROP TABLE IF EXISTS `salesrule_customer_group`;
 CREATE TABLE IF NOT EXISTS `salesrule_customer_group` (
   `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule Id',
   `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Rules To Customer Groups Relations';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `salesrule_label`
---
 
 DROP TABLE IF EXISTS `salesrule_label`;
 CREATE TABLE IF NOT EXISTS `salesrule_label` (
@@ -15780,12 +14979,6 @@ CREATE TABLE IF NOT EXISTS `salesrule_label` (
   `label` varchar(255) DEFAULT NULL COMMENT 'Label'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Salesrule Label';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `salesrule_product_attribute`
---
-
 DROP TABLE IF EXISTS `salesrule_product_attribute`;
 CREATE TABLE IF NOT EXISTS `salesrule_product_attribute` (
   `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule Id',
@@ -15794,23 +14987,11 @@ CREATE TABLE IF NOT EXISTS `salesrule_product_attribute` (
   `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Salesrule Product Attribute';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `salesrule_website`
---
-
 DROP TABLE IF EXISTS `salesrule_website`;
 CREATE TABLE IF NOT EXISTS `salesrule_website` (
   `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule Id',
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Rules To Websites Relations';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_bestsellers_aggregated_daily`
---
 
 DROP TABLE IF EXISTS `sales_bestsellers_aggregated_daily`;
 CREATE TABLE IF NOT EXISTS `sales_bestsellers_aggregated_daily` (
@@ -15824,12 +15005,6 @@ CREATE TABLE IF NOT EXISTS `sales_bestsellers_aggregated_daily` (
   `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Bestsellers Aggregated Daily';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_bestsellers_aggregated_monthly`
---
-
 DROP TABLE IF EXISTS `sales_bestsellers_aggregated_monthly`;
 CREATE TABLE IF NOT EXISTS `sales_bestsellers_aggregated_monthly` (
   `id` int(10) unsigned NOT NULL COMMENT 'Id',
@@ -15842,12 +15017,6 @@ CREATE TABLE IF NOT EXISTS `sales_bestsellers_aggregated_monthly` (
   `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Bestsellers Aggregated Monthly';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_bestsellers_aggregated_yearly`
---
-
 DROP TABLE IF EXISTS `sales_bestsellers_aggregated_yearly`;
 CREATE TABLE IF NOT EXISTS `sales_bestsellers_aggregated_yearly` (
   `id` int(10) unsigned NOT NULL COMMENT 'Id',
@@ -15859,12 +15028,6 @@ CREATE TABLE IF NOT EXISTS `sales_bestsellers_aggregated_yearly` (
   `qty_ordered` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Qty Ordered',
   `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Bestsellers Aggregated Yearly';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_billing_agreement`
---
 
 DROP TABLE IF EXISTS `sales_billing_agreement`;
 CREATE TABLE IF NOT EXISTS `sales_billing_agreement` (
@@ -15879,23 +15042,11 @@ CREATE TABLE IF NOT EXISTS `sales_billing_agreement` (
   `agreement_label` varchar(255) DEFAULT NULL COMMENT 'Agreement Label'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Billing Agreement';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_billing_agreement_order`
---
-
 DROP TABLE IF EXISTS `sales_billing_agreement_order`;
 CREATE TABLE IF NOT EXISTS `sales_billing_agreement_order` (
   `agreement_id` int(10) unsigned NOT NULL COMMENT 'Agreement Id',
   `order_id` int(10) unsigned NOT NULL COMMENT 'Order Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Billing Agreement Order';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_creditmemo`
---
 
 DROP TABLE IF EXISTS `sales_flat_creditmemo`;
 CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo` (
@@ -15949,12 +15100,6 @@ CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo` (
   `discount_description` varchar(255) DEFAULT NULL COMMENT 'Discount Description'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Creditmemo';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_creditmemo_comment`
---
-
 DROP TABLE IF EXISTS `sales_flat_creditmemo_comment`;
 CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo_comment` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
@@ -15964,12 +15109,6 @@ CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo_comment` (
   `comment` text COMMENT 'Comment',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Creditmemo Comment';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_creditmemo_grid`
---
 
 DROP TABLE IF EXISTS `sales_flat_creditmemo_grid`;
 CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo_grid` (
@@ -15995,12 +15134,6 @@ CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo_grid` (
   `order_created_at` timestamp NULL DEFAULT NULL COMMENT 'Order Created At',
   `billing_name` varchar(255) DEFAULT NULL COMMENT 'Billing Name'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Creditmemo Grid';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_creditmemo_item`
---
 
 DROP TABLE IF EXISTS `sales_flat_creditmemo_item`;
 CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo_item` (
@@ -16038,12 +15171,6 @@ CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo_item` (
   `weee_tax_applied_amount` decimal(12,4) DEFAULT NULL COMMENT 'Weee Tax Applied Amount',
   `weee_tax_applied_row_amount` decimal(12,4) DEFAULT NULL COMMENT 'Weee Tax Applied Row Amount'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Creditmemo Item';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_invoice`
---
 
 DROP TABLE IF EXISTS `sales_flat_invoice`;
 CREATE TABLE IF NOT EXISTS `sales_flat_invoice` (
@@ -16093,18 +15220,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_invoice` (
   `discount_description` varchar(255) DEFAULT NULL COMMENT 'Discount Description'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice';
 
---
--- Vypisuji data pro tabulku `sales_flat_invoice`
---
-
 INSERT INTO `sales_flat_invoice` (`entity_id`, `store_id`, `base_grand_total`, `shipping_tax_amount`, `tax_amount`, `base_tax_amount`, `store_to_order_rate`, `base_shipping_tax_amount`, `base_discount_amount`, `base_to_order_rate`, `grand_total`, `shipping_amount`, `subtotal_incl_tax`, `base_subtotal_incl_tax`, `store_to_base_rate`, `base_shipping_amount`, `total_qty`, `base_to_global_rate`, `subtotal`, `base_subtotal`, `discount_amount`, `billing_address_id`, `is_used_for_refund`, `order_id`, `email_sent`, `can_void_flag`, `state`, `shipping_address_id`, `store_currency_code`, `transaction_id`, `order_currency_code`, `base_currency_code`, `global_currency_code`, `increment_id`, `created_at`, `updated_at`, `hidden_tax_amount`, `base_hidden_tax_amount`, `shipping_hidden_tax_amount`, `base_shipping_hidden_tax_amnt`, `shipping_incl_tax`, `base_shipping_incl_tax`, `base_total_refunded`, `discount_description`) VALUES
 (1, 1, '560.0000', '0.0000', '0.0000', '0.0000', '1.0000', '0.0000', '0.0000', '1.0000', '560.0000', '5.0000', '555.0000', '555.0000', '1.0000', '5.0000', '1.0000', '1.0000', '555.0000', '555.0000', '0.0000', 3, NULL, 2, 1, 0, 2, 4, 'EUR', NULL, 'EUR', 'EUR', 'EUR', '100000001', '2015-05-27 10:47:45', '2015-05-27 10:47:45', '0.0000', '0.0000', '0.0000', NULL, '5.0000', '5.0000', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_invoice_comment`
---
 
 DROP TABLE IF EXISTS `sales_flat_invoice_comment`;
 CREATE TABLE IF NOT EXISTS `sales_flat_invoice_comment` (
@@ -16116,18 +15233,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_invoice_comment` (
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice Comment';
 
---
--- Vypisuji data pro tabulku `sales_flat_invoice_comment`
---
-
 INSERT INTO `sales_flat_invoice_comment` (`entity_id`, `parent_id`, `is_customer_notified`, `is_visible_on_front`, `comment`, `created_at`) VALUES
 (1, 1, 1, 0, 'An invoice', '2015-05-27 10:47:45');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_invoice_grid`
---
 
 DROP TABLE IF EXISTS `sales_flat_invoice_grid`;
 CREATE TABLE IF NOT EXISTS `sales_flat_invoice_grid` (
@@ -16148,18 +15255,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_invoice_grid` (
   `billing_name` varchar(255) DEFAULT NULL COMMENT 'Billing Name'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice Grid';
 
---
--- Vypisuji data pro tabulku `sales_flat_invoice_grid`
---
-
 INSERT INTO `sales_flat_invoice_grid` (`entity_id`, `store_id`, `base_grand_total`, `grand_total`, `order_id`, `state`, `store_currency_code`, `order_currency_code`, `base_currency_code`, `global_currency_code`, `increment_id`, `order_increment_id`, `created_at`, `order_created_at`, `billing_name`) VALUES
 (1, 1, '560.0000', '560.0000', 2, 2, 'EUR', 'EUR', 'EUR', 'EUR', '100000001', '100000002', '2015-05-27 10:47:45', '2015-05-27 10:45:36', 'Jana Mathauserova');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_invoice_item`
---
 
 DROP TABLE IF EXISTS `sales_flat_invoice_item`;
 CREATE TABLE IF NOT EXISTS `sales_flat_invoice_item` (
@@ -16198,18 +15295,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_invoice_item` (
   `base_weee_tax_row_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Row Disposition'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice Item';
 
---
--- Vypisuji data pro tabulku `sales_flat_invoice_item`
---
-
 INSERT INTO `sales_flat_invoice_item` (`entity_id`, `parent_id`, `base_price`, `tax_amount`, `base_row_total`, `discount_amount`, `row_total`, `base_discount_amount`, `price_incl_tax`, `base_tax_amount`, `base_price_incl_tax`, `qty`, `base_cost`, `price`, `base_row_total_incl_tax`, `row_total_incl_tax`, `product_id`, `order_item_id`, `additional_data`, `description`, `sku`, `name`, `hidden_tax_amount`, `base_hidden_tax_amount`, `base_weee_tax_applied_amount`, `base_weee_tax_applied_row_amnt`, `weee_tax_applied_amount`, `weee_tax_applied_row_amount`, `weee_tax_applied`, `weee_tax_disposition`, `weee_tax_row_disposition`, `base_weee_tax_disposition`, `base_weee_tax_row_disposition`) VALUES
 (1, 1, '555.0000', '0.0000', '555.0000', NULL, '555.0000', NULL, '555.0000', '0.0000', '555.0000', '1.0000', NULL, '555.0000', '555.0000', '555.0000', 13, 2, NULL, NULL, '31', 'Tablet A', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', '0.0000');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_order`
---
 
 DROP TABLE IF EXISTS `sales_flat_order`;
 CREATE TABLE IF NOT EXISTS `sales_flat_order` (
@@ -16352,19 +15439,9 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order` (
   `gift_message_id` int(11) DEFAULT NULL COMMENT 'Gift Message Id'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order';
 
---
--- Vypisuji data pro tabulku `sales_flat_order`
---
-
 INSERT INTO `sales_flat_order` (`entity_id`, `state`, `status`, `coupon_code`, `protect_code`, `shipping_description`, `is_virtual`, `store_id`, `customer_id`, `base_discount_amount`, `base_discount_canceled`, `base_discount_invoiced`, `base_discount_refunded`, `base_grand_total`, `base_shipping_amount`, `base_shipping_canceled`, `base_shipping_invoiced`, `base_shipping_refunded`, `base_shipping_tax_amount`, `base_shipping_tax_refunded`, `base_subtotal`, `base_subtotal_canceled`, `base_subtotal_invoiced`, `base_subtotal_refunded`, `base_tax_amount`, `base_tax_canceled`, `base_tax_invoiced`, `base_tax_refunded`, `base_to_global_rate`, `base_to_order_rate`, `base_total_canceled`, `base_total_invoiced`, `base_total_invoiced_cost`, `base_total_offline_refunded`, `base_total_online_refunded`, `base_total_paid`, `base_total_qty_ordered`, `base_total_refunded`, `discount_amount`, `discount_canceled`, `discount_invoiced`, `discount_refunded`, `grand_total`, `shipping_amount`, `shipping_canceled`, `shipping_invoiced`, `shipping_refunded`, `shipping_tax_amount`, `shipping_tax_refunded`, `store_to_base_rate`, `store_to_order_rate`, `subtotal`, `subtotal_canceled`, `subtotal_invoiced`, `subtotal_refunded`, `tax_amount`, `tax_canceled`, `tax_invoiced`, `tax_refunded`, `total_canceled`, `total_invoiced`, `total_offline_refunded`, `total_online_refunded`, `total_paid`, `total_qty_ordered`, `total_refunded`, `can_ship_partially`, `can_ship_partially_item`, `customer_is_guest`, `customer_note_notify`, `billing_address_id`, `customer_group_id`, `edit_increment`, `email_sent`, `forced_shipment_with_invoice`, `payment_auth_expiration`, `quote_address_id`, `quote_id`, `shipping_address_id`, `adjustment_negative`, `adjustment_positive`, `base_adjustment_negative`, `base_adjustment_positive`, `base_shipping_discount_amount`, `base_subtotal_incl_tax`, `base_total_due`, `payment_authorization_amount`, `shipping_discount_amount`, `subtotal_incl_tax`, `total_due`, `weight`, `customer_dob`, `increment_id`, `applied_rule_ids`, `base_currency_code`, `customer_email`, `customer_firstname`, `customer_lastname`, `customer_middlename`, `customer_prefix`, `customer_suffix`, `customer_taxvat`, `discount_description`, `ext_customer_id`, `ext_order_id`, `global_currency_code`, `hold_before_state`, `hold_before_status`, `order_currency_code`, `original_increment_id`, `relation_child_id`, `relation_child_real_id`, `relation_parent_id`, `relation_parent_real_id`, `remote_ip`, `shipping_method`, `store_currency_code`, `store_name`, `x_forwarded_for`, `customer_note`, `created_at`, `updated_at`, `total_item_count`, `customer_gender`, `hidden_tax_amount`, `base_hidden_tax_amount`, `shipping_hidden_tax_amount`, `base_shipping_hidden_tax_amnt`, `hidden_tax_invoiced`, `base_hidden_tax_invoiced`, `hidden_tax_refunded`, `base_hidden_tax_refunded`, `shipping_incl_tax`, `base_shipping_incl_tax`, `coupon_rule_name`, `paypal_ipn_customer_notified`, `gift_message_id`) VALUES
 (1, 'new', 'pending', NULL, '0216e7', 'Flat Rate - Fixed', 0, 1, NULL, '0.0000', NULL, NULL, NULL, '12320.0000', '110.0000', NULL, NULL, NULL, '0.0000', NULL, '12210.0000', NULL, NULL, NULL, '0.0000', NULL, NULL, NULL, '1.0000', '1.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0.0000', NULL, NULL, NULL, '12320.0000', '110.0000', NULL, NULL, NULL, '0.0000', NULL, '1.0000', '1.0000', '12210.0000', NULL, NULL, NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '22.0000', NULL, NULL, NULL, 1, 1, 1, 0, NULL, 1, NULL, NULL, NULL, 1, 2, NULL, NULL, NULL, NULL, '0.0000', '12210.0000', NULL, NULL, '0.0000', '12210.0000', NULL, '2200.0000', NULL, '100000001', NULL, 'EUR', 'aaa@gmail.com', 'aa', 'aaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'EUR', NULL, NULL, 'EUR', NULL, NULL, NULL, NULL, NULL, '::1', 'flatrate_flatrate', 'EUR', 'Main Website\nMain Website Store\nDefault Store View', NULL, NULL, '2015-05-15 07:59:12', '2015-05-15 07:59:12', 1, NULL, '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, '110.0000', '110.0000', NULL, 0, NULL),
 (2, 'complete', 'complete', NULL, 'eda1d6', 'Flat Rate - Fixed', 0, 1, NULL, '0.0000', NULL, '0.0000', NULL, '560.0000', '5.0000', NULL, '5.0000', NULL, '0.0000', NULL, '555.0000', NULL, '555.0000', NULL, '0.0000', NULL, '0.0000', NULL, '1.0000', '1.0000', NULL, '560.0000', '0.0000', NULL, NULL, '560.0000', NULL, NULL, '0.0000', NULL, '0.0000', NULL, '560.0000', '5.0000', NULL, '5.0000', NULL, '0.0000', NULL, '1.0000', '1.0000', '555.0000', NULL, '555.0000', NULL, '0.0000', NULL, '0.0000', NULL, NULL, '560.0000', NULL, NULL, '560.0000', '1.0000', NULL, NULL, NULL, 1, 0, 3, 0, NULL, 1, NULL, NULL, NULL, 6, 4, NULL, NULL, NULL, NULL, '0.0000', '555.0000', '0.0000', NULL, '0.0000', '555.0000', '0.0000', '100.0000', NULL, '100000002', NULL, 'EUR', 'jana.mathauserova@ubk.cz', 'Jana', 'Mathauserova', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'EUR', NULL, NULL, 'EUR', NULL, NULL, NULL, NULL, NULL, '::1', 'flatrate_flatrate', 'EUR', 'Main Website\nMain Website Store\nDefault Store View', NULL, NULL, '2015-05-27 10:45:36', '2015-05-27 10:48:33', 1, NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, '5.0000', '5.0000', NULL, 0, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_order_address`
---
 
 DROP TABLE IF EXISTS `sales_flat_order_address`;
 CREATE TABLE IF NOT EXISTS `sales_flat_order_address` (
@@ -16396,21 +15473,11 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order_address` (
   `vat_request_success` smallint(6) DEFAULT NULL COMMENT 'Vat Request Success'
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Address';
 
---
--- Vypisuji data pro tabulku `sales_flat_order_address`
---
-
 INSERT INTO `sales_flat_order_address` (`entity_id`, `parent_id`, `customer_address_id`, `quote_address_id`, `region_id`, `customer_id`, `fax`, `region`, `postcode`, `lastname`, `street`, `city`, `email`, `telephone`, `country_id`, `firstname`, `address_type`, `prefix`, `middlename`, `suffix`, `company`, `vat_id`, `vat_is_valid`, `vat_request_id`, `vat_request_date`, `vat_request_success`) VALUES
 (1, 1, NULL, NULL, 1, NULL, NULL, 'Alabama', '78958', 'aaa', 'romg', 'barelw', 'aaa@gmail.com', '7896354123', 'US', 'aa', 'billing', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (2, 1, NULL, NULL, 1, NULL, NULL, 'Alabama', '78958', 'aaa', 'romg', 'barelw', 'aaa@gmail.com', '7896354123', 'US', 'aa', 'shipping', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (3, 2, NULL, NULL, NULL, NULL, NULL, NULL, '30100', 'Mathauserova', 'Chodov 158', 'Chodov', 'jana.mathauserova@ubk.cz', '123 456 789', 'CZ', 'Jana', 'billing', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (4, 2, NULL, NULL, NULL, NULL, NULL, NULL, '30100', 'Mathauserova', 'Chodov 158', 'Chodov', 'jana.mathauserova@ubk.cz', '123 456 789', 'CZ', 'Jana', 'shipping', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_order_grid`
---
 
 DROP TABLE IF EXISTS `sales_flat_order_grid`;
 CREATE TABLE IF NOT EXISTS `sales_flat_order_grid` (
@@ -16432,19 +15499,9 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order_grid` (
   `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Grid';
 
---
--- Vypisuji data pro tabulku `sales_flat_order_grid`
---
-
 INSERT INTO `sales_flat_order_grid` (`entity_id`, `status`, `store_id`, `store_name`, `customer_id`, `base_grand_total`, `base_total_paid`, `grand_total`, `total_paid`, `increment_id`, `base_currency_code`, `order_currency_code`, `shipping_name`, `billing_name`, `created_at`, `updated_at`) VALUES
 (1, 'pending', 1, 'Main Website\nMain Website Store\nDefault Store View', NULL, '12320.0000', NULL, '12320.0000', NULL, '100000001', 'EUR', 'EUR', 'aa aaa', 'aa aaa', '2015-05-15 07:59:12', '2015-05-15 07:59:12'),
 (2, 'complete', 1, 'Main Website\nMain Website Store\nDefault Store View', NULL, '560.0000', '560.0000', '560.0000', '560.0000', '100000002', 'EUR', 'EUR', 'Jana Mathauserova', 'Jana Mathauserova', '2015-05-27 10:45:36', '2015-05-27 10:48:33');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_order_item`
---
 
 DROP TABLE IF EXISTS `sales_flat_order_item`;
 CREATE TABLE IF NOT EXISTS `sales_flat_order_item` (
@@ -16531,19 +15588,9 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order_item` (
   `base_weee_tax_row_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Row Disposition'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Item';
 
---
--- Vypisuji data pro tabulku `sales_flat_order_item`
---
-
 INSERT INTO `sales_flat_order_item` (`item_id`, `order_id`, `parent_item_id`, `quote_item_id`, `store_id`, `created_at`, `updated_at`, `product_id`, `product_type`, `product_options`, `weight`, `is_virtual`, `sku`, `name`, `description`, `applied_rule_ids`, `additional_data`, `free_shipping`, `is_qty_decimal`, `no_discount`, `qty_backordered`, `qty_canceled`, `qty_invoiced`, `qty_ordered`, `qty_refunded`, `qty_shipped`, `base_cost`, `price`, `base_price`, `original_price`, `base_original_price`, `tax_percent`, `tax_amount`, `base_tax_amount`, `tax_invoiced`, `base_tax_invoiced`, `discount_percent`, `discount_amount`, `base_discount_amount`, `discount_invoiced`, `base_discount_invoiced`, `amount_refunded`, `base_amount_refunded`, `row_total`, `base_row_total`, `row_invoiced`, `base_row_invoiced`, `row_weight`, `base_tax_before_discount`, `tax_before_discount`, `ext_order_item_id`, `locked_do_invoice`, `locked_do_ship`, `price_incl_tax`, `base_price_incl_tax`, `row_total_incl_tax`, `base_row_total_incl_tax`, `hidden_tax_amount`, `base_hidden_tax_amount`, `hidden_tax_invoiced`, `base_hidden_tax_invoiced`, `hidden_tax_refunded`, `base_hidden_tax_refunded`, `is_nominal`, `tax_canceled`, `hidden_tax_canceled`, `tax_refunded`, `base_tax_refunded`, `discount_refunded`, `base_discount_refunded`, `gift_message_id`, `gift_message_available`, `base_weee_tax_applied_amount`, `base_weee_tax_applied_row_amnt`, `weee_tax_applied_amount`, `weee_tax_applied_row_amount`, `weee_tax_applied`, `weee_tax_disposition`, `weee_tax_row_disposition`, `base_weee_tax_disposition`, `base_weee_tax_row_disposition`) VALUES
 (1, 1, NULL, 1, 1, '2015-05-15 07:59:12', '2015-05-15 07:59:12', 15, 'simple', 'a:1:{s:15:"info_buyRequest";a:5:{s:4:"uenc";s:60:"aHR0cDovL2xvY2FsaG9zdC9tYWdlMi90YWJsZXRzL3RhYmxldC1jLmh0bWw,";s:7:"product";s:2:"15";s:8:"form_key";s:16:"BjEU5aIfRkYHTxBK";s:15:"related_product";s:0:"";s:3:"qty";s:2:"22";}}', '100.0000', 0, '33', 'Tablet C', NULL, NULL, NULL, 0, 0, 0, NULL, '0.0000', '0.0000', '22.0000', '0.0000', '0.0000', NULL, '555.0000', '555.0000', '555.0000', '555.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '12210.0000', '12210.0000', '0.0000', '0.0000', '2200.0000', NULL, NULL, NULL, NULL, NULL, '555.0000', '555.0000', '12210.0000', '12210.0000', '0.0000', '0.0000', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', '0.0000'),
 (2, 2, NULL, 7, 1, '2015-05-27 10:45:36', '2015-05-27 10:48:33', 13, 'simple', 'a:1:{s:15:"info_buyRequest";a:4:{s:4:"uenc";s:48:"aHR0cDovL2xvY2FsaG9zdC9tYWdlMi90YWJsZXRzLmh0bWw,";s:7:"product";s:2:"13";s:8:"form_key";s:16:"InYLc0l0USf1MI7y";s:3:"qty";i:1;}}', '100.0000', 0, '31', 'Tablet A', NULL, NULL, NULL, 0, 0, 0, NULL, '0.0000', '1.0000', '1.0000', '0.0000', '1.0000', NULL, '555.0000', '555.0000', '555.0000', '555.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '555.0000', '555.0000', '555.0000', '555.0000', '100.0000', NULL, NULL, NULL, NULL, NULL, '555.0000', '555.0000', '555.0000', '555.0000', '0.0000', '0.0000', '0.0000', '0.0000', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', '0.0000');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_order_payment`
---
 
 DROP TABLE IF EXISTS `sales_flat_order_payment`;
 CREATE TABLE IF NOT EXISTS `sales_flat_order_payment` (
@@ -16604,19 +15651,9 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order_payment` (
   `additional_information` text COMMENT 'Additional Information'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Payment';
 
---
--- Vypisuji data pro tabulku `sales_flat_order_payment`
---
-
 INSERT INTO `sales_flat_order_payment` (`entity_id`, `parent_id`, `base_shipping_captured`, `shipping_captured`, `amount_refunded`, `base_amount_paid`, `amount_canceled`, `base_amount_authorized`, `base_amount_paid_online`, `base_amount_refunded_online`, `base_shipping_amount`, `shipping_amount`, `amount_paid`, `amount_authorized`, `base_amount_ordered`, `base_shipping_refunded`, `shipping_refunded`, `base_amount_refunded`, `amount_ordered`, `base_amount_canceled`, `quote_payment_id`, `additional_data`, `cc_exp_month`, `cc_ss_start_year`, `echeck_bank_name`, `method`, `cc_debug_request_body`, `cc_secure_verify`, `protection_eligibility`, `cc_approval`, `cc_last4`, `cc_status_description`, `echeck_type`, `cc_debug_response_serialized`, `cc_ss_start_month`, `echeck_account_type`, `last_trans_id`, `cc_cid_status`, `cc_owner`, `cc_type`, `po_number`, `cc_exp_year`, `cc_status`, `echeck_routing_number`, `account_status`, `anet_trans_method`, `cc_debug_response_body`, `cc_ss_issue`, `echeck_account_name`, `cc_avs_status`, `cc_number_enc`, `cc_trans_id`, `paybox_request_number`, `address_status`, `additional_information`) VALUES
 (1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '110.0000', '110.0000', NULL, NULL, '12320.0000', NULL, NULL, NULL, '12320.0000', NULL, NULL, NULL, '0', '0', NULL, 'checkmo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (2, 2, '5.0000', '5.0000', NULL, '560.0000', NULL, NULL, NULL, NULL, '5.0000', '5.0000', '560.0000', NULL, '560.0000', NULL, NULL, NULL, '560.0000', NULL, NULL, NULL, '0', '0', NULL, 'checkmo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_order_status_history`
---
 
 DROP TABLE IF EXISTS `sales_flat_order_status_history`;
 CREATE TABLE IF NOT EXISTS `sales_flat_order_status_history` (
@@ -16630,10 +15667,6 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order_status_history` (
   `entity_name` varchar(32) DEFAULT NULL COMMENT 'Shows what entity history is bind to.'
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Status History';
 
---
--- Vypisuji data pro tabulku `sales_flat_order_status_history`
---
-
 INSERT INTO `sales_flat_order_status_history` (`entity_id`, `parent_id`, `is_customer_notified`, `is_visible_on_front`, `comment`, `status`, `created_at`, `entity_name`) VALUES
 (1, 1, 1, 0, NULL, 'pending', '2015-05-15 07:59:12', 'order'),
 (2, 2, 1, 0, NULL, 'pending', '2015-05-27 10:45:36', 'order'),
@@ -16641,12 +15674,6 @@ INSERT INTO `sales_flat_order_status_history` (`entity_id`, `parent_id`, `is_cus
 (4, 2, 1, 0, 'hey', 'pending', '2015-05-27 10:47:16', 'order'),
 (5, 2, 1, 0, NULL, 'processing', '2015-05-27 10:47:45', 'invoice'),
 (6, 2, 0, 0, NULL, 'complete', '2015-05-27 10:48:33', 'shipment');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_quote`
---
 
 DROP TABLE IF EXISTS `sales_flat_quote`;
 CREATE TABLE IF NOT EXISTS `sales_flat_quote` (
@@ -16703,10 +15730,6 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote` (
   `is_persistent` smallint(5) unsigned DEFAULT '0' COMMENT 'Is Quote Persistent'
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote';
 
---
--- Vypisuji data pro tabulku `sales_flat_quote`
---
-
 INSERT INTO `sales_flat_quote` (`entity_id`, `store_id`, `created_at`, `updated_at`, `converted_at`, `is_active`, `is_virtual`, `is_multi_shipping`, `items_count`, `items_qty`, `orig_order_id`, `store_to_base_rate`, `store_to_quote_rate`, `base_currency_code`, `store_currency_code`, `quote_currency_code`, `grand_total`, `base_grand_total`, `checkout_method`, `customer_id`, `customer_tax_class_id`, `customer_group_id`, `customer_email`, `customer_prefix`, `customer_firstname`, `customer_middlename`, `customer_lastname`, `customer_suffix`, `customer_dob`, `customer_note`, `customer_note_notify`, `customer_is_guest`, `remote_ip`, `applied_rule_ids`, `reserved_order_id`, `password_hash`, `coupon_code`, `global_currency_code`, `base_to_global_rate`, `base_to_quote_rate`, `customer_taxvat`, `customer_gender`, `subtotal`, `base_subtotal`, `subtotal_with_discount`, `base_subtotal_with_discount`, `is_changed`, `trigger_recollect`, `ext_shipping_info`, `gift_message_id`, `is_persistent`) VALUES
 (1, 1, '2015-05-15 07:57:51', '2015-05-15 07:59:13', NULL, 0, 0, 0, 1, '22.0000', 0, '1.0000', '1.0000', 'EUR', 'EUR', 'EUR', '12320.0000', '12320.0000', 'guest', NULL, 3, 0, 'aaa@gmail.com', NULL, 'aa', NULL, 'aaa', NULL, NULL, NULL, 1, 1, '::1', NULL, '100000001', NULL, NULL, 'EUR', '1.0000', '1.0000', NULL, NULL, '12210.0000', '12210.0000', '12210.0000', '12210.0000', 1, 0, NULL, NULL, 0),
 (2, 1, '2015-05-18 05:33:08', '2015-05-18 09:12:10', NULL, 1, 0, 0, 1, '1.0000', 0, '1.0000', '1.0000', 'EUR', 'EUR', 'EUR', '1000.0000', '1000.0000', NULL, NULL, 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '::1', NULL, NULL, NULL, NULL, 'EUR', '1.0000', '1.0000', NULL, NULL, '1000.0000', '1000.0000', '1000.0000', '1000.0000', 1, 0, NULL, NULL, 0),
@@ -16715,12 +15738,6 @@ INSERT INTO `sales_flat_quote` (`entity_id`, `store_id`, `created_at`, `updated_
 (5, 1, '2015-05-20 05:42:08', '2015-05-20 05:42:09', NULL, 1, 0, 0, 1, '1.0000', 0, '1.0000', '1.0000', 'EUR', 'EUR', 'EUR', '1000.0000', '1000.0000', NULL, NULL, 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '::1', NULL, NULL, NULL, NULL, 'EUR', '1.0000', '1.0000', NULL, NULL, '1000.0000', '1000.0000', '1000.0000', '1000.0000', 1, 0, NULL, NULL, 0),
 (6, 1, '2015-05-27 10:43:49', '2015-05-27 10:45:36', NULL, 0, 0, 0, 1, '1.0000', 0, '1.0000', '1.0000', 'EUR', 'EUR', 'EUR', '560.0000', '560.0000', 'guest', NULL, 3, 0, 'jana.mathauserova@ubk.cz', NULL, 'Jana', NULL, 'Mathauserova', NULL, NULL, NULL, 1, 1, '::1', NULL, '100000002', NULL, NULL, 'EUR', '1.0000', '1.0000', NULL, NULL, '555.0000', '555.0000', '555.0000', '555.0000', 1, 0, NULL, NULL, 0),
 (7, 1, '2015-05-27 11:43:58', '2015-05-27 11:43:59', NULL, 1, 0, 0, 1, '1.0000', 0, '1.0000', '1.0000', 'EUR', 'EUR', 'EUR', '1000.0000', '1000.0000', NULL, NULL, 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '::1', NULL, NULL, NULL, NULL, 'EUR', '1.0000', '1.0000', NULL, NULL, '1000.0000', '1000.0000', '1000.0000', '1000.0000', 1, 0, NULL, NULL, 0);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_quote_address`
---
 
 DROP TABLE IF EXISTS `sales_flat_quote_address`;
 CREATE TABLE IF NOT EXISTS `sales_flat_quote_address` (
@@ -16788,10 +15805,6 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote_address` (
   `gift_message_id` int(11) DEFAULT NULL COMMENT 'Gift Message Id'
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Address';
 
---
--- Vypisuji data pro tabulku `sales_flat_quote_address`
---
-
 INSERT INTO `sales_flat_quote_address` (`address_id`, `quote_id`, `created_at`, `updated_at`, `customer_id`, `save_in_address_book`, `customer_address_id`, `address_type`, `email`, `prefix`, `firstname`, `middlename`, `lastname`, `suffix`, `company`, `street`, `city`, `region`, `region_id`, `postcode`, `country_id`, `telephone`, `fax`, `same_as_billing`, `free_shipping`, `collect_shipping_rates`, `shipping_method`, `shipping_description`, `weight`, `subtotal`, `base_subtotal`, `subtotal_with_discount`, `base_subtotal_with_discount`, `tax_amount`, `base_tax_amount`, `shipping_amount`, `base_shipping_amount`, `shipping_tax_amount`, `base_shipping_tax_amount`, `discount_amount`, `base_discount_amount`, `grand_total`, `base_grand_total`, `customer_notes`, `applied_taxes`, `discount_description`, `shipping_discount_amount`, `base_shipping_discount_amount`, `subtotal_incl_tax`, `base_subtotal_total_incl_tax`, `hidden_tax_amount`, `base_hidden_tax_amount`, `shipping_hidden_tax_amount`, `base_shipping_hidden_tax_amnt`, `shipping_incl_tax`, `base_shipping_incl_tax`, `vat_id`, `vat_is_valid`, `vat_request_id`, `vat_request_date`, `vat_request_success`, `gift_message_id`) VALUES
 (1, 1, '2015-05-15 07:57:52', '2015-05-15 07:59:12', NULL, 1, NULL, 'billing', 'aaa@gmail.com', NULL, 'aa', NULL, 'aaa', NULL, NULL, 'romg', 'barelw', 'Alabama', 1, '78958', 'US', '7896354123', NULL, 0, 0, 0, NULL, NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', NULL, 'a:0:{}', NULL, NULL, NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL, NULL),
 (2, 1, '2015-05-15 07:57:52', '2015-05-15 07:59:12', NULL, 0, NULL, 'shipping', 'aaa@gmail.com', NULL, 'aa', NULL, 'aaa', NULL, NULL, 'romg', 'barelw', 'Alabama', 1, '78958', 'US', '7896354123', NULL, 1, 0, 0, 'flatrate_flatrate', 'Flat Rate - Fixed', '2200.0000', '12210.0000', '12210.0000', '0.0000', '0.0000', '0.0000', '0.0000', '110.0000', '110.0000', '0.0000', '0.0000', '0.0000', '0.0000', '12320.0000', '12320.0000', NULL, 'a:0:{}', NULL, '0.0000', '0.0000', '12210.0000', NULL, '0.0000', '0.0000', '0.0000', NULL, '110.0000', '110.0000', NULL, NULL, NULL, NULL, NULL, NULL),
@@ -16807,12 +15820,6 @@ INSERT INTO `sales_flat_quote_address` (`address_id`, `quote_id`, `created_at`, 
 (12, 6, '2015-05-27 10:43:50', '2015-05-27 10:45:36', NULL, 0, NULL, 'shipping', 'jana.mathauserova@ubk.cz', NULL, 'Jana', NULL, 'Mathauserova', NULL, NULL, 'Chodov 158', 'Chodov', NULL, NULL, '30100', 'CZ', '123 456 789', NULL, 1, 0, 0, 'flatrate_flatrate', 'Flat Rate - Fixed', '100.0000', '555.0000', '555.0000', '0.0000', '0.0000', '0.0000', '0.0000', '5.0000', '5.0000', '0.0000', '0.0000', '0.0000', '0.0000', '560.0000', '560.0000', NULL, 'a:0:{}', NULL, '0.0000', '0.0000', '555.0000', NULL, '0.0000', '0.0000', '0.0000', NULL, '5.0000', '5.0000', NULL, NULL, NULL, NULL, NULL, NULL),
 (13, 7, '2015-05-27 11:43:59', '2015-05-27 11:43:59', NULL, 0, NULL, 'billing', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', NULL, 'a:0:{}', NULL, NULL, NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL, NULL),
 (14, 7, '2015-05-27 11:43:59', '2015-05-27 11:43:59', NULL, 0, NULL, 'shipping', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 0, NULL, NULL, '100.0000', '1000.0000', '1000.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1000.0000', '1000.0000', NULL, 'a:0:{}', NULL, '0.0000', '0.0000', '1000.0000', NULL, '0.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', NULL, NULL, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_quote_address_item`
---
 
 DROP TABLE IF EXISTS `sales_flat_quote_address_item`;
 CREATE TABLE IF NOT EXISTS `sales_flat_quote_address_item` (
@@ -16857,12 +15864,6 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote_address_item` (
   `base_hidden_tax_amount` decimal(12,4) DEFAULT NULL COMMENT 'Base Hidden Tax Amount',
   `gift_message_id` int(11) DEFAULT NULL COMMENT 'Gift Message Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Address Item';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_quote_item`
---
 
 DROP TABLE IF EXISTS `sales_flat_quote_item`;
 CREATE TABLE IF NOT EXISTS `sales_flat_quote_item` (
@@ -16921,10 +15922,6 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote_item` (
   `base_weee_tax_applied_row_amnt` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Applied Row Amnt'
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Item';
 
---
--- Vypisuji data pro tabulku `sales_flat_quote_item`
---
-
 INSERT INTO `sales_flat_quote_item` (`item_id`, `quote_id`, `created_at`, `updated_at`, `product_id`, `store_id`, `parent_item_id`, `is_virtual`, `sku`, `name`, `description`, `applied_rule_ids`, `additional_data`, `free_shipping`, `is_qty_decimal`, `no_discount`, `weight`, `qty`, `price`, `base_price`, `custom_price`, `discount_percent`, `discount_amount`, `base_discount_amount`, `tax_percent`, `tax_amount`, `base_tax_amount`, `row_total`, `base_row_total`, `row_total_with_discount`, `row_weight`, `product_type`, `base_tax_before_discount`, `tax_before_discount`, `original_custom_price`, `redirect_url`, `base_cost`, `price_incl_tax`, `base_price_incl_tax`, `row_total_incl_tax`, `base_row_total_incl_tax`, `hidden_tax_amount`, `base_hidden_tax_amount`, `gift_message_id`, `weee_tax_disposition`, `weee_tax_row_disposition`, `base_weee_tax_disposition`, `base_weee_tax_row_disposition`, `weee_tax_applied`, `weee_tax_applied_amount`, `weee_tax_applied_row_amount`, `base_weee_tax_applied_amount`, `base_weee_tax_applied_row_amnt`) VALUES
 (1, 1, '2015-05-15 07:57:52', '2015-05-15 07:57:52', 15, 1, NULL, 0, '33', 'Tablet C', NULL, NULL, NULL, 0, 0, 0, '100.0000', '22.0000', '555.0000', '555.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '12210.0000', '12210.0000', '0.0000', '2200.0000', 'simple', NULL, NULL, NULL, NULL, NULL, '555.0000', '555.0000', '12210.0000', '12210.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', NULL),
 (2, 2, '2015-05-18 05:33:08', '2015-05-18 05:33:08', 4, 1, NULL, 0, '4', 'Laptop D', NULL, NULL, NULL, 0, 0, 0, '100.0000', '1.0000', '1000.0000', '1000.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1000.0000', '1000.0000', '0.0000', '100.0000', 'simple', NULL, NULL, NULL, NULL, NULL, '1000.0000', '1000.0000', '1000.0000', '1000.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', NULL),
@@ -16935,12 +15932,6 @@ INSERT INTO `sales_flat_quote_item` (`item_id`, `quote_id`, `created_at`, `updat
 (7, 6, '2015-05-27 10:43:50', '2015-05-27 10:43:50', 13, 1, NULL, 0, '31', 'Tablet A', NULL, NULL, NULL, 0, 0, 0, '100.0000', '1.0000', '555.0000', '555.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '555.0000', '555.0000', '0.0000', '100.0000', 'simple', NULL, NULL, NULL, NULL, NULL, '555.0000', '555.0000', '555.0000', '555.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', NULL),
 (8, 7, '2015-05-27 11:43:59', '2015-05-27 11:43:59', 11, 1, NULL, 0, '25', 'Phone E', NULL, NULL, NULL, 0, 0, 0, '100.0000', '1.0000', '1000.0000', '1000.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1000.0000', '1000.0000', '0.0000', '100.0000', 'simple', NULL, NULL, NULL, NULL, NULL, '1000.0000', '1000.0000', '1000.0000', '1000.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', '0.0000', '0.0000', 'a:0:{}', '0.0000', '0.0000', '0.0000', NULL);
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_quote_item_option`
---
-
 DROP TABLE IF EXISTS `sales_flat_quote_item_option`;
 CREATE TABLE IF NOT EXISTS `sales_flat_quote_item_option` (
   `option_id` int(10) unsigned NOT NULL COMMENT 'Option Id',
@@ -16949,10 +15940,6 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote_item_option` (
   `code` varchar(255) NOT NULL COMMENT 'Code',
   `value` text COMMENT 'Value'
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Item Option';
-
---
--- Vypisuji data pro tabulku `sales_flat_quote_item_option`
---
 
 INSERT INTO `sales_flat_quote_item_option` (`option_id`, `item_id`, `product_id`, `code`, `value`) VALUES
 (1, 1, 15, 'info_buyRequest', 'a:5:{s:4:"uenc";s:60:"aHR0cDovL2xvY2FsaG9zdC9tYWdlMi90YWJsZXRzL3RhYmxldC1jLmh0bWw,";s:7:"product";s:2:"15";s:8:"form_key";s:16:"BjEU5aIfRkYHTxBK";s:15:"related_product";s:0:"";s:3:"qty";s:2:"22";}'),
@@ -16963,12 +15950,6 @@ INSERT INTO `sales_flat_quote_item_option` (`option_id`, `item_id`, `product_id`
 (6, 6, 10, 'info_buyRequest', 'a:5:{s:4:"uenc";s:48:"aHR0cDovL2xvY2FsaG9zdC9tYWdlMi9waG9uZS1kLmh0bWw,";s:7:"product";s:2:"10";s:8:"form_key";s:16:"kzIPftX0siD259tE";s:15:"related_product";s:0:"";s:3:"qty";s:1:"1";}'),
 (7, 7, 13, 'info_buyRequest', 'a:4:{s:4:"uenc";s:48:"aHR0cDovL2xvY2FsaG9zdC9tYWdlMi90YWJsZXRzLmh0bWw,";s:7:"product";s:2:"13";s:8:"form_key";s:16:"InYLc0l0USf1MI7y";s:3:"qty";i:1;}'),
 (8, 8, 11, 'info_buyRequest', 'a:4:{s:4:"uenc";s:32:"aHR0cDovL2xvY2FsaG9zdC9tYWdlMi8,";s:7:"product";s:2:"11";s:8:"form_key";s:16:"InYLc0l0USf1MI7y";s:3:"qty";i:1;}');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_quote_payment`
---
 
 DROP TABLE IF EXISTS `sales_flat_quote_payment`;
 CREATE TABLE IF NOT EXISTS `sales_flat_quote_payment` (
@@ -16996,19 +15977,9 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote_payment` (
   `paypal_correlation_id` varchar(255) DEFAULT NULL COMMENT 'Paypal Correlation Id'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Payment';
 
---
--- Vypisuji data pro tabulku `sales_flat_quote_payment`
---
-
 INSERT INTO `sales_flat_quote_payment` (`payment_id`, `quote_id`, `created_at`, `updated_at`, `method`, `cc_type`, `cc_number_enc`, `cc_last4`, `cc_cid_enc`, `cc_owner`, `cc_exp_month`, `cc_exp_year`, `cc_ss_owner`, `cc_ss_start_month`, `cc_ss_start_year`, `po_number`, `additional_data`, `cc_ss_issue`, `additional_information`, `paypal_payer_id`, `paypal_payer_status`, `paypal_correlation_id`) VALUES
 (1, 1, '2015-05-15 07:58:04', '2015-05-15 07:59:12', 'checkmo', NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (2, 6, '2015-05-27 10:44:24', '2015-05-27 10:45:36', 'checkmo', NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_quote_shipping_rate`
---
 
 DROP TABLE IF EXISTS `sales_flat_quote_shipping_rate`;
 CREATE TABLE IF NOT EXISTS `sales_flat_quote_shipping_rate` (
@@ -17026,19 +15997,9 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote_shipping_rate` (
   `method_title` text COMMENT 'Method Title'
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Shipping Rate';
 
---
--- Vypisuji data pro tabulku `sales_flat_quote_shipping_rate`
---
-
 INSERT INTO `sales_flat_quote_shipping_rate` (`rate_id`, `address_id`, `created_at`, `updated_at`, `carrier`, `carrier_title`, `code`, `method`, `method_description`, `price`, `error_message`, `method_title`) VALUES
 (3, 2, '2015-05-15 07:59:09', '2015-05-15 07:59:12', 'flatrate', 'Flat Rate', 'flatrate_flatrate', 'flatrate', NULL, '110.0000', NULL, 'Fixed'),
 (8, 12, '2015-05-27 10:45:28', '2015-05-27 10:45:36', 'flatrate', 'Flat Rate', 'flatrate_flatrate', 'flatrate', NULL, '5.0000', NULL, 'Fixed');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_shipment`
---
 
 DROP TABLE IF EXISTS `sales_flat_shipment`;
 CREATE TABLE IF NOT EXISTS `sales_flat_shipment` (
@@ -17059,18 +16020,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_shipment` (
   `shipping_label` mediumblob COMMENT 'Shipping Label Content'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment';
 
---
--- Vypisuji data pro tabulku `sales_flat_shipment`
---
-
 INSERT INTO `sales_flat_shipment` (`entity_id`, `store_id`, `total_weight`, `total_qty`, `email_sent`, `order_id`, `customer_id`, `shipping_address_id`, `billing_address_id`, `shipment_status`, `increment_id`, `created_at`, `updated_at`, `packages`, `shipping_label`) VALUES
 (1, 1, NULL, '1.0000', NULL, 2, NULL, 4, 3, NULL, '100000001', '2015-05-27 10:48:33', '2015-05-27 10:48:33', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_shipment_comment`
---
 
 DROP TABLE IF EXISTS `sales_flat_shipment_comment`;
 CREATE TABLE IF NOT EXISTS `sales_flat_shipment_comment` (
@@ -17081,12 +16032,6 @@ CREATE TABLE IF NOT EXISTS `sales_flat_shipment_comment` (
   `comment` text COMMENT 'Comment',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment Comment';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_shipment_grid`
---
 
 DROP TABLE IF EXISTS `sales_flat_shipment_grid`;
 CREATE TABLE IF NOT EXISTS `sales_flat_shipment_grid` (
@@ -17102,18 +16047,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_shipment_grid` (
   `shipping_name` varchar(255) DEFAULT NULL COMMENT 'Shipping Name'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment Grid';
 
---
--- Vypisuji data pro tabulku `sales_flat_shipment_grid`
---
-
 INSERT INTO `sales_flat_shipment_grid` (`entity_id`, `store_id`, `total_qty`, `order_id`, `shipment_status`, `increment_id`, `order_increment_id`, `created_at`, `order_created_at`, `shipping_name`) VALUES
 (1, 1, '1.0000', 2, NULL, '100000001', '100000002', '2015-05-27 10:48:33', '2015-05-27 10:45:36', 'Jana Mathauserova');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_shipment_item`
---
 
 DROP TABLE IF EXISTS `sales_flat_shipment_item`;
 CREATE TABLE IF NOT EXISTS `sales_flat_shipment_item` (
@@ -17131,18 +16066,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_shipment_item` (
   `sku` varchar(255) DEFAULT NULL COMMENT 'Sku'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment Item';
 
---
--- Vypisuji data pro tabulku `sales_flat_shipment_item`
---
-
 INSERT INTO `sales_flat_shipment_item` (`entity_id`, `parent_id`, `row_total`, `price`, `weight`, `qty`, `product_id`, `order_item_id`, `additional_data`, `description`, `name`, `sku`) VALUES
 (1, 1, NULL, '555.0000', '100.0000', '1.0000', 13, 2, NULL, NULL, 'Tablet A', '31');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_flat_shipment_track`
---
 
 DROP TABLE IF EXISTS `sales_flat_shipment_track`;
 CREATE TABLE IF NOT EXISTS `sales_flat_shipment_track` (
@@ -17159,12 +16084,6 @@ CREATE TABLE IF NOT EXISTS `sales_flat_shipment_track` (
   `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment Track';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_invoiced_aggregated`
---
-
 DROP TABLE IF EXISTS `sales_invoiced_aggregated`;
 CREATE TABLE IF NOT EXISTS `sales_invoiced_aggregated` (
   `id` int(10) unsigned NOT NULL COMMENT 'Id',
@@ -17178,12 +16097,6 @@ CREATE TABLE IF NOT EXISTS `sales_invoiced_aggregated` (
   `invoiced_not_captured` decimal(12,4) DEFAULT NULL COMMENT 'Invoiced Not Captured'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Invoiced Aggregated';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_invoiced_aggregated_order`
---
-
 DROP TABLE IF EXISTS `sales_invoiced_aggregated_order`;
 CREATE TABLE IF NOT EXISTS `sales_invoiced_aggregated_order` (
   `id` int(10) unsigned NOT NULL COMMENT 'Id',
@@ -17196,12 +16109,6 @@ CREATE TABLE IF NOT EXISTS `sales_invoiced_aggregated_order` (
   `invoiced_captured` decimal(12,4) DEFAULT NULL COMMENT 'Invoiced Captured',
   `invoiced_not_captured` decimal(12,4) DEFAULT NULL COMMENT 'Invoiced Not Captured'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Invoiced Aggregated Order';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_order_aggregated_created`
---
 
 DROP TABLE IF EXISTS `sales_order_aggregated_created`;
 CREATE TABLE IF NOT EXISTS `sales_order_aggregated_created` (
@@ -17227,12 +16134,6 @@ CREATE TABLE IF NOT EXISTS `sales_order_aggregated_created` (
   `total_discount_amount_actual` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Total Discount Amount Actual'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Order Aggregated Created';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_order_aggregated_updated`
---
-
 DROP TABLE IF EXISTS `sales_order_aggregated_updated`;
 CREATE TABLE IF NOT EXISTS `sales_order_aggregated_updated` (
   `id` int(10) unsigned NOT NULL COMMENT 'Id',
@@ -17257,21 +16158,11 @@ CREATE TABLE IF NOT EXISTS `sales_order_aggregated_updated` (
   `total_discount_amount_actual` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Total Discount Amount Actual'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Order Aggregated Updated';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_order_status`
---
-
 DROP TABLE IF EXISTS `sales_order_status`;
 CREATE TABLE IF NOT EXISTS `sales_order_status` (
   `status` varchar(32) NOT NULL COMMENT 'Status',
   `label` varchar(128) NOT NULL COMMENT 'Label'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Order Status Table';
-
---
--- Vypisuji data pro tabulku `sales_order_status`
---
 
 INSERT INTO `sales_order_status` (`status`, `label`) VALUES
 ('canceled', 'Canceled'),
@@ -17287,12 +16178,6 @@ INSERT INTO `sales_order_status` (`status`, `label`) VALUES
 ('pending_paypal', 'Pending PayPal'),
 ('processing', 'Processing');
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_order_status_label`
---
-
 DROP TABLE IF EXISTS `sales_order_status_label`;
 CREATE TABLE IF NOT EXISTS `sales_order_status_label` (
   `status` varchar(32) NOT NULL COMMENT 'Status',
@@ -17300,22 +16185,12 @@ CREATE TABLE IF NOT EXISTS `sales_order_status_label` (
   `label` varchar(128) NOT NULL COMMENT 'Label'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Order Status Label Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_order_status_state`
---
-
 DROP TABLE IF EXISTS `sales_order_status_state`;
 CREATE TABLE IF NOT EXISTS `sales_order_status_state` (
   `status` varchar(32) NOT NULL COMMENT 'Status',
   `state` varchar(32) NOT NULL COMMENT 'Label',
   `is_default` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Default'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Order Status Table';
-
---
--- Vypisuji data pro tabulku `sales_order_status_state`
---
 
 INSERT INTO `sales_order_status_state` (`status`, `state`, `is_default`) VALUES
 ('canceled', 'canceled', 1),
@@ -17327,12 +16202,6 @@ INSERT INTO `sales_order_status_state` (`status`, `state`, `is_default`) VALUES
 ('pending', 'new', 1),
 ('pending_payment', 'pending_payment', 1),
 ('processing', 'processing', 1);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_order_tax`
---
 
 DROP TABLE IF EXISTS `sales_order_tax`;
 CREATE TABLE IF NOT EXISTS `sales_order_tax` (
@@ -17350,12 +16219,6 @@ CREATE TABLE IF NOT EXISTS `sales_order_tax` (
   `hidden` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Hidden'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Order Tax Table';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_order_tax_item`
---
-
 DROP TABLE IF EXISTS `sales_order_tax_item`;
 CREATE TABLE IF NOT EXISTS `sales_order_tax_item` (
   `tax_item_id` int(10) unsigned NOT NULL COMMENT 'Tax Item Id',
@@ -17363,12 +16226,6 @@ CREATE TABLE IF NOT EXISTS `sales_order_tax_item` (
   `item_id` int(10) unsigned NOT NULL COMMENT 'Item Id',
   `tax_percent` decimal(12,4) NOT NULL COMMENT 'Real Tax Percent For Item'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Order Tax Item';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_payment_transaction`
---
 
 DROP TABLE IF EXISTS `sales_payment_transaction`;
 CREATE TABLE IF NOT EXISTS `sales_payment_transaction` (
@@ -17383,12 +16240,6 @@ CREATE TABLE IF NOT EXISTS `sales_payment_transaction` (
   `additional_information` blob COMMENT 'Additional Information',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Payment Transaction';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_recurring_profile`
---
 
 DROP TABLE IF EXISTS `sales_recurring_profile`;
 CREATE TABLE IF NOT EXISTS `sales_recurring_profile` (
@@ -17427,24 +16278,12 @@ CREATE TABLE IF NOT EXISTS `sales_recurring_profile` (
   `additional_info` text COMMENT 'Additional Info'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Recurring Profile';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_recurring_profile_order`
---
-
 DROP TABLE IF EXISTS `sales_recurring_profile_order`;
 CREATE TABLE IF NOT EXISTS `sales_recurring_profile_order` (
   `link_id` int(10) unsigned NOT NULL COMMENT 'Link Id',
   `profile_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Profile Id',
   `order_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Order Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Recurring Profile Order';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_refunded_aggregated`
---
 
 DROP TABLE IF EXISTS `sales_refunded_aggregated`;
 CREATE TABLE IF NOT EXISTS `sales_refunded_aggregated` (
@@ -17458,12 +16297,6 @@ CREATE TABLE IF NOT EXISTS `sales_refunded_aggregated` (
   `offline_refunded` decimal(12,4) DEFAULT NULL COMMENT 'Offline Refunded'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Refunded Aggregated';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_refunded_aggregated_order`
---
-
 DROP TABLE IF EXISTS `sales_refunded_aggregated_order`;
 CREATE TABLE IF NOT EXISTS `sales_refunded_aggregated_order` (
   `id` int(10) unsigned NOT NULL COMMENT 'Id',
@@ -17475,12 +16308,6 @@ CREATE TABLE IF NOT EXISTS `sales_refunded_aggregated_order` (
   `online_refunded` decimal(12,4) DEFAULT NULL COMMENT 'Online Refunded',
   `offline_refunded` decimal(12,4) DEFAULT NULL COMMENT 'Offline Refunded'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Refunded Aggregated Order';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_shipping_aggregated`
---
 
 DROP TABLE IF EXISTS `sales_shipping_aggregated`;
 CREATE TABLE IF NOT EXISTS `sales_shipping_aggregated` (
@@ -17494,12 +16321,6 @@ CREATE TABLE IF NOT EXISTS `sales_shipping_aggregated` (
   `total_shipping_actual` decimal(12,4) DEFAULT NULL COMMENT 'Total Shipping Actual'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Shipping Aggregated';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sales_shipping_aggregated_order`
---
-
 DROP TABLE IF EXISTS `sales_shipping_aggregated_order`;
 CREATE TABLE IF NOT EXISTS `sales_shipping_aggregated_order` (
   `id` int(10) unsigned NOT NULL COMMENT 'Id',
@@ -17512,12 +16333,6 @@ CREATE TABLE IF NOT EXISTS `sales_shipping_aggregated_order` (
   `total_shipping_actual` decimal(12,4) DEFAULT NULL COMMENT 'Total Shipping Actual'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Shipping Aggregated Order';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sendfriend_log`
---
-
 DROP TABLE IF EXISTS `sendfriend_log`;
 CREATE TABLE IF NOT EXISTS `sendfriend_log` (
   `log_id` int(10) unsigned NOT NULL COMMENT 'Log ID',
@@ -17525,12 +16340,6 @@ CREATE TABLE IF NOT EXISTS `sendfriend_log` (
   `time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Log time',
   `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Send to friend function log storage table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `shipping_tablerate`
---
 
 DROP TABLE IF EXISTS `shipping_tablerate`;
 CREATE TABLE IF NOT EXISTS `shipping_tablerate` (
@@ -17545,12 +16354,6 @@ CREATE TABLE IF NOT EXISTS `shipping_tablerate` (
   `cost` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Cost'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Shipping Tablerate';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `sitemap`
---
-
 DROP TABLE IF EXISTS `sitemap`;
 CREATE TABLE IF NOT EXISTS `sitemap` (
   `sitemap_id` int(10) unsigned NOT NULL COMMENT 'Sitemap Id',
@@ -17561,12 +16364,6 @@ CREATE TABLE IF NOT EXISTS `sitemap` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Google Sitemap';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `tag`
---
-
 DROP TABLE IF EXISTS `tag`;
 CREATE TABLE IF NOT EXISTS `tag` (
   `tag_id` int(10) unsigned NOT NULL COMMENT 'Tag Id',
@@ -17576,24 +16373,12 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `first_store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'First Store Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tag';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `tag_properties`
---
-
 DROP TABLE IF EXISTS `tag_properties`;
 CREATE TABLE IF NOT EXISTS `tag_properties` (
   `tag_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Tag Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `base_popularity` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Base Popularity'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tag Properties';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `tag_relation`
---
 
 DROP TABLE IF EXISTS `tag_relation`;
 CREATE TABLE IF NOT EXISTS `tag_relation` (
@@ -17605,12 +16390,6 @@ CREATE TABLE IF NOT EXISTS `tag_relation` (
   `active` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Active',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tag Relation';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `tag_summary`
---
 
 DROP TABLE IF EXISTS `tag_summary`;
 CREATE TABLE IF NOT EXISTS `tag_summary` (
@@ -17624,12 +16403,6 @@ CREATE TABLE IF NOT EXISTS `tag_summary` (
   `base_popularity` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Base Popularity'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tag Summary';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `tax_calculation`
---
-
 DROP TABLE IF EXISTS `tax_calculation`;
 CREATE TABLE IF NOT EXISTS `tax_calculation` (
   `tax_calculation_id` int(11) NOT NULL COMMENT 'Tax Calculation Id',
@@ -17639,19 +16412,9 @@ CREATE TABLE IF NOT EXISTS `tax_calculation` (
   `product_tax_class_id` smallint(6) NOT NULL COMMENT 'Product Tax Class Id'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Tax Calculation';
 
---
--- Vypisuji data pro tabulku `tax_calculation`
---
-
 INSERT INTO `tax_calculation` (`tax_calculation_id`, `tax_calculation_rate_id`, `tax_calculation_rule_id`, `customer_tax_class_id`, `product_tax_class_id`) VALUES
 (1, 1, 1, 3, 2),
 (2, 2, 1, 3, 2);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `tax_calculation_rate`
---
 
 DROP TABLE IF EXISTS `tax_calculation_rate`;
 CREATE TABLE IF NOT EXISTS `tax_calculation_rate` (
@@ -17666,19 +16429,9 @@ CREATE TABLE IF NOT EXISTS `tax_calculation_rate` (
   `zip_to` int(10) unsigned DEFAULT NULL COMMENT 'Zip To'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Tax Calculation Rate';
 
---
--- Vypisuji data pro tabulku `tax_calculation_rate`
---
-
 INSERT INTO `tax_calculation_rate` (`tax_calculation_rate_id`, `tax_country_id`, `tax_region_id`, `tax_postcode`, `code`, `rate`, `zip_is_range`, `zip_from`, `zip_to`) VALUES
 (1, 'US', 12, '*', 'US-CA-*-Rate 1', '8.2500', NULL, NULL, NULL),
 (2, 'US', 43, '*', 'US-NY-*-Rate 1', '8.3750', NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `tax_calculation_rate_title`
---
 
 DROP TABLE IF EXISTS `tax_calculation_rate_title`;
 CREATE TABLE IF NOT EXISTS `tax_calculation_rate_title` (
@@ -17687,12 +16440,6 @@ CREATE TABLE IF NOT EXISTS `tax_calculation_rate_title` (
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id',
   `value` varchar(255) NOT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tax Calculation Rate Title';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `tax_calculation_rule`
---
 
 DROP TABLE IF EXISTS `tax_calculation_rule`;
 CREATE TABLE IF NOT EXISTS `tax_calculation_rule` (
@@ -17703,18 +16450,8 @@ CREATE TABLE IF NOT EXISTS `tax_calculation_rule` (
   `calculate_subtotal` int(11) NOT NULL COMMENT 'Calculate off subtotal option'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Tax Calculation Rule';
 
---
--- Vypisuji data pro tabulku `tax_calculation_rule`
---
-
 INSERT INTO `tax_calculation_rule` (`tax_calculation_rule_id`, `code`, `priority`, `position`, `calculate_subtotal`) VALUES
 (1, 'Retail Customer-Taxable Goods-Rate 1', 1, 1, 0);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `tax_class`
---
 
 DROP TABLE IF EXISTS `tax_class`;
 CREATE TABLE IF NOT EXISTS `tax_class` (
@@ -17723,20 +16460,10 @@ CREATE TABLE IF NOT EXISTS `tax_class` (
   `class_type` varchar(8) NOT NULL DEFAULT 'CUSTOMER' COMMENT 'Class Type'
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Tax Class';
 
---
--- Vypisuji data pro tabulku `tax_class`
---
-
 INSERT INTO `tax_class` (`class_id`, `class_name`, `class_type`) VALUES
 (2, 'Taxable Goods', 'PRODUCT'),
 (3, 'Retail Customer', 'CUSTOMER'),
 (4, 'Shipping', 'PRODUCT');
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `tax_order_aggregated_created`
---
 
 DROP TABLE IF EXISTS `tax_order_aggregated_created`;
 CREATE TABLE IF NOT EXISTS `tax_order_aggregated_created` (
@@ -17750,12 +16477,6 @@ CREATE TABLE IF NOT EXISTS `tax_order_aggregated_created` (
   `tax_base_amount_sum` float DEFAULT NULL COMMENT 'Tax Base Amount Sum'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tax Order Aggregation';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `tax_order_aggregated_updated`
---
-
 DROP TABLE IF EXISTS `tax_order_aggregated_updated`;
 CREATE TABLE IF NOT EXISTS `tax_order_aggregated_updated` (
   `id` int(10) unsigned NOT NULL COMMENT 'Id',
@@ -17768,12 +16489,6 @@ CREATE TABLE IF NOT EXISTS `tax_order_aggregated_updated` (
   `tax_base_amount_sum` float DEFAULT NULL COMMENT 'Tax Base Amount Sum'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tax Order Aggregated Updated';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `weee_discount`
---
-
 DROP TABLE IF EXISTS `weee_discount`;
 CREATE TABLE IF NOT EXISTS `weee_discount` (
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
@@ -17781,12 +16496,6 @@ CREATE TABLE IF NOT EXISTS `weee_discount` (
   `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group Id',
   `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Weee Discount';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `weee_tax`
---
 
 DROP TABLE IF EXISTS `weee_tax`;
 CREATE TABLE IF NOT EXISTS `weee_tax` (
@@ -17800,12 +16509,6 @@ CREATE TABLE IF NOT EXISTS `weee_tax` (
   `entity_type_id` smallint(5) unsigned NOT NULL COMMENT 'Entity Type Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Weee Tax';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `widget`
---
-
 DROP TABLE IF EXISTS `widget`;
 CREATE TABLE IF NOT EXISTS `widget` (
   `widget_id` int(10) unsigned NOT NULL COMMENT 'Widget Id',
@@ -17813,12 +16516,6 @@ CREATE TABLE IF NOT EXISTS `widget` (
   `widget_type` varchar(255) DEFAULT NULL COMMENT 'Widget Type',
   `parameters` text COMMENT 'Parameters'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Preconfigured Widgets';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `widget_instance`
---
 
 DROP TABLE IF EXISTS `widget_instance`;
 CREATE TABLE IF NOT EXISTS `widget_instance` (
@@ -17831,18 +16528,8 @@ CREATE TABLE IF NOT EXISTS `widget_instance` (
   `sort_order` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort order'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Instances of Widget for Package Theme';
 
---
--- Vypisuji data pro tabulku `widget_instance`
---
-
 INSERT INTO `widget_instance` (`instance_id`, `instance_type`, `package_theme`, `title`, `store_ids`, `widget_parameters`, `sort_order`) VALUES
 (1, 'cms/widget_block', 'dubloo/default', 'Flyout mini cart', '0', 'a:1:{s:8:"block_id";s:1:"6";}', 1);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `widget_instance_page`
---
 
 DROP TABLE IF EXISTS `widget_instance_page`;
 CREATE TABLE IF NOT EXISTS `widget_instance_page` (
@@ -17856,23 +16543,11 @@ CREATE TABLE IF NOT EXISTS `widget_instance_page` (
   `page_template` varchar(255) DEFAULT NULL COMMENT 'Path to widget template'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Instance of Widget on Page';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `widget_instance_page_layout`
---
-
 DROP TABLE IF EXISTS `widget_instance_page_layout`;
 CREATE TABLE IF NOT EXISTS `widget_instance_page_layout` (
   `page_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Page Id',
   `layout_update_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Layout Update Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Layout updates';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `wishlist`
---
 
 DROP TABLE IF EXISTS `wishlist`;
 CREATE TABLE IF NOT EXISTS `wishlist` (
@@ -17882,12 +16557,6 @@ CREATE TABLE IF NOT EXISTS `wishlist` (
   `sharing_code` varchar(32) DEFAULT NULL COMMENT 'Sharing encrypted code',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Last updated date'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Wishlist main Table';
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `wishlist_item`
---
 
 DROP TABLE IF EXISTS `wishlist_item`;
 CREATE TABLE IF NOT EXISTS `wishlist_item` (
@@ -17900,12 +16569,6 @@ CREATE TABLE IF NOT EXISTS `wishlist_item` (
   `qty` decimal(12,4) NOT NULL COMMENT 'Qty'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Wishlist items';
 
--- --------------------------------------------------------
-
---
--- Struktura tabulky `wishlist_item_option`
---
-
 DROP TABLE IF EXISTS `wishlist_item_option`;
 CREATE TABLE IF NOT EXISTS `wishlist_item_option` (
   `option_id` int(10) unsigned NOT NULL COMMENT 'Option Id',
@@ -17915,4732 +16578,2356 @@ CREATE TABLE IF NOT EXISTS `wishlist_item_option` (
   `value` text COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Wishlist Item Option Table';
 
---
--- Klíče pro exportované tabulky
---
 
---
--- Klíče pro tabulku `adminnotification_inbox`
---
 ALTER TABLE `adminnotification_inbox`
   ADD PRIMARY KEY (`notification_id`), ADD KEY `IDX_ADMINNOTIFICATION_INBOX_SEVERITY` (`severity`), ADD KEY `IDX_ADMINNOTIFICATION_INBOX_IS_READ` (`is_read`), ADD KEY `IDX_ADMINNOTIFICATION_INBOX_IS_REMOVE` (`is_remove`);
 
---
--- Klíče pro tabulku `admin_assert`
---
 ALTER TABLE `admin_assert`
   ADD PRIMARY KEY (`assert_id`);
 
---
--- Klíče pro tabulku `admin_role`
---
 ALTER TABLE `admin_role`
   ADD PRIMARY KEY (`role_id`), ADD KEY `IDX_ADMIN_ROLE_PARENT_ID_SORT_ORDER` (`parent_id`,`sort_order`), ADD KEY `IDX_ADMIN_ROLE_TREE_LEVEL` (`tree_level`);
 
---
--- Klíče pro tabulku `admin_rule`
---
 ALTER TABLE `admin_rule`
   ADD PRIMARY KEY (`rule_id`), ADD KEY `IDX_ADMIN_RULE_RESOURCE_ID_ROLE_ID` (`resource_id`,`role_id`), ADD KEY `IDX_ADMIN_RULE_ROLE_ID_RESOURCE_ID` (`role_id`,`resource_id`);
 
---
--- Klíče pro tabulku `admin_user`
---
 ALTER TABLE `admin_user`
   ADD PRIMARY KEY (`user_id`), ADD UNIQUE KEY `UNQ_ADMIN_USER_USERNAME` (`username`);
 
---
--- Klíče pro tabulku `api2_acl_attribute`
---
 ALTER TABLE `api2_acl_attribute`
   ADD PRIMARY KEY (`entity_id`), ADD UNIQUE KEY `UNQ_API2_ACL_ATTRIBUTE_USER_TYPE_RESOURCE_ID_OPERATION` (`user_type`,`resource_id`,`operation`), ADD KEY `IDX_API2_ACL_ATTRIBUTE_USER_TYPE` (`user_type`);
 
---
--- Klíče pro tabulku `api2_acl_role`
---
 ALTER TABLE `api2_acl_role`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_API2_ACL_ROLE_CREATED_AT` (`created_at`), ADD KEY `IDX_API2_ACL_ROLE_UPDATED_AT` (`updated_at`);
 
---
--- Klíče pro tabulku `api2_acl_rule`
---
 ALTER TABLE `api2_acl_rule`
   ADD PRIMARY KEY (`entity_id`), ADD UNIQUE KEY `UNQ_API2_ACL_RULE_ROLE_ID_RESOURCE_ID_PRIVILEGE` (`role_id`,`resource_id`,`privilege`);
 
---
--- Klíče pro tabulku `api2_acl_user`
---
 ALTER TABLE `api2_acl_user`
   ADD UNIQUE KEY `UNQ_API2_ACL_USER_ADMIN_ID` (`admin_id`), ADD KEY `FK_API2_ACL_USER_ROLE_ID_API2_ACL_ROLE_ENTITY_ID` (`role_id`);
 
---
--- Klíče pro tabulku `api_assert`
---
 ALTER TABLE `api_assert`
   ADD PRIMARY KEY (`assert_id`);
 
---
--- Klíče pro tabulku `api_role`
---
 ALTER TABLE `api_role`
   ADD PRIMARY KEY (`role_id`), ADD KEY `IDX_API_ROLE_PARENT_ID_SORT_ORDER` (`parent_id`,`sort_order`), ADD KEY `IDX_API_ROLE_TREE_LEVEL` (`tree_level`);
 
---
--- Klíče pro tabulku `api_rule`
---
 ALTER TABLE `api_rule`
   ADD PRIMARY KEY (`rule_id`), ADD KEY `IDX_API_RULE_RESOURCE_ID_ROLE_ID` (`resource_id`,`role_id`), ADD KEY `IDX_API_RULE_ROLE_ID_RESOURCE_ID` (`role_id`,`resource_id`);
 
---
--- Klíče pro tabulku `api_session`
---
 ALTER TABLE `api_session`
   ADD KEY `IDX_API_SESSION_USER_ID` (`user_id`), ADD KEY `IDX_API_SESSION_SESSID` (`sessid`);
 
---
--- Klíče pro tabulku `api_user`
---
 ALTER TABLE `api_user`
   ADD PRIMARY KEY (`user_id`);
 
---
--- Klíče pro tabulku `captcha_log`
---
 ALTER TABLE `captcha_log`
   ADD PRIMARY KEY (`type`,`value`);
 
---
--- Klíče pro tabulku `cataloginventory_stock`
---
 ALTER TABLE `cataloginventory_stock`
   ADD PRIMARY KEY (`stock_id`);
 
---
--- Klíče pro tabulku `cataloginventory_stock_item`
---
 ALTER TABLE `cataloginventory_stock_item`
   ADD PRIMARY KEY (`item_id`), ADD UNIQUE KEY `UNQ_CATALOGINVENTORY_STOCK_ITEM_PRODUCT_ID_STOCK_ID` (`product_id`,`stock_id`), ADD KEY `IDX_CATALOGINVENTORY_STOCK_ITEM_PRODUCT_ID` (`product_id`), ADD KEY `IDX_CATALOGINVENTORY_STOCK_ITEM_STOCK_ID` (`stock_id`);
 
---
--- Klíče pro tabulku `cataloginventory_stock_status`
---
 ALTER TABLE `cataloginventory_stock_status`
   ADD PRIMARY KEY (`product_id`,`website_id`,`stock_id`), ADD KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_STOCK_ID` (`stock_id`), ADD KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `cataloginventory_stock_status_idx`
---
 ALTER TABLE `cataloginventory_stock_status_idx`
   ADD PRIMARY KEY (`product_id`,`website_id`,`stock_id`), ADD KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_IDX_STOCK_ID` (`stock_id`), ADD KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_IDX_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `cataloginventory_stock_status_tmp`
---
 ALTER TABLE `cataloginventory_stock_status_tmp`
   ADD PRIMARY KEY (`product_id`,`website_id`,`stock_id`), ADD KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_TMP_STOCK_ID` (`stock_id`), ADD KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_TMP_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `catalogrule`
---
 ALTER TABLE `catalogrule`
   ADD PRIMARY KEY (`rule_id`), ADD KEY `IDX_CATALOGRULE_IS_ACTIVE_SORT_ORDER_TO_DATE_FROM_DATE` (`is_active`,`sort_order`,`to_date`,`from_date`);
 
---
--- Klíče pro tabulku `catalogrule_affected_product`
---
 ALTER TABLE `catalogrule_affected_product`
   ADD PRIMARY KEY (`product_id`);
 
---
--- Klíče pro tabulku `catalogrule_customer_group`
---
 ALTER TABLE `catalogrule_customer_group`
   ADD PRIMARY KEY (`rule_id`,`customer_group_id`), ADD KEY `IDX_CATALOGRULE_CUSTOMER_GROUP_RULE_ID` (`rule_id`), ADD KEY `IDX_CATALOGRULE_CUSTOMER_GROUP_CUSTOMER_GROUP_ID` (`customer_group_id`);
 
---
--- Klíče pro tabulku `catalogrule_group_website`
---
 ALTER TABLE `catalogrule_group_website`
   ADD PRIMARY KEY (`rule_id`,`customer_group_id`,`website_id`), ADD KEY `IDX_CATALOGRULE_GROUP_WEBSITE_RULE_ID` (`rule_id`), ADD KEY `IDX_CATALOGRULE_GROUP_WEBSITE_CUSTOMER_GROUP_ID` (`customer_group_id`), ADD KEY `IDX_CATALOGRULE_GROUP_WEBSITE_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `catalogrule_product`
---
 ALTER TABLE `catalogrule_product`
   ADD PRIMARY KEY (`rule_product_id`), ADD UNIQUE KEY `EAA51B56FF092A0DCB795D1CEF812B7B` (`rule_id`,`from_time`,`to_time`,`website_id`,`customer_group_id`,`product_id`,`sort_order`), ADD KEY `IDX_CATALOGRULE_PRODUCT_RULE_ID` (`rule_id`), ADD KEY `IDX_CATALOGRULE_PRODUCT_CUSTOMER_GROUP_ID` (`customer_group_id`), ADD KEY `IDX_CATALOGRULE_PRODUCT_WEBSITE_ID` (`website_id`), ADD KEY `IDX_CATALOGRULE_PRODUCT_FROM_TIME` (`from_time`), ADD KEY `IDX_CATALOGRULE_PRODUCT_TO_TIME` (`to_time`), ADD KEY `IDX_CATALOGRULE_PRODUCT_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `catalogrule_product_price`
---
 ALTER TABLE `catalogrule_product_price`
   ADD PRIMARY KEY (`rule_product_price_id`), ADD UNIQUE KEY `UNQ_CATRULE_PRD_PRICE_RULE_DATE_WS_ID_CSTR_GROUP_ID_PRD_ID` (`rule_date`,`website_id`,`customer_group_id`,`product_id`), ADD KEY `IDX_CATALOGRULE_PRODUCT_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`), ADD KEY `IDX_CATALOGRULE_PRODUCT_PRICE_WEBSITE_ID` (`website_id`), ADD KEY `IDX_CATALOGRULE_PRODUCT_PRICE_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `catalogrule_website`
---
 ALTER TABLE `catalogrule_website`
   ADD PRIMARY KEY (`rule_id`,`website_id`), ADD KEY `IDX_CATALOGRULE_WEBSITE_RULE_ID` (`rule_id`), ADD KEY `IDX_CATALOGRULE_WEBSITE_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `catalogsearch_fulltext`
---
 ALTER TABLE `catalogsearch_fulltext`
   ADD PRIMARY KEY (`fulltext_id`), ADD UNIQUE KEY `UNQ_CATALOGSEARCH_FULLTEXT_PRODUCT_ID_STORE_ID` (`product_id`,`store_id`), ADD FULLTEXT KEY `FTI_CATALOGSEARCH_FULLTEXT_DATA_INDEX` (`data_index`);
 
---
--- Klíče pro tabulku `catalogsearch_query`
---
 ALTER TABLE `catalogsearch_query`
   ADD PRIMARY KEY (`query_id`), ADD KEY `IDX_CATALOGSEARCH_QUERY_QUERY_TEXT_STORE_ID_POPULARITY` (`query_text`,`store_id`,`popularity`), ADD KEY `IDX_CATALOGSEARCH_QUERY_STORE_ID` (`store_id`), ADD KEY `IDX_CATALOGSEARCH_QUERY_SYNONYM_FOR` (`synonym_for`);
 
---
--- Klíče pro tabulku `catalogsearch_result`
---
 ALTER TABLE `catalogsearch_result`
   ADD PRIMARY KEY (`query_id`,`product_id`), ADD KEY `IDX_CATALOGSEARCH_RESULT_QUERY_ID` (`query_id`), ADD KEY `IDX_CATALOGSEARCH_RESULT_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `catalog_category_anc_categs_index_idx`
---
 ALTER TABLE `catalog_category_anc_categs_index_idx`
   ADD KEY `IDX_CATALOG_CATEGORY_ANC_CATEGS_INDEX_IDX_CATEGORY_ID` (`category_id`), ADD KEY `IDX_CATALOG_CATEGORY_ANC_CATEGS_INDEX_IDX_PATH_CATEGORY_ID` (`path`,`category_id`);
 
---
--- Klíče pro tabulku `catalog_category_anc_categs_index_tmp`
---
 ALTER TABLE `catalog_category_anc_categs_index_tmp`
   ADD KEY `IDX_CATALOG_CATEGORY_ANC_CATEGS_INDEX_TMP_CATEGORY_ID` (`category_id`), ADD KEY `IDX_CATALOG_CATEGORY_ANC_CATEGS_INDEX_TMP_PATH_CATEGORY_ID` (`path`,`category_id`);
 
---
--- Klíče pro tabulku `catalog_category_anc_products_index_idx`
---
 ALTER TABLE `catalog_category_anc_products_index_idx`
   ADD KEY `IDX_CAT_CTGR_ANC_PRDS_IDX_IDX_CTGR_ID_PRD_ID_POSITION` (`category_id`,`product_id`,`position`);
 
---
--- Klíče pro tabulku `catalog_category_anc_products_index_tmp`
---
 ALTER TABLE `catalog_category_anc_products_index_tmp`
   ADD KEY `IDX_CAT_CTGR_ANC_PRDS_IDX_TMP_CTGR_ID_PRD_ID_POSITION` (`category_id`,`product_id`,`position`);
 
---
--- Klíče pro tabulku `catalog_category_entity`
---
 ALTER TABLE `catalog_category_entity`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_LEVEL` (`level`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_PATH_ENTITY_ID` (`path`,`entity_id`);
 
---
--- Klíče pro tabulku `catalog_category_entity_datetime`
---
 ALTER TABLE `catalog_category_entity_datetime`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CAT_CTGR_ENTT_DTIME_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_DATETIME_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_DATETIME_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_DATETIME_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `catalog_category_entity_decimal`
---
 ALTER TABLE `catalog_category_entity_decimal`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CAT_CTGR_ENTT_DEC_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_DECIMAL_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_DECIMAL_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_DECIMAL_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `catalog_category_entity_int`
---
 ALTER TABLE `catalog_category_entity_int`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CAT_CTGR_ENTT_INT_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_INT_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_INT_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `catalog_category_entity_text`
---
 ALTER TABLE `catalog_category_entity_text`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CAT_CTGR_ENTT_TEXT_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_TEXT_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_TEXT_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_TEXT_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `catalog_category_entity_varchar`
---
 ALTER TABLE `catalog_category_entity_varchar`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CAT_CTGR_ENTT_VCHR_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_VARCHAR_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `catalog_category_flat_store_1`
---
 ALTER TABLE `catalog_category_flat_store_1`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_1_STORE_ID` (`store_id`), ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_1_PATH` (`path`), ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_1_LEVEL` (`level`);
 
---
--- Klíče pro tabulku `catalog_category_product`
---
 ALTER TABLE `catalog_category_product`
   ADD PRIMARY KEY (`category_id`,`product_id`), ADD KEY `IDX_CATALOG_CATEGORY_PRODUCT_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `catalog_category_product_index`
---
 ALTER TABLE `catalog_category_product_index`
   ADD PRIMARY KEY (`category_id`,`product_id`,`store_id`), ADD KEY `IDX_CAT_CTGR_PRD_IDX_PRD_ID_STORE_ID_CTGR_ID_VISIBILITY` (`product_id`,`store_id`,`category_id`,`visibility`), ADD KEY `15D3C269665C74C2219037D534F4B0DC` (`store_id`,`category_id`,`visibility`,`is_parent`,`position`);
 
---
--- Klíče pro tabulku `catalog_category_product_index_enbl_idx`
---
 ALTER TABLE `catalog_category_product_index_enbl_idx`
   ADD KEY `IDX_CAT_CTGR_PRD_IDX_ENBL_IDX_PRD_ID_VISIBILITY` (`product_id`,`visibility`);
 
---
--- Klíče pro tabulku `catalog_category_product_index_enbl_tmp`
---
 ALTER TABLE `catalog_category_product_index_enbl_tmp`
   ADD KEY `IDX_CAT_CTGR_PRD_IDX_ENBL_TMP_PRD_ID_VISIBILITY` (`product_id`,`visibility`);
 
---
--- Klíče pro tabulku `catalog_category_product_index_idx`
---
 ALTER TABLE `catalog_category_product_index_idx`
   ADD KEY `IDX_CAT_CTGR_PRD_IDX_IDX_PRD_ID_CTGR_ID_STORE_ID` (`product_id`,`category_id`,`store_id`);
 
---
--- Klíče pro tabulku `catalog_category_product_index_tmp`
---
 ALTER TABLE `catalog_category_product_index_tmp`
   ADD KEY `IDX_CAT_CTGR_PRD_IDX_TMP_PRD_ID_CTGR_ID_STORE_ID` (`product_id`,`category_id`,`store_id`);
 
---
--- Klíče pro tabulku `catalog_compare_item`
---
 ALTER TABLE `catalog_compare_item`
   ADD PRIMARY KEY (`catalog_compare_item_id`), ADD KEY `IDX_CATALOG_COMPARE_ITEM_CUSTOMER_ID` (`customer_id`), ADD KEY `IDX_CATALOG_COMPARE_ITEM_PRODUCT_ID` (`product_id`), ADD KEY `IDX_CATALOG_COMPARE_ITEM_VISITOR_ID_PRODUCT_ID` (`visitor_id`,`product_id`), ADD KEY `IDX_CATALOG_COMPARE_ITEM_CUSTOMER_ID_PRODUCT_ID` (`customer_id`,`product_id`), ADD KEY `IDX_CATALOG_COMPARE_ITEM_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `catalog_eav_attribute`
---
 ALTER TABLE `catalog_eav_attribute`
   ADD PRIMARY KEY (`attribute_id`), ADD KEY `IDX_CATALOG_EAV_ATTRIBUTE_USED_FOR_SORT_BY` (`used_for_sort_by`), ADD KEY `IDX_CATALOG_EAV_ATTRIBUTE_USED_IN_PRODUCT_LISTING` (`used_in_product_listing`);
 
---
--- Klíče pro tabulku `catalog_product_bundle_option`
---
 ALTER TABLE `catalog_product_bundle_option`
   ADD PRIMARY KEY (`option_id`), ADD KEY `IDX_CATALOG_PRODUCT_BUNDLE_OPTION_PARENT_ID` (`parent_id`);
 
---
--- Klíče pro tabulku `catalog_product_bundle_option_value`
---
 ALTER TABLE `catalog_product_bundle_option_value`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_BUNDLE_OPTION_VALUE_OPTION_ID_STORE_ID` (`option_id`,`store_id`);
 
---
--- Klíče pro tabulku `catalog_product_bundle_price_index`
---
 ALTER TABLE `catalog_product_bundle_price_index`
   ADD PRIMARY KEY (`entity_id`,`website_id`,`customer_group_id`), ADD KEY `IDX_CATALOG_PRODUCT_BUNDLE_PRICE_INDEX_WEBSITE_ID` (`website_id`), ADD KEY `IDX_CATALOG_PRODUCT_BUNDLE_PRICE_INDEX_CUSTOMER_GROUP_ID` (`customer_group_id`);
 
---
--- Klíče pro tabulku `catalog_product_bundle_selection`
---
 ALTER TABLE `catalog_product_bundle_selection`
   ADD PRIMARY KEY (`selection_id`), ADD KEY `IDX_CATALOG_PRODUCT_BUNDLE_SELECTION_OPTION_ID` (`option_id`), ADD KEY `IDX_CATALOG_PRODUCT_BUNDLE_SELECTION_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `catalog_product_bundle_selection_price`
---
 ALTER TABLE `catalog_product_bundle_selection_price`
   ADD PRIMARY KEY (`selection_id`,`website_id`), ADD KEY `IDX_CATALOG_PRODUCT_BUNDLE_SELECTION_PRICE_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_bundle_stock_index`
---
 ALTER TABLE `catalog_product_bundle_stock_index`
   ADD PRIMARY KEY (`entity_id`,`website_id`,`stock_id`,`option_id`);
 
---
--- Klíče pro tabulku `catalog_product_enabled_index`
---
 ALTER TABLE `catalog_product_enabled_index`
   ADD PRIMARY KEY (`product_id`,`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENABLED_INDEX_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `catalog_product_entity`
---
 ALTER TABLE `catalog_product_entity`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_ATTRIBUTE_SET_ID` (`attribute_set_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_SKU` (`sku`);
 
---
--- Klíče pro tabulku `catalog_product_entity_datetime`
---
 ALTER TABLE `catalog_product_entity_datetime`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CAT_PRD_ENTT_DTIME_ENTT_ID_ATTR_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_DATETIME_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_DATETIME_STORE_ID` (`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_DATETIME_ENTITY_ID` (`entity_id`);
 
---
--- Klíče pro tabulku `catalog_product_entity_decimal`
---
 ALTER TABLE `catalog_product_entity_decimal`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CAT_PRD_ENTT_DEC_ENTT_ID_ATTR_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_DECIMAL_STORE_ID` (`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_DECIMAL_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_DECIMAL_ATTRIBUTE_ID` (`attribute_id`);
 
---
--- Klíče pro tabulku `catalog_product_entity_gallery`
---
 ALTER TABLE `catalog_product_entity_gallery`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CAT_PRD_ENTT_GLR_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_GALLERY_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_GALLERY_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_GALLERY_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `catalog_product_entity_group_price`
---
 ALTER TABLE `catalog_product_entity_group_price`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `CC12C83765B562314470A24F2BDD0F36` (`entity_id`,`all_groups`,`customer_group_id`,`website_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_GROUP_PRICE_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_GROUP_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_GROUP_PRICE_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_entity_int`
---
 ALTER TABLE `catalog_product_entity_int`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_INT_STORE_ID` (`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_INT_ENTITY_ID` (`entity_id`);
 
---
--- Klíče pro tabulku `catalog_product_entity_media_gallery`
---
 ALTER TABLE `catalog_product_entity_media_gallery`
   ADD PRIMARY KEY (`value_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_MEDIA_GALLERY_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_MEDIA_GALLERY_ENTITY_ID` (`entity_id`);
 
---
--- Klíče pro tabulku `catalog_product_entity_media_gallery_value`
---
 ALTER TABLE `catalog_product_entity_media_gallery_value`
   ADD PRIMARY KEY (`value_id`,`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_MEDIA_GALLERY_VALUE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `catalog_product_entity_text`
---
 ALTER TABLE `catalog_product_entity_text`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_ENTITY_TEXT_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_TEXT_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_TEXT_STORE_ID` (`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_TEXT_ENTITY_ID` (`entity_id`);
 
---
--- Klíče pro tabulku `catalog_product_entity_tier_price`
---
 ALTER TABLE `catalog_product_entity_tier_price`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `E8AB433B9ACB00343ABB312AD2FAB087` (`entity_id`,`all_groups`,`customer_group_id`,`qty`,`website_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_TIER_PRICE_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_TIER_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_TIER_PRICE_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_entity_varchar`
---
 ALTER TABLE `catalog_product_entity_varchar`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CAT_PRD_ENTT_VCHR_ENTT_ID_ATTR_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_VARCHAR_STORE_ID` (`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`);
 
---
--- Klíče pro tabulku `catalog_product_flat_1`
---
 ALTER TABLE `catalog_product_flat_1`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_CATALOG_PRODUCT_FLAT_1_TYPE_ID` (`type_id`), ADD KEY `IDX_CATALOG_PRODUCT_FLAT_1_ATTRIBUTE_SET_ID` (`attribute_set_id`), ADD KEY `IDX_CATALOG_PRODUCT_FLAT_1_NAME` (`name`), ADD KEY `IDX_CATALOG_PRODUCT_FLAT_1_PRICE` (`price`);
 
---
--- Klíče pro tabulku `catalog_product_index_eav`
---
 ALTER TABLE `catalog_product_index_eav`
   ADD PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`,`value`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_STORE_ID` (`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_VALUE` (`value`);
 
---
--- Klíče pro tabulku `catalog_product_index_eav_decimal`
---
 ALTER TABLE `catalog_product_index_eav_decimal`
   ADD PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_STORE_ID` (`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_VALUE` (`value`);
 
---
--- Klíče pro tabulku `catalog_product_index_eav_decimal_idx`
---
 ALTER TABLE `catalog_product_index_eav_decimal_idx`
   ADD PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`,`value`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_IDX_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_IDX_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_IDX_STORE_ID` (`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_IDX_VALUE` (`value`);
 
---
--- Klíče pro tabulku `catalog_product_index_eav_decimal_tmp`
---
 ALTER TABLE `catalog_product_index_eav_decimal_tmp`
   ADD PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_TMP_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_TMP_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_TMP_STORE_ID` (`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_TMP_VALUE` (`value`);
 
---
--- Klíče pro tabulku `catalog_product_index_eav_idx`
---
 ALTER TABLE `catalog_product_index_eav_idx`
   ADD PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`,`value`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_IDX_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_IDX_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_IDX_STORE_ID` (`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_IDX_VALUE` (`value`);
 
---
--- Klíče pro tabulku `catalog_product_index_eav_tmp`
---
 ALTER TABLE `catalog_product_index_eav_tmp`
   ADD PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`,`value`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_TMP_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_TMP_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_TMP_STORE_ID` (`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_TMP_VALUE` (`value`);
 
---
--- Klíče pro tabulku `catalog_product_index_group_price`
---
 ALTER TABLE `catalog_product_index_group_price`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_GROUP_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_GROUP_PRICE_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price`
---
 ALTER TABLE `catalog_product_index_price`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_WEBSITE_ID` (`website_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_MIN_PRICE` (`min_price`), ADD KEY `IDX_CAT_PRD_IDX_PRICE_WS_ID_CSTR_GROUP_ID_MIN_PRICE` (`website_id`,`customer_group_id`,`min_price`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_bundle_idx`
---
 ALTER TABLE `catalog_product_index_price_bundle_idx`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_bundle_opt_idx`
---
 ALTER TABLE `catalog_product_index_price_bundle_opt_idx`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_bundle_opt_tmp`
---
 ALTER TABLE `catalog_product_index_price_bundle_opt_tmp`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_bundle_sel_idx`
---
 ALTER TABLE `catalog_product_index_price_bundle_sel_idx`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`,`selection_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_bundle_sel_tmp`
---
 ALTER TABLE `catalog_product_index_price_bundle_sel_tmp`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`,`selection_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_bundle_tmp`
---
 ALTER TABLE `catalog_product_index_price_bundle_tmp`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_cfg_opt_agr_idx`
---
 ALTER TABLE `catalog_product_index_price_cfg_opt_agr_idx`
   ADD PRIMARY KEY (`parent_id`,`child_id`,`customer_group_id`,`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_cfg_opt_agr_tmp`
---
 ALTER TABLE `catalog_product_index_price_cfg_opt_agr_tmp`
   ADD PRIMARY KEY (`parent_id`,`child_id`,`customer_group_id`,`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_cfg_opt_idx`
---
 ALTER TABLE `catalog_product_index_price_cfg_opt_idx`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_cfg_opt_tmp`
---
 ALTER TABLE `catalog_product_index_price_cfg_opt_tmp`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_downlod_idx`
---
 ALTER TABLE `catalog_product_index_price_downlod_idx`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_downlod_tmp`
---
 ALTER TABLE `catalog_product_index_price_downlod_tmp`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_final_idx`
---
 ALTER TABLE `catalog_product_index_price_final_idx`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_final_tmp`
---
 ALTER TABLE `catalog_product_index_price_final_tmp`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_idx`
---
 ALTER TABLE `catalog_product_index_price_idx`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_IDX_CUSTOMER_GROUP_ID` (`customer_group_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_IDX_WEBSITE_ID` (`website_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_IDX_MIN_PRICE` (`min_price`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_opt_agr_idx`
---
 ALTER TABLE `catalog_product_index_price_opt_agr_idx`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_opt_agr_tmp`
---
 ALTER TABLE `catalog_product_index_price_opt_agr_tmp`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_opt_idx`
---
 ALTER TABLE `catalog_product_index_price_opt_idx`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_opt_tmp`
---
 ALTER TABLE `catalog_product_index_price_opt_tmp`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_price_tmp`
---
 ALTER TABLE `catalog_product_index_price_tmp`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_TMP_CUSTOMER_GROUP_ID` (`customer_group_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_TMP_WEBSITE_ID` (`website_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_TMP_MIN_PRICE` (`min_price`);
 
---
--- Klíče pro tabulku `catalog_product_index_tier_price`
---
 ALTER TABLE `catalog_product_index_tier_price`
   ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_TIER_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_TIER_PRICE_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_index_website`
---
 ALTER TABLE `catalog_product_index_website`
   ADD PRIMARY KEY (`website_id`), ADD KEY `IDX_CATALOG_PRODUCT_INDEX_WEBSITE_WEBSITE_DATE` (`website_date`);
 
---
--- Klíče pro tabulku `catalog_product_link`
---
 ALTER TABLE `catalog_product_link`
   ADD PRIMARY KEY (`link_id`), ADD UNIQUE KEY `UNQ_CAT_PRD_LNK_LNK_TYPE_ID_PRD_ID_LNKED_PRD_ID` (`link_type_id`,`product_id`,`linked_product_id`), ADD KEY `IDX_CATALOG_PRODUCT_LINK_PRODUCT_ID` (`product_id`), ADD KEY `IDX_CATALOG_PRODUCT_LINK_LINKED_PRODUCT_ID` (`linked_product_id`), ADD KEY `IDX_CATALOG_PRODUCT_LINK_LINK_TYPE_ID` (`link_type_id`);
 
---
--- Klíče pro tabulku `catalog_product_link_attribute`
---
 ALTER TABLE `catalog_product_link_attribute`
   ADD PRIMARY KEY (`product_link_attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_LINK_ATTRIBUTE_LINK_TYPE_ID` (`link_type_id`);
 
---
--- Klíče pro tabulku `catalog_product_link_attribute_decimal`
---
 ALTER TABLE `catalog_product_link_attribute_decimal`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CAT_PRD_LNK_ATTR_DEC_PRD_LNK_ATTR_ID_LNK_ID` (`product_link_attribute_id`,`link_id`), ADD KEY `IDX_CAT_PRD_LNK_ATTR_DEC_PRD_LNK_ATTR_ID` (`product_link_attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_LINK_ATTRIBUTE_DECIMAL_LINK_ID` (`link_id`);
 
---
--- Klíče pro tabulku `catalog_product_link_attribute_int`
---
 ALTER TABLE `catalog_product_link_attribute_int`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CAT_PRD_LNK_ATTR_INT_PRD_LNK_ATTR_ID_LNK_ID` (`product_link_attribute_id`,`link_id`), ADD KEY `IDX_CATALOG_PRODUCT_LINK_ATTRIBUTE_INT_PRODUCT_LINK_ATTRIBUTE_ID` (`product_link_attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_LINK_ATTRIBUTE_INT_LINK_ID` (`link_id`);
 
---
--- Klíče pro tabulku `catalog_product_link_attribute_varchar`
---
 ALTER TABLE `catalog_product_link_attribute_varchar`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CAT_PRD_LNK_ATTR_VCHR_PRD_LNK_ATTR_ID_LNK_ID` (`product_link_attribute_id`,`link_id`), ADD KEY `IDX_CAT_PRD_LNK_ATTR_VCHR_PRD_LNK_ATTR_ID` (`product_link_attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_LINK_ATTRIBUTE_VARCHAR_LINK_ID` (`link_id`);
 
---
--- Klíče pro tabulku `catalog_product_link_type`
---
 ALTER TABLE `catalog_product_link_type`
   ADD PRIMARY KEY (`link_type_id`);
 
---
--- Klíče pro tabulku `catalog_product_option`
---
 ALTER TABLE `catalog_product_option`
   ADD PRIMARY KEY (`option_id`), ADD KEY `IDX_CATALOG_PRODUCT_OPTION_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `catalog_product_option_price`
---
 ALTER TABLE `catalog_product_option_price`
   ADD PRIMARY KEY (`option_price_id`), ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_OPTION_PRICE_OPTION_ID_STORE_ID` (`option_id`,`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_OPTION_PRICE_OPTION_ID` (`option_id`), ADD KEY `IDX_CATALOG_PRODUCT_OPTION_PRICE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `catalog_product_option_title`
---
 ALTER TABLE `catalog_product_option_title`
   ADD PRIMARY KEY (`option_title_id`), ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_OPTION_TITLE_OPTION_ID_STORE_ID` (`option_id`,`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_OPTION_TITLE_OPTION_ID` (`option_id`), ADD KEY `IDX_CATALOG_PRODUCT_OPTION_TITLE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `catalog_product_option_type_price`
---
 ALTER TABLE `catalog_product_option_type_price`
   ADD PRIMARY KEY (`option_type_price_id`), ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_OPTION_TYPE_PRICE_OPTION_TYPE_ID_STORE_ID` (`option_type_id`,`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_OPTION_TYPE_PRICE_OPTION_TYPE_ID` (`option_type_id`), ADD KEY `IDX_CATALOG_PRODUCT_OPTION_TYPE_PRICE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `catalog_product_option_type_title`
---
 ALTER TABLE `catalog_product_option_type_title`
   ADD PRIMARY KEY (`option_type_title_id`), ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_OPTION_TYPE_TITLE_OPTION_TYPE_ID_STORE_ID` (`option_type_id`,`store_id`), ADD KEY `IDX_CATALOG_PRODUCT_OPTION_TYPE_TITLE_OPTION_TYPE_ID` (`option_type_id`), ADD KEY `IDX_CATALOG_PRODUCT_OPTION_TYPE_TITLE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `catalog_product_option_type_value`
---
 ALTER TABLE `catalog_product_option_type_value`
   ADD PRIMARY KEY (`option_type_id`), ADD KEY `IDX_CATALOG_PRODUCT_OPTION_TYPE_VALUE_OPTION_ID` (`option_id`);
 
---
--- Klíče pro tabulku `catalog_product_relation`
---
 ALTER TABLE `catalog_product_relation`
   ADD PRIMARY KEY (`parent_id`,`child_id`), ADD KEY `IDX_CATALOG_PRODUCT_RELATION_CHILD_ID` (`child_id`);
 
---
--- Klíče pro tabulku `catalog_product_super_attribute`
---
 ALTER TABLE `catalog_product_super_attribute`
   ADD PRIMARY KEY (`product_super_attribute_id`), ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_SUPER_ATTRIBUTE_PRODUCT_ID_ATTRIBUTE_ID` (`product_id`,`attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_SUPER_ATTRIBUTE_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `catalog_product_super_attribute_label`
---
 ALTER TABLE `catalog_product_super_attribute_label`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CAT_PRD_SPR_ATTR_LBL_PRD_SPR_ATTR_ID_STORE_ID` (`product_super_attribute_id`,`store_id`), ADD KEY `IDX_CAT_PRD_SPR_ATTR_LBL_PRD_SPR_ATTR_ID` (`product_super_attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_SUPER_ATTRIBUTE_LABEL_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `catalog_product_super_attribute_pricing`
---
 ALTER TABLE `catalog_product_super_attribute_pricing`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CAT_PRD_SPR_ATTR_PRICING_PRD_SPR_ATTR_ID_VAL_IDX_WS_ID` (`product_super_attribute_id`,`value_index`,`website_id`), ADD KEY `IDX_CAT_PRD_SPR_ATTR_PRICING_PRD_SPR_ATTR_ID` (`product_super_attribute_id`), ADD KEY `IDX_CATALOG_PRODUCT_SUPER_ATTRIBUTE_PRICING_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `catalog_product_super_link`
---
 ALTER TABLE `catalog_product_super_link`
   ADD PRIMARY KEY (`link_id`), ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_SUPER_LINK_PRODUCT_ID_PARENT_ID` (`product_id`,`parent_id`), ADD KEY `IDX_CATALOG_PRODUCT_SUPER_LINK_PARENT_ID` (`parent_id`), ADD KEY `IDX_CATALOG_PRODUCT_SUPER_LINK_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `catalog_product_website`
---
 ALTER TABLE `catalog_product_website`
   ADD PRIMARY KEY (`product_id`,`website_id`), ADD KEY `IDX_CATALOG_PRODUCT_WEBSITE_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `checkout_agreement`
---
 ALTER TABLE `checkout_agreement`
   ADD PRIMARY KEY (`agreement_id`);
 
---
--- Klíče pro tabulku `checkout_agreement_store`
---
 ALTER TABLE `checkout_agreement_store`
   ADD PRIMARY KEY (`agreement_id`,`store_id`), ADD KEY `FK_CHECKOUT_AGREEMENT_STORE_STORE_ID_CORE_STORE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `cms_block`
---
 ALTER TABLE `cms_block`
   ADD PRIMARY KEY (`block_id`);
 
---
--- Klíče pro tabulku `cms_block_store`
---
 ALTER TABLE `cms_block_store`
   ADD PRIMARY KEY (`block_id`,`store_id`), ADD KEY `IDX_CMS_BLOCK_STORE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `cms_page`
---
 ALTER TABLE `cms_page`
   ADD PRIMARY KEY (`page_id`), ADD KEY `IDX_CMS_PAGE_IDENTIFIER` (`identifier`);
 
---
--- Klíče pro tabulku `cms_page_store`
---
 ALTER TABLE `cms_page_store`
   ADD PRIMARY KEY (`page_id`,`store_id`), ADD KEY `IDX_CMS_PAGE_STORE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `core_cache`
---
 ALTER TABLE `core_cache`
   ADD PRIMARY KEY (`id`), ADD KEY `IDX_CORE_CACHE_EXPIRE_TIME` (`expire_time`);
 
---
--- Klíče pro tabulku `core_cache_option`
---
 ALTER TABLE `core_cache_option`
   ADD PRIMARY KEY (`code`);
 
---
--- Klíče pro tabulku `core_cache_tag`
---
 ALTER TABLE `core_cache_tag`
   ADD PRIMARY KEY (`tag`,`cache_id`), ADD KEY `IDX_CORE_CACHE_TAG_CACHE_ID` (`cache_id`);
 
---
--- Klíče pro tabulku `core_config_data`
---
 ALTER TABLE `core_config_data`
   ADD PRIMARY KEY (`config_id`), ADD UNIQUE KEY `UNQ_CORE_CONFIG_DATA_SCOPE_SCOPE_ID_PATH` (`scope`,`scope_id`,`path`);
 
---
--- Klíče pro tabulku `core_email_queue`
---
 ALTER TABLE `core_email_queue`
   ADD PRIMARY KEY (`message_id`), ADD KEY `0ADECE62FD629241C147389ADF20706E` (`entity_id`,`entity_type`,`event_type`,`message_body_hash`);
 
---
--- Klíče pro tabulku `core_email_queue_recipients`
---
 ALTER TABLE `core_email_queue_recipients`
   ADD PRIMARY KEY (`recipient_id`), ADD UNIQUE KEY `19BDB9C5FE4BD685FCF992A71E976CD0` (`message_id`,`recipient_email`,`email_type`), ADD KEY `IDX_CORE_EMAIL_QUEUE_RECIPIENTS_RECIPIENT_EMAIL` (`recipient_email`), ADD KEY `IDX_CORE_EMAIL_QUEUE_RECIPIENTS_EMAIL_TYPE` (`email_type`);
 
---
--- Klíče pro tabulku `core_email_template`
---
 ALTER TABLE `core_email_template`
   ADD PRIMARY KEY (`template_id`), ADD UNIQUE KEY `UNQ_CORE_EMAIL_TEMPLATE_TEMPLATE_CODE` (`template_code`), ADD KEY `IDX_CORE_EMAIL_TEMPLATE_ADDED_AT` (`added_at`), ADD KEY `IDX_CORE_EMAIL_TEMPLATE_MODIFIED_AT` (`modified_at`);
 
---
--- Klíče pro tabulku `core_flag`
---
 ALTER TABLE `core_flag`
   ADD PRIMARY KEY (`flag_id`), ADD KEY `IDX_CORE_FLAG_LAST_UPDATE` (`last_update`);
 
---
--- Klíče pro tabulku `core_layout_link`
---
 ALTER TABLE `core_layout_link`
   ADD PRIMARY KEY (`layout_link_id`), ADD UNIQUE KEY `UNQ_CORE_LAYOUT_LINK_STORE_ID_PACKAGE_THEME_LAYOUT_UPDATE_ID` (`store_id`,`package`,`theme`,`layout_update_id`), ADD KEY `IDX_CORE_LAYOUT_LINK_LAYOUT_UPDATE_ID` (`layout_update_id`);
 
---
--- Klíče pro tabulku `core_layout_update`
---
 ALTER TABLE `core_layout_update`
   ADD PRIMARY KEY (`layout_update_id`), ADD KEY `IDX_CORE_LAYOUT_UPDATE_HANDLE` (`handle`);
 
---
--- Klíče pro tabulku `core_resource`
---
 ALTER TABLE `core_resource`
   ADD PRIMARY KEY (`code`);
 
---
--- Klíče pro tabulku `core_session`
---
 ALTER TABLE `core_session`
   ADD PRIMARY KEY (`session_id`);
 
---
--- Klíče pro tabulku `core_store`
---
 ALTER TABLE `core_store`
   ADD PRIMARY KEY (`store_id`), ADD UNIQUE KEY `UNQ_CORE_STORE_CODE` (`code`), ADD KEY `IDX_CORE_STORE_WEBSITE_ID` (`website_id`), ADD KEY `IDX_CORE_STORE_IS_ACTIVE_SORT_ORDER` (`is_active`,`sort_order`), ADD KEY `IDX_CORE_STORE_GROUP_ID` (`group_id`);
 
---
--- Klíče pro tabulku `core_store_group`
---
 ALTER TABLE `core_store_group`
   ADD PRIMARY KEY (`group_id`), ADD KEY `IDX_CORE_STORE_GROUP_WEBSITE_ID` (`website_id`), ADD KEY `IDX_CORE_STORE_GROUP_DEFAULT_STORE_ID` (`default_store_id`);
 
---
--- Klíče pro tabulku `core_translate`
---
 ALTER TABLE `core_translate`
   ADD PRIMARY KEY (`key_id`), ADD UNIQUE KEY `UNQ_CORE_TRANSLATE_STORE_ID_LOCALE_CRC_STRING_STRING` (`store_id`,`locale`,`crc_string`,`string`), ADD KEY `IDX_CORE_TRANSLATE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `core_url_rewrite`
---
 ALTER TABLE `core_url_rewrite`
   ADD PRIMARY KEY (`url_rewrite_id`), ADD UNIQUE KEY `UNQ_CORE_URL_REWRITE_REQUEST_PATH_STORE_ID` (`request_path`,`store_id`), ADD UNIQUE KEY `UNQ_CORE_URL_REWRITE_ID_PATH_IS_SYSTEM_STORE_ID` (`id_path`,`is_system`,`store_id`), ADD KEY `IDX_CORE_URL_REWRITE_TARGET_PATH_STORE_ID` (`target_path`,`store_id`), ADD KEY `IDX_CORE_URL_REWRITE_ID_PATH` (`id_path`), ADD KEY `IDX_CORE_URL_REWRITE_STORE_ID` (`store_id`), ADD KEY `FK_CORE_URL_REWRITE_CTGR_ID_CAT_CTGR_ENTT_ENTT_ID` (`category_id`), ADD KEY `FK_CORE_URL_REWRITE_PRODUCT_ID_CATALOG_CATEGORY_ENTITY_ENTITY_ID` (`product_id`);
 
---
--- Klíče pro tabulku `core_variable`
---
 ALTER TABLE `core_variable`
   ADD PRIMARY KEY (`variable_id`), ADD UNIQUE KEY `UNQ_CORE_VARIABLE_CODE` (`code`);
 
---
--- Klíče pro tabulku `core_variable_value`
---
 ALTER TABLE `core_variable_value`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CORE_VARIABLE_VALUE_VARIABLE_ID_STORE_ID` (`variable_id`,`store_id`), ADD KEY `IDX_CORE_VARIABLE_VALUE_VARIABLE_ID` (`variable_id`), ADD KEY `IDX_CORE_VARIABLE_VALUE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `core_website`
---
 ALTER TABLE `core_website`
   ADD PRIMARY KEY (`website_id`), ADD UNIQUE KEY `UNQ_CORE_WEBSITE_CODE` (`code`), ADD KEY `IDX_CORE_WEBSITE_SORT_ORDER` (`sort_order`), ADD KEY `IDX_CORE_WEBSITE_DEFAULT_GROUP_ID` (`default_group_id`);
 
---
--- Klíče pro tabulku `coupon_aggregated`
---
 ALTER TABLE `coupon_aggregated`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNQ_COUPON_AGGREGATED_PERIOD_STORE_ID_ORDER_STATUS_COUPON_CODE` (`period`,`store_id`,`order_status`,`coupon_code`), ADD KEY `IDX_COUPON_AGGREGATED_STORE_ID` (`store_id`), ADD KEY `IDX_COUPON_AGGREGATED_RULE_NAME` (`rule_name`);
 
---
--- Klíče pro tabulku `coupon_aggregated_order`
---
 ALTER TABLE `coupon_aggregated_order`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNQ_COUPON_AGGRED_ORDER_PERIOD_STORE_ID_ORDER_STS_COUPON_CODE` (`period`,`store_id`,`order_status`,`coupon_code`), ADD KEY `IDX_COUPON_AGGREGATED_ORDER_STORE_ID` (`store_id`), ADD KEY `IDX_COUPON_AGGREGATED_ORDER_RULE_NAME` (`rule_name`);
 
---
--- Klíče pro tabulku `coupon_aggregated_updated`
---
 ALTER TABLE `coupon_aggregated_updated`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNQ_COUPON_AGGRED_UPDATED_PERIOD_STORE_ID_ORDER_STS_COUPON_CODE` (`period`,`store_id`,`order_status`,`coupon_code`), ADD KEY `IDX_COUPON_AGGREGATED_UPDATED_STORE_ID` (`store_id`), ADD KEY `IDX_COUPON_AGGREGATED_UPDATED_RULE_NAME` (`rule_name`);
 
---
--- Klíče pro tabulku `cron_schedule`
---
 ALTER TABLE `cron_schedule`
   ADD PRIMARY KEY (`schedule_id`), ADD KEY `IDX_CRON_SCHEDULE_JOB_CODE` (`job_code`), ADD KEY `IDX_CRON_SCHEDULE_SCHEDULED_AT_STATUS` (`scheduled_at`,`status`);
 
---
--- Klíče pro tabulku `customer_address_entity`
---
 ALTER TABLE `customer_address_entity`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_PARENT_ID` (`parent_id`);
 
---
--- Klíče pro tabulku `customer_address_entity_datetime`
---
 ALTER TABLE `customer_address_entity_datetime`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_DATETIME_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DATETIME_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DATETIME_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DATETIME_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CSTR_ADDR_ENTT_DTIME_ENTT_ID_ATTR_ID_VAL` (`entity_id`,`attribute_id`,`value`);
 
---
--- Klíče pro tabulku `customer_address_entity_decimal`
---
 ALTER TABLE `customer_address_entity_decimal`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DECIMAL_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DECIMAL_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DECIMAL_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`);
 
---
--- Klíče pro tabulku `customer_address_entity_int`
---
 ALTER TABLE `customer_address_entity_int`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_INT_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_INT_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`);
 
---
--- Klíče pro tabulku `customer_address_entity_text`
---
 ALTER TABLE `customer_address_entity_text`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_TEXT_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_TEXT_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_TEXT_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_TEXT_ENTITY_ID` (`entity_id`);
 
---
--- Klíče pro tabulku `customer_address_entity_varchar`
---
 ALTER TABLE `customer_address_entity_varchar`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`);
 
---
--- Klíče pro tabulku `customer_eav_attribute`
---
 ALTER TABLE `customer_eav_attribute`
   ADD PRIMARY KEY (`attribute_id`);
 
---
--- Klíče pro tabulku `customer_eav_attribute_website`
---
 ALTER TABLE `customer_eav_attribute_website`
   ADD PRIMARY KEY (`attribute_id`,`website_id`), ADD KEY `IDX_CUSTOMER_EAV_ATTRIBUTE_WEBSITE_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `customer_entity`
---
 ALTER TABLE `customer_entity`
   ADD PRIMARY KEY (`entity_id`), ADD UNIQUE KEY `UNQ_CUSTOMER_ENTITY_EMAIL_WEBSITE_ID` (`email`,`website_id`), ADD KEY `IDX_CUSTOMER_ENTITY_STORE_ID` (`store_id`), ADD KEY `IDX_CUSTOMER_ENTITY_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_CUSTOMER_ENTITY_EMAIL_WEBSITE_ID` (`email`,`website_id`), ADD KEY `IDX_CUSTOMER_ENTITY_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `customer_entity_datetime`
---
 ALTER TABLE `customer_entity_datetime`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CUSTOMER_ENTITY_DATETIME_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`), ADD KEY `IDX_CUSTOMER_ENTITY_DATETIME_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_CUSTOMER_ENTITY_DATETIME_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CUSTOMER_ENTITY_DATETIME_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CUSTOMER_ENTITY_DATETIME_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`);
 
---
--- Klíče pro tabulku `customer_entity_decimal`
---
 ALTER TABLE `customer_entity_decimal`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CUSTOMER_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`), ADD KEY `IDX_CUSTOMER_ENTITY_DECIMAL_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_CUSTOMER_ENTITY_DECIMAL_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CUSTOMER_ENTITY_DECIMAL_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CUSTOMER_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`);
 
---
--- Klíče pro tabulku `customer_entity_int`
---
 ALTER TABLE `customer_entity_int`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CUSTOMER_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`), ADD KEY `IDX_CUSTOMER_ENTITY_INT_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_CUSTOMER_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CUSTOMER_ENTITY_INT_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CUSTOMER_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`);
 
---
--- Klíče pro tabulku `customer_entity_text`
---
 ALTER TABLE `customer_entity_text`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CUSTOMER_ENTITY_TEXT_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`), ADD KEY `IDX_CUSTOMER_ENTITY_TEXT_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_CUSTOMER_ENTITY_TEXT_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CUSTOMER_ENTITY_TEXT_ENTITY_ID` (`entity_id`);
 
---
--- Klíče pro tabulku `customer_entity_varchar`
---
 ALTER TABLE `customer_entity_varchar`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_CUSTOMER_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`), ADD KEY `IDX_CUSTOMER_ENTITY_VARCHAR_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_CUSTOMER_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_CUSTOMER_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`), ADD KEY `IDX_CUSTOMER_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`);
 
---
--- Klíče pro tabulku `customer_form_attribute`
---
 ALTER TABLE `customer_form_attribute`
   ADD PRIMARY KEY (`form_code`,`attribute_id`), ADD KEY `IDX_CUSTOMER_FORM_ATTRIBUTE_ATTRIBUTE_ID` (`attribute_id`);
 
---
--- Klíče pro tabulku `customer_group`
---
 ALTER TABLE `customer_group`
   ADD PRIMARY KEY (`customer_group_id`);
 
---
--- Klíče pro tabulku `dataflow_batch`
---
 ALTER TABLE `dataflow_batch`
   ADD PRIMARY KEY (`batch_id`), ADD KEY `IDX_DATAFLOW_BATCH_PROFILE_ID` (`profile_id`), ADD KEY `IDX_DATAFLOW_BATCH_STORE_ID` (`store_id`), ADD KEY `IDX_DATAFLOW_BATCH_CREATED_AT` (`created_at`);
 
---
--- Klíče pro tabulku `dataflow_batch_export`
---
 ALTER TABLE `dataflow_batch_export`
   ADD PRIMARY KEY (`batch_export_id`), ADD KEY `IDX_DATAFLOW_BATCH_EXPORT_BATCH_ID` (`batch_id`);
 
---
--- Klíče pro tabulku `dataflow_batch_import`
---
 ALTER TABLE `dataflow_batch_import`
   ADD PRIMARY KEY (`batch_import_id`), ADD KEY `IDX_DATAFLOW_BATCH_IMPORT_BATCH_ID` (`batch_id`);
 
---
--- Klíče pro tabulku `dataflow_import_data`
---
 ALTER TABLE `dataflow_import_data`
   ADD PRIMARY KEY (`import_id`), ADD KEY `IDX_DATAFLOW_IMPORT_DATA_SESSION_ID` (`session_id`);
 
---
--- Klíče pro tabulku `dataflow_profile`
---
 ALTER TABLE `dataflow_profile`
   ADD PRIMARY KEY (`profile_id`);
 
---
--- Klíče pro tabulku `dataflow_profile_history`
---
 ALTER TABLE `dataflow_profile_history`
   ADD PRIMARY KEY (`history_id`), ADD KEY `IDX_DATAFLOW_PROFILE_HISTORY_PROFILE_ID` (`profile_id`);
 
---
--- Klíče pro tabulku `dataflow_session`
---
 ALTER TABLE `dataflow_session`
   ADD PRIMARY KEY (`session_id`);
 
---
--- Klíče pro tabulku `design_change`
---
 ALTER TABLE `design_change`
   ADD PRIMARY KEY (`design_change_id`), ADD KEY `IDX_DESIGN_CHANGE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `directory_country`
---
 ALTER TABLE `directory_country`
   ADD PRIMARY KEY (`country_id`);
 
---
--- Klíče pro tabulku `directory_country_format`
---
 ALTER TABLE `directory_country_format`
   ADD PRIMARY KEY (`country_format_id`), ADD UNIQUE KEY `UNQ_DIRECTORY_COUNTRY_FORMAT_COUNTRY_ID_TYPE` (`country_id`,`type`);
 
---
--- Klíče pro tabulku `directory_country_region`
---
 ALTER TABLE `directory_country_region`
   ADD PRIMARY KEY (`region_id`), ADD KEY `IDX_DIRECTORY_COUNTRY_REGION_COUNTRY_ID` (`country_id`);
 
---
--- Klíče pro tabulku `directory_country_region_name`
---
 ALTER TABLE `directory_country_region_name`
   ADD PRIMARY KEY (`locale`,`region_id`), ADD KEY `IDX_DIRECTORY_COUNTRY_REGION_NAME_REGION_ID` (`region_id`);
 
---
--- Klíče pro tabulku `directory_currency_rate`
---
 ALTER TABLE `directory_currency_rate`
   ADD PRIMARY KEY (`currency_from`,`currency_to`), ADD KEY `IDX_DIRECTORY_CURRENCY_RATE_CURRENCY_TO` (`currency_to`);
 
---
--- Klíče pro tabulku `downloadable_link`
---
 ALTER TABLE `downloadable_link`
   ADD PRIMARY KEY (`link_id`), ADD KEY `IDX_DOWNLOADABLE_LINK_PRODUCT_ID` (`product_id`), ADD KEY `IDX_DOWNLOADABLE_LINK_PRODUCT_ID_SORT_ORDER` (`product_id`,`sort_order`);
 
---
--- Klíče pro tabulku `downloadable_link_price`
---
 ALTER TABLE `downloadable_link_price`
   ADD PRIMARY KEY (`price_id`), ADD KEY `IDX_DOWNLOADABLE_LINK_PRICE_LINK_ID` (`link_id`), ADD KEY `IDX_DOWNLOADABLE_LINK_PRICE_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `downloadable_link_purchased`
---
 ALTER TABLE `downloadable_link_purchased`
   ADD PRIMARY KEY (`purchased_id`), ADD KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_ORDER_ID` (`order_id`), ADD KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_ORDER_ITEM_ID` (`order_item_id`), ADD KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_CUSTOMER_ID` (`customer_id`);
 
---
--- Klíče pro tabulku `downloadable_link_purchased_item`
---
 ALTER TABLE `downloadable_link_purchased_item`
   ADD PRIMARY KEY (`item_id`), ADD KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_ITEM_LINK_HASH` (`link_hash`), ADD KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_ITEM_ORDER_ITEM_ID` (`order_item_id`), ADD KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_ITEM_PURCHASED_ID` (`purchased_id`);
 
---
--- Klíče pro tabulku `downloadable_link_title`
---
 ALTER TABLE `downloadable_link_title`
   ADD PRIMARY KEY (`title_id`), ADD UNIQUE KEY `UNQ_DOWNLOADABLE_LINK_TITLE_LINK_ID_STORE_ID` (`link_id`,`store_id`), ADD KEY `IDX_DOWNLOADABLE_LINK_TITLE_LINK_ID` (`link_id`), ADD KEY `IDX_DOWNLOADABLE_LINK_TITLE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `downloadable_sample`
---
 ALTER TABLE `downloadable_sample`
   ADD PRIMARY KEY (`sample_id`), ADD KEY `IDX_DOWNLOADABLE_SAMPLE_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `downloadable_sample_title`
---
 ALTER TABLE `downloadable_sample_title`
   ADD PRIMARY KEY (`title_id`), ADD UNIQUE KEY `UNQ_DOWNLOADABLE_SAMPLE_TITLE_SAMPLE_ID_STORE_ID` (`sample_id`,`store_id`), ADD KEY `IDX_DOWNLOADABLE_SAMPLE_TITLE_SAMPLE_ID` (`sample_id`), ADD KEY `IDX_DOWNLOADABLE_SAMPLE_TITLE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `eav_attribute`
---
 ALTER TABLE `eav_attribute`
   ADD PRIMARY KEY (`attribute_id`), ADD UNIQUE KEY `UNQ_EAV_ATTRIBUTE_ENTITY_TYPE_ID_ATTRIBUTE_CODE` (`entity_type_id`,`attribute_code`), ADD KEY `IDX_EAV_ATTRIBUTE_ENTITY_TYPE_ID` (`entity_type_id`);
 
---
--- Klíče pro tabulku `eav_attribute_group`
---
 ALTER TABLE `eav_attribute_group`
   ADD PRIMARY KEY (`attribute_group_id`), ADD UNIQUE KEY `UNQ_EAV_ATTRIBUTE_GROUP_ATTRIBUTE_SET_ID_ATTRIBUTE_GROUP_NAME` (`attribute_set_id`,`attribute_group_name`), ADD KEY `IDX_EAV_ATTRIBUTE_GROUP_ATTRIBUTE_SET_ID_SORT_ORDER` (`attribute_set_id`,`sort_order`);
 
---
--- Klíče pro tabulku `eav_attribute_label`
---
 ALTER TABLE `eav_attribute_label`
   ADD PRIMARY KEY (`attribute_label_id`), ADD KEY `IDX_EAV_ATTRIBUTE_LABEL_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_EAV_ATTRIBUTE_LABEL_STORE_ID` (`store_id`), ADD KEY `IDX_EAV_ATTRIBUTE_LABEL_ATTRIBUTE_ID_STORE_ID` (`attribute_id`,`store_id`);
 
---
--- Klíče pro tabulku `eav_attribute_option`
---
 ALTER TABLE `eav_attribute_option`
   ADD PRIMARY KEY (`option_id`), ADD KEY `IDX_EAV_ATTRIBUTE_OPTION_ATTRIBUTE_ID` (`attribute_id`);
 
---
--- Klíče pro tabulku `eav_attribute_option_value`
---
 ALTER TABLE `eav_attribute_option_value`
   ADD PRIMARY KEY (`value_id`), ADD KEY `IDX_EAV_ATTRIBUTE_OPTION_VALUE_OPTION_ID` (`option_id`), ADD KEY `IDX_EAV_ATTRIBUTE_OPTION_VALUE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `eav_attribute_set`
---
 ALTER TABLE `eav_attribute_set`
   ADD PRIMARY KEY (`attribute_set_id`), ADD UNIQUE KEY `UNQ_EAV_ATTRIBUTE_SET_ENTITY_TYPE_ID_ATTRIBUTE_SET_NAME` (`entity_type_id`,`attribute_set_name`), ADD KEY `IDX_EAV_ATTRIBUTE_SET_ENTITY_TYPE_ID_SORT_ORDER` (`entity_type_id`,`sort_order`);
 
---
--- Klíče pro tabulku `eav_entity`
---
 ALTER TABLE `eav_entity`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_EAV_ENTITY_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_EAV_ENTITY_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `eav_entity_attribute`
---
 ALTER TABLE `eav_entity_attribute`
   ADD PRIMARY KEY (`entity_attribute_id`), ADD UNIQUE KEY `UNQ_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE_SET_ID_ATTRIBUTE_ID` (`attribute_set_id`,`attribute_id`), ADD UNIQUE KEY `UNQ_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE_GROUP_ID_ATTRIBUTE_ID` (`attribute_group_id`,`attribute_id`), ADD KEY `IDX_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE_SET_ID_SORT_ORDER` (`attribute_set_id`,`sort_order`), ADD KEY `IDX_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE_ID` (`attribute_id`);
 
---
--- Klíče pro tabulku `eav_entity_datetime`
---
 ALTER TABLE `eav_entity_datetime`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_EAV_ENTITY_DATETIME_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_EAV_ENTITY_DATETIME_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_EAV_ENTITY_DATETIME_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_EAV_ENTITY_DATETIME_STORE_ID` (`store_id`), ADD KEY `IDX_EAV_ENTITY_DATETIME_ENTITY_ID` (`entity_id`), ADD KEY `IDX_EAV_ENTITY_DATETIME_ATTRIBUTE_ID_VALUE` (`attribute_id`,`value`), ADD KEY `IDX_EAV_ENTITY_DATETIME_ENTITY_TYPE_ID_VALUE` (`entity_type_id`,`value`);
 
---
--- Klíče pro tabulku `eav_entity_decimal`
---
 ALTER TABLE `eav_entity_decimal`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_EAV_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_EAV_ENTITY_DECIMAL_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_EAV_ENTITY_DECIMAL_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_EAV_ENTITY_DECIMAL_STORE_ID` (`store_id`), ADD KEY `IDX_EAV_ENTITY_DECIMAL_ENTITY_ID` (`entity_id`), ADD KEY `IDX_EAV_ENTITY_DECIMAL_ATTRIBUTE_ID_VALUE` (`attribute_id`,`value`), ADD KEY `IDX_EAV_ENTITY_DECIMAL_ENTITY_TYPE_ID_VALUE` (`entity_type_id`,`value`);
 
---
--- Klíče pro tabulku `eav_entity_int`
---
 ALTER TABLE `eav_entity_int`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_EAV_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_EAV_ENTITY_INT_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_EAV_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_EAV_ENTITY_INT_STORE_ID` (`store_id`), ADD KEY `IDX_EAV_ENTITY_INT_ENTITY_ID` (`entity_id`), ADD KEY `IDX_EAV_ENTITY_INT_ATTRIBUTE_ID_VALUE` (`attribute_id`,`value`), ADD KEY `IDX_EAV_ENTITY_INT_ENTITY_TYPE_ID_VALUE` (`entity_type_id`,`value`);
 
---
--- Klíče pro tabulku `eav_entity_store`
---
 ALTER TABLE `eav_entity_store`
   ADD PRIMARY KEY (`entity_store_id`), ADD KEY `IDX_EAV_ENTITY_STORE_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_EAV_ENTITY_STORE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `eav_entity_text`
---
 ALTER TABLE `eav_entity_text`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_EAV_ENTITY_TEXT_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_EAV_ENTITY_TEXT_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_EAV_ENTITY_TEXT_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_EAV_ENTITY_TEXT_STORE_ID` (`store_id`), ADD KEY `IDX_EAV_ENTITY_TEXT_ENTITY_ID` (`entity_id`);
 
---
--- Klíče pro tabulku `eav_entity_type`
---
 ALTER TABLE `eav_entity_type`
   ADD PRIMARY KEY (`entity_type_id`), ADD KEY `IDX_EAV_ENTITY_TYPE_ENTITY_TYPE_CODE` (`entity_type_code`);
 
---
--- Klíče pro tabulku `eav_entity_varchar`
---
 ALTER TABLE `eav_entity_varchar`
   ADD PRIMARY KEY (`value_id`), ADD UNIQUE KEY `UNQ_EAV_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`), ADD KEY `IDX_EAV_ENTITY_VARCHAR_ENTITY_TYPE_ID` (`entity_type_id`), ADD KEY `IDX_EAV_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`), ADD KEY `IDX_EAV_ENTITY_VARCHAR_STORE_ID` (`store_id`), ADD KEY `IDX_EAV_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`), ADD KEY `IDX_EAV_ENTITY_VARCHAR_ATTRIBUTE_ID_VALUE` (`attribute_id`,`value`), ADD KEY `IDX_EAV_ENTITY_VARCHAR_ENTITY_TYPE_ID_VALUE` (`entity_type_id`,`value`);
 
---
--- Klíče pro tabulku `eav_form_element`
---
 ALTER TABLE `eav_form_element`
   ADD PRIMARY KEY (`element_id`), ADD UNIQUE KEY `UNQ_EAV_FORM_ELEMENT_TYPE_ID_ATTRIBUTE_ID` (`type_id`,`attribute_id`), ADD KEY `IDX_EAV_FORM_ELEMENT_TYPE_ID` (`type_id`), ADD KEY `IDX_EAV_FORM_ELEMENT_FIELDSET_ID` (`fieldset_id`), ADD KEY `IDX_EAV_FORM_ELEMENT_ATTRIBUTE_ID` (`attribute_id`);
 
---
--- Klíče pro tabulku `eav_form_fieldset`
---
 ALTER TABLE `eav_form_fieldset`
   ADD PRIMARY KEY (`fieldset_id`), ADD UNIQUE KEY `UNQ_EAV_FORM_FIELDSET_TYPE_ID_CODE` (`type_id`,`code`), ADD KEY `IDX_EAV_FORM_FIELDSET_TYPE_ID` (`type_id`);
 
---
--- Klíče pro tabulku `eav_form_fieldset_label`
---
 ALTER TABLE `eav_form_fieldset_label`
   ADD PRIMARY KEY (`fieldset_id`,`store_id`), ADD KEY `IDX_EAV_FORM_FIELDSET_LABEL_FIELDSET_ID` (`fieldset_id`), ADD KEY `IDX_EAV_FORM_FIELDSET_LABEL_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `eav_form_type`
---
 ALTER TABLE `eav_form_type`
   ADD PRIMARY KEY (`type_id`), ADD UNIQUE KEY `UNQ_EAV_FORM_TYPE_CODE_THEME_STORE_ID` (`code`,`theme`,`store_id`), ADD KEY `IDX_EAV_FORM_TYPE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `eav_form_type_entity`
---
 ALTER TABLE `eav_form_type_entity`
   ADD PRIMARY KEY (`type_id`,`entity_type_id`), ADD KEY `IDX_EAV_FORM_TYPE_ENTITY_ENTITY_TYPE_ID` (`entity_type_id`);
 
---
--- Klíče pro tabulku `gift_message`
---
 ALTER TABLE `gift_message`
   ADD PRIMARY KEY (`gift_message_id`);
 
---
--- Klíče pro tabulku `importexport_importdata`
---
 ALTER TABLE `importexport_importdata`
   ADD PRIMARY KEY (`id`);
 
---
--- Klíče pro tabulku `index_event`
---
 ALTER TABLE `index_event`
   ADD PRIMARY KEY (`event_id`), ADD UNIQUE KEY `UNQ_INDEX_EVENT_TYPE_ENTITY_ENTITY_PK` (`type`,`entity`,`entity_pk`);
 
---
--- Klíče pro tabulku `index_process`
---
 ALTER TABLE `index_process`
   ADD PRIMARY KEY (`process_id`), ADD UNIQUE KEY `UNQ_INDEX_PROCESS_INDEXER_CODE` (`indexer_code`);
 
---
--- Klíče pro tabulku `index_process_event`
---
 ALTER TABLE `index_process_event`
   ADD PRIMARY KEY (`process_id`,`event_id`), ADD KEY `IDX_INDEX_PROCESS_EVENT_EVENT_ID` (`event_id`);
 
---
--- Klíče pro tabulku `log_customer`
---
 ALTER TABLE `log_customer`
   ADD PRIMARY KEY (`log_id`), ADD KEY `IDX_LOG_CUSTOMER_VISITOR_ID` (`visitor_id`);
 
---
--- Klíče pro tabulku `log_quote`
---
 ALTER TABLE `log_quote`
   ADD PRIMARY KEY (`quote_id`);
 
---
--- Klíče pro tabulku `log_summary`
---
 ALTER TABLE `log_summary`
   ADD PRIMARY KEY (`summary_id`);
 
---
--- Klíče pro tabulku `log_summary_type`
---
 ALTER TABLE `log_summary_type`
   ADD PRIMARY KEY (`type_id`);
 
---
--- Klíče pro tabulku `log_url`
---
 ALTER TABLE `log_url`
   ADD KEY `IDX_LOG_URL_VISITOR_ID` (`visitor_id`), ADD KEY `url_id` (`url_id`);
 
---
--- Klíče pro tabulku `log_url_info`
---
 ALTER TABLE `log_url_info`
   ADD PRIMARY KEY (`url_id`);
 
---
--- Klíče pro tabulku `log_visitor`
---
 ALTER TABLE `log_visitor`
   ADD PRIMARY KEY (`visitor_id`);
 
---
--- Klíče pro tabulku `log_visitor_info`
---
 ALTER TABLE `log_visitor_info`
   ADD PRIMARY KEY (`visitor_id`);
 
---
--- Klíče pro tabulku `log_visitor_online`
---
 ALTER TABLE `log_visitor_online`
   ADD PRIMARY KEY (`visitor_id`), ADD KEY `IDX_LOG_VISITOR_ONLINE_VISITOR_TYPE` (`visitor_type`), ADD KEY `IDX_LOG_VISITOR_ONLINE_FIRST_VISIT_AT_LAST_VISIT_AT` (`first_visit_at`,`last_visit_at`), ADD KEY `IDX_LOG_VISITOR_ONLINE_CUSTOMER_ID` (`customer_id`);
 
---
--- Klíče pro tabulku `newsletter_problem`
---
 ALTER TABLE `newsletter_problem`
   ADD PRIMARY KEY (`problem_id`), ADD KEY `IDX_NEWSLETTER_PROBLEM_SUBSCRIBER_ID` (`subscriber_id`), ADD KEY `IDX_NEWSLETTER_PROBLEM_QUEUE_ID` (`queue_id`);
 
---
--- Klíče pro tabulku `newsletter_queue`
---
 ALTER TABLE `newsletter_queue`
   ADD PRIMARY KEY (`queue_id`), ADD KEY `IDX_NEWSLETTER_QUEUE_TEMPLATE_ID` (`template_id`);
 
---
--- Klíče pro tabulku `newsletter_queue_link`
---
 ALTER TABLE `newsletter_queue_link`
   ADD PRIMARY KEY (`queue_link_id`), ADD KEY `IDX_NEWSLETTER_QUEUE_LINK_SUBSCRIBER_ID` (`subscriber_id`), ADD KEY `IDX_NEWSLETTER_QUEUE_LINK_QUEUE_ID` (`queue_id`), ADD KEY `IDX_NEWSLETTER_QUEUE_LINK_QUEUE_ID_LETTER_SENT_AT` (`queue_id`,`letter_sent_at`);
 
---
--- Klíče pro tabulku `newsletter_queue_store_link`
---
 ALTER TABLE `newsletter_queue_store_link`
   ADD PRIMARY KEY (`queue_id`,`store_id`), ADD KEY `IDX_NEWSLETTER_QUEUE_STORE_LINK_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `newsletter_subscriber`
---
 ALTER TABLE `newsletter_subscriber`
   ADD PRIMARY KEY (`subscriber_id`), ADD KEY `IDX_NEWSLETTER_SUBSCRIBER_CUSTOMER_ID` (`customer_id`), ADD KEY `IDX_NEWSLETTER_SUBSCRIBER_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `newsletter_template`
---
 ALTER TABLE `newsletter_template`
   ADD PRIMARY KEY (`template_id`), ADD KEY `IDX_NEWSLETTER_TEMPLATE_TEMPLATE_ACTUAL` (`template_actual`), ADD KEY `IDX_NEWSLETTER_TEMPLATE_ADDED_AT` (`added_at`), ADD KEY `IDX_NEWSLETTER_TEMPLATE_MODIFIED_AT` (`modified_at`);
 
---
--- Klíče pro tabulku `oauth_consumer`
---
 ALTER TABLE `oauth_consumer`
   ADD PRIMARY KEY (`entity_id`), ADD UNIQUE KEY `UNQ_OAUTH_CONSUMER_KEY` (`key`), ADD UNIQUE KEY `UNQ_OAUTH_CONSUMER_SECRET` (`secret`), ADD KEY `IDX_OAUTH_CONSUMER_CREATED_AT` (`created_at`), ADD KEY `IDX_OAUTH_CONSUMER_UPDATED_AT` (`updated_at`);
 
---
--- Klíče pro tabulku `oauth_nonce`
---
 ALTER TABLE `oauth_nonce`
   ADD UNIQUE KEY `UNQ_OAUTH_NONCE_NONCE` (`nonce`);
 
---
--- Klíče pro tabulku `oauth_token`
---
 ALTER TABLE `oauth_token`
   ADD PRIMARY KEY (`entity_id`), ADD UNIQUE KEY `UNQ_OAUTH_TOKEN_TOKEN` (`token`), ADD KEY `IDX_OAUTH_TOKEN_CONSUMER_ID` (`consumer_id`), ADD KEY `FK_OAUTH_TOKEN_ADMIN_ID_ADMIN_USER_USER_ID` (`admin_id`), ADD KEY `FK_OAUTH_TOKEN_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` (`customer_id`);
 
---
--- Klíče pro tabulku `paypal_cert`
---
 ALTER TABLE `paypal_cert`
   ADD PRIMARY KEY (`cert_id`), ADD KEY `IDX_PAYPAL_CERT_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `paypal_payment_transaction`
---
 ALTER TABLE `paypal_payment_transaction`
   ADD PRIMARY KEY (`transaction_id`), ADD UNIQUE KEY `UNQ_PAYPAL_PAYMENT_TRANSACTION_TXN_ID` (`txn_id`);
 
---
--- Klíče pro tabulku `paypal_settlement_report`
---
 ALTER TABLE `paypal_settlement_report`
   ADD PRIMARY KEY (`report_id`), ADD UNIQUE KEY `UNQ_PAYPAL_SETTLEMENT_REPORT_REPORT_DATE_ACCOUNT_ID` (`report_date`,`account_id`);
 
---
--- Klíče pro tabulku `paypal_settlement_report_row`
---
 ALTER TABLE `paypal_settlement_report_row`
   ADD PRIMARY KEY (`row_id`), ADD KEY `IDX_PAYPAL_SETTLEMENT_REPORT_ROW_REPORT_ID` (`report_id`);
 
---
--- Klíče pro tabulku `persistent_session`
---
 ALTER TABLE `persistent_session`
   ADD PRIMARY KEY (`persistent_id`), ADD UNIQUE KEY `IDX_PERSISTENT_SESSION_KEY` (`key`), ADD UNIQUE KEY `IDX_PERSISTENT_SESSION_CUSTOMER_ID` (`customer_id`), ADD KEY `IDX_PERSISTENT_SESSION_UPDATED_AT` (`updated_at`), ADD KEY `FK_PERSISTENT_SESSION_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `poll`
---
 ALTER TABLE `poll`
   ADD PRIMARY KEY (`poll_id`), ADD KEY `IDX_POLL_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `poll_answer`
---
 ALTER TABLE `poll_answer`
   ADD PRIMARY KEY (`answer_id`), ADD KEY `IDX_POLL_ANSWER_POLL_ID` (`poll_id`);
 
---
--- Klíče pro tabulku `poll_store`
---
 ALTER TABLE `poll_store`
   ADD PRIMARY KEY (`poll_id`,`store_id`), ADD KEY `IDX_POLL_STORE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `poll_vote`
---
 ALTER TABLE `poll_vote`
   ADD PRIMARY KEY (`vote_id`), ADD KEY `IDX_POLL_VOTE_POLL_ANSWER_ID` (`poll_answer_id`);
 
---
--- Klíče pro tabulku `product_alert_price`
---
 ALTER TABLE `product_alert_price`
   ADD PRIMARY KEY (`alert_price_id`), ADD KEY `IDX_PRODUCT_ALERT_PRICE_CUSTOMER_ID` (`customer_id`), ADD KEY `IDX_PRODUCT_ALERT_PRICE_PRODUCT_ID` (`product_id`), ADD KEY `IDX_PRODUCT_ALERT_PRICE_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `product_alert_stock`
---
 ALTER TABLE `product_alert_stock`
   ADD PRIMARY KEY (`alert_stock_id`), ADD KEY `IDX_PRODUCT_ALERT_STOCK_CUSTOMER_ID` (`customer_id`), ADD KEY `IDX_PRODUCT_ALERT_STOCK_PRODUCT_ID` (`product_id`), ADD KEY `IDX_PRODUCT_ALERT_STOCK_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `rating`
---
 ALTER TABLE `rating`
   ADD PRIMARY KEY (`rating_id`), ADD UNIQUE KEY `UNQ_RATING_RATING_CODE` (`rating_code`), ADD KEY `IDX_RATING_ENTITY_ID` (`entity_id`);
 
---
--- Klíče pro tabulku `rating_entity`
---
 ALTER TABLE `rating_entity`
   ADD PRIMARY KEY (`entity_id`), ADD UNIQUE KEY `UNQ_RATING_ENTITY_ENTITY_CODE` (`entity_code`);
 
---
--- Klíče pro tabulku `rating_option`
---
 ALTER TABLE `rating_option`
   ADD PRIMARY KEY (`option_id`), ADD KEY `IDX_RATING_OPTION_RATING_ID` (`rating_id`);
 
---
--- Klíče pro tabulku `rating_option_vote`
---
 ALTER TABLE `rating_option_vote`
   ADD PRIMARY KEY (`vote_id`), ADD KEY `IDX_RATING_OPTION_VOTE_OPTION_ID` (`option_id`), ADD KEY `FK_RATING_OPTION_VOTE_REVIEW_ID_REVIEW_REVIEW_ID` (`review_id`);
 
---
--- Klíče pro tabulku `rating_option_vote_aggregated`
---
 ALTER TABLE `rating_option_vote_aggregated`
   ADD PRIMARY KEY (`primary_id`), ADD KEY `IDX_RATING_OPTION_VOTE_AGGREGATED_RATING_ID` (`rating_id`), ADD KEY `IDX_RATING_OPTION_VOTE_AGGREGATED_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `rating_store`
---
 ALTER TABLE `rating_store`
   ADD PRIMARY KEY (`rating_id`,`store_id`), ADD KEY `IDX_RATING_STORE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `rating_title`
---
 ALTER TABLE `rating_title`
   ADD PRIMARY KEY (`rating_id`,`store_id`), ADD KEY `IDX_RATING_TITLE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `report_compared_product_index`
---
 ALTER TABLE `report_compared_product_index`
   ADD PRIMARY KEY (`index_id`), ADD UNIQUE KEY `UNQ_REPORT_COMPARED_PRODUCT_INDEX_VISITOR_ID_PRODUCT_ID` (`visitor_id`,`product_id`), ADD UNIQUE KEY `UNQ_REPORT_COMPARED_PRODUCT_INDEX_CUSTOMER_ID_PRODUCT_ID` (`customer_id`,`product_id`), ADD KEY `IDX_REPORT_COMPARED_PRODUCT_INDEX_STORE_ID` (`store_id`), ADD KEY `IDX_REPORT_COMPARED_PRODUCT_INDEX_ADDED_AT` (`added_at`), ADD KEY `IDX_REPORT_COMPARED_PRODUCT_INDEX_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `report_event`
---
 ALTER TABLE `report_event`
   ADD PRIMARY KEY (`event_id`), ADD KEY `IDX_REPORT_EVENT_EVENT_TYPE_ID` (`event_type_id`), ADD KEY `IDX_REPORT_EVENT_SUBJECT_ID` (`subject_id`), ADD KEY `IDX_REPORT_EVENT_OBJECT_ID` (`object_id`), ADD KEY `IDX_REPORT_EVENT_SUBTYPE` (`subtype`), ADD KEY `IDX_REPORT_EVENT_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `report_event_types`
---
 ALTER TABLE `report_event_types`
   ADD PRIMARY KEY (`event_type_id`);
 
---
--- Klíče pro tabulku `report_viewed_product_aggregated_daily`
---
 ALTER TABLE `report_viewed_product_aggregated_daily`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNQ_REPORT_VIEWED_PRD_AGGRED_DAILY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`), ADD KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_DAILY_STORE_ID` (`store_id`), ADD KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_DAILY_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `report_viewed_product_aggregated_monthly`
---
 ALTER TABLE `report_viewed_product_aggregated_monthly`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNQ_REPORT_VIEWED_PRD_AGGRED_MONTHLY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`), ADD KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_MONTHLY_STORE_ID` (`store_id`), ADD KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_MONTHLY_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `report_viewed_product_aggregated_yearly`
---
 ALTER TABLE `report_viewed_product_aggregated_yearly`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNQ_REPORT_VIEWED_PRD_AGGRED_YEARLY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`), ADD KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_YEARLY_STORE_ID` (`store_id`), ADD KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_YEARLY_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `report_viewed_product_index`
---
 ALTER TABLE `report_viewed_product_index`
   ADD PRIMARY KEY (`index_id`), ADD UNIQUE KEY `UNQ_REPORT_VIEWED_PRODUCT_INDEX_VISITOR_ID_PRODUCT_ID` (`visitor_id`,`product_id`), ADD UNIQUE KEY `UNQ_REPORT_VIEWED_PRODUCT_INDEX_CUSTOMER_ID_PRODUCT_ID` (`customer_id`,`product_id`), ADD KEY `IDX_REPORT_VIEWED_PRODUCT_INDEX_STORE_ID` (`store_id`), ADD KEY `IDX_REPORT_VIEWED_PRODUCT_INDEX_ADDED_AT` (`added_at`), ADD KEY `IDX_REPORT_VIEWED_PRODUCT_INDEX_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `review`
---
 ALTER TABLE `review`
   ADD PRIMARY KEY (`review_id`), ADD KEY `IDX_REVIEW_ENTITY_ID` (`entity_id`), ADD KEY `IDX_REVIEW_STATUS_ID` (`status_id`), ADD KEY `IDX_REVIEW_ENTITY_PK_VALUE` (`entity_pk_value`);
 
---
--- Klíče pro tabulku `review_detail`
---
 ALTER TABLE `review_detail`
   ADD PRIMARY KEY (`detail_id`), ADD KEY `IDX_REVIEW_DETAIL_REVIEW_ID` (`review_id`), ADD KEY `IDX_REVIEW_DETAIL_STORE_ID` (`store_id`), ADD KEY `IDX_REVIEW_DETAIL_CUSTOMER_ID` (`customer_id`);
 
---
--- Klíče pro tabulku `review_entity`
---
 ALTER TABLE `review_entity`
   ADD PRIMARY KEY (`entity_id`);
 
---
--- Klíče pro tabulku `review_entity_summary`
---
 ALTER TABLE `review_entity_summary`
   ADD PRIMARY KEY (`primary_id`), ADD KEY `IDX_REVIEW_ENTITY_SUMMARY_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `review_status`
---
 ALTER TABLE `review_status`
   ADD PRIMARY KEY (`status_id`);
 
---
--- Klíče pro tabulku `review_store`
---
 ALTER TABLE `review_store`
   ADD PRIMARY KEY (`review_id`,`store_id`), ADD KEY `IDX_REVIEW_STORE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `salesrule`
---
 ALTER TABLE `salesrule`
   ADD PRIMARY KEY (`rule_id`), ADD KEY `IDX_SALESRULE_IS_ACTIVE_SORT_ORDER_TO_DATE_FROM_DATE` (`is_active`,`sort_order`,`to_date`,`from_date`);
 
---
--- Klíče pro tabulku `salesrule_coupon`
---
 ALTER TABLE `salesrule_coupon`
   ADD PRIMARY KEY (`coupon_id`), ADD UNIQUE KEY `UNQ_SALESRULE_COUPON_CODE` (`code`), ADD UNIQUE KEY `UNQ_SALESRULE_COUPON_RULE_ID_IS_PRIMARY` (`rule_id`,`is_primary`), ADD KEY `IDX_SALESRULE_COUPON_RULE_ID` (`rule_id`);
 
---
--- Klíče pro tabulku `salesrule_coupon_usage`
---
 ALTER TABLE `salesrule_coupon_usage`
   ADD PRIMARY KEY (`coupon_id`,`customer_id`), ADD KEY `IDX_SALESRULE_COUPON_USAGE_COUPON_ID` (`coupon_id`), ADD KEY `IDX_SALESRULE_COUPON_USAGE_CUSTOMER_ID` (`customer_id`);
 
---
--- Klíče pro tabulku `salesrule_customer`
---
 ALTER TABLE `salesrule_customer`
   ADD PRIMARY KEY (`rule_customer_id`), ADD KEY `IDX_SALESRULE_CUSTOMER_RULE_ID_CUSTOMER_ID` (`rule_id`,`customer_id`), ADD KEY `IDX_SALESRULE_CUSTOMER_CUSTOMER_ID_RULE_ID` (`customer_id`,`rule_id`);
 
---
--- Klíče pro tabulku `salesrule_customer_group`
---
 ALTER TABLE `salesrule_customer_group`
   ADD PRIMARY KEY (`rule_id`,`customer_group_id`), ADD KEY `IDX_SALESRULE_CUSTOMER_GROUP_RULE_ID` (`rule_id`), ADD KEY `IDX_SALESRULE_CUSTOMER_GROUP_CUSTOMER_GROUP_ID` (`customer_group_id`);
 
---
--- Klíče pro tabulku `salesrule_label`
---
 ALTER TABLE `salesrule_label`
   ADD PRIMARY KEY (`label_id`), ADD UNIQUE KEY `UNQ_SALESRULE_LABEL_RULE_ID_STORE_ID` (`rule_id`,`store_id`), ADD KEY `IDX_SALESRULE_LABEL_STORE_ID` (`store_id`), ADD KEY `IDX_SALESRULE_LABEL_RULE_ID` (`rule_id`);
 
---
--- Klíče pro tabulku `salesrule_product_attribute`
---
 ALTER TABLE `salesrule_product_attribute`
   ADD PRIMARY KEY (`rule_id`,`website_id`,`customer_group_id`,`attribute_id`), ADD KEY `IDX_SALESRULE_PRODUCT_ATTRIBUTE_WEBSITE_ID` (`website_id`), ADD KEY `IDX_SALESRULE_PRODUCT_ATTRIBUTE_CUSTOMER_GROUP_ID` (`customer_group_id`), ADD KEY `IDX_SALESRULE_PRODUCT_ATTRIBUTE_ATTRIBUTE_ID` (`attribute_id`);
 
---
--- Klíče pro tabulku `salesrule_website`
---
 ALTER TABLE `salesrule_website`
   ADD PRIMARY KEY (`rule_id`,`website_id`), ADD KEY `IDX_SALESRULE_WEBSITE_RULE_ID` (`rule_id`), ADD KEY `IDX_SALESRULE_WEBSITE_WEBSITE_ID` (`website_id`);
 
---
--- Klíče pro tabulku `sales_bestsellers_aggregated_daily`
---
 ALTER TABLE `sales_bestsellers_aggregated_daily`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNQ_SALES_BESTSELLERS_AGGRED_DAILY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`), ADD KEY `IDX_SALES_BESTSELLERS_AGGREGATED_DAILY_STORE_ID` (`store_id`), ADD KEY `IDX_SALES_BESTSELLERS_AGGREGATED_DAILY_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `sales_bestsellers_aggregated_monthly`
---
 ALTER TABLE `sales_bestsellers_aggregated_monthly`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNQ_SALES_BESTSELLERS_AGGRED_MONTHLY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`), ADD KEY `IDX_SALES_BESTSELLERS_AGGREGATED_MONTHLY_STORE_ID` (`store_id`), ADD KEY `IDX_SALES_BESTSELLERS_AGGREGATED_MONTHLY_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `sales_bestsellers_aggregated_yearly`
---
 ALTER TABLE `sales_bestsellers_aggregated_yearly`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNQ_SALES_BESTSELLERS_AGGRED_YEARLY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`), ADD KEY `IDX_SALES_BESTSELLERS_AGGREGATED_YEARLY_STORE_ID` (`store_id`), ADD KEY `IDX_SALES_BESTSELLERS_AGGREGATED_YEARLY_PRODUCT_ID` (`product_id`);
 
---
--- Klíče pro tabulku `sales_billing_agreement`
---
 ALTER TABLE `sales_billing_agreement`
   ADD PRIMARY KEY (`agreement_id`), ADD KEY `IDX_SALES_BILLING_AGREEMENT_CUSTOMER_ID` (`customer_id`), ADD KEY `IDX_SALES_BILLING_AGREEMENT_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `sales_billing_agreement_order`
---
 ALTER TABLE `sales_billing_agreement_order`
   ADD PRIMARY KEY (`agreement_id`,`order_id`), ADD KEY `IDX_SALES_BILLING_AGREEMENT_ORDER_ORDER_ID` (`order_id`);
 
---
--- Klíče pro tabulku `sales_flat_creditmemo`
---
 ALTER TABLE `sales_flat_creditmemo`
   ADD PRIMARY KEY (`entity_id`), ADD UNIQUE KEY `UNQ_SALES_FLAT_CREDITMEMO_INCREMENT_ID` (`increment_id`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_STORE_ID` (`store_id`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_ORDER_ID` (`order_id`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_CREDITMEMO_STATUS` (`creditmemo_status`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_STATE` (`state`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_CREATED_AT` (`created_at`);
 
---
--- Klíče pro tabulku `sales_flat_creditmemo_comment`
---
 ALTER TABLE `sales_flat_creditmemo_comment`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_COMMENT_CREATED_AT` (`created_at`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_COMMENT_PARENT_ID` (`parent_id`);
 
---
--- Klíče pro tabulku `sales_flat_creditmemo_grid`
---
 ALTER TABLE `sales_flat_creditmemo_grid`
   ADD PRIMARY KEY (`entity_id`), ADD UNIQUE KEY `UNQ_SALES_FLAT_CREDITMEMO_GRID_INCREMENT_ID` (`increment_id`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_STORE_ID` (`store_id`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_GRAND_TOTAL` (`grand_total`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_BASE_GRAND_TOTAL` (`base_grand_total`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_ORDER_ID` (`order_id`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_CREDITMEMO_STATUS` (`creditmemo_status`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_STATE` (`state`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_ORDER_INCREMENT_ID` (`order_increment_id`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_CREATED_AT` (`created_at`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_ORDER_CREATED_AT` (`order_created_at`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_BILLING_NAME` (`billing_name`);
 
---
--- Klíče pro tabulku `sales_flat_creditmemo_item`
---
 ALTER TABLE `sales_flat_creditmemo_item`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_SALES_FLAT_CREDITMEMO_ITEM_PARENT_ID` (`parent_id`);
 
---
--- Klíče pro tabulku `sales_flat_invoice`
---
 ALTER TABLE `sales_flat_invoice`
   ADD PRIMARY KEY (`entity_id`), ADD UNIQUE KEY `UNQ_SALES_FLAT_INVOICE_INCREMENT_ID` (`increment_id`), ADD KEY `IDX_SALES_FLAT_INVOICE_STORE_ID` (`store_id`), ADD KEY `IDX_SALES_FLAT_INVOICE_GRAND_TOTAL` (`grand_total`), ADD KEY `IDX_SALES_FLAT_INVOICE_ORDER_ID` (`order_id`), ADD KEY `IDX_SALES_FLAT_INVOICE_STATE` (`state`), ADD KEY `IDX_SALES_FLAT_INVOICE_CREATED_AT` (`created_at`);
 
---
--- Klíče pro tabulku `sales_flat_invoice_comment`
---
 ALTER TABLE `sales_flat_invoice_comment`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_SALES_FLAT_INVOICE_COMMENT_CREATED_AT` (`created_at`), ADD KEY `IDX_SALES_FLAT_INVOICE_COMMENT_PARENT_ID` (`parent_id`);
 
---
--- Klíče pro tabulku `sales_flat_invoice_grid`
---
 ALTER TABLE `sales_flat_invoice_grid`
   ADD PRIMARY KEY (`entity_id`), ADD UNIQUE KEY `UNQ_SALES_FLAT_INVOICE_GRID_INCREMENT_ID` (`increment_id`), ADD KEY `IDX_SALES_FLAT_INVOICE_GRID_STORE_ID` (`store_id`), ADD KEY `IDX_SALES_FLAT_INVOICE_GRID_GRAND_TOTAL` (`grand_total`), ADD KEY `IDX_SALES_FLAT_INVOICE_GRID_ORDER_ID` (`order_id`), ADD KEY `IDX_SALES_FLAT_INVOICE_GRID_STATE` (`state`), ADD KEY `IDX_SALES_FLAT_INVOICE_GRID_ORDER_INCREMENT_ID` (`order_increment_id`), ADD KEY `IDX_SALES_FLAT_INVOICE_GRID_CREATED_AT` (`created_at`), ADD KEY `IDX_SALES_FLAT_INVOICE_GRID_ORDER_CREATED_AT` (`order_created_at`), ADD KEY `IDX_SALES_FLAT_INVOICE_GRID_BILLING_NAME` (`billing_name`);
 
---
--- Klíče pro tabulku `sales_flat_invoice_item`
---
 ALTER TABLE `sales_flat_invoice_item`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_SALES_FLAT_INVOICE_ITEM_PARENT_ID` (`parent_id`);
 
---
--- Klíče pro tabulku `sales_flat_order`
---
 ALTER TABLE `sales_flat_order`
   ADD PRIMARY KEY (`entity_id`), ADD UNIQUE KEY `UNQ_SALES_FLAT_ORDER_INCREMENT_ID` (`increment_id`), ADD KEY `IDX_SALES_FLAT_ORDER_STATUS` (`status`), ADD KEY `IDX_SALES_FLAT_ORDER_STATE` (`state`), ADD KEY `IDX_SALES_FLAT_ORDER_STORE_ID` (`store_id`), ADD KEY `IDX_SALES_FLAT_ORDER_CREATED_AT` (`created_at`), ADD KEY `IDX_SALES_FLAT_ORDER_CUSTOMER_ID` (`customer_id`), ADD KEY `IDX_SALES_FLAT_ORDER_EXT_ORDER_ID` (`ext_order_id`), ADD KEY `IDX_SALES_FLAT_ORDER_QUOTE_ID` (`quote_id`), ADD KEY `IDX_SALES_FLAT_ORDER_UPDATED_AT` (`updated_at`);
 
---
--- Klíče pro tabulku `sales_flat_order_address`
---
 ALTER TABLE `sales_flat_order_address`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_SALES_FLAT_ORDER_ADDRESS_PARENT_ID` (`parent_id`);
 
---
--- Klíče pro tabulku `sales_flat_order_grid`
---
 ALTER TABLE `sales_flat_order_grid`
   ADD PRIMARY KEY (`entity_id`), ADD UNIQUE KEY `UNQ_SALES_FLAT_ORDER_GRID_INCREMENT_ID` (`increment_id`), ADD KEY `IDX_SALES_FLAT_ORDER_GRID_STATUS` (`status`), ADD KEY `IDX_SALES_FLAT_ORDER_GRID_STORE_ID` (`store_id`), ADD KEY `IDX_SALES_FLAT_ORDER_GRID_BASE_GRAND_TOTAL` (`base_grand_total`), ADD KEY `IDX_SALES_FLAT_ORDER_GRID_BASE_TOTAL_PAID` (`base_total_paid`), ADD KEY `IDX_SALES_FLAT_ORDER_GRID_GRAND_TOTAL` (`grand_total`), ADD KEY `IDX_SALES_FLAT_ORDER_GRID_TOTAL_PAID` (`total_paid`), ADD KEY `IDX_SALES_FLAT_ORDER_GRID_SHIPPING_NAME` (`shipping_name`), ADD KEY `IDX_SALES_FLAT_ORDER_GRID_BILLING_NAME` (`billing_name`), ADD KEY `IDX_SALES_FLAT_ORDER_GRID_CREATED_AT` (`created_at`), ADD KEY `IDX_SALES_FLAT_ORDER_GRID_CUSTOMER_ID` (`customer_id`), ADD KEY `IDX_SALES_FLAT_ORDER_GRID_UPDATED_AT` (`updated_at`);
 
---
--- Klíče pro tabulku `sales_flat_order_item`
---
 ALTER TABLE `sales_flat_order_item`
   ADD PRIMARY KEY (`item_id`), ADD KEY `IDX_SALES_FLAT_ORDER_ITEM_ORDER_ID` (`order_id`), ADD KEY `IDX_SALES_FLAT_ORDER_ITEM_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `sales_flat_order_payment`
---
 ALTER TABLE `sales_flat_order_payment`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_SALES_FLAT_ORDER_PAYMENT_PARENT_ID` (`parent_id`);
 
---
--- Klíče pro tabulku `sales_flat_order_status_history`
---
 ALTER TABLE `sales_flat_order_status_history`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_SALES_FLAT_ORDER_STATUS_HISTORY_PARENT_ID` (`parent_id`), ADD KEY `IDX_SALES_FLAT_ORDER_STATUS_HISTORY_CREATED_AT` (`created_at`);
 
---
--- Klíče pro tabulku `sales_flat_quote`
---
 ALTER TABLE `sales_flat_quote`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_SALES_FLAT_QUOTE_CUSTOMER_ID_STORE_ID_IS_ACTIVE` (`customer_id`,`store_id`,`is_active`), ADD KEY `IDX_SALES_FLAT_QUOTE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `sales_flat_quote_address`
---
 ALTER TABLE `sales_flat_quote_address`
   ADD PRIMARY KEY (`address_id`), ADD KEY `IDX_SALES_FLAT_QUOTE_ADDRESS_QUOTE_ID` (`quote_id`);
 
---
--- Klíče pro tabulku `sales_flat_quote_address_item`
---
 ALTER TABLE `sales_flat_quote_address_item`
   ADD PRIMARY KEY (`address_item_id`), ADD KEY `IDX_SALES_FLAT_QUOTE_ADDRESS_ITEM_QUOTE_ADDRESS_ID` (`quote_address_id`), ADD KEY `IDX_SALES_FLAT_QUOTE_ADDRESS_ITEM_PARENT_ITEM_ID` (`parent_item_id`), ADD KEY `IDX_SALES_FLAT_QUOTE_ADDRESS_ITEM_QUOTE_ITEM_ID` (`quote_item_id`);
 
---
--- Klíče pro tabulku `sales_flat_quote_item`
---
 ALTER TABLE `sales_flat_quote_item`
   ADD PRIMARY KEY (`item_id`), ADD KEY `IDX_SALES_FLAT_QUOTE_ITEM_PARENT_ITEM_ID` (`parent_item_id`), ADD KEY `IDX_SALES_FLAT_QUOTE_ITEM_PRODUCT_ID` (`product_id`), ADD KEY `IDX_SALES_FLAT_QUOTE_ITEM_QUOTE_ID` (`quote_id`), ADD KEY `IDX_SALES_FLAT_QUOTE_ITEM_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `sales_flat_quote_item_option`
---
 ALTER TABLE `sales_flat_quote_item_option`
   ADD PRIMARY KEY (`option_id`), ADD KEY `IDX_SALES_FLAT_QUOTE_ITEM_OPTION_ITEM_ID` (`item_id`);
 
---
--- Klíče pro tabulku `sales_flat_quote_payment`
---
 ALTER TABLE `sales_flat_quote_payment`
   ADD PRIMARY KEY (`payment_id`), ADD KEY `IDX_SALES_FLAT_QUOTE_PAYMENT_QUOTE_ID` (`quote_id`);
 
---
--- Klíče pro tabulku `sales_flat_quote_shipping_rate`
---
 ALTER TABLE `sales_flat_quote_shipping_rate`
   ADD PRIMARY KEY (`rate_id`), ADD KEY `IDX_SALES_FLAT_QUOTE_SHIPPING_RATE_ADDRESS_ID` (`address_id`);
 
---
--- Klíče pro tabulku `sales_flat_shipment`
---
 ALTER TABLE `sales_flat_shipment`
   ADD PRIMARY KEY (`entity_id`), ADD UNIQUE KEY `UNQ_SALES_FLAT_SHIPMENT_INCREMENT_ID` (`increment_id`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_STORE_ID` (`store_id`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_TOTAL_QTY` (`total_qty`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_ORDER_ID` (`order_id`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_CREATED_AT` (`created_at`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_UPDATED_AT` (`updated_at`);
 
---
--- Klíče pro tabulku `sales_flat_shipment_comment`
---
 ALTER TABLE `sales_flat_shipment_comment`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_COMMENT_CREATED_AT` (`created_at`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_COMMENT_PARENT_ID` (`parent_id`);
 
---
--- Klíče pro tabulku `sales_flat_shipment_grid`
---
 ALTER TABLE `sales_flat_shipment_grid`
   ADD PRIMARY KEY (`entity_id`), ADD UNIQUE KEY `UNQ_SALES_FLAT_SHIPMENT_GRID_INCREMENT_ID` (`increment_id`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_GRID_STORE_ID` (`store_id`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_GRID_TOTAL_QTY` (`total_qty`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_GRID_ORDER_ID` (`order_id`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_GRID_SHIPMENT_STATUS` (`shipment_status`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_GRID_ORDER_INCREMENT_ID` (`order_increment_id`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_GRID_CREATED_AT` (`created_at`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_GRID_ORDER_CREATED_AT` (`order_created_at`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_GRID_SHIPPING_NAME` (`shipping_name`);
 
---
--- Klíče pro tabulku `sales_flat_shipment_item`
---
 ALTER TABLE `sales_flat_shipment_item`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_ITEM_PARENT_ID` (`parent_id`);
 
---
--- Klíče pro tabulku `sales_flat_shipment_track`
---
 ALTER TABLE `sales_flat_shipment_track`
   ADD PRIMARY KEY (`entity_id`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_TRACK_PARENT_ID` (`parent_id`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_TRACK_ORDER_ID` (`order_id`), ADD KEY `IDX_SALES_FLAT_SHIPMENT_TRACK_CREATED_AT` (`created_at`);
 
---
--- Klíče pro tabulku `sales_invoiced_aggregated`
---
 ALTER TABLE `sales_invoiced_aggregated`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNQ_SALES_INVOICED_AGGREGATED_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`), ADD KEY `IDX_SALES_INVOICED_AGGREGATED_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `sales_invoiced_aggregated_order`
---
 ALTER TABLE `sales_invoiced_aggregated_order`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNQ_SALES_INVOICED_AGGREGATED_ORDER_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`), ADD KEY `IDX_SALES_INVOICED_AGGREGATED_ORDER_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `sales_order_aggregated_created`
---
 ALTER TABLE `sales_order_aggregated_created`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNQ_SALES_ORDER_AGGREGATED_CREATED_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`), ADD KEY `IDX_SALES_ORDER_AGGREGATED_CREATED_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `sales_order_aggregated_updated`
---
 ALTER TABLE `sales_order_aggregated_updated`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNQ_SALES_ORDER_AGGREGATED_UPDATED_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`), ADD KEY `IDX_SALES_ORDER_AGGREGATED_UPDATED_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `sales_order_status`
---
 ALTER TABLE `sales_order_status`
   ADD PRIMARY KEY (`status`);
 
---
--- Klíče pro tabulku `sales_order_status_label`
---
 ALTER TABLE `sales_order_status_label`
   ADD PRIMARY KEY (`status`,`store_id`), ADD KEY `IDX_SALES_ORDER_STATUS_LABEL_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `sales_order_status_state`
---
 ALTER TABLE `sales_order_status_state`
   ADD PRIMARY KEY (`status`,`state`);
 
---
--- Klíče pro tabulku `sales_order_tax`
---
 ALTER TABLE `sales_order_tax`
   ADD PRIMARY KEY (`tax_id`), ADD KEY `IDX_SALES_ORDER_TAX_ORDER_ID_PRIORITY_POSITION` (`order_id`,`priority`,`position`);
 
---
--- Klíče pro tabulku `sales_order_tax_item`
---
 ALTER TABLE `sales_order_tax_item`
   ADD PRIMARY KEY (`tax_item_id`), ADD UNIQUE KEY `UNQ_SALES_ORDER_TAX_ITEM_TAX_ID_ITEM_ID` (`tax_id`,`item_id`), ADD KEY `IDX_SALES_ORDER_TAX_ITEM_TAX_ID` (`tax_id`), ADD KEY `IDX_SALES_ORDER_TAX_ITEM_ITEM_ID` (`item_id`);
 
---
--- Klíče pro tabulku `sales_payment_transaction`
---
 ALTER TABLE `sales_payment_transaction`
   ADD PRIMARY KEY (`transaction_id`), ADD UNIQUE KEY `UNQ_SALES_PAYMENT_TRANSACTION_ORDER_ID_PAYMENT_ID_TXN_ID` (`order_id`,`payment_id`,`txn_id`), ADD KEY `IDX_SALES_PAYMENT_TRANSACTION_ORDER_ID` (`order_id`), ADD KEY `IDX_SALES_PAYMENT_TRANSACTION_PARENT_ID` (`parent_id`), ADD KEY `IDX_SALES_PAYMENT_TRANSACTION_PAYMENT_ID` (`payment_id`);
 
---
--- Klíče pro tabulku `sales_recurring_profile`
---
 ALTER TABLE `sales_recurring_profile`
   ADD PRIMARY KEY (`profile_id`), ADD UNIQUE KEY `UNQ_SALES_RECURRING_PROFILE_INTERNAL_REFERENCE_ID` (`internal_reference_id`), ADD KEY `IDX_SALES_RECURRING_PROFILE_CUSTOMER_ID` (`customer_id`), ADD KEY `IDX_SALES_RECURRING_PROFILE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `sales_recurring_profile_order`
---
 ALTER TABLE `sales_recurring_profile_order`
   ADD PRIMARY KEY (`link_id`), ADD UNIQUE KEY `UNQ_SALES_RECURRING_PROFILE_ORDER_PROFILE_ID_ORDER_ID` (`profile_id`,`order_id`), ADD KEY `IDX_SALES_RECURRING_PROFILE_ORDER_ORDER_ID` (`order_id`);
 
---
--- Klíče pro tabulku `sales_refunded_aggregated`
---
 ALTER TABLE `sales_refunded_aggregated`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNQ_SALES_REFUNDED_AGGREGATED_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`), ADD KEY `IDX_SALES_REFUNDED_AGGREGATED_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `sales_refunded_aggregated_order`
---
 ALTER TABLE `sales_refunded_aggregated_order`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNQ_SALES_REFUNDED_AGGREGATED_ORDER_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`), ADD KEY `IDX_SALES_REFUNDED_AGGREGATED_ORDER_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `sales_shipping_aggregated`
---
 ALTER TABLE `sales_shipping_aggregated`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNQ_SALES_SHPP_AGGRED_PERIOD_STORE_ID_ORDER_STS_SHPP_DESCRIPTION` (`period`,`store_id`,`order_status`,`shipping_description`), ADD KEY `IDX_SALES_SHIPPING_AGGREGATED_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `sales_shipping_aggregated_order`
---
 ALTER TABLE `sales_shipping_aggregated_order`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `C05FAE47282EEA68654D0924E946761F` (`period`,`store_id`,`order_status`,`shipping_description`), ADD KEY `IDX_SALES_SHIPPING_AGGREGATED_ORDER_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `sendfriend_log`
---
 ALTER TABLE `sendfriend_log`
   ADD PRIMARY KEY (`log_id`), ADD KEY `IDX_SENDFRIEND_LOG_IP` (`ip`), ADD KEY `IDX_SENDFRIEND_LOG_TIME` (`time`);
 
---
--- Klíče pro tabulku `shipping_tablerate`
---
 ALTER TABLE `shipping_tablerate`
   ADD PRIMARY KEY (`pk`), ADD UNIQUE KEY `D60821CDB2AFACEE1566CFC02D0D4CAA` (`website_id`,`dest_country_id`,`dest_region_id`,`dest_zip`,`condition_name`,`condition_value`);
 
---
--- Klíče pro tabulku `sitemap`
---
 ALTER TABLE `sitemap`
   ADD PRIMARY KEY (`sitemap_id`), ADD KEY `IDX_SITEMAP_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `tag`
---
 ALTER TABLE `tag`
   ADD PRIMARY KEY (`tag_id`), ADD KEY `FK_TAG_FIRST_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` (`first_customer_id`), ADD KEY `FK_TAG_FIRST_STORE_ID_CORE_STORE_STORE_ID` (`first_store_id`);
 
---
--- Klíče pro tabulku `tag_properties`
---
 ALTER TABLE `tag_properties`
   ADD PRIMARY KEY (`tag_id`,`store_id`), ADD KEY `IDX_TAG_PROPERTIES_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `tag_relation`
---
 ALTER TABLE `tag_relation`
   ADD PRIMARY KEY (`tag_relation_id`), ADD UNIQUE KEY `UNQ_TAG_RELATION_TAG_ID_CUSTOMER_ID_PRODUCT_ID_STORE_ID` (`tag_id`,`customer_id`,`product_id`,`store_id`), ADD KEY `IDX_TAG_RELATION_PRODUCT_ID` (`product_id`), ADD KEY `IDX_TAG_RELATION_TAG_ID` (`tag_id`), ADD KEY `IDX_TAG_RELATION_CUSTOMER_ID` (`customer_id`), ADD KEY `IDX_TAG_RELATION_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `tag_summary`
---
 ALTER TABLE `tag_summary`
   ADD PRIMARY KEY (`tag_id`,`store_id`), ADD KEY `IDX_TAG_SUMMARY_STORE_ID` (`store_id`), ADD KEY `IDX_TAG_SUMMARY_TAG_ID` (`tag_id`);
 
---
--- Klíče pro tabulku `tax_calculation`
---
 ALTER TABLE `tax_calculation`
   ADD PRIMARY KEY (`tax_calculation_id`), ADD KEY `IDX_TAX_CALCULATION_TAX_CALCULATION_RULE_ID` (`tax_calculation_rule_id`), ADD KEY `IDX_TAX_CALCULATION_TAX_CALCULATION_RATE_ID` (`tax_calculation_rate_id`), ADD KEY `IDX_TAX_CALCULATION_CUSTOMER_TAX_CLASS_ID` (`customer_tax_class_id`), ADD KEY `IDX_TAX_CALCULATION_PRODUCT_TAX_CLASS_ID` (`product_tax_class_id`), ADD KEY `IDX_TAX_CALC_TAX_CALC_RATE_ID_CSTR_TAX_CLASS_ID_PRD_TAX_CLASS_ID` (`tax_calculation_rate_id`,`customer_tax_class_id`,`product_tax_class_id`);
 
---
--- Klíče pro tabulku `tax_calculation_rate`
---
 ALTER TABLE `tax_calculation_rate`
   ADD PRIMARY KEY (`tax_calculation_rate_id`), ADD KEY `IDX_TAX_CALC_RATE_TAX_COUNTRY_ID_TAX_REGION_ID_TAX_POSTCODE` (`tax_country_id`,`tax_region_id`,`tax_postcode`), ADD KEY `IDX_TAX_CALCULATION_RATE_CODE` (`code`), ADD KEY `CA799F1E2CB843495F601E56C84A626D` (`tax_calculation_rate_id`,`tax_country_id`,`tax_region_id`,`zip_is_range`,`tax_postcode`);
 
---
--- Klíče pro tabulku `tax_calculation_rate_title`
---
 ALTER TABLE `tax_calculation_rate_title`
   ADD PRIMARY KEY (`tax_calculation_rate_title_id`), ADD KEY `IDX_TAX_CALCULATION_RATE_TITLE_TAX_CALCULATION_RATE_ID_STORE_ID` (`tax_calculation_rate_id`,`store_id`), ADD KEY `IDX_TAX_CALCULATION_RATE_TITLE_TAX_CALCULATION_RATE_ID` (`tax_calculation_rate_id`), ADD KEY `IDX_TAX_CALCULATION_RATE_TITLE_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `tax_calculation_rule`
---
 ALTER TABLE `tax_calculation_rule`
   ADD PRIMARY KEY (`tax_calculation_rule_id`), ADD KEY `IDX_TAX_CALC_RULE_PRIORITY_POSITION_TAX_CALC_RULE_ID` (`priority`,`position`,`tax_calculation_rule_id`), ADD KEY `IDX_TAX_CALCULATION_RULE_CODE` (`code`);
 
---
--- Klíče pro tabulku `tax_class`
---
 ALTER TABLE `tax_class`
   ADD PRIMARY KEY (`class_id`);
 
---
--- Klíče pro tabulku `tax_order_aggregated_created`
---
 ALTER TABLE `tax_order_aggregated_created`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `FCA5E2C02689EB2641B30580D7AACF12` (`period`,`store_id`,`code`,`percent`,`order_status`), ADD KEY `IDX_TAX_ORDER_AGGREGATED_CREATED_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `tax_order_aggregated_updated`
---
 ALTER TABLE `tax_order_aggregated_updated`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `DB0AF14011199AA6CD31D5078B90AA8D` (`period`,`store_id`,`code`,`percent`,`order_status`), ADD KEY `IDX_TAX_ORDER_AGGREGATED_UPDATED_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `weee_discount`
---
 ALTER TABLE `weee_discount`
   ADD KEY `IDX_WEEE_DISCOUNT_WEBSITE_ID` (`website_id`), ADD KEY `IDX_WEEE_DISCOUNT_ENTITY_ID` (`entity_id`), ADD KEY `IDX_WEEE_DISCOUNT_CUSTOMER_GROUP_ID` (`customer_group_id`);
 
---
--- Klíče pro tabulku `weee_tax`
---
 ALTER TABLE `weee_tax`
   ADD PRIMARY KEY (`value_id`), ADD KEY `IDX_WEEE_TAX_WEBSITE_ID` (`website_id`), ADD KEY `IDX_WEEE_TAX_ENTITY_ID` (`entity_id`), ADD KEY `IDX_WEEE_TAX_COUNTRY` (`country`), ADD KEY `IDX_WEEE_TAX_ATTRIBUTE_ID` (`attribute_id`);
 
---
--- Klíče pro tabulku `widget`
---
 ALTER TABLE `widget`
   ADD PRIMARY KEY (`widget_id`), ADD KEY `IDX_WIDGET_WIDGET_CODE` (`widget_code`);
 
---
--- Klíče pro tabulku `widget_instance`
---
 ALTER TABLE `widget_instance`
   ADD PRIMARY KEY (`instance_id`);
 
---
--- Klíče pro tabulku `widget_instance_page`
---
 ALTER TABLE `widget_instance_page`
   ADD PRIMARY KEY (`page_id`), ADD KEY `IDX_WIDGET_INSTANCE_PAGE_INSTANCE_ID` (`instance_id`);
 
---
--- Klíče pro tabulku `widget_instance_page_layout`
---
 ALTER TABLE `widget_instance_page_layout`
   ADD UNIQUE KEY `UNQ_WIDGET_INSTANCE_PAGE_LAYOUT_LAYOUT_UPDATE_ID_PAGE_ID` (`layout_update_id`,`page_id`), ADD KEY `IDX_WIDGET_INSTANCE_PAGE_LAYOUT_PAGE_ID` (`page_id`), ADD KEY `IDX_WIDGET_INSTANCE_PAGE_LAYOUT_LAYOUT_UPDATE_ID` (`layout_update_id`);
 
---
--- Klíče pro tabulku `wishlist`
---
 ALTER TABLE `wishlist`
   ADD PRIMARY KEY (`wishlist_id`), ADD UNIQUE KEY `UNQ_WISHLIST_CUSTOMER_ID` (`customer_id`), ADD KEY `IDX_WISHLIST_SHARED` (`shared`);
 
---
--- Klíče pro tabulku `wishlist_item`
---
 ALTER TABLE `wishlist_item`
   ADD PRIMARY KEY (`wishlist_item_id`), ADD KEY `IDX_WISHLIST_ITEM_WISHLIST_ID` (`wishlist_id`), ADD KEY `IDX_WISHLIST_ITEM_PRODUCT_ID` (`product_id`), ADD KEY `IDX_WISHLIST_ITEM_STORE_ID` (`store_id`);
 
---
--- Klíče pro tabulku `wishlist_item_option`
---
 ALTER TABLE `wishlist_item_option`
   ADD PRIMARY KEY (`option_id`), ADD KEY `FK_A014B30B04B72DD0EAB3EECD779728D6` (`wishlist_item_id`);
 
---
--- AUTO_INCREMENT pro tabulky
---
 
---
--- AUTO_INCREMENT pro tabulku `adminnotification_inbox`
---
 ALTER TABLE `adminnotification_inbox`
   MODIFY `notification_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Notification id',AUTO_INCREMENT=89;
---
--- AUTO_INCREMENT pro tabulku `admin_assert`
---
 ALTER TABLE `admin_assert`
   MODIFY `assert_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Assert ID';
---
--- AUTO_INCREMENT pro tabulku `admin_role`
---
 ALTER TABLE `admin_role`
   MODIFY `role_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Role ID',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `admin_rule`
---
 ALTER TABLE `admin_rule`
   MODIFY `rule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule ID',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `admin_user`
---
 ALTER TABLE `admin_user`
   MODIFY `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'User ID',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `api2_acl_attribute`
---
 ALTER TABLE `api2_acl_attribute`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID';
---
--- AUTO_INCREMENT pro tabulku `api2_acl_role`
---
 ALTER TABLE `api2_acl_role`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `api2_acl_rule`
---
 ALTER TABLE `api2_acl_rule`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID';
---
--- AUTO_INCREMENT pro tabulku `api_assert`
---
 ALTER TABLE `api_assert`
   MODIFY `assert_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Assert id';
---
--- AUTO_INCREMENT pro tabulku `api_role`
---
 ALTER TABLE `api_role`
   MODIFY `role_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Role id';
---
--- AUTO_INCREMENT pro tabulku `api_rule`
---
 ALTER TABLE `api_rule`
   MODIFY `rule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Api rule Id';
---
--- AUTO_INCREMENT pro tabulku `api_user`
---
 ALTER TABLE `api_user`
   MODIFY `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'User id';
---
--- AUTO_INCREMENT pro tabulku `cataloginventory_stock`
---
 ALTER TABLE `cataloginventory_stock`
   MODIFY `stock_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Stock Id',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `cataloginventory_stock_item`
---
 ALTER TABLE `cataloginventory_stock_item`
   MODIFY `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item Id',AUTO_INCREMENT=26;
---
--- AUTO_INCREMENT pro tabulku `catalogrule`
---
 ALTER TABLE `catalogrule`
   MODIFY `rule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule Id';
---
--- AUTO_INCREMENT pro tabulku `catalogrule_product`
---
 ALTER TABLE `catalogrule_product`
   MODIFY `rule_product_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule Product Id';
---
--- AUTO_INCREMENT pro tabulku `catalogrule_product_price`
---
 ALTER TABLE `catalogrule_product_price`
   MODIFY `rule_product_price_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule Product PriceId';
---
--- AUTO_INCREMENT pro tabulku `catalogsearch_fulltext`
---
 ALTER TABLE `catalogsearch_fulltext`
-  MODIFY `fulltext_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',AUTO_INCREMENT=97;
---
--- AUTO_INCREMENT pro tabulku `catalogsearch_query`
---
+  MODIFY `fulltext_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',AUTO_INCREMENT=113;
 ALTER TABLE `catalogsearch_query`
   MODIFY `query_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Query ID',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `catalog_category_entity`
---
 ALTER TABLE `catalog_category_entity`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',AUTO_INCREMENT=15;
---
--- AUTO_INCREMENT pro tabulku `catalog_category_entity_datetime`
---
 ALTER TABLE `catalog_category_entity_datetime`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=27;
---
--- AUTO_INCREMENT pro tabulku `catalog_category_entity_decimal`
---
 ALTER TABLE `catalog_category_entity_decimal`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT pro tabulku `catalog_category_entity_int`
---
 ALTER TABLE `catalog_category_entity_int`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=81;
---
--- AUTO_INCREMENT pro tabulku `catalog_category_entity_text`
---
 ALTER TABLE `catalog_category_entity_text`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=69;
---
--- AUTO_INCREMENT pro tabulku `catalog_category_entity_varchar`
---
 ALTER TABLE `catalog_category_entity_varchar`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=105;
---
--- AUTO_INCREMENT pro tabulku `catalog_compare_item`
---
 ALTER TABLE `catalog_compare_item`
   MODIFY `catalog_compare_item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Compare Item ID',AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT pro tabulku `catalog_product_bundle_option`
---
 ALTER TABLE `catalog_product_bundle_option`
   MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Id',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `catalog_product_bundle_option_value`
---
 ALTER TABLE `catalog_product_bundle_option_value`
   MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value Id',AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT pro tabulku `catalog_product_bundle_selection`
---
 ALTER TABLE `catalog_product_bundle_selection`
   MODIFY `selection_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Selection Id',AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT pro tabulku `catalog_product_entity`
---
 ALTER TABLE `catalog_product_entity`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',AUTO_INCREMENT=18;
---
--- AUTO_INCREMENT pro tabulku `catalog_product_entity_datetime`
---
 ALTER TABLE `catalog_product_entity_datetime`
-  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=181;
---
--- AUTO_INCREMENT pro tabulku `catalog_product_entity_decimal`
---
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=151;
 ALTER TABLE `catalog_product_entity_decimal`
-  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=124;
---
--- AUTO_INCREMENT pro tabulku `catalog_product_entity_gallery`
---
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=119;
 ALTER TABLE `catalog_product_entity_gallery`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID';
---
--- AUTO_INCREMENT pro tabulku `catalog_product_entity_group_price`
---
 ALTER TABLE `catalog_product_entity_group_price`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID';
---
--- AUTO_INCREMENT pro tabulku `catalog_product_entity_int`
---
 ALTER TABLE `catalog_product_entity_int`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=97;
---
--- AUTO_INCREMENT pro tabulku `catalog_product_entity_media_gallery`
---
 ALTER TABLE `catalog_product_entity_media_gallery`
   MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=20;
---
--- AUTO_INCREMENT pro tabulku `catalog_product_entity_text`
---
 ALTER TABLE `catalog_product_entity_text`
-  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=111;
---
--- AUTO_INCREMENT pro tabulku `catalog_product_entity_tier_price`
---
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=101;
 ALTER TABLE `catalog_product_entity_tier_price`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID';
---
--- AUTO_INCREMENT pro tabulku `catalog_product_entity_varchar`
---
 ALTER TABLE `catalog_product_entity_varchar`
-  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=482;
---
--- AUTO_INCREMENT pro tabulku `catalog_product_link`
---
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=432;
 ALTER TABLE `catalog_product_link`
   MODIFY `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link ID';
---
--- AUTO_INCREMENT pro tabulku `catalog_product_link_attribute`
---
 ALTER TABLE `catalog_product_link_attribute`
   MODIFY `product_link_attribute_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Product Link Attribute ID',AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT pro tabulku `catalog_product_link_attribute_decimal`
---
 ALTER TABLE `catalog_product_link_attribute_decimal`
   MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID';
---
--- AUTO_INCREMENT pro tabulku `catalog_product_link_attribute_int`
---
 ALTER TABLE `catalog_product_link_attribute_int`
   MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID';
---
--- AUTO_INCREMENT pro tabulku `catalog_product_link_attribute_varchar`
---
 ALTER TABLE `catalog_product_link_attribute_varchar`
   MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID';
---
--- AUTO_INCREMENT pro tabulku `catalog_product_link_type`
---
 ALTER TABLE `catalog_product_link_type`
   MODIFY `link_type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link Type ID',AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT pro tabulku `catalog_product_option`
---
 ALTER TABLE `catalog_product_option`
   MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option ID';
---
--- AUTO_INCREMENT pro tabulku `catalog_product_option_price`
---
 ALTER TABLE `catalog_product_option_price`
   MODIFY `option_price_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Price ID';
---
--- AUTO_INCREMENT pro tabulku `catalog_product_option_title`
---
 ALTER TABLE `catalog_product_option_title`
   MODIFY `option_title_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Title ID';
---
--- AUTO_INCREMENT pro tabulku `catalog_product_option_type_price`
---
 ALTER TABLE `catalog_product_option_type_price`
   MODIFY `option_type_price_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Type Price ID';
---
--- AUTO_INCREMENT pro tabulku `catalog_product_option_type_title`
---
 ALTER TABLE `catalog_product_option_type_title`
   MODIFY `option_type_title_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Type Title ID';
---
--- AUTO_INCREMENT pro tabulku `catalog_product_option_type_value`
---
 ALTER TABLE `catalog_product_option_type_value`
   MODIFY `option_type_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Type ID';
---
--- AUTO_INCREMENT pro tabulku `catalog_product_super_attribute`
---
 ALTER TABLE `catalog_product_super_attribute`
   MODIFY `product_super_attribute_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Product Super Attribute ID';
---
--- AUTO_INCREMENT pro tabulku `catalog_product_super_attribute_label`
---
 ALTER TABLE `catalog_product_super_attribute_label`
   MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID';
---
--- AUTO_INCREMENT pro tabulku `catalog_product_super_attribute_pricing`
---
 ALTER TABLE `catalog_product_super_attribute_pricing`
   MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID';
---
--- AUTO_INCREMENT pro tabulku `catalog_product_super_link`
---
 ALTER TABLE `catalog_product_super_link`
   MODIFY `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link ID';
---
--- AUTO_INCREMENT pro tabulku `checkout_agreement`
---
 ALTER TABLE `checkout_agreement`
   MODIFY `agreement_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Agreement Id',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `cms_block`
---
 ALTER TABLE `cms_block`
-  MODIFY `block_id` smallint(6) NOT NULL AUTO_INCREMENT COMMENT 'Block ID',AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT pro tabulku `cms_page`
---
+  MODIFY `block_id` smallint(6) NOT NULL AUTO_INCREMENT COMMENT 'Block ID',AUTO_INCREMENT=10;
 ALTER TABLE `cms_page`
-  MODIFY `page_id` smallint(6) NOT NULL AUTO_INCREMENT COMMENT 'Page ID',AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT pro tabulku `core_config_data`
---
+  MODIFY `page_id` smallint(6) NOT NULL AUTO_INCREMENT COMMENT 'Page ID',AUTO_INCREMENT=8;
 ALTER TABLE `core_config_data`
   MODIFY `config_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Config Id',AUTO_INCREMENT=324;
---
--- AUTO_INCREMENT pro tabulku `core_email_queue`
---
 ALTER TABLE `core_email_queue`
   MODIFY `message_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Message Id',AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT pro tabulku `core_email_queue_recipients`
---
 ALTER TABLE `core_email_queue_recipients`
   MODIFY `recipient_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Recipient Id',AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT pro tabulku `core_email_template`
---
 ALTER TABLE `core_email_template`
   MODIFY `template_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Template Id';
---
--- AUTO_INCREMENT pro tabulku `core_flag`
---
 ALTER TABLE `core_flag`
   MODIFY `flag_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Flag Id',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `core_layout_link`
---
 ALTER TABLE `core_layout_link`
   MODIFY `layout_link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link Id';
---
--- AUTO_INCREMENT pro tabulku `core_layout_update`
---
 ALTER TABLE `core_layout_update`
   MODIFY `layout_update_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Layout Update Id';
---
--- AUTO_INCREMENT pro tabulku `core_store`
---
 ALTER TABLE `core_store`
   MODIFY `store_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Store Id',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `core_store_group`
---
 ALTER TABLE `core_store_group`
   MODIFY `group_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Group Id',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `core_translate`
---
 ALTER TABLE `core_translate`
   MODIFY `key_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Key Id of Translation';
---
--- AUTO_INCREMENT pro tabulku `core_url_rewrite`
---
 ALTER TABLE `core_url_rewrite`
-  MODIFY `url_rewrite_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rewrite Id',AUTO_INCREMENT=253;
---
--- AUTO_INCREMENT pro tabulku `core_variable`
---
+  MODIFY `url_rewrite_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rewrite Id',AUTO_INCREMENT=252;
 ALTER TABLE `core_variable`
   MODIFY `variable_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Variable Id',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `core_variable_value`
---
 ALTER TABLE `core_variable_value`
   MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Variable Value Id',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `core_website`
---
 ALTER TABLE `core_website`
   MODIFY `website_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Website Id',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `coupon_aggregated`
---
 ALTER TABLE `coupon_aggregated`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `coupon_aggregated_order`
---
 ALTER TABLE `coupon_aggregated_order`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `coupon_aggregated_updated`
---
 ALTER TABLE `coupon_aggregated_updated`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `cron_schedule`
---
 ALTER TABLE `cron_schedule`
   MODIFY `schedule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Schedule Id';
---
--- AUTO_INCREMENT pro tabulku `customer_address_entity`
---
 ALTER TABLE `customer_address_entity`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
---
--- AUTO_INCREMENT pro tabulku `customer_address_entity_datetime`
---
 ALTER TABLE `customer_address_entity_datetime`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
---
--- AUTO_INCREMENT pro tabulku `customer_address_entity_decimal`
---
 ALTER TABLE `customer_address_entity_decimal`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
---
--- AUTO_INCREMENT pro tabulku `customer_address_entity_int`
---
 ALTER TABLE `customer_address_entity_int`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
---
--- AUTO_INCREMENT pro tabulku `customer_address_entity_text`
---
 ALTER TABLE `customer_address_entity_text`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
---
--- AUTO_INCREMENT pro tabulku `customer_address_entity_varchar`
---
 ALTER TABLE `customer_address_entity_varchar`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
---
--- AUTO_INCREMENT pro tabulku `customer_entity`
---
 ALTER TABLE `customer_entity`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `customer_entity_datetime`
---
 ALTER TABLE `customer_entity_datetime`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
---
--- AUTO_INCREMENT pro tabulku `customer_entity_decimal`
---
 ALTER TABLE `customer_entity_decimal`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
---
--- AUTO_INCREMENT pro tabulku `customer_entity_int`
---
 ALTER TABLE `customer_entity_int`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
---
--- AUTO_INCREMENT pro tabulku `customer_entity_text`
---
 ALTER TABLE `customer_entity_text`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
---
--- AUTO_INCREMENT pro tabulku `customer_entity_varchar`
---
 ALTER TABLE `customer_entity_varchar`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',AUTO_INCREMENT=21;
---
--- AUTO_INCREMENT pro tabulku `customer_group`
---
 ALTER TABLE `customer_group`
   MODIFY `customer_group_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Customer Group Id',AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT pro tabulku `dataflow_batch`
---
 ALTER TABLE `dataflow_batch`
   MODIFY `batch_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Batch Id';
---
--- AUTO_INCREMENT pro tabulku `dataflow_batch_export`
---
 ALTER TABLE `dataflow_batch_export`
   MODIFY `batch_export_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Batch Export Id';
---
--- AUTO_INCREMENT pro tabulku `dataflow_batch_import`
---
 ALTER TABLE `dataflow_batch_import`
   MODIFY `batch_import_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Batch Import Id';
---
--- AUTO_INCREMENT pro tabulku `dataflow_import_data`
---
 ALTER TABLE `dataflow_import_data`
   MODIFY `import_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Import Id';
---
--- AUTO_INCREMENT pro tabulku `dataflow_profile`
---
 ALTER TABLE `dataflow_profile`
   MODIFY `profile_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Profile Id',AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT pro tabulku `dataflow_profile_history`
---
 ALTER TABLE `dataflow_profile_history`
   MODIFY `history_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'History Id',AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT pro tabulku `dataflow_session`
---
 ALTER TABLE `dataflow_session`
   MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Session Id';
---
--- AUTO_INCREMENT pro tabulku `design_change`
---
 ALTER TABLE `design_change`
   MODIFY `design_change_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Design Change Id';
---
--- AUTO_INCREMENT pro tabulku `directory_country_format`
---
 ALTER TABLE `directory_country_format`
   MODIFY `country_format_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Country Format Id';
---
--- AUTO_INCREMENT pro tabulku `directory_country_region`
---
 ALTER TABLE `directory_country_region`
   MODIFY `region_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Region Id',AUTO_INCREMENT=485;
---
--- AUTO_INCREMENT pro tabulku `downloadable_link`
---
 ALTER TABLE `downloadable_link`
   MODIFY `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link ID';
---
--- AUTO_INCREMENT pro tabulku `downloadable_link_price`
---
 ALTER TABLE `downloadable_link_price`
   MODIFY `price_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Price ID';
---
--- AUTO_INCREMENT pro tabulku `downloadable_link_purchased`
---
 ALTER TABLE `downloadable_link_purchased`
   MODIFY `purchased_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Purchased ID';
---
--- AUTO_INCREMENT pro tabulku `downloadable_link_purchased_item`
---
 ALTER TABLE `downloadable_link_purchased_item`
   MODIFY `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item ID';
---
--- AUTO_INCREMENT pro tabulku `downloadable_link_title`
---
 ALTER TABLE `downloadable_link_title`
   MODIFY `title_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Title ID';
---
--- AUTO_INCREMENT pro tabulku `downloadable_sample`
---
 ALTER TABLE `downloadable_sample`
   MODIFY `sample_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Sample ID';
---
--- AUTO_INCREMENT pro tabulku `downloadable_sample_title`
---
 ALTER TABLE `downloadable_sample_title`
   MODIFY `title_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Title ID';
---
--- AUTO_INCREMENT pro tabulku `eav_attribute`
---
 ALTER TABLE `eav_attribute`
   MODIFY `attribute_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Attribute Id',AUTO_INCREMENT=133;
---
--- AUTO_INCREMENT pro tabulku `eav_attribute_group`
---
 ALTER TABLE `eav_attribute_group`
   MODIFY `attribute_group_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Attribute Group Id',AUTO_INCREMENT=26;
---
--- AUTO_INCREMENT pro tabulku `eav_attribute_label`
---
 ALTER TABLE `eav_attribute_label`
   MODIFY `attribute_label_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Attribute Label Id';
---
--- AUTO_INCREMENT pro tabulku `eav_attribute_option`
---
 ALTER TABLE `eav_attribute_option`
   MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Id',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `eav_attribute_option_value`
---
 ALTER TABLE `eav_attribute_option_value`
   MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value Id',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `eav_attribute_set`
---
 ALTER TABLE `eav_attribute_set`
   MODIFY `attribute_set_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Attribute Set Id',AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT pro tabulku `eav_entity`
---
 ALTER TABLE `eav_entity`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
---
--- AUTO_INCREMENT pro tabulku `eav_entity_attribute`
---
 ALTER TABLE `eav_entity_attribute`
   MODIFY `entity_attribute_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Attribute Id',AUTO_INCREMENT=486;
---
--- AUTO_INCREMENT pro tabulku `eav_entity_datetime`
---
 ALTER TABLE `eav_entity_datetime`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
---
--- AUTO_INCREMENT pro tabulku `eav_entity_decimal`
---
 ALTER TABLE `eav_entity_decimal`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
---
--- AUTO_INCREMENT pro tabulku `eav_entity_int`
---
 ALTER TABLE `eav_entity_int`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
---
--- AUTO_INCREMENT pro tabulku `eav_entity_store`
---
 ALTER TABLE `eav_entity_store`
   MODIFY `entity_store_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Store Id',AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT pro tabulku `eav_entity_text`
---
 ALTER TABLE `eav_entity_text`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
---
--- AUTO_INCREMENT pro tabulku `eav_entity_type`
---
 ALTER TABLE `eav_entity_type`
   MODIFY `entity_type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Type Id',AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT pro tabulku `eav_entity_varchar`
---
 ALTER TABLE `eav_entity_varchar`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
---
--- AUTO_INCREMENT pro tabulku `eav_form_element`
---
 ALTER TABLE `eav_form_element`
   MODIFY `element_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Element Id',AUTO_INCREMENT=53;
---
--- AUTO_INCREMENT pro tabulku `eav_form_fieldset`
---
 ALTER TABLE `eav_form_fieldset`
   MODIFY `fieldset_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Fieldset Id',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `eav_form_type`
---
 ALTER TABLE `eav_form_type`
   MODIFY `type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Type Id',AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT pro tabulku `gift_message`
---
 ALTER TABLE `gift_message`
   MODIFY `gift_message_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'GiftMessage Id';
---
--- AUTO_INCREMENT pro tabulku `importexport_importdata`
---
 ALTER TABLE `importexport_importdata`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT pro tabulku `index_event`
---
 ALTER TABLE `index_event`
   MODIFY `event_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Event Id',AUTO_INCREMENT=67;
---
--- AUTO_INCREMENT pro tabulku `index_process`
---
 ALTER TABLE `index_process`
   MODIFY `process_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Process Id',AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT pro tabulku `log_customer`
---
 ALTER TABLE `log_customer`
   MODIFY `log_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Log ID';
---
--- AUTO_INCREMENT pro tabulku `log_summary`
---
 ALTER TABLE `log_summary`
   MODIFY `summary_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Summary ID';
---
--- AUTO_INCREMENT pro tabulku `log_summary_type`
---
 ALTER TABLE `log_summary_type`
   MODIFY `type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Type ID',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `log_url_info`
---
 ALTER TABLE `log_url_info`
-  MODIFY `url_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'URL ID',AUTO_INCREMENT=1955;
---
--- AUTO_INCREMENT pro tabulku `log_visitor`
---
+  MODIFY `url_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'URL ID',AUTO_INCREMENT=2309;
 ALTER TABLE `log_visitor`
-  MODIFY `visitor_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Visitor ID',AUTO_INCREMENT=1370;
---
--- AUTO_INCREMENT pro tabulku `log_visitor_online`
---
+  MODIFY `visitor_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Visitor ID',AUTO_INCREMENT=1633;
 ALTER TABLE `log_visitor_online`
   MODIFY `visitor_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Visitor ID';
---
--- AUTO_INCREMENT pro tabulku `newsletter_problem`
---
 ALTER TABLE `newsletter_problem`
   MODIFY `problem_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Problem Id';
---
--- AUTO_INCREMENT pro tabulku `newsletter_queue`
---
 ALTER TABLE `newsletter_queue`
   MODIFY `queue_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Queue Id';
---
--- AUTO_INCREMENT pro tabulku `newsletter_queue_link`
---
 ALTER TABLE `newsletter_queue_link`
   MODIFY `queue_link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Queue Link Id';
---
--- AUTO_INCREMENT pro tabulku `newsletter_subscriber`
---
 ALTER TABLE `newsletter_subscriber`
   MODIFY `subscriber_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Subscriber Id',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `newsletter_template`
---
 ALTER TABLE `newsletter_template`
   MODIFY `template_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Template Id',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `oauth_consumer`
---
 ALTER TABLE `oauth_consumer`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
---
--- AUTO_INCREMENT pro tabulku `oauth_token`
---
 ALTER TABLE `oauth_token`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID';
---
--- AUTO_INCREMENT pro tabulku `paypal_cert`
---
 ALTER TABLE `paypal_cert`
   MODIFY `cert_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Cert Id';
---
--- AUTO_INCREMENT pro tabulku `paypal_payment_transaction`
---
 ALTER TABLE `paypal_payment_transaction`
   MODIFY `transaction_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
---
--- AUTO_INCREMENT pro tabulku `paypal_settlement_report`
---
 ALTER TABLE `paypal_settlement_report`
   MODIFY `report_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Report Id';
---
--- AUTO_INCREMENT pro tabulku `paypal_settlement_report_row`
---
 ALTER TABLE `paypal_settlement_report_row`
   MODIFY `row_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Row Id';
---
--- AUTO_INCREMENT pro tabulku `persistent_session`
---
 ALTER TABLE `persistent_session`
   MODIFY `persistent_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Session id';
---
--- AUTO_INCREMENT pro tabulku `poll`
---
 ALTER TABLE `poll`
   MODIFY `poll_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Poll Id',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `poll_answer`
---
 ALTER TABLE `poll_answer`
   MODIFY `answer_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Answer Id',AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT pro tabulku `poll_vote`
---
 ALTER TABLE `poll_vote`
   MODIFY `vote_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Vote Id';
---
--- AUTO_INCREMENT pro tabulku `product_alert_price`
---
 ALTER TABLE `product_alert_price`
   MODIFY `alert_price_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Product alert price id';
---
--- AUTO_INCREMENT pro tabulku `product_alert_stock`
---
 ALTER TABLE `product_alert_stock`
   MODIFY `alert_stock_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Product alert stock id';
---
--- AUTO_INCREMENT pro tabulku `rating`
---
 ALTER TABLE `rating`
   MODIFY `rating_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rating Id',AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT pro tabulku `rating_entity`
---
 ALTER TABLE `rating_entity`
   MODIFY `entity_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT pro tabulku `rating_option`
---
 ALTER TABLE `rating_option`
   MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rating Option Id',AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT pro tabulku `rating_option_vote`
---
 ALTER TABLE `rating_option_vote`
   MODIFY `vote_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Vote id';
---
--- AUTO_INCREMENT pro tabulku `rating_option_vote_aggregated`
---
 ALTER TABLE `rating_option_vote_aggregated`
   MODIFY `primary_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Vote aggregation id';
---
--- AUTO_INCREMENT pro tabulku `report_compared_product_index`
---
 ALTER TABLE `report_compared_product_index`
   MODIFY `index_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Index Id',AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT pro tabulku `report_event`
---
 ALTER TABLE `report_event`
   MODIFY `event_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Event Id',AUTO_INCREMENT=76;
---
--- AUTO_INCREMENT pro tabulku `report_event_types`
---
 ALTER TABLE `report_event_types`
   MODIFY `event_type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Event Type Id',AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT pro tabulku `report_viewed_product_aggregated_daily`
---
 ALTER TABLE `report_viewed_product_aggregated_daily`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `report_viewed_product_aggregated_monthly`
---
 ALTER TABLE `report_viewed_product_aggregated_monthly`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `report_viewed_product_aggregated_yearly`
---
 ALTER TABLE `report_viewed_product_aggregated_yearly`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `report_viewed_product_index`
---
 ALTER TABLE `report_viewed_product_index`
   MODIFY `index_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Index Id',AUTO_INCREMENT=61;
---
--- AUTO_INCREMENT pro tabulku `review`
---
 ALTER TABLE `review`
   MODIFY `review_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Review id';
---
--- AUTO_INCREMENT pro tabulku `review_detail`
---
 ALTER TABLE `review_detail`
   MODIFY `detail_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Review detail id';
---
--- AUTO_INCREMENT pro tabulku `review_entity`
---
 ALTER TABLE `review_entity`
   MODIFY `entity_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Review entity id',AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT pro tabulku `review_entity_summary`
---
 ALTER TABLE `review_entity_summary`
   MODIFY `primary_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Summary review entity id';
---
--- AUTO_INCREMENT pro tabulku `review_status`
---
 ALTER TABLE `review_status`
   MODIFY `status_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Status id',AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT pro tabulku `salesrule`
---
 ALTER TABLE `salesrule`
   MODIFY `rule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule Id';
---
--- AUTO_INCREMENT pro tabulku `salesrule_coupon`
---
 ALTER TABLE `salesrule_coupon`
   MODIFY `coupon_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Coupon Id';
---
--- AUTO_INCREMENT pro tabulku `salesrule_customer`
---
 ALTER TABLE `salesrule_customer`
   MODIFY `rule_customer_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule Customer Id';
---
--- AUTO_INCREMENT pro tabulku `salesrule_label`
---
 ALTER TABLE `salesrule_label`
   MODIFY `label_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Label Id';
---
--- AUTO_INCREMENT pro tabulku `sales_bestsellers_aggregated_daily`
---
 ALTER TABLE `sales_bestsellers_aggregated_daily`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `sales_bestsellers_aggregated_monthly`
---
 ALTER TABLE `sales_bestsellers_aggregated_monthly`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `sales_bestsellers_aggregated_yearly`
---
 ALTER TABLE `sales_bestsellers_aggregated_yearly`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `sales_billing_agreement`
---
 ALTER TABLE `sales_billing_agreement`
   MODIFY `agreement_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Agreement Id';
---
--- AUTO_INCREMENT pro tabulku `sales_flat_creditmemo`
---
 ALTER TABLE `sales_flat_creditmemo`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
---
--- AUTO_INCREMENT pro tabulku `sales_flat_creditmemo_comment`
---
 ALTER TABLE `sales_flat_creditmemo_comment`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
---
--- AUTO_INCREMENT pro tabulku `sales_flat_creditmemo_item`
---
 ALTER TABLE `sales_flat_creditmemo_item`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
---
--- AUTO_INCREMENT pro tabulku `sales_flat_invoice`
---
 ALTER TABLE `sales_flat_invoice`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `sales_flat_invoice_comment`
---
 ALTER TABLE `sales_flat_invoice_comment`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `sales_flat_invoice_item`
---
 ALTER TABLE `sales_flat_invoice_item`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `sales_flat_order`
---
 ALTER TABLE `sales_flat_order`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `sales_flat_order_address`
---
 ALTER TABLE `sales_flat_order_address`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT pro tabulku `sales_flat_order_item`
---
 ALTER TABLE `sales_flat_order_item`
   MODIFY `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item Id',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `sales_flat_order_payment`
---
 ALTER TABLE `sales_flat_order_payment`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `sales_flat_order_status_history`
---
 ALTER TABLE `sales_flat_order_status_history`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT pro tabulku `sales_flat_quote`
---
 ALTER TABLE `sales_flat_quote`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT pro tabulku `sales_flat_quote_address`
---
 ALTER TABLE `sales_flat_quote_address`
   MODIFY `address_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Address Id',AUTO_INCREMENT=15;
---
--- AUTO_INCREMENT pro tabulku `sales_flat_quote_address_item`
---
 ALTER TABLE `sales_flat_quote_address_item`
   MODIFY `address_item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Address Item Id';
---
--- AUTO_INCREMENT pro tabulku `sales_flat_quote_item`
---
 ALTER TABLE `sales_flat_quote_item`
   MODIFY `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item Id',AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT pro tabulku `sales_flat_quote_item_option`
---
 ALTER TABLE `sales_flat_quote_item_option`
   MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Id',AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT pro tabulku `sales_flat_quote_payment`
---
 ALTER TABLE `sales_flat_quote_payment`
   MODIFY `payment_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Payment Id',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `sales_flat_quote_shipping_rate`
---
 ALTER TABLE `sales_flat_quote_shipping_rate`
   MODIFY `rate_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rate Id',AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT pro tabulku `sales_flat_shipment`
---
 ALTER TABLE `sales_flat_shipment`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `sales_flat_shipment_comment`
---
 ALTER TABLE `sales_flat_shipment_comment`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
---
--- AUTO_INCREMENT pro tabulku `sales_flat_shipment_item`
---
 ALTER TABLE `sales_flat_shipment_item`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `sales_flat_shipment_track`
---
 ALTER TABLE `sales_flat_shipment_track`
   MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
---
--- AUTO_INCREMENT pro tabulku `sales_invoiced_aggregated`
---
 ALTER TABLE `sales_invoiced_aggregated`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `sales_invoiced_aggregated_order`
---
 ALTER TABLE `sales_invoiced_aggregated_order`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `sales_order_aggregated_created`
---
 ALTER TABLE `sales_order_aggregated_created`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `sales_order_aggregated_updated`
---
 ALTER TABLE `sales_order_aggregated_updated`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `sales_order_tax`
---
 ALTER TABLE `sales_order_tax`
   MODIFY `tax_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Tax Id';
---
--- AUTO_INCREMENT pro tabulku `sales_order_tax_item`
---
 ALTER TABLE `sales_order_tax_item`
   MODIFY `tax_item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Tax Item Id';
---
--- AUTO_INCREMENT pro tabulku `sales_payment_transaction`
---
 ALTER TABLE `sales_payment_transaction`
   MODIFY `transaction_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Transaction Id';
---
--- AUTO_INCREMENT pro tabulku `sales_recurring_profile`
---
 ALTER TABLE `sales_recurring_profile`
   MODIFY `profile_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Profile Id';
---
--- AUTO_INCREMENT pro tabulku `sales_recurring_profile_order`
---
 ALTER TABLE `sales_recurring_profile_order`
   MODIFY `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link Id';
---
--- AUTO_INCREMENT pro tabulku `sales_refunded_aggregated`
---
 ALTER TABLE `sales_refunded_aggregated`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `sales_refunded_aggregated_order`
---
 ALTER TABLE `sales_refunded_aggregated_order`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `sales_shipping_aggregated`
---
 ALTER TABLE `sales_shipping_aggregated`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `sales_shipping_aggregated_order`
---
 ALTER TABLE `sales_shipping_aggregated_order`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `sendfriend_log`
---
 ALTER TABLE `sendfriend_log`
   MODIFY `log_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Log ID';
---
--- AUTO_INCREMENT pro tabulku `shipping_tablerate`
---
 ALTER TABLE `shipping_tablerate`
   MODIFY `pk` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary key';
---
--- AUTO_INCREMENT pro tabulku `sitemap`
---
 ALTER TABLE `sitemap`
   MODIFY `sitemap_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Sitemap Id';
---
--- AUTO_INCREMENT pro tabulku `tag`
---
 ALTER TABLE `tag`
   MODIFY `tag_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Tag Id';
---
--- AUTO_INCREMENT pro tabulku `tag_relation`
---
 ALTER TABLE `tag_relation`
   MODIFY `tag_relation_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Tag Relation Id';
---
--- AUTO_INCREMENT pro tabulku `tax_calculation`
---
 ALTER TABLE `tax_calculation`
   MODIFY `tax_calculation_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Tax Calculation Id',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `tax_calculation_rate`
---
 ALTER TABLE `tax_calculation_rate`
   MODIFY `tax_calculation_rate_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Tax Calculation Rate Id',AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pro tabulku `tax_calculation_rate_title`
---
 ALTER TABLE `tax_calculation_rate_title`
   MODIFY `tax_calculation_rate_title_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Tax Calculation Rate Title Id';
---
--- AUTO_INCREMENT pro tabulku `tax_calculation_rule`
---
 ALTER TABLE `tax_calculation_rule`
   MODIFY `tax_calculation_rule_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Tax Calculation Rule Id',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `tax_class`
---
 ALTER TABLE `tax_class`
   MODIFY `class_id` smallint(6) NOT NULL AUTO_INCREMENT COMMENT 'Class Id',AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT pro tabulku `tax_order_aggregated_created`
---
 ALTER TABLE `tax_order_aggregated_created`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `tax_order_aggregated_updated`
---
 ALTER TABLE `tax_order_aggregated_updated`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
---
--- AUTO_INCREMENT pro tabulku `weee_tax`
---
 ALTER TABLE `weee_tax`
   MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
---
--- AUTO_INCREMENT pro tabulku `widget`
---
 ALTER TABLE `widget`
   MODIFY `widget_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Widget Id';
---
--- AUTO_INCREMENT pro tabulku `widget_instance`
---
 ALTER TABLE `widget_instance`
   MODIFY `instance_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Instance Id',AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pro tabulku `widget_instance_page`
---
 ALTER TABLE `widget_instance_page`
   MODIFY `page_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Page Id';
---
--- AUTO_INCREMENT pro tabulku `wishlist`
---
 ALTER TABLE `wishlist`
   MODIFY `wishlist_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Wishlist ID';
---
--- AUTO_INCREMENT pro tabulku `wishlist_item`
---
 ALTER TABLE `wishlist_item`
   MODIFY `wishlist_item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Wishlist item ID';
---
--- AUTO_INCREMENT pro tabulku `wishlist_item_option`
---
 ALTER TABLE `wishlist_item_option`
   MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Id';
---
--- Omezení pro exportované tabulky
---
 
---
--- Omezení pro tabulku `admin_rule`
---
 ALTER TABLE `admin_rule`
 ADD CONSTRAINT `FK_ADMIN_RULE_ROLE_ID_ADMIN_ROLE_ROLE_ID` FOREIGN KEY (`role_id`) REFERENCES `admin_role` (`role_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `api2_acl_rule`
---
 ALTER TABLE `api2_acl_rule`
 ADD CONSTRAINT `FK_API2_ACL_RULE_ROLE_ID_API2_ACL_ROLE_ENTITY_ID` FOREIGN KEY (`role_id`) REFERENCES `api2_acl_role` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `api2_acl_user`
---
 ALTER TABLE `api2_acl_user`
 ADD CONSTRAINT `FK_API2_ACL_USER_ADMIN_ID_ADMIN_USER_USER_ID` FOREIGN KEY (`admin_id`) REFERENCES `admin_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_API2_ACL_USER_ROLE_ID_API2_ACL_ROLE_ENTITY_ID` FOREIGN KEY (`role_id`) REFERENCES `api2_acl_role` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `api_rule`
---
 ALTER TABLE `api_rule`
 ADD CONSTRAINT `FK_API_RULE_ROLE_ID_API_ROLE_ROLE_ID` FOREIGN KEY (`role_id`) REFERENCES `api_role` (`role_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `api_session`
---
 ALTER TABLE `api_session`
 ADD CONSTRAINT `FK_API_SESSION_USER_ID_API_USER_USER_ID` FOREIGN KEY (`user_id`) REFERENCES `api_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `cataloginventory_stock_item`
---
 ALTER TABLE `cataloginventory_stock_item`
 ADD CONSTRAINT `FK_CATINV_STOCK_ITEM_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CATINV_STOCK_ITEM_STOCK_ID_CATINV_STOCK_STOCK_ID` FOREIGN KEY (`stock_id`) REFERENCES `cataloginventory_stock` (`stock_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `cataloginventory_stock_status`
---
 ALTER TABLE `cataloginventory_stock_status`
 ADD CONSTRAINT `FK_CATINV_STOCK_STS_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CATINV_STOCK_STS_STOCK_ID_CATINV_STOCK_STOCK_ID` FOREIGN KEY (`stock_id`) REFERENCES `cataloginventory_stock` (`stock_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CATINV_STOCK_STS_WS_ID_CORE_WS_WS_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalogrule_customer_group`
---
 ALTER TABLE `catalogrule_customer_group`
 ADD CONSTRAINT `FK_CATALOGRULE_CUSTOMER_GROUP_RULE_ID_CATALOGRULE_RULE_ID` FOREIGN KEY (`rule_id`) REFERENCES `catalogrule` (`rule_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CATRULE_CSTR_GROUP_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID` FOREIGN KEY (`customer_group_id`) REFERENCES `customer_group` (`customer_group_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalogrule_group_website`
---
 ALTER TABLE `catalogrule_group_website`
 ADD CONSTRAINT `FK_CATALOGRULE_GROUP_WEBSITE_RULE_ID_CATALOGRULE_RULE_ID` FOREIGN KEY (`rule_id`) REFERENCES `catalogrule` (`rule_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CATALOGRULE_GROUP_WEBSITE_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CATRULE_GROUP_WS_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID` FOREIGN KEY (`customer_group_id`) REFERENCES `customer_group` (`customer_group_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalogrule_product`
---
 ALTER TABLE `catalogrule_product`
 ADD CONSTRAINT `FK_CATALOGRULE_PRODUCT_RULE_ID_CATALOGRULE_RULE_ID` FOREIGN KEY (`rule_id`) REFERENCES `catalogrule` (`rule_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CATALOGRULE_PRODUCT_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CATRULE_PRD_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID` FOREIGN KEY (`customer_group_id`) REFERENCES `customer_group` (`customer_group_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CATRULE_PRD_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalogrule_product_price`
---
 ALTER TABLE `catalogrule_product_price`
 ADD CONSTRAINT `FK_CATALOGRULE_PRODUCT_PRICE_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CATRULE_PRD_PRICE_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID` FOREIGN KEY (`customer_group_id`) REFERENCES `customer_group` (`customer_group_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CATRULE_PRD_PRICE_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalogrule_website`
---
 ALTER TABLE `catalogrule_website`
 ADD CONSTRAINT `FK_CATALOGRULE_WEBSITE_RULE_ID_CATALOGRULE_RULE_ID` FOREIGN KEY (`rule_id`) REFERENCES `catalogrule` (`rule_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CATALOGRULE_WEBSITE_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalogsearch_query`
---
 ALTER TABLE `catalogsearch_query`
 ADD CONSTRAINT `FK_CATALOGSEARCH_QUERY_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalogsearch_result`
---
 ALTER TABLE `catalogsearch_result`
 ADD CONSTRAINT `FK_CATALOGSEARCH_RESULT_QUERY_ID_CATALOGSEARCH_QUERY_QUERY_ID` FOREIGN KEY (`query_id`) REFERENCES `catalogsearch_query` (`query_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CATSRCH_RESULT_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_category_entity_datetime`
---
 ALTER TABLE `catalog_category_entity_datetime`
 ADD CONSTRAINT `FK_CATALOG_CATEGORY_ENTITY_DATETIME_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_CTGR_ENTT_DTIME_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_CTGR_ENTT_DTIME_ENTT_ID_CAT_CTGR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_category_entity_decimal`
---
 ALTER TABLE `catalog_category_entity_decimal`
 ADD CONSTRAINT `FK_CATALOG_CATEGORY_ENTITY_DECIMAL_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_CTGR_ENTT_DEC_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_CTGR_ENTT_DEC_ENTT_ID_CAT_CTGR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_category_entity_int`
---
 ALTER TABLE `catalog_category_entity_int`
 ADD CONSTRAINT `FK_CATALOG_CATEGORY_ENTITY_INT_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_CTGR_ENTT_INT_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_CTGR_ENTT_INT_ENTT_ID_CAT_CTGR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_category_entity_text`
---
 ALTER TABLE `catalog_category_entity_text`
 ADD CONSTRAINT `FK_CATALOG_CATEGORY_ENTITY_TEXT_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_CTGR_ENTT_TEXT_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_CTGR_ENTT_TEXT_ENTT_ID_CAT_CTGR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_category_entity_varchar`
---
 ALTER TABLE `catalog_category_entity_varchar`
 ADD CONSTRAINT `FK_CATALOG_CATEGORY_ENTITY_VARCHAR_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_CTGR_ENTT_VCHR_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_CTGR_ENTT_VCHR_ENTT_ID_CAT_CTGR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_category_flat_store_1`
---
 ALTER TABLE `catalog_category_flat_store_1`
 ADD CONSTRAINT `FK_CATALOG_CATEGORY_FLAT_STORE_1_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_CTGR_FLAT_STORE_1_ENTT_ID_CAT_CTGR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_category_product`
---
 ALTER TABLE `catalog_category_product`
 ADD CONSTRAINT `FK_CAT_CTGR_PRD_CTGR_ID_CAT_CTGR_ENTT_ENTT_ID` FOREIGN KEY (`category_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_CTGR_PRD_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_category_product_index`
---
 ALTER TABLE `catalog_category_product_index`
 ADD CONSTRAINT `FK_CATALOG_CATEGORY_PRODUCT_INDEX_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_CTGR_PRD_IDX_CTGR_ID_CAT_CTGR_ENTT_ENTT_ID` FOREIGN KEY (`category_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_CTGR_PRD_IDX_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_compare_item`
---
 ALTER TABLE `catalog_compare_item`
 ADD CONSTRAINT `FK_CATALOG_COMPARE_ITEM_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CATALOG_COMPARE_ITEM_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_CMP_ITEM_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_eav_attribute`
---
 ALTER TABLE `catalog_eav_attribute`
 ADD CONSTRAINT `FK_CATALOG_EAV_ATTRIBUTE_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_bundle_option`
---
 ALTER TABLE `catalog_product_bundle_option`
 ADD CONSTRAINT `FK_CAT_PRD_BNDL_OPT_PARENT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`parent_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_bundle_option_value`
---
 ALTER TABLE `catalog_product_bundle_option_value`
 ADD CONSTRAINT `FK_CAT_PRD_BNDL_OPT_VAL_OPT_ID_CAT_PRD_BNDL_OPT_OPT_ID` FOREIGN KEY (`option_id`) REFERENCES `catalog_product_bundle_option` (`option_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_bundle_price_index`
---
 ALTER TABLE `catalog_product_bundle_price_index`
 ADD CONSTRAINT `FK_CAT_PRD_BNDL_PRICE_IDX_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID` FOREIGN KEY (`customer_group_id`) REFERENCES `customer_group` (`customer_group_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_BNDL_PRICE_IDX_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_BNDL_PRICE_IDX_WS_ID_CORE_WS_WS_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_bundle_selection`
---
 ALTER TABLE `catalog_product_bundle_selection`
 ADD CONSTRAINT `FK_CAT_PRD_BNDL_SELECTION_OPT_ID_CAT_PRD_BNDL_OPT_OPT_ID` FOREIGN KEY (`option_id`) REFERENCES `catalog_product_bundle_option` (`option_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_BNDL_SELECTION_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_bundle_selection_price`
---
 ALTER TABLE `catalog_product_bundle_selection_price`
 ADD CONSTRAINT `FK_CAT_PRD_BNDL_SELECTION_PRICE_WS_ID_CORE_WS_WS_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_DCF37523AA05D770A70AA4ED7C2616E4` FOREIGN KEY (`selection_id`) REFERENCES `catalog_product_bundle_selection` (`selection_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_enabled_index`
---
 ALTER TABLE `catalog_product_enabled_index`
 ADD CONSTRAINT `FK_CATALOG_PRODUCT_ENABLED_INDEX_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENABLED_IDX_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_entity`
---
 ALTER TABLE `catalog_product_entity`
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_ATTR_SET_ID_EAV_ATTR_SET_ATTR_SET_ID` FOREIGN KEY (`attribute_set_id`) REFERENCES `eav_attribute_set` (`attribute_set_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_entity_datetime`
---
 ALTER TABLE `catalog_product_entity_datetime`
 ADD CONSTRAINT `FK_CATALOG_PRODUCT_ENTITY_DATETIME_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_DTIME_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_DTIME_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_entity_decimal`
---
 ALTER TABLE `catalog_product_entity_decimal`
 ADD CONSTRAINT `FK_CATALOG_PRODUCT_ENTITY_DECIMAL_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_DEC_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_DEC_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_entity_gallery`
---
 ALTER TABLE `catalog_product_entity_gallery`
 ADD CONSTRAINT `FK_CATALOG_PRODUCT_ENTITY_GALLERY_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_GLR_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_GLR_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_entity_group_price`
---
 ALTER TABLE `catalog_product_entity_group_price`
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_GROUP_PRICE_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_GROUP_PRICE_WS_ID_CORE_WS_WS_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_DF909D22C11B60B1E5E3EE64AB220ECE` FOREIGN KEY (`customer_group_id`) REFERENCES `customer_group` (`customer_group_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_entity_int`
---
 ALTER TABLE `catalog_product_entity_int`
 ADD CONSTRAINT `FK_CATALOG_PRODUCT_ENTITY_INT_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_INT_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_INT_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_entity_media_gallery`
---
 ALTER TABLE `catalog_product_entity_media_gallery`
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_MDA_GLR_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_MDA_GLR_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_entity_media_gallery_value`
---
 ALTER TABLE `catalog_product_entity_media_gallery_value`
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_MDA_GLR_VAL_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_MDA_GLR_VAL_VAL_ID_CAT_PRD_ENTT_MDA_GLR_VAL_ID` FOREIGN KEY (`value_id`) REFERENCES `catalog_product_entity_media_gallery` (`value_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_entity_text`
---
 ALTER TABLE `catalog_product_entity_text`
 ADD CONSTRAINT `FK_CATALOG_PRODUCT_ENTITY_TEXT_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_TEXT_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_TEXT_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_entity_tier_price`
---
 ALTER TABLE `catalog_product_entity_tier_price`
 ADD CONSTRAINT `FK_6E08D719F0501DD1D8E6D4EFF2511C85` FOREIGN KEY (`customer_group_id`) REFERENCES `customer_group` (`customer_group_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_TIER_PRICE_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_TIER_PRICE_WS_ID_CORE_WS_WS_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_entity_varchar`
---
 ALTER TABLE `catalog_product_entity_varchar`
 ADD CONSTRAINT `FK_CATALOG_PRODUCT_ENTITY_VARCHAR_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_VCHR_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_ENTT_VCHR_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_flat_1`
---
 ALTER TABLE `catalog_product_flat_1`
 ADD CONSTRAINT `FK_CAT_PRD_FLAT_1_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_index_eav`
---
 ALTER TABLE `catalog_product_index_eav`
 ADD CONSTRAINT `FK_CATALOG_PRODUCT_INDEX_EAV_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_IDX_EAV_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_IDX_EAV_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_index_eav_decimal`
---
 ALTER TABLE `catalog_product_index_eav_decimal`
 ADD CONSTRAINT `FK_CAT_PRD_IDX_EAV_DEC_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_IDX_EAV_DEC_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_IDX_EAV_DEC_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_index_group_price`
---
 ALTER TABLE `catalog_product_index_group_price`
 ADD CONSTRAINT `FK_195DF97C81B0BDD6A2EEC50F870E16D1` FOREIGN KEY (`customer_group_id`) REFERENCES `customer_group` (`customer_group_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_IDX_GROUP_PRICE_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_IDX_GROUP_PRICE_WS_ID_CORE_WS_WS_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_index_price`
---
 ALTER TABLE `catalog_product_index_price`
 ADD CONSTRAINT `FK_CAT_PRD_IDX_PRICE_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID` FOREIGN KEY (`customer_group_id`) REFERENCES `customer_group` (`customer_group_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_IDX_PRICE_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_IDX_PRICE_WS_ID_CORE_WS_WS_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_index_tier_price`
---
 ALTER TABLE `catalog_product_index_tier_price`
 ADD CONSTRAINT `FK_CAT_PRD_IDX_TIER_PRICE_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID` FOREIGN KEY (`customer_group_id`) REFERENCES `customer_group` (`customer_group_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_IDX_TIER_PRICE_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_IDX_TIER_PRICE_WS_ID_CORE_WS_WS_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_index_website`
---
 ALTER TABLE `catalog_product_index_website`
 ADD CONSTRAINT `FK_CAT_PRD_IDX_WS_WS_ID_CORE_WS_WS_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_link`
---
 ALTER TABLE `catalog_product_link`
 ADD CONSTRAINT `FK_CAT_PRD_LNK_LNKED_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`linked_product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_LNK_LNK_TYPE_ID_CAT_PRD_LNK_TYPE_LNK_TYPE_ID` FOREIGN KEY (`link_type_id`) REFERENCES `catalog_product_link_type` (`link_type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_LNK_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_link_attribute`
---
 ALTER TABLE `catalog_product_link_attribute`
 ADD CONSTRAINT `FK_CAT_PRD_LNK_ATTR_LNK_TYPE_ID_CAT_PRD_LNK_TYPE_LNK_TYPE_ID` FOREIGN KEY (`link_type_id`) REFERENCES `catalog_product_link_type` (`link_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_link_attribute_decimal`
---
 ALTER TABLE `catalog_product_link_attribute_decimal`
 ADD CONSTRAINT `FK_AB2EFA9A14F7BCF1D5400056203D14B6` FOREIGN KEY (`product_link_attribute_id`) REFERENCES `catalog_product_link_attribute` (`product_link_attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_LNK_ATTR_DEC_LNK_ID_CAT_PRD_LNK_LNK_ID` FOREIGN KEY (`link_id`) REFERENCES `catalog_product_link` (`link_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_link_attribute_int`
---
 ALTER TABLE `catalog_product_link_attribute_int`
 ADD CONSTRAINT `FK_CAT_PRD_LNK_ATTR_INT_LNK_ID_CAT_PRD_LNK_LNK_ID` FOREIGN KEY (`link_id`) REFERENCES `catalog_product_link` (`link_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_D6D878F8BA2A4282F8DDED7E6E3DE35C` FOREIGN KEY (`product_link_attribute_id`) REFERENCES `catalog_product_link_attribute` (`product_link_attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_link_attribute_varchar`
---
 ALTER TABLE `catalog_product_link_attribute_varchar`
 ADD CONSTRAINT `FK_CAT_PRD_LNK_ATTR_VCHR_LNK_ID_CAT_PRD_LNK_LNK_ID` FOREIGN KEY (`link_id`) REFERENCES `catalog_product_link` (`link_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_DEE9C4DA61CFCC01DFCF50F0D79CEA51` FOREIGN KEY (`product_link_attribute_id`) REFERENCES `catalog_product_link_attribute` (`product_link_attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_option`
---
 ALTER TABLE `catalog_product_option`
 ADD CONSTRAINT `FK_CAT_PRD_OPT_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_option_price`
---
 ALTER TABLE `catalog_product_option_price`
 ADD CONSTRAINT `FK_CATALOG_PRODUCT_OPTION_PRICE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_OPT_PRICE_OPT_ID_CAT_PRD_OPT_OPT_ID` FOREIGN KEY (`option_id`) REFERENCES `catalog_product_option` (`option_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_option_title`
---
 ALTER TABLE `catalog_product_option_title`
 ADD CONSTRAINT `FK_CATALOG_PRODUCT_OPTION_TITLE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_OPT_TTL_OPT_ID_CAT_PRD_OPT_OPT_ID` FOREIGN KEY (`option_id`) REFERENCES `catalog_product_option` (`option_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_option_type_price`
---
 ALTER TABLE `catalog_product_option_type_price`
 ADD CONSTRAINT `FK_B523E3378E8602F376CC415825576B7F` FOREIGN KEY (`option_type_id`) REFERENCES `catalog_product_option_type_value` (`option_type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_OPT_TYPE_PRICE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_option_type_title`
---
 ALTER TABLE `catalog_product_option_type_title`
 ADD CONSTRAINT `FK_C085B9CF2C2A302E8043FDEA1937D6A2` FOREIGN KEY (`option_type_id`) REFERENCES `catalog_product_option_type_value` (`option_type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_OPT_TYPE_TTL_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_option_type_value`
---
 ALTER TABLE `catalog_product_option_type_value`
 ADD CONSTRAINT `FK_CAT_PRD_OPT_TYPE_VAL_OPT_ID_CAT_PRD_OPT_OPT_ID` FOREIGN KEY (`option_id`) REFERENCES `catalog_product_option` (`option_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_relation`
---
 ALTER TABLE `catalog_product_relation`
 ADD CONSTRAINT `FK_CAT_PRD_RELATION_CHILD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`child_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_RELATION_PARENT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`parent_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_super_attribute`
---
 ALTER TABLE `catalog_product_super_attribute`
 ADD CONSTRAINT `FK_CAT_PRD_SPR_ATTR_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
---
--- Omezení pro tabulku `catalog_product_super_attribute_label`
---
 ALTER TABLE `catalog_product_super_attribute_label`
 ADD CONSTRAINT `FK_309442281DF7784210ED82B2CC51E5D5` FOREIGN KEY (`product_super_attribute_id`) REFERENCES `catalog_product_super_attribute` (`product_super_attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_SPR_ATTR_LBL_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_super_attribute_pricing`
---
 ALTER TABLE `catalog_product_super_attribute_pricing`
 ADD CONSTRAINT `FK_CAT_PRD_SPR_ATTR_PRICING_WS_ID_CORE_WS_WS_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CDE8813117106CFAA3AD209358F66332` FOREIGN KEY (`product_super_attribute_id`) REFERENCES `catalog_product_super_attribute` (`product_super_attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_super_link`
---
 ALTER TABLE `catalog_product_super_link`
 ADD CONSTRAINT `FK_CAT_PRD_SPR_LNK_PARENT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`parent_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_SPR_LNK_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `catalog_product_website`
---
 ALTER TABLE `catalog_product_website`
 ADD CONSTRAINT `FK_CATALOG_PRODUCT_WEBSITE_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CAT_PRD_WS_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `checkout_agreement_store`
---
 ALTER TABLE `checkout_agreement_store`
 ADD CONSTRAINT `FK_CHECKOUT_AGREEMENT_STORE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CHKT_AGRT_STORE_AGRT_ID_CHKT_AGRT_AGRT_ID` FOREIGN KEY (`agreement_id`) REFERENCES `checkout_agreement` (`agreement_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `cms_block_store`
---
 ALTER TABLE `cms_block_store`
 ADD CONSTRAINT `FK_CMS_BLOCK_STORE_BLOCK_ID_CMS_BLOCK_BLOCK_ID` FOREIGN KEY (`block_id`) REFERENCES `cms_block` (`block_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CMS_BLOCK_STORE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `cms_page_store`
---
 ALTER TABLE `cms_page_store`
 ADD CONSTRAINT `FK_CMS_PAGE_STORE_PAGE_ID_CMS_PAGE_PAGE_ID` FOREIGN KEY (`page_id`) REFERENCES `cms_page` (`page_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CMS_PAGE_STORE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `core_email_queue_recipients`
---
 ALTER TABLE `core_email_queue_recipients`
 ADD CONSTRAINT `FK_6F4948F3ABF97DE12127EF14B140802A` FOREIGN KEY (`message_id`) REFERENCES `core_email_queue` (`message_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `core_layout_link`
---
 ALTER TABLE `core_layout_link`
 ADD CONSTRAINT `FK_CORE_LAYOUT_LINK_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CORE_LYT_LNK_LYT_UPDATE_ID_CORE_LYT_UPDATE_LYT_UPDATE_ID` FOREIGN KEY (`layout_update_id`) REFERENCES `core_layout_update` (`layout_update_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `core_store`
---
 ALTER TABLE `core_store`
 ADD CONSTRAINT `FK_CORE_STORE_GROUP_ID_CORE_STORE_GROUP_GROUP_ID` FOREIGN KEY (`group_id`) REFERENCES `core_store_group` (`group_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CORE_STORE_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `core_store_group`
---
 ALTER TABLE `core_store_group`
 ADD CONSTRAINT `FK_CORE_STORE_GROUP_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `core_translate`
---
 ALTER TABLE `core_translate`
 ADD CONSTRAINT `FK_CORE_TRANSLATE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `core_url_rewrite`
---
 ALTER TABLE `core_url_rewrite`
 ADD CONSTRAINT `FK_CORE_URL_REWRITE_CTGR_ID_CAT_CTGR_ENTT_ENTT_ID` FOREIGN KEY (`category_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CORE_URL_REWRITE_PRODUCT_ID_CATALOG_CATEGORY_ENTITY_ENTITY_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CORE_URL_REWRITE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `core_variable_value`
---
 ALTER TABLE `core_variable_value`
 ADD CONSTRAINT `FK_CORE_VARIABLE_VALUE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CORE_VARIABLE_VALUE_VARIABLE_ID_CORE_VARIABLE_VARIABLE_ID` FOREIGN KEY (`variable_id`) REFERENCES `core_variable` (`variable_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `coupon_aggregated`
---
 ALTER TABLE `coupon_aggregated`
 ADD CONSTRAINT `FK_COUPON_AGGREGATED_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `coupon_aggregated_order`
---
 ALTER TABLE `coupon_aggregated_order`
 ADD CONSTRAINT `FK_COUPON_AGGREGATED_ORDER_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `coupon_aggregated_updated`
---
 ALTER TABLE `coupon_aggregated_updated`
 ADD CONSTRAINT `FK_COUPON_AGGREGATED_UPDATED_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `customer_address_entity`
---
 ALTER TABLE `customer_address_entity`
 ADD CONSTRAINT `FK_CUSTOMER_ADDRESS_ENTITY_PARENT_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`parent_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `customer_address_entity_datetime`
---
 ALTER TABLE `customer_address_entity_datetime`
 ADD CONSTRAINT `FK_CSTR_ADDR_ENTT_DTIME_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CSTR_ADDR_ENTT_DTIME_ENTT_ID_CSTR_ADDR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `customer_address_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CSTR_ADDR_ENTT_DTIME_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `customer_address_entity_decimal`
---
 ALTER TABLE `customer_address_entity_decimal`
 ADD CONSTRAINT `FK_CSTR_ADDR_ENTT_DEC_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CSTR_ADDR_ENTT_DEC_ENTT_ID_CSTR_ADDR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `customer_address_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CSTR_ADDR_ENTT_DEC_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `customer_address_entity_int`
---
 ALTER TABLE `customer_address_entity_int`
 ADD CONSTRAINT `FK_CSTR_ADDR_ENTT_INT_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CSTR_ADDR_ENTT_INT_ENTT_ID_CSTR_ADDR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `customer_address_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CSTR_ADDR_ENTT_INT_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `customer_address_entity_text`
---
 ALTER TABLE `customer_address_entity_text`
 ADD CONSTRAINT `FK_CSTR_ADDR_ENTT_TEXT_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CSTR_ADDR_ENTT_TEXT_ENTT_ID_CSTR_ADDR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `customer_address_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CSTR_ADDR_ENTT_TEXT_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `customer_address_entity_varchar`
---
 ALTER TABLE `customer_address_entity_varchar`
 ADD CONSTRAINT `FK_CSTR_ADDR_ENTT_VCHR_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CSTR_ADDR_ENTT_VCHR_ENTT_ID_CSTR_ADDR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `customer_address_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CSTR_ADDR_ENTT_VCHR_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `customer_eav_attribute`
---
 ALTER TABLE `customer_eav_attribute`
 ADD CONSTRAINT `FK_CSTR_EAV_ATTR_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `customer_eav_attribute_website`
---
 ALTER TABLE `customer_eav_attribute_website`
 ADD CONSTRAINT `FK_CSTR_EAV_ATTR_WS_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CSTR_EAV_ATTR_WS_WS_ID_CORE_WS_WS_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `customer_entity`
---
 ALTER TABLE `customer_entity`
 ADD CONSTRAINT `FK_CUSTOMER_ENTITY_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CUSTOMER_ENTITY_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `customer_entity_datetime`
---
 ALTER TABLE `customer_entity_datetime`
 ADD CONSTRAINT `FK_CSTR_ENTT_DTIME_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CSTR_ENTT_DTIME_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CUSTOMER_ENTITY_DATETIME_ENTITY_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `customer_entity_decimal`
---
 ALTER TABLE `customer_entity_decimal`
 ADD CONSTRAINT `FK_CSTR_ENTT_DEC_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CSTR_ENTT_DEC_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CUSTOMER_ENTITY_DECIMAL_ENTITY_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `customer_entity_int`
---
 ALTER TABLE `customer_entity_int`
 ADD CONSTRAINT `FK_CSTR_ENTT_INT_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CUSTOMER_ENTITY_INT_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CUSTOMER_ENTITY_INT_ENTITY_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `customer_entity_text`
---
 ALTER TABLE `customer_entity_text`
 ADD CONSTRAINT `FK_CSTR_ENTT_TEXT_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CUSTOMER_ENTITY_TEXT_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CUSTOMER_ENTITY_TEXT_ENTITY_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `customer_entity_varchar`
---
 ALTER TABLE `customer_entity_varchar`
 ADD CONSTRAINT `FK_CSTR_ENTT_VCHR_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CSTR_ENTT_VCHR_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_CUSTOMER_ENTITY_VARCHAR_ENTITY_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `customer_form_attribute`
---
 ALTER TABLE `customer_form_attribute`
 ADD CONSTRAINT `FK_CSTR_FORM_ATTR_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `dataflow_batch`
---
 ALTER TABLE `dataflow_batch`
 ADD CONSTRAINT `FK_DATAFLOW_BATCH_PROFILE_ID_DATAFLOW_PROFILE_PROFILE_ID` FOREIGN KEY (`profile_id`) REFERENCES `dataflow_profile` (`profile_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
 ADD CONSTRAINT `FK_DATAFLOW_BATCH_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
---
--- Omezení pro tabulku `dataflow_batch_export`
---
 ALTER TABLE `dataflow_batch_export`
 ADD CONSTRAINT `FK_DATAFLOW_BATCH_EXPORT_BATCH_ID_DATAFLOW_BATCH_BATCH_ID` FOREIGN KEY (`batch_id`) REFERENCES `dataflow_batch` (`batch_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
---
--- Omezení pro tabulku `dataflow_batch_import`
---
 ALTER TABLE `dataflow_batch_import`
 ADD CONSTRAINT `FK_DATAFLOW_BATCH_IMPORT_BATCH_ID_DATAFLOW_BATCH_BATCH_ID` FOREIGN KEY (`batch_id`) REFERENCES `dataflow_batch` (`batch_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
---
--- Omezení pro tabulku `dataflow_import_data`
---
 ALTER TABLE `dataflow_import_data`
 ADD CONSTRAINT `FK_DATAFLOW_IMPORT_DATA_SESSION_ID_DATAFLOW_SESSION_SESSION_ID` FOREIGN KEY (`session_id`) REFERENCES `dataflow_session` (`session_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
---
--- Omezení pro tabulku `dataflow_profile_history`
---
 ALTER TABLE `dataflow_profile_history`
 ADD CONSTRAINT `FK_AEA06B0C500063D3CE6EA671AE776645` FOREIGN KEY (`profile_id`) REFERENCES `dataflow_profile` (`profile_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `design_change`
---
 ALTER TABLE `design_change`
 ADD CONSTRAINT `FK_DESIGN_CHANGE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `directory_country_region_name`
---
 ALTER TABLE `directory_country_region_name`
 ADD CONSTRAINT `FK_D7CFDEB379F775328EB6F62695E2B3E1` FOREIGN KEY (`region_id`) REFERENCES `directory_country_region` (`region_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `downloadable_link`
---
 ALTER TABLE `downloadable_link`
 ADD CONSTRAINT `FK_DOWNLOADABLE_LINK_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `downloadable_link_price`
---
 ALTER TABLE `downloadable_link_price`
 ADD CONSTRAINT `FK_DOWNLOADABLE_LINK_PRICE_LINK_ID_DOWNLOADABLE_LINK_LINK_ID` FOREIGN KEY (`link_id`) REFERENCES `downloadable_link` (`link_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_DOWNLOADABLE_LINK_PRICE_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `downloadable_link_purchased`
---
 ALTER TABLE `downloadable_link_purchased`
 ADD CONSTRAINT `FK_DL_LNK_PURCHASED_CSTR_ID_CSTR_ENTT_ENTT_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE SET NULL ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_DL_LNK_PURCHASED_ORDER_ID_SALES_FLAT_ORDER_ENTT_ID` FOREIGN KEY (`order_id`) REFERENCES `sales_flat_order` (`entity_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `downloadable_link_purchased_item`
---
 ALTER TABLE `downloadable_link_purchased_item`
 ADD CONSTRAINT `FK_46CC8E252307CE62F00A8F1887512A39` FOREIGN KEY (`purchased_id`) REFERENCES `downloadable_link_purchased` (`purchased_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_B219BF25756700DEE44550B21220ECCE` FOREIGN KEY (`order_item_id`) REFERENCES `sales_flat_order_item` (`item_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `downloadable_link_title`
---
 ALTER TABLE `downloadable_link_title`
 ADD CONSTRAINT `FK_DOWNLOADABLE_LINK_TITLE_LINK_ID_DOWNLOADABLE_LINK_LINK_ID` FOREIGN KEY (`link_id`) REFERENCES `downloadable_link` (`link_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_DOWNLOADABLE_LINK_TITLE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `downloadable_sample`
---
 ALTER TABLE `downloadable_sample`
 ADD CONSTRAINT `FK_DL_SAMPLE_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `downloadable_sample_title`
---
 ALTER TABLE `downloadable_sample_title`
 ADD CONSTRAINT `FK_DL_SAMPLE_TTL_SAMPLE_ID_DL_SAMPLE_SAMPLE_ID` FOREIGN KEY (`sample_id`) REFERENCES `downloadable_sample` (`sample_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_DOWNLOADABLE_SAMPLE_TITLE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_attribute`
---
 ALTER TABLE `eav_attribute`
 ADD CONSTRAINT `FK_EAV_ATTRIBUTE_ENTITY_TYPE_ID_EAV_ENTITY_TYPE_ENTITY_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_attribute_group`
---
 ALTER TABLE `eav_attribute_group`
 ADD CONSTRAINT `FK_EAV_ATTR_GROUP_ATTR_SET_ID_EAV_ATTR_SET_ATTR_SET_ID` FOREIGN KEY (`attribute_set_id`) REFERENCES `eav_attribute_set` (`attribute_set_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_attribute_label`
---
 ALTER TABLE `eav_attribute_label`
 ADD CONSTRAINT `FK_EAV_ATTRIBUTE_LABEL_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_ATTRIBUTE_LABEL_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_attribute_option`
---
 ALTER TABLE `eav_attribute_option`
 ADD CONSTRAINT `FK_EAV_ATTRIBUTE_OPTION_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_attribute_option_value`
---
 ALTER TABLE `eav_attribute_option_value`
 ADD CONSTRAINT `FK_EAV_ATTRIBUTE_OPTION_VALUE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_ATTR_OPT_VAL_OPT_ID_EAV_ATTR_OPT_OPT_ID` FOREIGN KEY (`option_id`) REFERENCES `eav_attribute_option` (`option_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_attribute_set`
---
 ALTER TABLE `eav_attribute_set`
 ADD CONSTRAINT `FK_EAV_ATTR_SET_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_entity`
---
 ALTER TABLE `eav_entity`
 ADD CONSTRAINT `FK_EAV_ENTITY_ENTITY_TYPE_ID_EAV_ENTITY_TYPE_ENTITY_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_ENTITY_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_entity_attribute`
---
 ALTER TABLE `eav_entity_attribute`
 ADD CONSTRAINT `FK_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_ENTT_ATTR_ATTR_GROUP_ID_EAV_ATTR_GROUP_ATTR_GROUP_ID` FOREIGN KEY (`attribute_group_id`) REFERENCES `eav_attribute_group` (`attribute_group_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_entity_datetime`
---
 ALTER TABLE `eav_entity_datetime`
 ADD CONSTRAINT `FK_EAV_ENTITY_DATETIME_ENTITY_ID_EAV_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `eav_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_ENTITY_DATETIME_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_ENTT_DTIME_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_entity_decimal`
---
 ALTER TABLE `eav_entity_decimal`
 ADD CONSTRAINT `FK_EAV_ENTITY_DECIMAL_ENTITY_ID_EAV_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `eav_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_ENTITY_DECIMAL_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_ENTT_DEC_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_entity_int`
---
 ALTER TABLE `eav_entity_int`
 ADD CONSTRAINT `FK_EAV_ENTITY_INT_ENTITY_ID_EAV_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `eav_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_ENTITY_INT_ENTITY_TYPE_ID_EAV_ENTITY_TYPE_ENTITY_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_ENTITY_INT_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_entity_store`
---
 ALTER TABLE `eav_entity_store`
 ADD CONSTRAINT `FK_EAV_ENTITY_STORE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_ENTT_STORE_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_entity_text`
---
 ALTER TABLE `eav_entity_text`
 ADD CONSTRAINT `FK_EAV_ENTITY_TEXT_ENTITY_ID_EAV_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `eav_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_ENTITY_TEXT_ENTITY_TYPE_ID_EAV_ENTITY_TYPE_ENTITY_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_ENTITY_TEXT_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_entity_varchar`
---
 ALTER TABLE `eav_entity_varchar`
 ADD CONSTRAINT `FK_EAV_ENTITY_VARCHAR_ENTITY_ID_EAV_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `eav_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_ENTITY_VARCHAR_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_ENTT_VCHR_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_form_element`
---
 ALTER TABLE `eav_form_element`
 ADD CONSTRAINT `FK_EAV_FORM_ELEMENT_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_FORM_ELEMENT_FIELDSET_ID_EAV_FORM_FIELDSET_FIELDSET_ID` FOREIGN KEY (`fieldset_id`) REFERENCES `eav_form_fieldset` (`fieldset_id`) ON DELETE SET NULL ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_FORM_ELEMENT_TYPE_ID_EAV_FORM_TYPE_TYPE_ID` FOREIGN KEY (`type_id`) REFERENCES `eav_form_type` (`type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_form_fieldset`
---
 ALTER TABLE `eav_form_fieldset`
 ADD CONSTRAINT `FK_EAV_FORM_FIELDSET_TYPE_ID_EAV_FORM_TYPE_TYPE_ID` FOREIGN KEY (`type_id`) REFERENCES `eav_form_type` (`type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_form_fieldset_label`
---
 ALTER TABLE `eav_form_fieldset_label`
 ADD CONSTRAINT `FK_EAV_FORM_FIELDSET_LABEL_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_FORM_FSET_LBL_FSET_ID_EAV_FORM_FSET_FSET_ID` FOREIGN KEY (`fieldset_id`) REFERENCES `eav_form_fieldset` (`fieldset_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_form_type`
---
 ALTER TABLE `eav_form_type`
 ADD CONSTRAINT `FK_EAV_FORM_TYPE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `eav_form_type_entity`
---
 ALTER TABLE `eav_form_type_entity`
 ADD CONSTRAINT `FK_EAV_FORM_TYPE_ENTITY_TYPE_ID_EAV_FORM_TYPE_TYPE_ID` FOREIGN KEY (`type_id`) REFERENCES `eav_form_type` (`type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_EAV_FORM_TYPE_ENTT_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `index_process_event`
---
 ALTER TABLE `index_process_event`
 ADD CONSTRAINT `FK_INDEX_PROCESS_EVENT_EVENT_ID_INDEX_EVENT_EVENT_ID` FOREIGN KEY (`event_id`) REFERENCES `index_event` (`event_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_INDEX_PROCESS_EVENT_PROCESS_ID_INDEX_PROCESS_PROCESS_ID` FOREIGN KEY (`process_id`) REFERENCES `index_process` (`process_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `newsletter_problem`
---
 ALTER TABLE `newsletter_problem`
 ADD CONSTRAINT `FK_NEWSLETTER_PROBLEM_QUEUE_ID_NEWSLETTER_QUEUE_QUEUE_ID` FOREIGN KEY (`queue_id`) REFERENCES `newsletter_queue` (`queue_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_NLTTR_PROBLEM_SUBSCRIBER_ID_NLTTR_SUBSCRIBER_SUBSCRIBER_ID` FOREIGN KEY (`subscriber_id`) REFERENCES `newsletter_subscriber` (`subscriber_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `newsletter_queue`
---
 ALTER TABLE `newsletter_queue`
 ADD CONSTRAINT `FK_NEWSLETTER_QUEUE_TEMPLATE_ID_NEWSLETTER_TEMPLATE_TEMPLATE_ID` FOREIGN KEY (`template_id`) REFERENCES `newsletter_template` (`template_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `newsletter_queue_link`
---
 ALTER TABLE `newsletter_queue_link`
 ADD CONSTRAINT `FK_NEWSLETTER_QUEUE_LINK_QUEUE_ID_NEWSLETTER_QUEUE_QUEUE_ID` FOREIGN KEY (`queue_id`) REFERENCES `newsletter_queue` (`queue_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_NLTTR_QUEUE_LNK_SUBSCRIBER_ID_NLTTR_SUBSCRIBER_SUBSCRIBER_ID` FOREIGN KEY (`subscriber_id`) REFERENCES `newsletter_subscriber` (`subscriber_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `newsletter_queue_store_link`
---
 ALTER TABLE `newsletter_queue_store_link`
 ADD CONSTRAINT `FK_NEWSLETTER_QUEUE_STORE_LINK_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_NLTTR_QUEUE_STORE_LNK_QUEUE_ID_NLTTR_QUEUE_QUEUE_ID` FOREIGN KEY (`queue_id`) REFERENCES `newsletter_queue` (`queue_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `newsletter_subscriber`
---
 ALTER TABLE `newsletter_subscriber`
 ADD CONSTRAINT `FK_NEWSLETTER_SUBSCRIBER_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `oauth_token`
---
 ALTER TABLE `oauth_token`
 ADD CONSTRAINT `FK_OAUTH_TOKEN_ADMIN_ID_ADMIN_USER_USER_ID` FOREIGN KEY (`admin_id`) REFERENCES `admin_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_OAUTH_TOKEN_CONSUMER_ID_OAUTH_CONSUMER_ENTITY_ID` FOREIGN KEY (`consumer_id`) REFERENCES `oauth_consumer` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_OAUTH_TOKEN_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `paypal_cert`
---
 ALTER TABLE `paypal_cert`
 ADD CONSTRAINT `FK_PAYPAL_CERT_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `paypal_settlement_report_row`
---
 ALTER TABLE `paypal_settlement_report_row`
 ADD CONSTRAINT `FK_E183E488F593E0DE10C6EBFFEBAC9B55` FOREIGN KEY (`report_id`) REFERENCES `paypal_settlement_report` (`report_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `persistent_session`
---
 ALTER TABLE `persistent_session`
 ADD CONSTRAINT `FK_PERSISTENT_SESSION_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
 ADD CONSTRAINT `FK_PERSISTENT_SESSION_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
---
--- Omezení pro tabulku `poll`
---
 ALTER TABLE `poll`
 ADD CONSTRAINT `FK_POLL_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `poll_answer`
---
 ALTER TABLE `poll_answer`
 ADD CONSTRAINT `FK_POLL_ANSWER_POLL_ID_POLL_POLL_ID` FOREIGN KEY (`poll_id`) REFERENCES `poll` (`poll_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `poll_store`
---
 ALTER TABLE `poll_store`
 ADD CONSTRAINT `FK_POLL_STORE_POLL_ID_POLL_POLL_ID` FOREIGN KEY (`poll_id`) REFERENCES `poll` (`poll_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_POLL_STORE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `poll_vote`
---
 ALTER TABLE `poll_vote`
 ADD CONSTRAINT `FK_POLL_VOTE_POLL_ANSWER_ID_POLL_ANSWER_ANSWER_ID` FOREIGN KEY (`poll_answer_id`) REFERENCES `poll_answer` (`answer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `product_alert_price`
---
 ALTER TABLE `product_alert_price`
 ADD CONSTRAINT `FK_PRD_ALERT_PRICE_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_PRODUCT_ALERT_PRICE_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_PRODUCT_ALERT_PRICE_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `product_alert_stock`
---
 ALTER TABLE `product_alert_stock`
 ADD CONSTRAINT `FK_PRD_ALERT_STOCK_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_PRODUCT_ALERT_STOCK_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_PRODUCT_ALERT_STOCK_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `rating`
---
 ALTER TABLE `rating`
 ADD CONSTRAINT `FK_RATING_ENTITY_ID_RATING_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `rating_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `rating_option`
---
 ALTER TABLE `rating_option`
 ADD CONSTRAINT `FK_RATING_OPTION_RATING_ID_RATING_RATING_ID` FOREIGN KEY (`rating_id`) REFERENCES `rating` (`rating_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `rating_option_vote`
---
 ALTER TABLE `rating_option_vote`
 ADD CONSTRAINT `FK_RATING_OPTION_VOTE_OPTION_ID_RATING_OPTION_OPTION_ID` FOREIGN KEY (`option_id`) REFERENCES `rating_option` (`option_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_RATING_OPTION_VOTE_REVIEW_ID_REVIEW_REVIEW_ID` FOREIGN KEY (`review_id`) REFERENCES `review` (`review_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `rating_option_vote_aggregated`
---
 ALTER TABLE `rating_option_vote_aggregated`
 ADD CONSTRAINT `FK_RATING_OPTION_VOTE_AGGREGATED_RATING_ID_RATING_RATING_ID` FOREIGN KEY (`rating_id`) REFERENCES `rating` (`rating_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_RATING_OPTION_VOTE_AGGREGATED_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `rating_store`
---
 ALTER TABLE `rating_store`
 ADD CONSTRAINT `FK_RATING_STORE_RATING_ID_RATING_RATING_ID` FOREIGN KEY (`rating_id`) REFERENCES `rating` (`rating_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
 ADD CONSTRAINT `FK_RATING_STORE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `rating_title`
---
 ALTER TABLE `rating_title`
 ADD CONSTRAINT `FK_RATING_TITLE_RATING_ID_RATING_RATING_ID` FOREIGN KEY (`rating_id`) REFERENCES `rating` (`rating_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_RATING_TITLE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `report_compared_product_index`
---
 ALTER TABLE `report_compared_product_index`
 ADD CONSTRAINT `FK_REPORT_CMPD_PRD_IDX_CSTR_ID_CSTR_ENTT_ENTT_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_REPORT_CMPD_PRD_IDX_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_REPORT_COMPARED_PRODUCT_INDEX_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `report_event`
---
 ALTER TABLE `report_event`
 ADD CONSTRAINT `FK_REPORT_EVENT_EVENT_TYPE_ID_REPORT_EVENT_TYPES_EVENT_TYPE_ID` FOREIGN KEY (`event_type_id`) REFERENCES `report_event_types` (`event_type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_REPORT_EVENT_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `report_viewed_product_aggregated_daily`
---
 ALTER TABLE `report_viewed_product_aggregated_daily`
 ADD CONSTRAINT `FK_REPORT_VIEWED_PRD_AGGRED_DAILY_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_REPORT_VIEWED_PRD_AGGRED_DAILY_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `report_viewed_product_aggregated_monthly`
---
 ALTER TABLE `report_viewed_product_aggregated_monthly`
 ADD CONSTRAINT `FK_REPORT_VIEWED_PRD_AGGRED_MONTHLY_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_REPORT_VIEWED_PRD_AGGRED_MONTHLY_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `report_viewed_product_aggregated_yearly`
---
 ALTER TABLE `report_viewed_product_aggregated_yearly`
 ADD CONSTRAINT `FK_REPORT_VIEWED_PRD_AGGRED_YEARLY_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_REPORT_VIEWED_PRD_AGGRED_YEARLY_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `report_viewed_product_index`
---
 ALTER TABLE `report_viewed_product_index`
 ADD CONSTRAINT `FK_REPORT_VIEWED_PRD_IDX_CSTR_ID_CSTR_ENTT_ENTT_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_REPORT_VIEWED_PRD_IDX_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_REPORT_VIEWED_PRODUCT_INDEX_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `review`
---
 ALTER TABLE `review`
 ADD CONSTRAINT `FK_REVIEW_ENTITY_ID_REVIEW_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `review_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_REVIEW_STATUS_ID_REVIEW_STATUS_STATUS_ID` FOREIGN KEY (`status_id`) REFERENCES `review_status` (`status_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
---
--- Omezení pro tabulku `review_detail`
---
 ALTER TABLE `review_detail`
 ADD CONSTRAINT `FK_REVIEW_DETAIL_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE SET NULL ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_REVIEW_DETAIL_REVIEW_ID_REVIEW_REVIEW_ID` FOREIGN KEY (`review_id`) REFERENCES `review` (`review_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_REVIEW_DETAIL_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `review_entity_summary`
---
 ALTER TABLE `review_entity_summary`
 ADD CONSTRAINT `FK_REVIEW_ENTITY_SUMMARY_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `review_store`
---
 ALTER TABLE `review_store`
 ADD CONSTRAINT `FK_REVIEW_STORE_REVIEW_ID_REVIEW_REVIEW_ID` FOREIGN KEY (`review_id`) REFERENCES `review` (`review_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_REVIEW_STORE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `salesrule_coupon`
---
 ALTER TABLE `salesrule_coupon`
 ADD CONSTRAINT `FK_SALESRULE_COUPON_RULE_ID_SALESRULE_RULE_ID` FOREIGN KEY (`rule_id`) REFERENCES `salesrule` (`rule_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `salesrule_coupon_usage`
---
 ALTER TABLE `salesrule_coupon_usage`
 ADD CONSTRAINT `FK_SALESRULE_COUPON_USAGE_COUPON_ID_SALESRULE_COUPON_COUPON_ID` FOREIGN KEY (`coupon_id`) REFERENCES `salesrule_coupon` (`coupon_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALESRULE_COUPON_USAGE_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `salesrule_customer`
---
 ALTER TABLE `salesrule_customer`
 ADD CONSTRAINT `FK_SALESRULE_CUSTOMER_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALESRULE_CUSTOMER_RULE_ID_SALESRULE_RULE_ID` FOREIGN KEY (`rule_id`) REFERENCES `salesrule` (`rule_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `salesrule_customer_group`
---
 ALTER TABLE `salesrule_customer_group`
 ADD CONSTRAINT `FK_SALESRULE_CSTR_GROUP_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID` FOREIGN KEY (`customer_group_id`) REFERENCES `customer_group` (`customer_group_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALESRULE_CUSTOMER_GROUP_RULE_ID_SALESRULE_RULE_ID` FOREIGN KEY (`rule_id`) REFERENCES `salesrule` (`rule_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `salesrule_label`
---
 ALTER TABLE `salesrule_label`
 ADD CONSTRAINT `FK_SALESRULE_LABEL_RULE_ID_SALESRULE_RULE_ID` FOREIGN KEY (`rule_id`) REFERENCES `salesrule` (`rule_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALESRULE_LABEL_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `salesrule_product_attribute`
---
 ALTER TABLE `salesrule_product_attribute`
 ADD CONSTRAINT `FK_SALESRULE_PRD_ATTR_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
 ADD CONSTRAINT `FK_SALESRULE_PRD_ATTR_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID` FOREIGN KEY (`customer_group_id`) REFERENCES `customer_group` (`customer_group_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
 ADD CONSTRAINT `FK_SALESRULE_PRD_ATTR_WS_ID_CORE_WS_WS_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
 ADD CONSTRAINT `FK_SALESRULE_PRODUCT_ATTRIBUTE_RULE_ID_SALESRULE_RULE_ID` FOREIGN KEY (`rule_id`) REFERENCES `salesrule` (`rule_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
---
--- Omezení pro tabulku `salesrule_website`
---
 ALTER TABLE `salesrule_website`
 ADD CONSTRAINT `FK_SALESRULE_WEBSITE_RULE_ID_SALESRULE_RULE_ID` FOREIGN KEY (`rule_id`) REFERENCES `salesrule` (`rule_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALESRULE_WEBSITE_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_bestsellers_aggregated_daily`
---
 ALTER TABLE `sales_bestsellers_aggregated_daily`
 ADD CONSTRAINT `FK_SALES_BESTSELLERS_AGGRED_DAILY_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_BESTSELLERS_AGGRED_DAILY_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_bestsellers_aggregated_monthly`
---
 ALTER TABLE `sales_bestsellers_aggregated_monthly`
 ADD CONSTRAINT `FK_SALES_BESTSELLERS_AGGRED_MONTHLY_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_BESTSELLERS_AGGRED_MONTHLY_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_bestsellers_aggregated_yearly`
---
 ALTER TABLE `sales_bestsellers_aggregated_yearly`
 ADD CONSTRAINT `FK_SALES_BESTSELLERS_AGGRED_YEARLY_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_BESTSELLERS_AGGRED_YEARLY_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_billing_agreement`
---
 ALTER TABLE `sales_billing_agreement`
 ADD CONSTRAINT `FK_SALES_BILLING_AGREEMENT_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_BILLING_AGREEMENT_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_billing_agreement_order`
---
 ALTER TABLE `sales_billing_agreement_order`
 ADD CONSTRAINT `FK_SALES_BILLING_AGRT_ORDER_AGRT_ID_SALES_BILLING_AGRT_AGRT_ID` FOREIGN KEY (`agreement_id`) REFERENCES `sales_billing_agreement` (`agreement_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_BILLING_AGRT_ORDER_ORDER_ID_SALES_FLAT_ORDER_ENTT_ID` FOREIGN KEY (`order_id`) REFERENCES `sales_flat_order` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_creditmemo`
---
 ALTER TABLE `sales_flat_creditmemo`
 ADD CONSTRAINT `FK_SALES_FLAT_CREDITMEMO_ORDER_ID_SALES_FLAT_ORDER_ENTITY_ID` FOREIGN KEY (`order_id`) REFERENCES `sales_flat_order` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_FLAT_CREDITMEMO_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_creditmemo_comment`
---
 ALTER TABLE `sales_flat_creditmemo_comment`
 ADD CONSTRAINT `FK_B0FCB0B5467075BE63D474F2CD5F7804` FOREIGN KEY (`parent_id`) REFERENCES `sales_flat_creditmemo` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_creditmemo_grid`
---
 ALTER TABLE `sales_flat_creditmemo_grid`
 ADD CONSTRAINT `FK_78C711B225167A11CC077B03D1C8E1CC` FOREIGN KEY (`entity_id`) REFERENCES `sales_flat_creditmemo` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_FLAT_CREDITMEMO_GRID_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_creditmemo_item`
---
 ALTER TABLE `sales_flat_creditmemo_item`
 ADD CONSTRAINT `FK_306DAC836C699F0B5E13BE486557AC8A` FOREIGN KEY (`parent_id`) REFERENCES `sales_flat_creditmemo` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_invoice`
---
 ALTER TABLE `sales_flat_invoice`
 ADD CONSTRAINT `FK_SALES_FLAT_INVOICE_ORDER_ID_SALES_FLAT_ORDER_ENTITY_ID` FOREIGN KEY (`order_id`) REFERENCES `sales_flat_order` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_FLAT_INVOICE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_invoice_comment`
---
 ALTER TABLE `sales_flat_invoice_comment`
 ADD CONSTRAINT `FK_5C4B36BBE5231A76AB8018B281ED50BC` FOREIGN KEY (`parent_id`) REFERENCES `sales_flat_invoice` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_invoice_grid`
---
 ALTER TABLE `sales_flat_invoice_grid`
 ADD CONSTRAINT `FK_SALES_FLAT_INVOICE_GRID_ENTT_ID_SALES_FLAT_INVOICE_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `sales_flat_invoice` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_FLAT_INVOICE_GRID_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_invoice_item`
---
 ALTER TABLE `sales_flat_invoice_item`
 ADD CONSTRAINT `FK_SALES_FLAT_INVOICE_ITEM_PARENT_ID_SALES_FLAT_INVOICE_ENTT_ID` FOREIGN KEY (`parent_id`) REFERENCES `sales_flat_invoice` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_order`
---
 ALTER TABLE `sales_flat_order`
 ADD CONSTRAINT `FK_SALES_FLAT_ORDER_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE SET NULL ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_FLAT_ORDER_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_order_address`
---
 ALTER TABLE `sales_flat_order_address`
 ADD CONSTRAINT `FK_SALES_FLAT_ORDER_ADDRESS_PARENT_ID_SALES_FLAT_ORDER_ENTITY_ID` FOREIGN KEY (`parent_id`) REFERENCES `sales_flat_order` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_order_grid`
---
 ALTER TABLE `sales_flat_order_grid`
 ADD CONSTRAINT `FK_SALES_FLAT_ORDER_GRID_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE SET NULL ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_FLAT_ORDER_GRID_ENTITY_ID_SALES_FLAT_ORDER_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `sales_flat_order` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_FLAT_ORDER_GRID_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_order_item`
---
 ALTER TABLE `sales_flat_order_item`
 ADD CONSTRAINT `FK_SALES_FLAT_ORDER_ITEM_ORDER_ID_SALES_FLAT_ORDER_ENTITY_ID` FOREIGN KEY (`order_id`) REFERENCES `sales_flat_order` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_FLAT_ORDER_ITEM_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_order_payment`
---
 ALTER TABLE `sales_flat_order_payment`
 ADD CONSTRAINT `FK_SALES_FLAT_ORDER_PAYMENT_PARENT_ID_SALES_FLAT_ORDER_ENTITY_ID` FOREIGN KEY (`parent_id`) REFERENCES `sales_flat_order` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_order_status_history`
---
 ALTER TABLE `sales_flat_order_status_history`
 ADD CONSTRAINT `FK_CE7C71E74CB74DDACED337CEE6753D5E` FOREIGN KEY (`parent_id`) REFERENCES `sales_flat_order` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_quote`
---
 ALTER TABLE `sales_flat_quote`
 ADD CONSTRAINT `FK_SALES_FLAT_QUOTE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_quote_address`
---
 ALTER TABLE `sales_flat_quote_address`
 ADD CONSTRAINT `FK_SALES_FLAT_QUOTE_ADDRESS_QUOTE_ID_SALES_FLAT_QUOTE_ENTITY_ID` FOREIGN KEY (`quote_id`) REFERENCES `sales_flat_quote` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_quote_address_item`
---
 ALTER TABLE `sales_flat_quote_address_item`
 ADD CONSTRAINT `FK_2EF8E28181D666D94D4E30DC2B0F80BF` FOREIGN KEY (`quote_item_id`) REFERENCES `sales_flat_quote_item` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_A345FC758F20C314169CE27DCE53477F` FOREIGN KEY (`parent_item_id`) REFERENCES `sales_flat_quote_address_item` (`address_item_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_B521389746C00700D1B2B76EBBE53854` FOREIGN KEY (`quote_address_id`) REFERENCES `sales_flat_quote_address` (`address_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_quote_item`
---
 ALTER TABLE `sales_flat_quote_item`
 ADD CONSTRAINT `FK_B201DEB5DE51B791AF5C5BF87053C5A7` FOREIGN KEY (`parent_item_id`) REFERENCES `sales_flat_quote_item` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_FLAT_QUOTE_ITEM_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_FLAT_QUOTE_ITEM_QUOTE_ID_SALES_FLAT_QUOTE_ENTITY_ID` FOREIGN KEY (`quote_id`) REFERENCES `sales_flat_quote` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_FLAT_QUOTE_ITEM_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_quote_item_option`
---
 ALTER TABLE `sales_flat_quote_item_option`
 ADD CONSTRAINT `FK_5F20E478CA64B6891EA8A9D6C2735739` FOREIGN KEY (`item_id`) REFERENCES `sales_flat_quote_item` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_quote_payment`
---
 ALTER TABLE `sales_flat_quote_payment`
 ADD CONSTRAINT `FK_SALES_FLAT_QUOTE_PAYMENT_QUOTE_ID_SALES_FLAT_QUOTE_ENTITY_ID` FOREIGN KEY (`quote_id`) REFERENCES `sales_flat_quote` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_quote_shipping_rate`
---
 ALTER TABLE `sales_flat_quote_shipping_rate`
 ADD CONSTRAINT `FK_B1F177EFB73D3EDF5322BA64AC48D150` FOREIGN KEY (`address_id`) REFERENCES `sales_flat_quote_address` (`address_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_shipment`
---
 ALTER TABLE `sales_flat_shipment`
 ADD CONSTRAINT `FK_SALES_FLAT_SHIPMENT_ORDER_ID_SALES_FLAT_ORDER_ENTITY_ID` FOREIGN KEY (`order_id`) REFERENCES `sales_flat_order` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_FLAT_SHIPMENT_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_shipment_comment`
---
 ALTER TABLE `sales_flat_shipment_comment`
 ADD CONSTRAINT `FK_C2D69CC1FB03D2B2B794B0439F6650CF` FOREIGN KEY (`parent_id`) REFERENCES `sales_flat_shipment` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_shipment_grid`
---
 ALTER TABLE `sales_flat_shipment_grid`
 ADD CONSTRAINT `FK_SALES_FLAT_SHIPMENT_GRID_ENTT_ID_SALES_FLAT_SHIPMENT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `sales_flat_shipment` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_FLAT_SHIPMENT_GRID_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_shipment_item`
---
 ALTER TABLE `sales_flat_shipment_item`
 ADD CONSTRAINT `FK_3AECE5007D18F159231B87E8306FC02A` FOREIGN KEY (`parent_id`) REFERENCES `sales_flat_shipment` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_flat_shipment_track`
---
 ALTER TABLE `sales_flat_shipment_track`
 ADD CONSTRAINT `FK_BCD2FA28717D29F37E10A153E6F2F841` FOREIGN KEY (`parent_id`) REFERENCES `sales_flat_shipment` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_invoiced_aggregated`
---
 ALTER TABLE `sales_invoiced_aggregated`
 ADD CONSTRAINT `FK_SALES_INVOICED_AGGREGATED_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_invoiced_aggregated_order`
---
 ALTER TABLE `sales_invoiced_aggregated_order`
 ADD CONSTRAINT `FK_SALES_INVOICED_AGGREGATED_ORDER_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_order_aggregated_created`
---
 ALTER TABLE `sales_order_aggregated_created`
 ADD CONSTRAINT `FK_SALES_ORDER_AGGREGATED_CREATED_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_order_aggregated_updated`
---
 ALTER TABLE `sales_order_aggregated_updated`
 ADD CONSTRAINT `FK_SALES_ORDER_AGGREGATED_UPDATED_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_order_status_label`
---
 ALTER TABLE `sales_order_status_label`
 ADD CONSTRAINT `FK_SALES_ORDER_STATUS_LABEL_STATUS_SALES_ORDER_STATUS_STATUS` FOREIGN KEY (`status`) REFERENCES `sales_order_status` (`status`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_ORDER_STATUS_LABEL_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_order_status_state`
---
 ALTER TABLE `sales_order_status_state`
 ADD CONSTRAINT `FK_SALES_ORDER_STATUS_STATE_STATUS_SALES_ORDER_STATUS_STATUS` FOREIGN KEY (`status`) REFERENCES `sales_order_status` (`status`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_order_tax_item`
---
 ALTER TABLE `sales_order_tax_item`
 ADD CONSTRAINT `FK_SALES_ORDER_TAX_ITEM_ITEM_ID_SALES_FLAT_ORDER_ITEM_ITEM_ID` FOREIGN KEY (`item_id`) REFERENCES `sales_flat_order_item` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_ORDER_TAX_ITEM_TAX_ID_SALES_ORDER_TAX_TAX_ID` FOREIGN KEY (`tax_id`) REFERENCES `sales_order_tax` (`tax_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_payment_transaction`
---
 ALTER TABLE `sales_payment_transaction`
 ADD CONSTRAINT `FK_B99FF1A06402D725EBDB0F3A7ECD47A2` FOREIGN KEY (`parent_id`) REFERENCES `sales_payment_transaction` (`transaction_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_DA51A10B2405B64A4DAEF77A64F0DAAD` FOREIGN KEY (`payment_id`) REFERENCES `sales_flat_order_payment` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_PAYMENT_TRANSACTION_ORDER_ID_SALES_FLAT_ORDER_ENTITY_ID` FOREIGN KEY (`order_id`) REFERENCES `sales_flat_order` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_recurring_profile`
---
 ALTER TABLE `sales_recurring_profile`
 ADD CONSTRAINT `FK_SALES_RECURRING_PROFILE_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE SET NULL ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_SALES_RECURRING_PROFILE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_recurring_profile_order`
---
 ALTER TABLE `sales_recurring_profile_order`
 ADD CONSTRAINT `FK_7FF85741C66DCD37A4FBE3E3255A5A01` FOREIGN KEY (`order_id`) REFERENCES `sales_flat_order` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_B8A7A5397B67455786E55461748C59F4` FOREIGN KEY (`profile_id`) REFERENCES `sales_recurring_profile` (`profile_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_refunded_aggregated`
---
 ALTER TABLE `sales_refunded_aggregated`
 ADD CONSTRAINT `FK_SALES_REFUNDED_AGGREGATED_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_refunded_aggregated_order`
---
 ALTER TABLE `sales_refunded_aggregated_order`
 ADD CONSTRAINT `FK_SALES_REFUNDED_AGGREGATED_ORDER_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_shipping_aggregated`
---
 ALTER TABLE `sales_shipping_aggregated`
 ADD CONSTRAINT `FK_SALES_SHIPPING_AGGREGATED_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sales_shipping_aggregated_order`
---
 ALTER TABLE `sales_shipping_aggregated_order`
 ADD CONSTRAINT `FK_SALES_SHIPPING_AGGREGATED_ORDER_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `sitemap`
---
 ALTER TABLE `sitemap`
 ADD CONSTRAINT `FK_SITEMAP_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `tag`
---
 ALTER TABLE `tag`
 ADD CONSTRAINT `FK_TAG_FIRST_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`first_customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE SET NULL ON UPDATE NO ACTION,
 ADD CONSTRAINT `FK_TAG_FIRST_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`first_store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 
---
--- Omezení pro tabulku `tag_properties`
---
 ALTER TABLE `tag_properties`
 ADD CONSTRAINT `FK_TAG_PROPERTIES_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_TAG_PROPERTIES_TAG_ID_TAG_TAG_ID` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`tag_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `tag_relation`
---
 ALTER TABLE `tag_relation`
 ADD CONSTRAINT `FK_TAG_RELATION_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_TAG_RELATION_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_TAG_RELATION_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_TAG_RELATION_TAG_ID_TAG_TAG_ID` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`tag_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `tag_summary`
---
 ALTER TABLE `tag_summary`
 ADD CONSTRAINT `FK_TAG_SUMMARY_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_TAG_SUMMARY_TAG_ID_TAG_TAG_ID` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`tag_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `tax_calculation`
---
 ALTER TABLE `tax_calculation`
 ADD CONSTRAINT `FK_TAX_CALCULATION_CUSTOMER_TAX_CLASS_ID_TAX_CLASS_CLASS_ID` FOREIGN KEY (`customer_tax_class_id`) REFERENCES `tax_class` (`class_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_TAX_CALCULATION_PRODUCT_TAX_CLASS_ID_TAX_CLASS_CLASS_ID` FOREIGN KEY (`product_tax_class_id`) REFERENCES `tax_class` (`class_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_TAX_CALC_TAX_CALC_RATE_ID_TAX_CALC_RATE_TAX_CALC_RATE_ID` FOREIGN KEY (`tax_calculation_rate_id`) REFERENCES `tax_calculation_rate` (`tax_calculation_rate_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_TAX_CALC_TAX_CALC_RULE_ID_TAX_CALC_RULE_TAX_CALC_RULE_ID` FOREIGN KEY (`tax_calculation_rule_id`) REFERENCES `tax_calculation_rule` (`tax_calculation_rule_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `tax_calculation_rate_title`
---
 ALTER TABLE `tax_calculation_rate_title`
 ADD CONSTRAINT `FK_37FB965F786AD5897BB3AE90470C42AB` FOREIGN KEY (`tax_calculation_rate_id`) REFERENCES `tax_calculation_rate` (`tax_calculation_rate_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_TAX_CALCULATION_RATE_TITLE_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `tax_order_aggregated_created`
---
 ALTER TABLE `tax_order_aggregated_created`
 ADD CONSTRAINT `FK_TAX_ORDER_AGGREGATED_CREATED_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `tax_order_aggregated_updated`
---
 ALTER TABLE `tax_order_aggregated_updated`
 ADD CONSTRAINT `FK_TAX_ORDER_AGGREGATED_UPDATED_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `weee_discount`
---
 ALTER TABLE `weee_discount`
 ADD CONSTRAINT `FK_WEEE_DISCOUNT_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID` FOREIGN KEY (`customer_group_id`) REFERENCES `customer_group` (`customer_group_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_WEEE_DISCOUNT_ENTITY_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_WEEE_DISCOUNT_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `weee_tax`
---
 ALTER TABLE `weee_tax`
 ADD CONSTRAINT `FK_WEEE_TAX_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_WEEE_TAX_COUNTRY_DIRECTORY_COUNTRY_COUNTRY_ID` FOREIGN KEY (`country`) REFERENCES `directory_country` (`country_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_WEEE_TAX_ENTITY_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_WEEE_TAX_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `widget_instance_page`
---
 ALTER TABLE `widget_instance_page`
 ADD CONSTRAINT `FK_WIDGET_INSTANCE_PAGE_INSTANCE_ID_WIDGET_INSTANCE_INSTANCE_ID` FOREIGN KEY (`instance_id`) REFERENCES `widget_instance` (`instance_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `widget_instance_page_layout`
---
 ALTER TABLE `widget_instance_page_layout`
 ADD CONSTRAINT `FK_0A5D06DCEC6A6845F50E5FAAC5A1C96D` FOREIGN KEY (`layout_update_id`) REFERENCES `core_layout_update` (`layout_update_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_WIDGET_INSTANCE_PAGE_LYT_PAGE_ID_WIDGET_INSTANCE_PAGE_PAGE_ID` FOREIGN KEY (`page_id`) REFERENCES `widget_instance_page` (`page_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `wishlist`
---
 ALTER TABLE `wishlist`
 ADD CONSTRAINT `FK_WISHLIST_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`customer_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `wishlist_item`
---
 ALTER TABLE `wishlist_item`
 ADD CONSTRAINT `FK_WISHLIST_ITEM_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_WISHLIST_ITEM_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE,
 ADD CONSTRAINT `FK_WISHLIST_ITEM_WISHLIST_ID_WISHLIST_WISHLIST_ID` FOREIGN KEY (`wishlist_id`) REFERENCES `wishlist` (`wishlist_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Omezení pro tabulku `wishlist_item_option`
---
 ALTER TABLE `wishlist_item_option`
 ADD CONSTRAINT `FK_A014B30B04B72DD0EAB3EECD779728D6` FOREIGN KEY (`wishlist_item_id`) REFERENCES `wishlist_item` (`wishlist_item_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 

@@ -79,6 +79,11 @@
                 <action method="addItem"><type>skin_css</type><name>css/styles.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
                 <action method="addItem"><type>skin_css</type><name>css/madisonisland.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
 
+                <action method="addItem"><type>js</type><name>prototype/window.js</name></action>
+                <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+                <action method="addItem"><type>js_css</type><name>prototype/windows/themes/magento.css</name></action>
+
+
                 <!-- Sets viewport meta tag using text block -->
                 <block type="core/text" name="head.viewport">
                     <action method="setText"><text><![CDATA[<meta name="viewport" content="initial-scale=1.0, width=device-width" />]]>&#10;</text></action>
@@ -208,7 +213,7 @@
 
                 <block type="page/html_head" name="jsfooter" as="jsfooter" template="page/html/jsfooter.phtml">
                   <action method="addItem"><type>skin_js</type><name>js/fadeyellow.js</name></action>
-                </block>
+                                </block>
 
 
             </block>

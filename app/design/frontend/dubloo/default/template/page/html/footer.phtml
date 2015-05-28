@@ -24,9 +24,30 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<script type="text/javascript">
+// <![CDATA[
+
+function showPopUp() {
+    PopUp = new Window({
+    id: 'omg',
+    className:'PopUp',
+    destroyOnClose: true,
+    url: 'http://localhost/sandbox/pop/',
+    width:500,
+    height:300,
+    minimizable:true,
+    maximizable:false,
+    showEffectOptions:{duration:0.4},
+    hideEffectOptions:{duration:0.4}});
+    PopUp.setZIndex(1);
+    PopUp.showCenter(true);
+}
+//window.onload = showPopUp();
+// ]]>
+</script>
 <div class="footer-container">
     <div class="footer">
         <?php echo $this->getChildHtml() ?>
-        <address class="copyright"><?php echo $this->getCopyright() ?></address>
+        <address class="copyright"  onclick='showPopUp()'><?php echo $this->getCopyright() ?></address>
     </div>
 </div>

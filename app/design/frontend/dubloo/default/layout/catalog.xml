@@ -55,7 +55,7 @@ Default layout, loads most of the pages
         <reference name="right">
             <!-- Permanent callouts -->
             <block type="core/template" name="right.permanent.callout" template="callouts/right_col.phtml">
-                <action method="setImgSrc"><src>images/media/unboxed.jpg</src></action>
+                <action method="setImgSrc"><src>images/media/callout.png</src></action>
 
                 <action method="setImgAlt" translate="alt" module="catalog">
                   <alt>Lorem ipsum dolor sit amet</alt>
@@ -65,7 +65,7 @@ Default layout, loads most of the pages
 
             <block type="core/template" name="right.permanent.callout.bottom" template="callouts/right_col.phtml">
                 <action method="setImgSrc"><src>images/media/SidebarDeal.png</src></action>
-                
+
                 <action method="setImgAlt" translate="alt" module="catalog">
                   <alt>The real deal</alt>
                 </action>
