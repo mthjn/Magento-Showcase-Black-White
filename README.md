@@ -6,18 +6,16 @@
 **Magento simple template black and white**   
   
 simple template based on the responsive magento default theme.
-this archives the whole instalation. just in case shit goes south.
+this archives the full instal. just in case shit goes south and for documentation.
   
   
 **To Do**  
   
-*populate right sidebar*  
-*get slider extension*  
 get different than default sprite/icons
 better product listing
+popup closing   
    
-   
-### dev notes
+### Dev Notes
    
    
 **Showcase with login data**  
@@ -61,7 +59,7 @@ add js into footer or better as a custom block via a xml file.
         ...
           
         
-must be a valid url with the actual content. sort out how to close the window nicely.  
+Must be a valid url with the actual content. 
     
 **Bugs**   
 this.parentNode.style.display = 'none'; makes the site unclickable  
