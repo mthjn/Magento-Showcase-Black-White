@@ -56,10 +56,10 @@ add js into footer or better as a custom block via a xml file.
         hideEffectOptions:{duration:0.4}});
         PopUp.setZIndex(1);
         PopUp.showCenter(true);
-       }
-      //window.onload = showPopUp();
-      // ]]>
-      </script>  
+        }
+        //window.onload = showPopUp();
+        // ]]>
+        </script>  
         
   must be a valid url with the actual content. sort out how to close the window nicely.  
     
