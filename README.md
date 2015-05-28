@@ -61,7 +61,7 @@ add js into footer or better as a custom block via a xml file.
         ...
           
         
-  must be a valid url with the actual content. sort out how to close the window nicely.  
+must be a valid url with the actual content. sort out how to close the window nicely.  
     
-  ### Bugs  
-  this.parentNode.style.display = 'none'; makes the site unclickable  
+### Bugs   
+this.parentNode.style.display = 'none'; makes the site unclickable  
