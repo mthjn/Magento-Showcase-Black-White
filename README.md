@@ -40,8 +40,8 @@ app/design/frontend of a theme: add js into block name head
   
 add js into footer or better as a custom block via a xml file.
       
-      <script type="text/javascript">
-   // <![CDATA[
+      
+   
       function showPopUp() {
       PopUp = new Window({
         id: 'omg',
@@ -58,8 +58,7 @@ add js into footer or better as a custom block via a xml file.
         PopUp.showCenter(true);
         }
         //window.onload = showPopUp();
-        // ]]>
-        </script>  
+          
         
   must be a valid url with the actual content. sort out how to close the window nicely.  
     
