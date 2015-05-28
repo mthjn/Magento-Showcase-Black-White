@@ -17,7 +17,7 @@ get different than default sprite/icons
 better product listing
    
    
-### notes
+### dev notes
    
    
 **Showcase with login data**  
@@ -63,5 +63,5 @@ add js into footer or better as a custom block via a xml file.
         
 must be a valid url with the actual content. sort out how to close the window nicely.  
     
-### Bugs   
+**Bugs**   
 this.parentNode.style.display = 'none'; makes the site unclickable  
